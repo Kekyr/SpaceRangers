@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: 053b8a982f5d20349901da9aa3d08838
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 24
+      height: 22
+    spriteID: 190411e0129d47f409e612fa6dc3a102
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 4
+      width: 24
+      height: 22
+    spriteID: 4c4698a9cbf66a44295a47a943c190ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 4}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 4
+      width: 24
+      height: 22
+    spriteID: e27e782002f5569439a394ae721a9e40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 4}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 4
+      width: 24
+      height: 22
+    spriteID: 9624c228da984b644ae1b1bac5941a2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 4}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 34
+      width: 24
+      height: 22
+    spriteID: c88b64e74c71f9c4cbe85c7b4e916799
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 34}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 34
+      width: 24
+      height: 22
+    spriteID: a8518f23003a71342b44e546f76ed140
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 34}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 34
+      width: 24
+      height: 22
+    spriteID: c238c0ae8a950594e8f8aab9e0ce04e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 34}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 34
+      width: 24
+      height: 22
+    spriteID: 023c20bea02d71d4ba2cde3382dbcb08
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 34}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 64
+      width: 24
+      height: 22
+    spriteID: 31c6ce7fa0e01d3418b2a9cb05def3e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 64}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 64
+      width: 24
+      height: 22
+    spriteID: 58e1d284c55936645870f9749123a208
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 64}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 64
+      width: 24
+      height: 22
+    spriteID: 0f27c874a04f5564a932515f33d9a746
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 64}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 64
+      width: 24
+      height: 22
+    spriteID: 55ecc005222a8d445a43e7b3aba3c463
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 64}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 94
+      width: 24
+      height: 22
+    spriteID: 65cd7b4281cf97f47b5e21ab0f1a4c92
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 94}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 94
+      width: 24
+      height: 22
+    spriteID: 1cec0f1cc002cd94ea3ed332e8de435b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 94}
+  - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.27272728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 94
+      width: 24
+      height: 22
+    spriteID: 8b719e82b3772d74cbe6b05401b5351f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 94}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1669753925
+    name: Pickup Icon - Shield Generator - Front and Side Shield
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 190411e0129d47f409e612fa6dc3a102
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 4c4698a9cbf66a44295a47a943c190ba
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: e27e782002f5569439a394ae721a9e40
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 9624c228da984b644ae1b1bac5941a2a
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: c88b64e74c71f9c4cbe85c7b4e916799
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: a8518f23003a71342b44e546f76ed140
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: c238c0ae8a950594e8f8aab9e0ce04e0
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 023c20bea02d71d4ba2cde3382dbcb08
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 31c6ce7fa0e01d3418b2a9cb05def3e6
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 58e1d284c55936645870f9749123a208
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 0f27c874a04f5564a932515f33d9a746
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 55ecc005222a8d445a43e7b3aba3c463
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 65cd7b4281cf97f47b5e21ab0f1a4c92
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 1cec0f1cc002cd94ea3ed332e8de435b
+    - name: Pickup Icon - Shield Generator - Front and Side Shield_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 22
+      spriteId: 8b719e82b3772d74cbe6b05401b5351f
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 32}
