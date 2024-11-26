@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Source/Main/Scenes/Main.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Source/Kekyr/Scenes/Kekyr.unity
+    guid: 81455a42ec2d28d47b491e2b44cdc9f3
   m_configObjects: {}
