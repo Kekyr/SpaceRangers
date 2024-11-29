@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.U2D;
 
 namespace Ship
 {
@@ -8,21 +9,33 @@ namespace Ship
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour
     {
+        private readonly float _minX = -2.3f;
+        private readonly float _minY = -4.7f;
+        private readonly float _maxX = 2.3f;
+        private readonly float _maxY = 5.7f;
+
         private readonly string _movingAnimation = "IsMoving";
 
         [SerializeField] private Animator _engineAnimator;
+        [SerializeField] private float _speed;
 
         private PlayerInputRouter _playerInputRouter;
         private Camera _camera;
         private Rigidbody2D _rigidbody;
+        private PixelPerfectCamera _pixelPerfectCamera;
 
-        private Vector2 _movePosition;
+        private Vector3 _endPosition;
 
         private bool _isMoving;
         private bool _isSelected;
 
         private void Start()
         {
+            if (_speed == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_speed));
+            }
+
             if (_engineAnimator == null)
             {
                 throw new ArgumentNullException(nameof(_engineAnimator));
@@ -43,9 +56,9 @@ namespace Ship
 
         private void FixedUpdate()
         {
-            if (transform.position.Equals(_movePosition) == false)
+            if (transform.position.Equals(_endPosition) == false)
             {
-                _rigidbody.MovePosition(_movePosition);
+                _rigidbody.MovePosition(_endPosition);
             }
             else if (_isMoving == true)
             {
@@ -69,7 +82,13 @@ namespace Ship
 
             if (_isSelected == true)
             {
-                _movePosition = ConvertMousePosition(context.ReadValue<Vector2>());
+                Vector2 mousePosition = context.ReadValue<Vector2>();
+                Vector2 mouseWorldPosition = ConvertMousePosition(mousePosition);
+                
+                _endPosition = new Vector2(
+                    Mathf.Clamp(mouseWorldPosition.x, _minX, _maxX),
+                    Mathf.Clamp(mouseWorldPosition.y, _minY, _maxY));
+
                 _isMoving = true;
                 _engineAnimator.SetBool(_movingAnimation, _isMoving);
             }
@@ -77,7 +96,6 @@ namespace Ship
 
         private void OnSelectPerformed(InputAction.CallbackContext context)
         {
-            Debug.Log("I'm working!");
             Vector2 mouseWorldPosition = ConvertMousePosition(Mouse.current.position.ReadValue());
 
             RaycastHit2D raycastHit2D = Physics2D.Raycast(mouseWorldPosition, Vector2.zero);
