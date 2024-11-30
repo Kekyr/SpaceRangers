@@ -40,12 +40,12 @@ namespace Ship
                 },
                 {
                     ""name"": ""Select"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""dbb7978a-f205-42b3-a44a-883b118809e5"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -63,8 +63,8 @@ namespace Ship
                 {
                     ""name"": """",
                     ""id"": ""1e20e63b-f96d-42cb-ad19-7fdbdcff878e"",
-                    ""path"": ""<Touchscreen>/position"",
-                    ""interactions"": ""Hold"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Touchscreen"",
                     ""action"": ""Move"",
@@ -78,6 +78,17 @@ namespace Ship
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""63f4a37d-010d-4d37-972a-5ed17fd9655a"",
+                    ""path"": ""<Touchscreen>/touch0/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touchscreen"",
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
