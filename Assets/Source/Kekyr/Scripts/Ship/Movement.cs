@@ -88,7 +88,7 @@ namespace Ship
 
         private void OnSelectStarted(InputAction.CallbackContext context)
         {
-            Vector2 pointerWorldPosition = ConvertPointerPosition(Pointer.current.position.ReadValue());
+            Vector2 pointerWorldPosition = ConvertPointerPosition(context.ReadValue<Vector2>());
             RaycastHit2D raycastHit = Physics2D.Raycast(pointerWorldPosition, Vector2.zero);
 
             if (raycastHit.collider == null)

@@ -7,8 +7,6 @@ namespace Ship
     {
         private PlayerInput _input;
 
-        public PlayerInput Input => _input;
-
         public InputAction Move => _input.Ship.Move;
 
         public InputAction Select => _input.Ship.Select;

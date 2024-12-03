@@ -18,7 +18,7 @@
                     "name": "Select",
                     "type": "Value",
                     "id": "dbb7978a-f205-42b3-a44a-883b118809e5",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -28,46 +28,79 @@
                 {
                     "name": "",
                     "id": "7d876699-e31d-4cc0-a550-a52f7111c3d2",
-                    "path": "<Mouse>/position",
+                    "path": "<Pointer>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
+                    "groups": "Mouse;Touchscreen",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "1e20e63b-f96d-42cb-ad19-7fdbdcff878e",
-                    "path": "<Touchscreen>/touch0/position",
+                    "name": "Left Button [Mouse]",
+                    "id": "97ba00ff-6d86-41a4-90b3-c8d1fe87155d",
+                    "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Touchscreen",
-                    "action": "Move",
-                    "isComposite": false,
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "df4d2c29-c5c3-4bd9-b394-0707f35f4a88",
+                    "name": "modifier",
+                    "id": "d86b429e-689b-4455-9265-00ea140b510c",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse",
                     "action": "Select",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "774ff83e-d48e-4795-a2ab-6243103c440f",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Press [Touchscreen]",
+                    "id": "d6716820-6ee2-4c3b-a59d-c2eb577b5b37",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "63f4a37d-010d-4d37-972a-5ed17fd9655a",
-                    "path": "<Touchscreen>/touch0/press",
+                    "name": "modifier",
+                    "id": "1b9f334c-49ee-4dd2-8f47-448401a881e0",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touchscreen",
                     "action": "Select",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "72a2528a-d87f-4b9e-9a56-dcd64b476b07",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touchscreen",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
