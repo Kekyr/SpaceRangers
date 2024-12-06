@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Ship
+namespace ShipBase
 {
     public class Shooting : MonoBehaviour
     {
-        [SerializeField] private Transform _spawnPoint;
+        [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private ObjectPool _bulletPool;
         
         [SerializeField] private float _interval;
@@ -16,9 +16,9 @@ namespace Ship
 
         private void OnEnable()
         {
-            if (_spawnPoint == null)
+            if (_spawnPoints.Length==0)
             {
-                throw new ArgumentNullException(nameof(_spawnPoint));
+                throw new ArgumentOutOfRangeException(nameof(_spawnPoints));
             }
 
             if (_interval == 0)
@@ -43,10 +43,12 @@ namespace Ship
         {
             while (true)
             {
-                GameObject bullet = _bulletPool.Spawn(_spawnPoint.position);
-
-                BulletMovement bulletMovement = bullet.GetComponent<BulletMovement>();
-                bulletMovement.Init(_bulletSpeed);
+                for (int i = 0; i < _spawnPoints.Length; i++)
+                {
+                    GameObject bullet = _bulletPool.Spawn(_spawnPoints[i].position);
+                    BulletMovement bulletMovement = bullet.GetComponent<BulletMovement>();
+                    bulletMovement.Init(_bulletSpeed);
+                }
 
                 yield return new WaitForSeconds(_interval);
             }

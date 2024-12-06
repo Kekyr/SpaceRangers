@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Ship
+namespace ShipBase
 {
     [RequireComponent(typeof(PlayerInputRouter))]
     [RequireComponent(typeof(Rigidbody2D))]

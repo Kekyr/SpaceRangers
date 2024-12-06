@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Ship
+namespace ShipBase
 {
     public class PlayerInputRouter : MonoBehaviour
     {

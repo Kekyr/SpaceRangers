@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Ship
+namespace ShipBase
 {
     public class Bullet : MonoBehaviour
     {

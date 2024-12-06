@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Ship
+namespace ShipBase
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class BulletMovement : MonoBehaviour
