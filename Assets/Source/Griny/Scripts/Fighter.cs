@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using WordGame;
 
@@ -19,12 +20,14 @@ namespace Enemy
         [SerializeField] private float _speed;
 
         [SerializeField] private List<Transform> _directionsMovement;
+        //private Vector2[] _directions = new Vector2[] {new Vector2(0,3)}
         [SerializeField] private Transform _pointStart;
+
+        [SerializeField] private int _distanc;
 
         private Vector3 _currentTarget;
         private Coroutine _corutaineMove;
         private int randomNumber;
-
 
         private List<int> _ups = new List<int> { 0, 1, 7 };
         private List<int> _downs = new List<int> { 3, 4, 5 };
@@ -34,31 +37,39 @@ namespace Enemy
         private void Start()
         {
             _currentTarget = GetTarget(_downs);
-
-            if (_corutaineMove != null)
-            {
-                StopCoroutine(_corutaineMove);
-            }
-
-            _corutaineMove = StartCoroutine(MoveDown());
         }
 
-        private IEnumerator MoveDown()
+        private void FixedUpdate()
         {
-            while (_speed != 0)
-            {
-                _rigidbody.velocity = Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, _speed);
+            //Vector3 direction = (-_currentTarget - _pointStart.localPosition).normalized;
+            //_rigidbody.MovePosition(transform.position + direction * _speed * Time.fixedDeltaTime);
+            //CheckDistanñe();
 
-                yield return new WaitForFixedUpdate();
-            }
+            _rigidbody.velocity = Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, _speed);
+
+            //_rigidbody.velocity = Vector2.Lerp(_pointStart.localPosition, -_currentTarget, _speed);
         }
 
-        //private void FixedUpdate()
-        //{
-        //    Vector3 direction = (-_currentTarget - _pointStart.localPosition).normalized;
+        private void CheckDistanñe()
+        {
+            //Vector3 direction = (_currentTarget - transform.position).normalized;
 
-        //    _rigidbody.MovePosition(transform.position + direction * _speed * Time.fixedDeltaTime);
-        //}
+            //RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, direction, _distanc);
+
+            //Debug.DrawRay(transform.position, direction * _distanc, Color.red, 10);
+            //Debug.Log(_currentTarget);
+
+            //if (raycastHit2D.collider == null)
+            //{
+            //    _rigidbody.velocity = Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, _speed);
+            //}
+            //else if(raycastHit2D.collider != null)
+            //{
+            //    //Debug.Log(raycastHit2D.collider.gameObject.name);
+            //    _rigidbody.velocity = Vector2.Lerp(_pointStart.position, -raycastHit2D.collider.transform.position, _speed);               
+            //}
+        }
+
 
         private Vector3 GetTarget(List<int> diretions)
         {
@@ -67,10 +78,10 @@ namespace Enemy
             return _directionsMovement[diretions[randomNumber]].localPosition;
         }
 
-
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collision.gameObject.TryGetComponent<BackgruondBorder>(out BackgruondBorder backgruondBorder) == true)
+            
+            if (collider.gameObject.TryGetComponent<BackgruondBorder>(out BackgruondBorder backgruondBorder) == true)
             {
                 if (backgruondBorder.GetName() == _borderFighter)
                 {
