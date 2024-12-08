@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefab;
     [SerializeField] private int _count;
+
+    private GameObject _prefab;
 
     private Queue<GameObject> _instances = new Queue<GameObject>();
 
     private void OnEnable()
     {
-        if (_prefab == null)
-        {
-            throw new ArgumentNullException();
-        }
-
         if (_count == 0)
         {
             throw new ArgumentOutOfRangeException(nameof(_count));
@@ -27,6 +23,12 @@ public class ObjectPool : MonoBehaviour
             instance.SetActive(false);
             _instances.Enqueue(instance);
         }
+    }
+
+    public void Init(GameObject prefab)
+    {
+        _prefab = prefab;
+        enabled = true;
     }
 
     public GameObject Spawn(Vector3 position)
