@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: AutoGunShoot192
     originalName: 
-    pivot: {x: 16.5, y: -0.22222222}
+    pivot: {x: 0.5, y: -0.13333333}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 36
-      height: 90
+      width: 1188
+      height: 150
     spriteID: db281f2d9c67aaf498cd3263af2e16a3
     spriteBone: []
     spriteOutline: []
@@ -153,8 +153,8 @@ ScriptedImporter:
       cellRect:
         x: 78
         y: 20
-        width: 36
-        height: 90
+        width: 1188
+        height: 150
       spriteId: db281f2d9c67aaf498cd3263af2e16a3
     linkedCells: []
     parentIndex: -1

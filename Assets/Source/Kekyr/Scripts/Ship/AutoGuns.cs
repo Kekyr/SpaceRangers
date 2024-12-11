@@ -7,12 +7,16 @@ namespace ShipBase
 {
     public class AutoGuns : MonoBehaviour
     {
+        private readonly string _isShooting = "IsShooting";
+
         [SerializeField] private AutoGunZone _shootingZone;
         [SerializeField] private Transform[] _guns;
 
         [SerializeField] private float _rotationSpeed;
 
         private List<GameObject> _targets = new List<GameObject>();
+        private GameObject[] _spawnPoints;
+        private Animator[] _animators;
 
         private GameObject _target;
         private Health _targetHealth;
@@ -36,6 +40,15 @@ namespace ShipBase
             if (_rotationSpeed == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(_rotationSpeed));
+            }
+
+            _spawnPoints = new GameObject[_guns.Length];
+            _animators = new Animator[_guns.Length];
+
+            for (int i = 0; i < _guns.Length; i++)
+            {
+                _spawnPoints[i] = _guns[i].transform.GetChild(0).gameObject;
+                _animators[i] = _guns[i].GetComponent<Animator>();
             }
 
             _shootingZone.Entered += OnTargetEntered;
@@ -65,6 +78,7 @@ namespace ShipBase
             _targets.Remove(_target);
 
             _isNear = true;
+            Shoot(true);
 
             while (_isNear == true && _targetHealth.IsDead == false)
             {
@@ -77,12 +91,14 @@ namespace ShipBase
                 yield return null;
             }
 
-            StartCoroutine(Return());
+            StartCoroutine(ReturnToDefault());
             _follow = null;
         }
 
-        private IEnumerator Return()
+        private IEnumerator ReturnToDefault()
         {
+            Shoot(false);
+
             while (_isNear == false)
             {
                 for (int i = 0; i < _guns.Length; i++)
@@ -91,6 +107,15 @@ namespace ShipBase
                 }
 
                 yield return null;
+            }
+        }
+
+        private void Shoot(bool canShoot)
+        {
+            for (int i = 0; i < _guns.Length; i++)
+            {
+                _animators[i].SetBool(_isShooting, canShoot);
+                _spawnPoints[i].SetActive(canShoot);
             }
         }
 

@@ -8,10 +8,10 @@ namespace ShipBase
     {
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private ObjectPool _bulletPool;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 
         [SerializeField] private float _interval;
         [SerializeField] private float _bulletSpeed;
-        [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private WaitForSeconds _waitForSeconds;
 
@@ -53,9 +53,12 @@ namespace ShipBase
             {
                 for (int i = 0; i < _spawnPoints.Length; i++)
                 {
-                    GameObject bullet = _bulletPool.Spawn(_spawnPoints[i].position);
-                    BulletMovement bulletMovement = bullet.GetComponent<BulletMovement>();
-                    bulletMovement.Init(_bulletSpeed, _spawnPoints[i].up, orderInLayer);
+                    if (_spawnPoints[i].gameObject.activeSelf == true)
+                    {
+                        GameObject bullet = _bulletPool.Spawn(_spawnPoints[i].position);
+                        BulletMovement bulletMovement = bullet.GetComponent<BulletMovement>();
+                        bulletMovement.Init(_bulletSpeed, _spawnPoints[i].up, orderInLayer);
+                    }
                 }
 
                 yield return new WaitForSeconds(_interval);
