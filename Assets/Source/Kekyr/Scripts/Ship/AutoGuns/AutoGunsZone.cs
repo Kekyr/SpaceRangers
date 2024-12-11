@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ShipBase
 {
-    public class AutoGunZone : MonoBehaviour
+    public class AutoGunsZone : MonoBehaviour
     {
         public event Action<GameObject> Entered;
         public event Action<GameObject> Exited;

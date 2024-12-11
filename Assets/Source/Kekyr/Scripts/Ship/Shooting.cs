@@ -15,7 +15,7 @@ namespace ShipBase
 
         private WaitForSeconds _waitForSeconds;
 
-        private void OnEnable()
+        private void Start()
         {
             if (_spawnPoints.Length == 0)
             {

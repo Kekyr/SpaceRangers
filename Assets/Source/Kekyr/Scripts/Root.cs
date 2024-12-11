@@ -6,9 +6,9 @@ namespace ShipBase
     public class Root : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
-        [SerializeField] private Movement _shipMovement;
-        [SerializeField] private ObjectPool _shipPool;
-        [SerializeField] private BulletSO _bulletData;
+        [SerializeField] private ImprovementsSO _bulletData;
+        [SerializeField] private ImprovementsSO _shipData;
+        [SerializeField] private AutoGunsZone _autoGunsZone;
 
         private void Validate()
         {
@@ -17,28 +17,37 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_camera));
             }
 
-            if (_shipMovement == null)
-            {
-                throw new ArgumentNullException(nameof(_shipMovement));
-            }
-
-            if (_shipPool == null)
-            {
-                throw new ArgumentNullException(nameof(_shipPool));
-            }
-
             if (_bulletData == null)
             {
                 throw new ArgumentNullException(nameof(_bulletData));
+            }
+
+            if (_shipData == null)
+            {
+                throw new ArgumentNullException(nameof(_shipData));
+            }
+
+            if (_autoGunsZone == null)
+            {
+                throw new ArgumentNullException(nameof(_autoGunsZone));
             }
         }
 
         private void Awake()
         {
             Validate();
-            
-            _shipMovement.Init(_camera);
-            _shipPool.Init(_bulletData.CurrentPrefab);
+
+            GameObject ship = Instantiate(_shipData.CurrentPrefab);
+            Movement shipMovement = ship.GetComponent<Movement>();
+            ObjectPool shipPool = ship.GetComponentInChildren<ObjectPool>();
+
+            if (ship.TryGetComponent(out AutoGuns autoGuns))
+            {
+                autoGuns.Init(_autoGunsZone);
+            }
+
+            shipMovement.Init(_camera);
+            shipPool.Init(_bulletData.CurrentPrefab);
         }
     }
 }

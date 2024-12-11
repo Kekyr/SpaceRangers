@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace ShipBase
 {
-    [CreateAssetMenu(fileName = "new BulletSO", menuName = "BulletSO/Create new BulletSO")]
-    public class BulletSO : ScriptableObject
+    [CreateAssetMenu(fileName = "new ImprovementsSO", menuName = "ImprovementsSO/Create new ImprovementsSO")]
+    public class ImprovementsSO : ScriptableObject
     {
         [SerializeField] private GameObject[] _prefabs;
 

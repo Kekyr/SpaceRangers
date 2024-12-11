@@ -9,9 +9,7 @@ namespace ShipBase
     {
         private readonly string _isShooting = "IsShooting";
 
-        [SerializeField] private AutoGunZone _shootingZone;
         [SerializeField] private Transform[] _guns;
-
         [SerializeField] private float _rotationSpeed;
 
         private List<GameObject> _targets = new List<GameObject>();
@@ -20,18 +18,14 @@ namespace ShipBase
 
         private GameObject _target;
         private Health _targetHealth;
+        private AutoGunsZone _shootingZone;
 
         private Coroutine _follow;
 
         private bool _isNear;
 
-        private void OnEnable()
+        private void Start()
         {
-            if (_shootingZone == null)
-            {
-                throw new ArgumentNullException(nameof(_shootingZone));
-            }
-
             if (_guns.Length == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(_guns));
@@ -53,6 +47,12 @@ namespace ShipBase
 
             _shootingZone.Entered += OnTargetEntered;
             _shootingZone.Exited += OnTargetExited;
+        }
+
+        public void Init(AutoGunsZone shootingZone)
+        {
+            _shootingZone = shootingZone;
+            enabled = true;
         }
 
         private void OnDisable()
