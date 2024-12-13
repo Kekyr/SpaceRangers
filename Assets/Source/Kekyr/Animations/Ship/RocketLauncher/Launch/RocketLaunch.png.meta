@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ccf1e72ddc1fa8e4682be624cf706c9a
+guid: e0d04c53847297d428945532f1cdbc46
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,85 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PinkBullet_0
+      name: RocketLaunch_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.375}
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3869ea410381c344dba4e7801d3002b9
-      internalID: -1427552305
+      spriteID: 920d9b5e63ad35c4fb43afe703486e5d
+      internalID: -2039211224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PinkBullet_1
+      name: RocketLaunch_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 288
         y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.375}
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f646d2c377d83f84d8a1a483430a2dd8
-      internalID: 283923585
+      spriteID: 18d47ab006f351c4ebd3df4b8f5aa4d6
+      internalID: -1036734413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PinkBullet_2
+      name: RocketLaunch_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 576
         y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.375}
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b5d3146419858f4297cc294b52f10dd
-      internalID: 1413537770
+      spriteID: ad86d60fba31c5c4bb5c868122db4d88
+      internalID: 867783396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PinkBullet_3
+      name: RocketLaunch_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 864
         y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.375}
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df0edeac0abe4db43bf79ad7dfc1cfbd
-      internalID: 2144623203
+      spriteID: 07c52e1f100e9dc40adaf7687d26bc94
+      internalID: -573076882
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PinkBullet_0: -1427552305
-      PinkBullet_1: 283923585
-      PinkBullet_2: 1413537770
-      PinkBullet_3: 2144623203
+      RocketLaunch_0: -2039211224
+      RocketLaunch_1: -1036734413
+      RocketLaunch_2: 867783396
+      RocketLaunch_3: -573076882
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
