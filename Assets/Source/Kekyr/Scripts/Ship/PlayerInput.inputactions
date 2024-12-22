@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Rocket",
+                    "type": "Button",
+                    "id": "92910bcd-bae1-4057-ac81-ff8ca204a44c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -101,6 +110,28 @@
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "21b22e34-b687-45de-9392-b79a99de3ffd",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "Touchscreen",
+                    "action": "Rocket",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3deeb5b-ef40-4b13-8f63-156e9449e862",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Rocket",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -120,6 +151,11 @@
         {
             "name": "Touchscreen",
             "bindingGroup": "Touchscreen",
+            "devices": []
+        },
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
             "devices": []
         }
     ]

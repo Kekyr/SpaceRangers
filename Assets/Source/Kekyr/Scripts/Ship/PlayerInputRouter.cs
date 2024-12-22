@@ -11,6 +11,8 @@ namespace ShipBase
 
         public InputAction Select => _input.Ship.Select;
 
+        public InputAction Rocket => _input.Ship.Rocket;
+
         private void Awake()
         {
             _input = new PlayerInput();
