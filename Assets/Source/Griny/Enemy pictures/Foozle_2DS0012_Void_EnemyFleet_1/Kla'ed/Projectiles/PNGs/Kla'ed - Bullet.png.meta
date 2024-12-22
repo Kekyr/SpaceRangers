@@ -128,8 +128,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4
-        height: 16
+        width: 12
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Kla'ed - Bullet_1
       rect:
         serializedVersion: 2
-        x: 4
+        x: 12
         y: 0
-        width: 4
-        height: 16
+        width: 12
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Kla'ed - Bullet_2
       rect:
         serializedVersion: 2
-        x: 8
+        x: 24
         y: 0
-        width: 4
-        height: 16
+        width: 12
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: Kla'ed - Bullet_3
       rect:
         serializedVersion: 2
-        x: 12
+        x: 36
         y: 0
-        width: 4
-        height: 16
+        width: 12
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

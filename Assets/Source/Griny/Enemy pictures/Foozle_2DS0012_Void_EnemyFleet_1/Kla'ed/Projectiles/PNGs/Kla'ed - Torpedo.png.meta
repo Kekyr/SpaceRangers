@@ -128,8 +128,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 11
-        height: 32
+        width: 44
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Kla'ed - Torpedo_1
       rect:
         serializedVersion: 2
-        x: 11
+        x: 44
         y: 0
-        width: 11
-        height: 32
+        width: 44
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Kla'ed - Torpedo_2
       rect:
         serializedVersion: 2
-        x: 22
+        x: 88
         y: 0
-        width: 11
-        height: 32
+        width: 44
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
