@@ -46,6 +46,15 @@ namespace ShipBase
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rocket"",
+                    ""type"": ""Button"",
+                    ""id"": ""92910bcd-bae1-4057-ac81-ff8ca204a44c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -125,6 +134,28 @@ namespace ShipBase
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21b22e34-b687-45de-9392-b79a99de3ffd"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": ""Touchscreen"",
+                    ""action"": ""Rocket"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3deeb5b-ef40-4b13-8f63-156e9449e862"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Rocket"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -145,6 +176,11 @@ namespace ShipBase
             ""name"": ""Touchscreen"",
             ""bindingGroup"": ""Touchscreen"",
             ""devices"": []
+        },
+        {
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
+            ""devices"": []
         }
     ]
 }");
@@ -152,6 +188,7 @@ namespace ShipBase
             m_Ship = asset.FindActionMap("Ship", throwIfNotFound: true);
             m_Ship_Move = m_Ship.FindAction("Move", throwIfNotFound: true);
             m_Ship_Select = m_Ship.FindAction("Select", throwIfNotFound: true);
+            m_Ship_Rocket = m_Ship.FindAction("Rocket", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -215,12 +252,14 @@ namespace ShipBase
         private List<IShipActions> m_ShipActionsCallbackInterfaces = new List<IShipActions>();
         private readonly InputAction m_Ship_Move;
         private readonly InputAction m_Ship_Select;
+        private readonly InputAction m_Ship_Rocket;
         public struct ShipActions
         {
             private @PlayerInput m_Wrapper;
             public ShipActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Ship_Move;
             public InputAction @Select => m_Wrapper.m_Ship_Select;
+            public InputAction @Rocket => m_Wrapper.m_Ship_Rocket;
             public InputActionMap Get() { return m_Wrapper.m_Ship; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -236,6 +275,9 @@ namespace ShipBase
                 @Select.started += instance.OnSelect;
                 @Select.performed += instance.OnSelect;
                 @Select.canceled += instance.OnSelect;
+                @Rocket.started += instance.OnRocket;
+                @Rocket.performed += instance.OnRocket;
+                @Rocket.canceled += instance.OnRocket;
             }
 
             private void UnregisterCallbacks(IShipActions instance)
@@ -246,6 +288,9 @@ namespace ShipBase
                 @Select.started -= instance.OnSelect;
                 @Select.performed -= instance.OnSelect;
                 @Select.canceled -= instance.OnSelect;
+                @Rocket.started -= instance.OnRocket;
+                @Rocket.performed -= instance.OnRocket;
+                @Rocket.canceled -= instance.OnRocket;
             }
 
             public void RemoveCallbacks(IShipActions instance)
@@ -281,10 +326,20 @@ namespace ShipBase
                 return asset.controlSchemes[m_TouchscreenSchemeIndex];
             }
         }
+        private int m_KeyboardSchemeIndex = -1;
+        public InputControlScheme KeyboardScheme
+        {
+            get
+            {
+                if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+                return asset.controlSchemes[m_KeyboardSchemeIndex];
+            }
+        }
         public interface IShipActions
         {
             void OnMove(InputAction.CallbackContext context);
             void OnSelect(InputAction.CallbackContext context);
+            void OnRocket(InputAction.CallbackContext context);
         }
     }
 }

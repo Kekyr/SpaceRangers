@@ -25,6 +25,7 @@ namespace ShipBase
         private void Start()
         {
             _animator.enabled = true;
+            _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _rigidbody.AddForce(transform.up * _force, ForceMode2D.Impulse);
         }
     }

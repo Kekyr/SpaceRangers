@@ -39,6 +39,7 @@ namespace ShipBase
 
             GameObject ship = Instantiate(_shipData.CurrentPrefab);
             Movement shipMovement = ship.GetComponent<Movement>();
+            RocketLauncher shipRocketLauncher = ship.GetComponentInChildren<RocketLauncher>();
             ObjectPool shipPool = ship.GetComponentInChildren<ObjectPool>();
 
             if (ship.TryGetComponent(out AutoGuns autoGuns))
@@ -47,6 +48,7 @@ namespace ShipBase
             }
 
             shipMovement.Init(_camera);
+            shipRocketLauncher.Init(_camera);
             shipPool.Init(_bulletData.CurrentPrefab);
         }
     }
