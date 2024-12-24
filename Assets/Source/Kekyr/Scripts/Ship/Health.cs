@@ -20,7 +20,7 @@ namespace ShipBase
             ValueChanged?.Invoke(_current);
         }
 
-        private void TakeDamage(uint damage)
+        public void TakeDamage(uint damage)
         {
             _current -= damage;
 

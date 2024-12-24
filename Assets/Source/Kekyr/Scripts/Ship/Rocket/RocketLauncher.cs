@@ -6,6 +6,8 @@ namespace ShipBase
 {
     public class RocketLauncher : MonoBehaviour
     {
+        private readonly string _launchTrigger = "Launch";
+
         [SerializeField] private PlayerInputRouter _playerInputRouter;
 
         [SerializeField] private GameObject[] _slots;
@@ -61,41 +63,17 @@ namespace ShipBase
             enabled = true;
         }
 
-        private void OnRocketPerformed(InputAction.CallbackContext context)
+        private void OnRocketAdded(int count)
         {
-            Debug.Log("Rocket Performed!");
-
-            if (context.control.device is Touchscreen)
+            for (int i = 0; i < count; i++)
             {
-                Debug.Log("Touchscreen");
-                bool isSelected = CheckPointer(Pointer.current.position.value);
-
-                if (isSelected == false)
-                {
-                    return;
-                }
-            }
-
-            if (_count > 0 && _currentSlotIndex < _count)
-            {
-                _slotsAnimator[_currentSlotIndex].enabled = true;
-                RocketMovement rocketMovement = _slots[_currentSlotIndex].GetComponentInChildren<RocketMovement>();
-                rocketMovement.enabled = true;
-                _currentSlotIndex++;
-            }
-
-            if (_currentSlotIndex == _count)
-            {
-                _currentSlotIndex = 0;
-                _count = 0;
+                Instantiate(_prefab, _slots[i].transform);
             }
         }
 
         private bool CheckPointer(Vector2 position)
         {
-            Debug.Log($"PointerPosition: {position.x} {position.y}");
             Vector2 pointerWorldPosition = ConvertPointerPosition(position);
-            Debug.Log($"PointerWorldPosition: {pointerWorldPosition.x} {pointerWorldPosition.y}");
             RaycastHit2D raycastHit = Physics2D.Raycast(pointerWorldPosition, Vector2.zero);
 
             if (raycastHit.collider == null)
@@ -114,6 +92,37 @@ namespace ShipBase
         private Vector2 ConvertPointerPosition(Vector2 mousePosition)
         {
             return _camera.ScreenToWorldPoint(mousePosition);
+        }
+
+        private void OnRocketPerformed(InputAction.CallbackContext context)
+        {
+            if (context.control.device is Touchscreen)
+            {
+                bool isSelected = CheckPointer(Pointer.current.position.value);
+
+                if (isSelected == false)
+                {
+                    return;
+                }
+            }
+
+            if (_count > 0 && _currentSlotIndex < _count)
+            {
+                RocketMovement rocketMovement = _slots[_currentSlotIndex].GetComponentInChildren<RocketMovement>();
+                Collider2D collider = _slots[_currentSlotIndex].GetComponentInChildren<Collider2D>();
+
+                _slotsAnimator[_currentSlotIndex].SetTrigger(_launchTrigger);
+                collider.enabled = true;
+                rocketMovement.enabled = true;
+
+                _currentSlotIndex++;
+            }
+
+            if (_currentSlotIndex == _count)
+            {
+                _currentSlotIndex = 0;
+                _count = 0;
+            }
         }
     }
 }
