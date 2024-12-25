@@ -48,8 +48,8 @@ namespace ShipBase
         private IEnumerator Spawn()
         {
             int orderInLayer = _spriteRenderer.sortingOrder + 1;
-            
-            while (true)
+
+            while (gameObject.activeSelf == true)
             {
                 for (int i = 0; i < _spawnPoints.Length; i++)
                 {

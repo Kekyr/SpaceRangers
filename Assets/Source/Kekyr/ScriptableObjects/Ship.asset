@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30bfa22df29fb474aac3707b81a63b36, type: 3}
+  m_Script: {fileID: 11500000, guid: 31e9124254c16714f9ba7338ec80fc82, type: 3}
   m_Name: Ship
   m_EditorClassIdentifier: 
-  _prefabs:
+  _levels:
   - {fileID: 2757126576815746414, guid: be261544c5dcf3241b620faf26126c87, type: 3}
   - {fileID: 4260949858531963761, guid: 270e47eeb6a621f43b4751a649f5ad03, type: 3}
   - {fileID: 1345201888461150766, guid: 9ecd3d6bf6ac8dc4e88d138e2d1d39b4, type: 3}
   - {fileID: 3350654658272848556, guid: d1296f7c5fb694c41b8d3e563a29c4c5, type: 3}
-  _currentPrefabIndex: 0
+  _currentLevelIndex: 0

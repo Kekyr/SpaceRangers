@@ -165,7 +165,7 @@ MonoBehaviour:
   - {fileID: 3551022530915079413}
   - {fileID: 8876105743376130001}
   _prefab: {fileID: 7043177027038311214, guid: 3e3fa52eb757ac444868bb9312a83d94, type: 3}
-  _count: 6
+  _rocketCount: 6
 --- !u!1 &2757126576815746414
 GameObject:
   m_ObjectHideFlags: 0

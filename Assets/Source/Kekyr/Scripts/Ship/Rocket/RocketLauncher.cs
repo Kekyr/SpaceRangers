@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace ShipBase
 {
@@ -13,12 +14,15 @@ namespace ShipBase
         [SerializeField] private GameObject[] _slots;
         [SerializeField] private GameObject _prefab;
 
-        [SerializeField] private int _count;
-
+        private Button _button;
         private Camera _camera;
-        private Animator[] _slotsAnimator;
 
+        private Animator[] _slotsAnimator;
+        private Rocket[] _rockets;
+
+        private int _rocketCount;
         private int _currentSlotIndex;
+        private int _destroyedRocketCount;
 
         private void Start()
         {
@@ -39,15 +43,18 @@ namespace ShipBase
 
             _playerInputRouter.Rocket.performed += OnRocketPerformed;
 
+            _button.onClick.AddListener(OnRocketAdded);
+
             _slotsAnimator = new Animator[_slots.Length];
+            _rockets = new Rocket[_slots.Length];
 
             for (int i = 0; i < _slots.Length; i++)
             {
                 _slotsAnimator[i] = _slots[i].GetComponent<Animator>();
 
-                if (i < _count)
+                if (i < _rocketCount)
                 {
-                    Instantiate(_prefab, _slots[i].transform);
+                    Spawn(i);
                 }
             }
         }
@@ -55,20 +62,41 @@ namespace ShipBase
         private void OnDisable()
         {
             _playerInputRouter.Rocket.performed -= OnRocketPerformed;
+            _button.onClick.RemoveListener(OnRocketAdded);
+
+            for (int i = 0; i < _rockets.Length; i++)
+            {
+                if (_rockets[i] != null)
+                {
+                    _rockets[i].Destroyed -= OnRocketDestroyed;
+                }
+            }
         }
 
-        public void Init(Camera camera)
+        private void FixedUpdate()
+        {
+            if (_destroyedRocketCount == _rocketCount && _button.interactable == false)
+            {
+                _currentSlotIndex = 0;
+                _rocketCount = 0;
+                _destroyedRocketCount = 0;
+                _button.interactable = true;
+            }
+        }
+
+        public void Init(Camera camera, Button button, int rocketCount)
         {
             _camera = camera;
+            _button = button;
+            _rocketCount = rocketCount;
             enabled = true;
         }
 
-        private void OnRocketAdded(int count)
+        private void Spawn(int index)
         {
-            for (int i = 0; i < count; i++)
-            {
-                Instantiate(_prefab, _slots[i].transform);
-            }
+            Rocket rocket = Instantiate(_prefab, _slots[index].transform).GetComponent<Rocket>();
+            rocket.Destroyed += OnRocketDestroyed;
+            _rockets[index] = rocket;
         }
 
         private bool CheckPointer(Vector2 position)
@@ -106,23 +134,30 @@ namespace ShipBase
                 }
             }
 
-            if (_count > 0 && _currentSlotIndex < _count)
+            if (_rocketCount > 0 && _currentSlotIndex < _rocketCount)
             {
-                RocketMovement rocketMovement = _slots[_currentSlotIndex].GetComponentInChildren<RocketMovement>();
-                Collider2D collider = _slots[_currentSlotIndex].GetComponentInChildren<Collider2D>();
-
+                Rocket rocket = _rockets[_currentSlotIndex];
                 _slotsAnimator[_currentSlotIndex].SetTrigger(_launchTrigger);
-                collider.enabled = true;
-                rocketMovement.enabled = true;
-
+                rocket.Launch();
                 _currentSlotIndex++;
             }
+        }
 
-            if (_currentSlotIndex == _count)
+        private void OnRocketAdded()
+        {
+            _rocketCount = 1;
+
+            for (int i = 0; i < _rocketCount; i++)
             {
-                _currentSlotIndex = 0;
-                _count = 0;
+                Spawn(i);
             }
+
+            _button.interactable = false;
+        }
+
+        private void OnRocketDestroyed(Rocket rocket)
+        {
+            _destroyedRocketCount++;
         }
     }
 }
