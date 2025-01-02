@@ -10,6 +10,7 @@ namespace ShipBase
         private readonly string _launchTrigger = "Launch";
 
         [SerializeField] private PlayerInputRouter _playerInputRouter;
+        [SerializeField] private Health _health;
 
         [SerializeField] private GameObject[] _slots;
         [SerializeField] private GameObject _prefab;
@@ -31,6 +32,11 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_playerInputRouter));
             }
 
+            if (_health == null)
+            {
+                throw new ArgumentNullException(nameof(_health));
+            }
+
             if (_slots.Length == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(_slots));
@@ -42,6 +48,7 @@ namespace ShipBase
             }
 
             _playerInputRouter.Rocket.performed += OnRocketPerformed;
+            _health.Died += OnDead;
 
             _button.onClick.AddListener(OnRocketAdded);
 
@@ -62,6 +69,7 @@ namespace ShipBase
         private void OnDisable()
         {
             _playerInputRouter.Rocket.performed -= OnRocketPerformed;
+            _health.Died -= OnDead;
             _button.onClick.RemoveListener(OnRocketAdded);
 
             for (int i = 0; i < _rockets.Length; i++)
@@ -158,6 +166,11 @@ namespace ShipBase
         private void OnRocketDestroyed(Rocket rocket)
         {
             _destroyedRocketCount++;
+        }
+
+        private void OnDead()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

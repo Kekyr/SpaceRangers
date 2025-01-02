@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using ShipBase;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class BulletPool : MonoBehaviour
 {
     [SerializeField] private int _count;
+    [SerializeField] private Health _health;
 
     private GameObject _prefab;
 
@@ -16,13 +18,25 @@ public class ObjectPool : MonoBehaviour
         {
             throw new ArgumentOutOfRangeException(nameof(_count));
         }
-        
+
+        if (_health == null)
+        {
+            throw new ArgumentNullException(nameof(_health));
+        }
+
+        _health.Died += OnDead;
+
         for (int i = 0; i < _count; i++)
         {
             GameObject instance = Instantiate(_prefab, transform);
             instance.SetActive(false);
             _instances.Enqueue(instance);
         }
+    }
+
+    private void OnDisable()
+    {
+        _health.Died -= OnDead;
     }
 
     public void Init(GameObject prefab)
@@ -41,5 +55,10 @@ public class ObjectPool : MonoBehaviour
         _instances.Enqueue(instance);
 
         return instance;
+    }
+
+    private void OnDead()
+    {
+        gameObject.SetActive(false);
     }
 }

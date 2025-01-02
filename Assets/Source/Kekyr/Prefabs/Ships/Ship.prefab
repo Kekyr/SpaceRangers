@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInputRouter: {fileID: 3270724344777876474}
+  _health: {fileID: 543828616777552425}
   _slots:
   - {fileID: 3469063695785107658}
   - {fileID: 1937577731955678949}
@@ -165,7 +166,6 @@ MonoBehaviour:
   - {fileID: 3551022530915079413}
   - {fileID: 8876105743376130001}
   _prefab: {fileID: 7043177027038311214, guid: 3e3fa52eb757ac444868bb9312a83d94, type: 3}
-  _rocketCount: 6
 --- !u!1 &2757126576815746414
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,12 +175,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1899103401002592528}
-  - component: {fileID: 306734386545192951}
   - component: {fileID: 7726138885385851007}
+  - component: {fileID: 4440224551061117540}
+  - component: {fileID: 6269437227611966999}
   - component: {fileID: 3270724344777876474}
   - component: {fileID: 4986557118121901558}
   - component: {fileID: 6889173142970826883}
-  - component: {fileID: 5035796162841857770}
+  - component: {fileID: 543828616777552425}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -209,8 +210,35 @@ Transform:
   - {fileID: 8023607165959982446}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &306734386545192951
-BoxCollider2D:
+--- !u!50 &7726138885385851007
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757126576815746414}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &4440224551061117540
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -241,46 +269,37 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0019994378, y: 0.0032045543}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1.5, y: 1.5}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9642557, y: 0.8475502}
-  m_EdgeRadius: 0
---- !u!50 &7726138885385851007
-Rigidbody2D:
-  serializedVersion: 4
+  m_Points:
+    m_Paths:
+    - - {x: -0.005212784, y: 0.44223142}
+      - {x: -0.47147995, y: -0.16534689}
+      - {x: -0.46789104, y: -0.41284513}
+      - {x: -0.013056576, y: -0.41555202}
+      - {x: 0.47310403, y: -0.39720654}
+      - {x: 0.47147977, y: -0.14970836}
+  m_UseDelaunayMesh: 0
+--- !u!114 &6269437227611966999
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2757126576815746414}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deffef4b588043442ab8b08027697c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3270724344777876474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +343,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 4745798230702905064}
   _interval: 0.2
   _bulletSpeed: 10
---- !u!114 &5035796162841857770
+--- !u!114 &543828616777552425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,7 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501989cb857ff3443b0a28d72ddbf5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _start: 100
+  _animator: {fileID: 5229809874958882282}
+  _max: 100
 --- !u!1 &3469063695785107658
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _count: 10
+  _health: {fileID: 543828616777552425}
 --- !u!1 &3551022530915079413
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +901,7 @@ GameObject:
   - component: {fileID: 6161222526507748520}
   - component: {fileID: 4231063727487053479}
   - component: {fileID: 6864305221091486262}
+  - component: {fileID: 2451785431487981578}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -896,7 +918,7 @@ Transform:
   m_GameObject: {fileID: 6983404680167918521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.088, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -975,6 +997,53 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!68 &2451785431487981578
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983404680167918521}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.1658927, y: 0.49237418}
+  - {x: -0.49318257, y: 0.30344224}
+  - {x: -0.6692747, y: -0.013708949}
+  - {x: -0.6694187, y: -0.32204548}
+  - {x: 0.67213374, y: -0.3227786}
+  - {x: 0.6661706, y: 0.0028972253}
+  - {x: 0.49489474, y: 0.2857404}
+  - {x: 0.16589278, y: 0.497845}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &7132524196236697651
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +1054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3228227271527263604}
   - component: {fileID: 4745798230702905064}
+  - component: {fileID: 5229809874958882282}
   m_Layer: 0
   m_Name: ShipView
   m_TagString: Untagged
@@ -1059,6 +1129,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5229809874958882282
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7132524196236697651}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea460677d70a55d4b8ee49b794d86594, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8743649999644324186
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ namespace ShipBase
     public class Shooting : MonoBehaviour
     {
         [SerializeField] private Transform[] _spawnPoints;
-        [SerializeField] private ObjectPool _bulletPool;
+        [SerializeField] private BulletPool _bulletPool;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         [SerializeField] private float _interval;
