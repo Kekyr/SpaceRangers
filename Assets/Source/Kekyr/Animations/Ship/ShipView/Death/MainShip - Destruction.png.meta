@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f221686bb3728674091457b2c3f01c33
+guid: 8b37c99d9accb1e4ba86eef8601cc2c1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death_0
+      name: MainShip - Destruction_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b866242375338a34691d6bc1bfe1c17c
-      internalID: 366443885
+      spriteID: dd3d169c255135a4e93ce74a2c8d4e7e
+      internalID: -395548545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_1
+      name: MainShip - Destruction_1
       rect:
         serializedVersion: 2
         x: 288
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95f62ef6534e24340a36df2daca6d6b1
-      internalID: -1221999526
+      spriteID: 2aff68bd2bfea2e4a8c09da3876c742d
+      internalID: -1028454270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_2
+      name: MainShip - Destruction_2
       rect:
         serializedVersion: 2
         x: 576
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2687aec0c3300742afbe030e3414546
-      internalID: 1686316594
+      spriteID: b561548c2334d084ca0f8691346b790f
+      internalID: -1007598622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_3
+      name: MainShip - Destruction_3
       rect:
         serializedVersion: 2
         x: 864
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445a21160fc239f45a469522f7a80e4c
-      internalID: 900180514
+      spriteID: cfd91d4b61d84bf47acf31cf51e77e38
+      internalID: 842729124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_4
+      name: MainShip - Destruction_4
       rect:
         serializedVersion: 2
         x: 1152
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7375782356014b41b55078470f2d94e
-      internalID: 1097079431
+      spriteID: 2faecf7eb67e33648ab55428c3b4b62f
+      internalID: 957424509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_5
+      name: MainShip - Destruction_5
       rect:
         serializedVersion: 2
         x: 1440
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69ad5b656a7a989459130fbdf244699c
-      internalID: -927508154
+      spriteID: a48fc22db93374043b543fd1dc1d60e8
+      internalID: -1154781709
       vertices: []
       indices: 
       edges: []
@@ -259,12 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Death_0: 366443885
-      Death_1: -1221999526
-      Death_2: 1686316594
-      Death_3: 900180514
-      Death_4: 1097079431
-      Death_5: -927508154
+      MainShip - Destruction_0: -395548545
+      MainShip - Destruction_1: -1028454270
+      MainShip - Destruction_2: -1007598622
+      MainShip - Destruction_3: 842729124
+      MainShip - Destruction_4: 957424509
+      MainShip - Destruction_5: -1154781709
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
