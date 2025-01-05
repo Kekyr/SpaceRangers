@@ -11,6 +11,7 @@ namespace ShipBase
         [SerializeField] private Button _addRocketButton;
 
         [SerializeField] private HealthView _healthView;
+        [SerializeField] private ShieldView _shieldView;
 
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
         [SerializeField] private ImprovementsSO<GameObject> _shipData;
@@ -52,6 +53,11 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_healthView));
             }
+
+            if (_shieldView == null)
+            {
+                throw new ArgumentNullException(nameof(_shieldView));
+            }
         }
 
         private void Awake()
@@ -61,6 +67,7 @@ namespace ShipBase
             GameObject ship = Instantiate(_shipData.CurrentLevel);
             Movement shipMovement = ship.GetComponent<Movement>();
             Health shipHealth = ship.GetComponent<Health>();
+            Shield shipShield = ship.GetComponentInChildren<Shield>();
             RocketLauncher shipRocketLauncher = ship.GetComponentInChildren<RocketLauncher>();
             BulletPool shipPool = ship.GetComponentInChildren<BulletPool>();
 
@@ -74,6 +81,7 @@ namespace ShipBase
             shipPool.Init(_bulletData.CurrentLevel);
 
             _healthView.Init(shipHealth);
+            _shieldView.Init(shipShield);
         }
     }
 }

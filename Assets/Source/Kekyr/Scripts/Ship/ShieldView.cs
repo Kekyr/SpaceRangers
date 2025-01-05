@@ -4,31 +4,31 @@ using UnityEngine.UI;
 
 namespace ShipBase
 {
-    public class HealthView : MonoBehaviour
+    public class ShieldView : MonoBehaviour
     {
         private readonly float _duration = 0.5f;
-        
+
         private Slider _slider;
-        private Health _health;
+        private Shield _shield;
 
         private void OnEnable()
         {
             _slider = GetComponent<Slider>();
 
-            _slider.maxValue = _health.Max;
-            _slider.value = _health.Max;
+            _slider.maxValue = _shield.Max;
+            _slider.value = _shield.Max;
 
-            _health.ValueChanged += OnValueChanged;
+            _shield.ValueChanged += OnValueChanged;
         }
 
         private void OnDisable()
         {
-            _health.ValueChanged -= OnValueChanged;
+            _shield.ValueChanged -= OnValueChanged;
         }
 
-        public void Init(Health health)
+        public void Init(Shield shield)
         {
-            _health = health;
+            _shield = shield;
             enabled = true;
         }
 

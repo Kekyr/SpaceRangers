@@ -100,7 +100,7 @@ namespace ShipBase
                 return;
             }
 
-            if (raycastHit.collider.gameObject.TryGetComponent(out Movement movement))
+            if (raycastHit.collider.gameObject.CompareTag("Player"))
             {
                 _isSelected = !_isSelected;
             }
