@@ -7,32 +7,24 @@ namespace ShipBase
     {
         private readonly string _damagedTrigger = "Damaged";
         private readonly string _deadTrigger = "Dead";
+        private readonly float[] _parts = new float[] { 75, 50, 25 };
 
         [SerializeField] private Animator _animator;
         [SerializeField] private uint _max;
 
         private float _current;
-
-        private float[] _partsOfHP;
-        private int _currentPartOfHP;
+        private int _currentPart;
 
         public event Action<float> ValueChanged;
         public event Action Died;
 
         public bool IsDead => _current <= 0;
-
+        public float Ratio => (_current / _max) * 100;
         public uint Max => _max;
 
         private void Start()
         {
             _current = _max;
-
-            float oneFourth = _max / 4;
-            float twoFourth = oneFourth * 2;
-            float threeFourth = twoFourth + oneFourth;
-
-            _partsOfHP = new float[] { threeFourth, twoFourth, oneFourth };
-
             ValueChanged?.Invoke(_current);
         }
 
@@ -53,15 +45,15 @@ namespace ShipBase
 
         private void CheckState()
         {
-            if (_currentPartOfHP >= _partsOfHP.Length)
+            if (_currentPart >= _parts.Length)
             {
                 return;
             }
 
-            if (_current < _partsOfHP[_currentPartOfHP])
+            if (Ratio < _parts[_currentPart])
             {
                 _animator.SetTrigger(_damagedTrigger);
-                _currentPartOfHP++;
+                _currentPart++;
             }
         }
     }
