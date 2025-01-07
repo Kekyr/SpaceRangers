@@ -16,6 +16,7 @@ namespace ShipBase
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
         [SerializeField] private ImprovementsSO<GameObject> _shipData;
         [SerializeField] private ImprovementsSO<int> _rocketData;
+        [SerializeField] private ShieldImprovementsSO _shieldData;
 
         private void Validate()
         {
@@ -49,6 +50,11 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_rocketData));
             }
 
+            if (_shieldData == null)
+            {
+                throw new ArgumentNullException(nameof(_shieldData));
+            }
+
             if (_healthView == null)
             {
                 throw new ArgumentNullException(nameof(_healthView));
@@ -79,6 +85,7 @@ namespace ShipBase
             shipMovement.Init(_camera);
             shipRocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel);
             shipPool.Init(_bulletData.CurrentLevel);
+            shipShield.Init(_shieldData.CurrentLevel);
 
             _healthView.Init(shipHealth);
             _shieldView.Init(shipShield);

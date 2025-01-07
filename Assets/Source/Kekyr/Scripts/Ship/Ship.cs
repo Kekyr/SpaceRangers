@@ -23,8 +23,7 @@ namespace ShipBase
         {
             if (col.gameObject.CompareTag("Enemy") && _collider.enabled == true)
             {
-                Debug.Log($"Collider.enabled: {_collider.enabled}");
-                _health.TakeDamage(10);
+                _health.TakeDamage(2);
             }
         }
     }

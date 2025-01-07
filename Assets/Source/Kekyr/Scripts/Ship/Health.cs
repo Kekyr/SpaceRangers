@@ -7,6 +7,7 @@ namespace ShipBase
     {
         private readonly string _damagedTrigger = "Damaged";
         private readonly string _deadTrigger = "Dead";
+
         private readonly float[] _parts = new float[] { 75, 50, 25 };
 
         [SerializeField] private Animator _animator;
@@ -28,8 +29,13 @@ namespace ShipBase
             ValueChanged?.Invoke(_current);
         }
 
-        public void TakeDamage(uint damage)
+        public void TakeDamage(float damage)
         {
+            if (damage < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(damage));
+            }
+            
             _current -= damage;
 
             CheckState();

@@ -627,6 +627,7 @@ MonoBehaviour:
   _bulletData: {fileID: 11400000, guid: 28f7a87b90372364c9b283bf3a995244, type: 2}
   _shipData: {fileID: 11400000, guid: 8640b2e8cb57c7740ac6f6955ac998e0, type: 2}
   _rocketData: {fileID: 11400000, guid: 50574b0a226cc174b9663743d53ac972, type: 2}
+  _shieldData: {fileID: 11400000, guid: 1a103f3b12fbc9f459ad7be3b40c1a36, type: 2}
 --- !u!4 &797002433
 Transform:
   m_ObjectHideFlags: 0

@@ -6,15 +6,23 @@ namespace ShipBase
 {
     public class Shield : MonoBehaviour
     {
+        private readonly int _interval = 1;
+
         [SerializeField] private Collider2D _healthCollider;
         [SerializeField] private Health _health;
-        [SerializeField] private int _max;
 
         private Coroutine _tryRegenerate;
         private SpriteRenderer _spriteRenderer;
         private Collider2D _collider;
 
+        private WaitForSeconds _withoutDamage;
+        private WaitForSeconds _wait;
+
+        private int _max;
+        private int _delay;
+
         private float _current;
+        private float _speed;
 
         public event Action<float> ValueChanged;
 
@@ -33,13 +41,11 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_health));
             }
 
-            if (_max <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_max));
-            }
-
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _collider = GetComponent<Collider2D>();
+
+            _withoutDamage = new WaitForSeconds(_delay);
+            _wait = new WaitForSeconds(_interval);
 
             _current = _max;
             ValueChanged?.Invoke(_current);
@@ -52,11 +58,19 @@ namespace ShipBase
             _health.ValueChanged -= OnValueChanged;
         }
 
-        public void TakeDamage(int damage)
+        public void Init(ShieldDataSO shieldData)
+        {
+            _max = shieldData.MaxHealth;
+            _delay = shieldData.Delay;
+            _speed = shieldData.Speed;
+            enabled = true;
+        }
+
+        public void TakeDamage(float damage)
         {
             if (damage < 0)
             {
-                return;
+                throw new ArgumentOutOfRangeException(nameof(damage));
             }
 
             _current -= damage;
@@ -70,39 +84,41 @@ namespace ShipBase
 
             _tryRegenerate = StartCoroutine(TryRegenerate());
 
-            if (IsDead)
+            if (IsDead == true)
             {
+                _spriteRenderer.enabled = false;
+
+                if (_current < 0)
+                {
+                    float remainingDamage = _current * -1;
+                    _health.TakeDamage(remainingDamage);
+                }
+
                 _current = 0;
-                StartCoroutine(Switch());
             }
         }
 
         private IEnumerator TryRegenerate()
         {
-            yield return new WaitForSeconds(5f);
+            yield return _withoutDamage;
 
             _spriteRenderer.enabled = true;
-            _collider.enabled = true;
-            _healthCollider.enabled = false;
+            Switch(false);
 
             while (_current < _max)
             {
-                _current += 0.1f;
+                _current += _speed;
                 ValueChanged?.Invoke(_current);
-                yield return new WaitForSeconds(0.5f);
+                yield return _wait;
             }
 
             _current = _max;
         }
 
-        private IEnumerator Switch()
+        private void Switch(bool value)
         {
-            _spriteRenderer.enabled = false;
-            _collider.enabled = false;
-
-            yield return new WaitForSeconds(1f);
-
-            _healthCollider.enabled = true;
+            _collider.enabled = !value;
+            _healthCollider.enabled = value;
         }
 
         private void OnValueChanged(float value)
@@ -121,6 +137,14 @@ namespace ShipBase
             if (col.gameObject.CompareTag("Enemy"))
             {
                 TakeDamage(2);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (IsDead == true)
+            {
+                Switch(true);
             }
         }
     }

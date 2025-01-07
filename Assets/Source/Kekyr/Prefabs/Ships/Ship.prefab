@@ -1006,14 +1006,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6983404680167918521}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 882064ab21baa06408ab6902260d100e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _healthCollider: {fileID: 4440224551061117540}
   _health: {fileID: 543828616777552425}
-  _max: 10
 --- !u!60 &5333303029091593037
 PolygonCollider2D:
   m_ObjectHideFlags: 0

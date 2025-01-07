@@ -5,7 +5,7 @@ namespace ShipBase
 {
     public class ExplosionRadius : MonoBehaviour
     {
-        [SerializeField] private uint _damage;
+        [SerializeField] private int _damage;
 
         private void OnEnable()
         {
