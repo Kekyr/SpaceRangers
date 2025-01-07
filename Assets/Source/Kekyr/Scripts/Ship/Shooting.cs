@@ -14,6 +14,7 @@ namespace ShipBase
         [SerializeField] private float _bulletSpeed;
 
         private WaitForSeconds _waitForSeconds;
+        private Health _health;
 
         private void Start()
         {
@@ -42,7 +43,15 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_spriteRenderer));
             }
 
+            _health = GetComponent<Health>();
+            _health.Died += OnDead;
+
             StartCoroutine(Spawn());
+        }
+
+        private void OnDisable()
+        {
+            _health.Died -= OnDead;
         }
 
         private IEnumerator Spawn()
@@ -62,6 +71,14 @@ namespace ShipBase
                 }
 
                 yield return new WaitForSeconds(_interval);
+            }
+        }
+
+        private void OnDead()
+        {
+            foreach (Transform spawnPoint in _spawnPoints)
+            {
+                spawnPoint.parent.gameObject.SetActive(false);
             }
         }
     }

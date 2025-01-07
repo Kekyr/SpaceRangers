@@ -12,6 +12,7 @@ namespace ShipBase
 
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
+        [SerializeField] private WalletView _walletView;
 
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
         [SerializeField] private ImprovementsSO<GameObject> _shipData;
@@ -64,6 +65,11 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_shieldView));
             }
+
+            if (_walletView == null)
+            {
+                throw new ArgumentNullException(nameof(_walletView));
+            }
         }
 
         private void Awake()
@@ -71,24 +77,27 @@ namespace ShipBase
             Validate();
 
             GameObject ship = Instantiate(_shipData.CurrentLevel);
-            Movement shipMovement = ship.GetComponent<Movement>();
-            Health shipHealth = ship.GetComponent<Health>();
-            Shield shipShield = ship.GetComponentInChildren<Shield>();
-            RocketLauncher shipRocketLauncher = ship.GetComponentInChildren<RocketLauncher>();
-            BulletPool shipPool = ship.GetComponentInChildren<BulletPool>();
+
+            Movement movement = ship.GetComponent<Movement>();
+            Health health = ship.GetComponent<Health>();
+            Wallet wallet = ship.GetComponent<Wallet>();
+            Shield shield = ship.GetComponentInChildren<Shield>();
+            RocketLauncher rocketLauncher = ship.GetComponentInChildren<RocketLauncher>();
+            BulletPool pool = ship.GetComponentInChildren<BulletPool>();
 
             if (ship.TryGetComponent(out AutoGuns autoGuns))
             {
                 autoGuns.Init(_autoGunsZone);
             }
 
-            shipMovement.Init(_camera);
-            shipRocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel);
-            shipPool.Init(_bulletData.CurrentLevel);
-            shipShield.Init(_shieldData.CurrentLevel);
+            movement.Init(_camera);
+            rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel);
+            pool.Init(_bulletData.CurrentLevel);
+            shield.Init(_shieldData.CurrentLevel);
 
-            _healthView.Init(shipHealth);
-            _shieldView.Init(shipShield);
+            _healthView.Init(health);
+            _shieldView.Init(shield);
+            _walletView.Init(wallet);
         }
     }
 }

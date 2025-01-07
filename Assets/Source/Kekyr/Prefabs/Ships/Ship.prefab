@@ -176,12 +176,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1899103401002592528}
   - component: {fileID: 7726138885385851007}
-  - component: {fileID: 4440224551061117540}
+  - component: {fileID: 5490919329223390613}
   - component: {fileID: 6269437227611966999}
   - component: {fileID: 3270724344777876474}
   - component: {fileID: 4986557118121901558}
   - component: {fileID: 6889173142970826883}
   - component: {fileID: 543828616777552425}
+  - component: {fileID: 4398162430017912245}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -237,7 +238,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &4440224551061117540
+--- !u!60 &5490919329223390613
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,7 +267,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -281,12 +282,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.005212784, y: 0.44223142}
-      - {x: -0.47147995, y: -0.16534689}
-      - {x: -0.46789104, y: -0.41284513}
-      - {x: -0.013056576, y: -0.41555202}
-      - {x: 0.47310403, y: -0.39720654}
-      - {x: 0.47147977, y: -0.14970836}
+    - - {x: 0.11778786, y: 0.3249925}
+      - {x: -0.009812187, y: 0.42384312}
+      - {x: -0.1778596, y: 0.25114563}
+      - {x: -0.4712059, y: -0.119421095}
+      - {x: -0.48525125, y: -0.35358495}
+      - {x: -0.1091038, y: -0.42201543}
+      - {x: 0.005692348, y: -0.43041062}
+      - {x: 0.0855812, y: -0.417816}
+      - {x: 0.4792477, y: -0.35772896}
+      - {x: 0.48263088, y: -0.15369597}
   m_UseDelaunayMesh: 0
 --- !u!114 &6269437227611966999
 MonoBehaviour:
@@ -300,7 +305,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deffef4b588043442ab8b08027697c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 4440224551061117540}
+  _collider: {fileID: 5333303029091593037}
+  _wallet: {fileID: 4398162430017912245}
+  _shield: {fileID: 6196825453265458331}
 --- !u!114 &3270724344777876474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +365,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5229809874958882282}
   _max: 100
+--- !u!114 &4398162430017912245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757126576815746414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e53386b6ebe9946ac7b3bb094d9af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3469063695785107658
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +985,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: -1980531643, guid: d5ce46bb4e455764aa91c20027fe0d8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.1764706}
   m_FlipX: 0
@@ -1011,7 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882064ab21baa06408ab6902260d100e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthCollider: {fileID: 4440224551061117540}
+  _healthCollider: {fileID: 5490919329223390613}
   _health: {fileID: 543828616777552425}
 --- !u!60 &5333303029091593037
 PolygonCollider2D:
@@ -1065,10 +1084,13 @@ PolygonCollider2D:
       - {x: -0.4969727, y: 0.2842052}
       - {x: -0.6499456, y: 0.025569737}
       - {x: -0.65559655, y: -0.2695571}
-      - {x: -0.58202446, y: -0.3146944}
-      - {x: -0.28942546, y: -0.31738687}
-      - {x: -0.2912073, y: -0.35426635}
-      - {x: 0.0035448745, y: -0.35329655}
+      - {x: -0.57129943, y: -0.31048217}
+      - {x: -0.44643426, y: -0.31467095}
+      - {x: -0.2903309, y: -0.31029955}
+      - {x: -0.29276258, y: -0.34338352}
+      - {x: -0.10269711, y: -0.34395128}
+      - {x: -0.0036685467, y: -0.34833187}
+      - {x: 0.10390339, y: -0.34663656}
       - {x: 0.28633776, y: -0.3515526}
       - {x: 0.2957073, y: -0.3213666}
       - {x: 0.57219136, y: -0.3204207}

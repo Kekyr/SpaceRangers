@@ -25,6 +25,7 @@ namespace ShipBase
         private float _speed;
 
         public event Action<float> ValueChanged;
+        public event Action<Collider2D> Entered;
 
         public int Max => _max;
         public bool IsDead => _current <= 0;
@@ -51,11 +52,13 @@ namespace ShipBase
             ValueChanged?.Invoke(_current);
 
             _health.ValueChanged += OnValueChanged;
+            _health.Died += OnDead;
         }
 
         private void OnDestroy()
         {
             _health.ValueChanged -= OnValueChanged;
+            _health.Died -= OnDead;
         }
 
         public void Init(ShieldDataSO shieldData)
@@ -132,20 +135,17 @@ namespace ShipBase
             _tryRegenerate = StartCoroutine((TryRegenerate()));
         }
 
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if (col.gameObject.CompareTag("Enemy"))
-            {
-                TakeDamage(2);
-            }
-        }
-
         private void OnTriggerExit2D(Collider2D other)
         {
             if (IsDead == true)
             {
                 Switch(true);
             }
+        }
+
+        private void OnDead()
+        {
+            gameObject.SetActive(false);
         }
     }
 }
