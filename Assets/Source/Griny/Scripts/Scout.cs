@@ -1,17 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
     public class Scout : EnemyShip
     {
         [SerializeField] private Health _health;
-        [SerializeField] private Sheeld _sheeld;
-        [SerializeField] private Animator _animator;
-
-        private float timeCurrentAnimation;
-        private Coroutine _coroutine;
+        [FormerlySerializedAs("_sheeld")] [SerializeField] private Shield shield;
 
         private void OnEnable()
         {
@@ -24,26 +21,8 @@ namespace Enemy
         }
 
         private void OnDie()
-        {
-            if (_coroutine != null)
-            {
-                StopCoroutine(_coroutine);
-            }
-
-            _coroutine = StartCoroutine(DiactivateEnemy());
-        }
-
-        private IEnumerator DiactivateEnemy()
-        {
-            _animator.SetBool("Destruction", true);
-
-            timeCurrentAnimation = _animator.GetCurrentAnimatorStateInfo(0).length;
-
-            yield return new WaitForSeconds(timeCurrentAnimation);
-
-            gameObject.SetActive(false);
-
-            _animator.SetBool("Destruction", false);
+        { 
+            StartCoroutine(Deactivate());
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
@@ -52,13 +31,13 @@ namespace Enemy
             {
                 bullet.gameObject.SetActive(false);
 
-                if (_sheeld.GetValue() <= 0)
+                if (shield.GetValue() <= 0)
                 {
                     _health.TakeDamage(bullet.Damage);
                 }
                 else
                 {
-                    _sheeld.TakeDamage(bullet.Damage);
+                    shield.TakeDamage(bullet.Damage);
                 }
             }
         }

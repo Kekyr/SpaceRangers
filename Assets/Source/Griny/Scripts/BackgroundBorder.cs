@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace WordGame
 {
-    public class BackgruondBorder : MonoBehaviour
+    public class BackgroundBorder : MonoBehaviour
     {
         [SerializeField] private string _nameBorder;
 

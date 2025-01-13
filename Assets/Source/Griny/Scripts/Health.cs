@@ -14,7 +14,7 @@ namespace Enemy
 
         private void Start()
         {
-            ReStartHealth();
+            ResetHealth();
         }
 
         public float GetHealth()
@@ -22,7 +22,7 @@ namespace Enemy
             return _value;
         }
 
-        public void ReStartHealth()
+        public void ResetHealth()
         {
             _value = _startValue;
             ChangedHealth?.Invoke();

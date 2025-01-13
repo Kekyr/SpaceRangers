@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Sheeld : MonoBehaviour
+    public class Shield : MonoBehaviour
     {
         [SerializeField] private float _startValue;
         [SerializeField] private GameObject _sheeld;
@@ -37,7 +37,6 @@ namespace Enemy
             {
                 _value = 0;
                 _sheeld.gameObject.SetActive(false);
-                //ReStartValue();
             }
 
             ChangedValue?.Invoke();

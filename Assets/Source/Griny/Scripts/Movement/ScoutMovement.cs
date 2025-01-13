@@ -25,14 +25,14 @@ namespace Enemy
             _currentTarget = GetRandomTarget();
         }
 
-        protected override Vector2 GetVelosity(float speed)
+        protected override Vector2 GetVelocity(float speed)
         {
             return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
         }
 
         protected override void CollideShip(Collider2D collision, float speed)
         {
-            if (collision.gameObject.TryGetComponent(out BackgruondBorder backgruondBorder))
+            if (collision.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
             {
                 switch (backgruondBorder.GetName())
                 {

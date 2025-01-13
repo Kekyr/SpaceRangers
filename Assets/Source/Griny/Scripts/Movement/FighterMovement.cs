@@ -16,7 +16,7 @@ namespace Enemy
         [SerializeField] private Health _health;
 
         private Vector3 _currentTarget;
-        private int randomNumber;
+        private int _randomNumber;
         private int _numberDownwardDirection = 4;
         private bool _isInside = false;
 
@@ -24,36 +24,22 @@ namespace Enemy
         private List<int> _downs = new List<int> { 3, 4, 5 };
         private List<int> _lefts = new List<int> { 1, 2, 3 };
         private List<int> _rights = new List<int> { 5, 6, 7 };
-
-        private void Start()
-        {
-            GetStartTrget();
-            //_health.Died += ReloadVariable;
-            //_health.Died += GetStartTrget;
-        }
-
+        
         private void OnEnable()
         {
-            GetStartTrget();
+            GetStartTarget();
             ReloadVariable();
         }
 
-        private void OnDestroy()
-        {
-            //_health.Died -= ReloadVariable;
-            //_health.Died -= GetStartTrget;
-        }
-
-        protected override Vector2 GetVelosity(float speed)
+        protected override Vector2 GetVelocity(float speed)
         {
             return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
         }
 
         protected override void CollideShip(Collider2D collision, float speed)
         {
-            if (collision.gameObject.TryGetComponent<BackgruondBorder>(out var backgruondBorder))
+            if (collision.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
             {
-
                 switch (backgruondBorder.GetName())
                 {
                     case _borderUp:
@@ -78,16 +64,16 @@ namespace Enemy
             }
         }
 
-        private void GetStartTrget()
+        private void GetStartTarget()
         {
             _currentTarget = _directionsMovement[_numberDownwardDirection].localPosition;
         }
 
-        private Vector3 GetTarget(List<int> diretions)
+        private Vector3 GetTarget(List<int> directions)
         {
-            randomNumber = Random.Range(0, 3);
+            _randomNumber = Random.Range(0, 3);
 
-            return _directionsMovement[diretions[randomNumber]].localPosition;
+            return _directionsMovement[directions[_randomNumber]].localPosition;
         }
 
         private void ReloadVariable()

@@ -27,14 +27,14 @@ namespace Enemy
             InvokActionOutSight();
         }
 
-        protected virtual Vector2 GetVelosity(float speed)
+        protected virtual Vector2 GetVelocity(float speed)
         {
             return Vector2.down * speed * Time.deltaTime;
         }
 
         protected virtual void CollideShip(Collider2D collision, float speed)
         {
-            if (collision.gameObject.TryGetComponent(out BackgruondBorder backgruondBorder))
+            if (collision.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
             {
                 if (backgruondBorder.GetName() == _borderDown)
                 {
@@ -47,7 +47,7 @@ namespace Enemy
 
         private void Move()
         {
-            _rigidbody.velocity = GetVelosity(_speed);
+            _rigidbody.velocity = GetVelocity(_speed);
         }
 
         protected virtual void InvokActionOutSight()
