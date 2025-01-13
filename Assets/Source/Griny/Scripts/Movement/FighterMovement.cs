@@ -28,18 +28,20 @@ namespace Enemy
         private void Start()
         {
             GetStartTrget();
+            //_health.Died += ReloadVariable;
+            //_health.Died += GetStartTrget;
         }
 
         private void OnEnable()
         {
-            _health.Died += ReloadVariable;
-            _health.Died += GetStartTrget;
+            GetStartTrget();
+            ReloadVariable();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
-            _health.Died -= ReloadVariable;
-            _health.Died -= GetStartTrget;
+            //_health.Died -= ReloadVariable;
+            //_health.Died -= GetStartTrget;
         }
 
         protected override Vector2 GetVelosity(float speed)

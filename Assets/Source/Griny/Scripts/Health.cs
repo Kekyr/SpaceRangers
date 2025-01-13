@@ -35,7 +35,6 @@ namespace Enemy
             if (_value <= 0)
             {
                 _value = 0;
-                ReStartHealth();
                 Died?.Invoke();
             }
 

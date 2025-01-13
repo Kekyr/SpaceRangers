@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Bomber : MonoBehaviour
+    public class Bomber : EnemyShip
     {
         [SerializeField] private Health _health;
         [SerializeField] private Sheeld _sheeld;

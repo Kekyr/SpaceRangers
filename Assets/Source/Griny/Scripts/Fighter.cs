@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Enemy
 {
-    public class Fighter : MonoBehaviour
+    public class Fighter : EnemyShip
     {
         [SerializeField] private Health _health;
         [SerializeField] private Sheeld _sheeld;

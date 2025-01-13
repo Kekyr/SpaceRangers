@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Frigate : MonoBehaviour
+    public class Frigate : EnemyShip
     {
         [SerializeField] private Health _health;
         [SerializeField] private Sheeld _sheeld;

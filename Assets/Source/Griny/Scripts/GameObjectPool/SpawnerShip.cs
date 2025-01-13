@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -17,6 +18,8 @@ namespace Enemy
 
         private int numberNextShip = 0;
         private GameObject _enemy;
+
+        private int number = 0;
         //private WaitForSeconds _timeCoroutine = new WaitForSeconds(_delyeCoroutine);
         //private Coroutine _coroutine;
 
@@ -35,12 +38,22 @@ namespace Enemy
 
                 _pool.Add(_enemy);
 
-                _enemy.GetComponent<Health>().Died += SpawnSpip;
-                _enemy.GetComponent<Movement>().OutSight += SpawnSpip;
+                if(_enemy.GetComponent<Health>() == true)
+                {
+                    _enemy.GetComponent<Health>().Died += SpawnSpip;
+                    //Debug.Log("1");
+                }                
+                
+                if(_enemy.GetComponent<Movement>() && _enemy.GetComponent<FighterMovement>() == null && _enemy.GetComponent<ScoutMovement>() == null)
+                {
+                    _enemy.GetComponent<Movement>().OutSight += SpawnSpip;
+                    //Debug.Log("2");
+                }                
 
                 if(_enemy.TryGetComponent<ScoutMovement>(out var scoutMovement))
                 {
                     _enemy.GetComponent<ScoutMovement>().DisabledEnemy += SpawnSpip;
+                    //Debug.Log("3");
                 }
             }
         }
@@ -52,12 +65,22 @@ namespace Enemy
 
         private void OnDisable()
         {
-            _enemy.GetComponent<Health>().Died -= SpawnSpip;
-            _enemy.GetComponent<Movement>().OutSight -= SpawnSpip;
-
+            if(_enemy.GetComponent<Health>() == true)
+            {
+                _enemy.GetComponent<Health>().Died -= SpawnSpip;
+                
+            }
+            
+            if(_enemy.GetComponent<Movement>() == true)
+            {
+                _enemy.GetComponent<Movement>().OutSight -= SpawnSpip;
+                
+            }
+            
             if (_enemy.TryGetComponent<ScoutMovement>(out var scoutMovement))
             {
                 _enemy.GetComponent<ScoutMovement>().DisabledEnemy -= SpawnSpip;
+                
             }
         }
 
@@ -65,6 +88,8 @@ namespace Enemy
         {
             if (TryGetShip(out GameObject gameObject))
             {
+                //Debug.Log(gameObject + "1");
+
                 SetGameObject(gameObject, _pointSpawner.position);
             }
         }
@@ -80,18 +105,22 @@ namespace Enemy
             
             enemy.gameObject.SetActive(true);
             enemy.transform.position = spawnPosition;
+
+            //number++;
+            //Debug.Log(number);
         }
 
         private bool TryGetShip(out GameObject result)
         {
-            if (_pool.Count > numberNextShip)
+            Debug.Log("индекс " + numberNextShip);
+            if (numberNextShip < _pool.Count)
             {
                 result = _pool[numberNextShip];
 
-                if (result.gameObject.activeSelf == true)
-                {
-                    result = null;
-                }
+                //if (result.gameObject.activeSelf == true)
+                //{
+                //    result = null;
+                //}
 
                 numberNextShip++;
             }
@@ -101,7 +130,8 @@ namespace Enemy
                 result = _pool[numberNextShip];
             }
 
-            //Debug.Log(result + " resulte");
+            //Debug.Log("result " + result);
+            
             return result != null;
         }
 

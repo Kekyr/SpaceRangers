@@ -5,7 +5,7 @@ using WordGame;
 
 namespace Enemy
 {
-    public class Support : MonoBehaviour
+    public class Support : EnemyShip
     {
         
     }
