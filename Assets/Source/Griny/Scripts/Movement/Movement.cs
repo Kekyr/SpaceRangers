@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using WordGame;
 
@@ -11,6 +12,10 @@ namespace Enemy
         [SerializeField] private float _speed;
         [SerializeField] private Rigidbody2D _rigidbody;
 
+        private bool _isCollideDown = false;
+
+        public event Action OutSight;
+
         private void FixedUpdate()
         {
             Move();
@@ -19,6 +24,25 @@ namespace Enemy
         private void OnTriggerEnter2D(Collider2D collision)
         {
             CollideShip(collision, _speed);
+            InvokActionOutSight();
+        }
+
+        protected virtual Vector2 GetVelosity(float speed)
+        {
+            return Vector2.down * speed * Time.deltaTime;
+        }
+
+        protected virtual void CollideShip(Collider2D collision, float speed)
+        {
+            if (collision.gameObject.TryGetComponent(out BackgruondBorder backgruondBorder))
+            {
+                if (backgruondBorder.GetName() == _borderDown)
+                {
+                    speed = 0;
+                    gameObject.SetActive(false);
+                    _isCollideDown = true;
+                }
+            }
         }
 
         private void Move()
@@ -26,20 +50,12 @@ namespace Enemy
             _rigidbody.velocity = GetVelosity(_speed);
         }
 
-        protected virtual Vector2 GetVelosity(float speed)
+        protected virtual void InvokActionOutSight()
         {
-            return Vector2.down * speed;
-        }
-
-        protected virtual void CollideShip(Collider2D collision, float speed)
-        {
-            if (collision.gameObject.TryGetComponent<BackgruondBorder>(out BackgruondBorder backgruondBorder))
+            if(_isCollideDown == true)
             {
-                if (backgruondBorder.GetName() == _borderDown)
-                {
-                    speed = 0;
-                    gameObject.SetActive(false);
-                }
+                OutSight?.Invoke();
+                _isCollideDown = false;
             }
         }
     }

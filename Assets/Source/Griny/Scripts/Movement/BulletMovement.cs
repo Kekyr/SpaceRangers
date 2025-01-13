@@ -8,7 +8,7 @@ namespace Enemy
 
         protected override Vector2 GetVelosity(float speed)
         {
-            return _bullet.Direction * speed;
+            return _bullet.Direction * speed * Time.deltaTime;
         }
     }
 }

@@ -98,6 +98,7 @@ namespace ShipBase
 
             if (raycastHit.collider.gameObject.TryGetComponent(out Movement movement))
             {
+                
                 _isSelected = !_isSelected;
             }
         }

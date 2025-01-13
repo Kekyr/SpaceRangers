@@ -1,13 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 using WordGame;
 
 namespace Enemy
 {
-    public class FighterMovement : Movement
+    public class FighterMovement : Movement, IGettingOutSight
     {
         private const string _borderFighterDown = "fighterDown";
         private const string _borderLeft = "left";
@@ -16,6 +13,7 @@ namespace Enemy
 
         [SerializeField] private List<Transform> _directionsMovement;
         [SerializeField] private Transform _pointStart;
+        [SerializeField] private Health _health;
 
         private Vector3 _currentTarget;
         private int randomNumber;
@@ -29,24 +27,24 @@ namespace Enemy
 
         private void Start()
         {
-            _currentTarget = _directionsMovement[_numberDownwardDirection].localPosition;
+            GetStartTrget();
         }
 
-        //private void OnEnable()
-        //{
-        //    ReloadVariable();
-              //Когда убьют переменную _isInside сделать false
+        private void OnEnable()
+        {
+            _health.Died += ReloadVariable;
+            _health.Died += GetStartTrget;
+        }
 
-        //}
-
-        //private void OnDisable()
-        //{
-        //    ReloadVariable();
-        //}
+        private void OnDisable()
+        {
+            _health.Died -= ReloadVariable;
+            _health.Died -= GetStartTrget;
+        }
 
         protected override Vector2 GetVelosity(float speed)
         {
-            return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed);
+            return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
         }
 
         protected override void CollideShip(Collider2D collision, float speed)
@@ -76,6 +74,11 @@ namespace Enemy
                         break;
                 }
             }
+        }
+
+        private void GetStartTrget()
+        {
+            _currentTarget = _directionsMovement[_numberDownwardDirection].localPosition;
         }
 
         private Vector3 GetTarget(List<int> diretions)

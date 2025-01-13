@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using WordGame;
 
@@ -14,6 +14,10 @@ namespace Enemy
         [SerializeField] private Transform _pointLeft;
         [SerializeField] private Transform _pointRight;
 
+        private bool _isCollide = false;
+
+        public event Action DisabledEnemy;
+
         private Vector3 _currentTarget;
 
         private void Start()
@@ -23,18 +27,19 @@ namespace Enemy
 
         protected override Vector2 GetVelosity(float speed)
         {
-            return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed);
+            return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
         }
 
         protected override void CollideShip(Collider2D collision, float speed)
         {
-            if (collision.gameObject.TryGetComponent<BackgruondBorder>(out BackgruondBorder backgruondBorder) == true)
+            if (collision.gameObject.TryGetComponent(out BackgruondBorder backgruondBorder))
             {
                 switch (backgruondBorder.GetName())
                 {
                     case _borderDown:
                         speed = 0;
                         gameObject.SetActive(false);
+                        _isCollide = true;
                         break;
                     case _borderRight:
                         _currentTarget = _pointLeft.localPosition;
@@ -48,7 +53,7 @@ namespace Enemy
 
         private Vector3 GetRandomTarget()
         {
-            int random = Random.Range(1, 3);
+            int random = UnityEngine.Random.Range(1, 3);
 
             if (random == 1)
             {
@@ -57,6 +62,15 @@ namespace Enemy
             else
             {
                 return _pointRight.localPosition;
+            }
+        }
+
+        protected override void InvokActionOutSight()
+        {
+            if (_isCollide == true)
+            {
+                DisabledEnemy?.Invoke();
+                _isCollide = false;
             }
         }
     }

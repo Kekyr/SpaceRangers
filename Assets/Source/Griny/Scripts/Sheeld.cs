@@ -3,29 +3,30 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Health : MonoBehaviour
+    public class Sheeld : MonoBehaviour
     {
         [SerializeField] private float _startValue;
+        [SerializeField] private GameObject _sheeld;
 
         private float _value;
 
-        public event Action ChangedHealth;
-        public event Action Died;
+        public event Action ChangedValue;
 
         private void Start()
         {
-            ReStartHealth();
+            ReStartValue();
         }
 
-        public float GetHealth()
+        public float GetValue()
         {
             return _value;
         }
 
-        public void ReStartHealth()
+        public void ReStartValue()
         {
             _value = _startValue;
-            ChangedHealth?.Invoke();
+            ChangedValue?.Invoke();
+            _sheeld.gameObject.SetActive(true);
         }
 
         public void TakeDamage(float damage)
@@ -35,11 +36,11 @@ namespace Enemy
             if (_value <= 0)
             {
                 _value = 0;
-                ReStartHealth();
-                Died?.Invoke();
+                _sheeld.gameObject.SetActive(false);
+                //ReStartValue();
             }
 
-            ChangedHealth?.Invoke();
+            ChangedValue?.Invoke();
         }
     }
 }
