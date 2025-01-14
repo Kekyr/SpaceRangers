@@ -1,28 +1,40 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace ShipBase
 {
     public class RocketLauncher : MonoBehaviour
     {
+        private readonly string _launchTrigger = "Launch";
+
         [SerializeField] private PlayerInputRouter _playerInputRouter;
+        [SerializeField] private Health _health;
 
         [SerializeField] private GameObject[] _slots;
         [SerializeField] private GameObject _prefab;
 
-        [SerializeField] private int _count;
-
+        private Button _button;
         private Camera _camera;
-        private Animator[] _slotsAnimator;
 
+        private Animator[] _slotsAnimator;
+        private Rocket[] _rockets;
+
+        private int _rocketCount;
         private int _currentSlotIndex;
+        private int _destroyedRocketCount;
 
         private void Start()
         {
             if (_playerInputRouter == null)
             {
                 throw new ArgumentNullException(nameof(_playerInputRouter));
+            }
+
+            if (_health == null)
+            {
+                throw new ArgumentNullException(nameof(_health));
             }
 
             if (_slots.Length == 0)
@@ -36,16 +48,20 @@ namespace ShipBase
             }
 
             _playerInputRouter.Rocket.performed += OnRocketPerformed;
+            _health.Died += OnDead;
+
+            _button.onClick.AddListener(OnRocketAdded);
 
             _slotsAnimator = new Animator[_slots.Length];
+            _rockets = new Rocket[_slots.Length];
 
             for (int i = 0; i < _slots.Length; i++)
             {
                 _slotsAnimator[i] = _slots[i].GetComponent<Animator>();
 
-                if (i < _count)
+                if (i < _rocketCount)
                 {
-                    Instantiate(_prefab, _slots[i].transform);
+                    Spawn(i);
                 }
             }
         }
@@ -53,49 +69,47 @@ namespace ShipBase
         private void OnDisable()
         {
             _playerInputRouter.Rocket.performed -= OnRocketPerformed;
+            _health.Died -= OnDead;
+            _button.onClick.RemoveListener(OnRocketAdded);
+
+            for (int i = 0; i < _rockets.Length; i++)
+            {
+                if (_rockets[i] != null)
+                {
+                    _rockets[i].Destroyed -= OnRocketDestroyed;
+                }
+            }
         }
 
-        public void Init(Camera camera)
+        private void FixedUpdate()
+        {
+            if (_destroyedRocketCount == _rocketCount && _button.interactable == false)
+            {
+                _currentSlotIndex = 0;
+                _rocketCount = 0;
+                _destroyedRocketCount = 0;
+                _button.interactable = true;
+            }
+        }
+
+        public void Init(Camera camera, Button button, int rocketCount)
         {
             _camera = camera;
+            _button = button;
+            _rocketCount = rocketCount;
             enabled = true;
         }
 
-        private void OnRocketPerformed(InputAction.CallbackContext context)
+        private void Spawn(int index)
         {
-            Debug.Log("Rocket Performed!");
-
-            if (context.control.device is Touchscreen)
-            {
-                Debug.Log("Touchscreen");
-                bool isSelected = CheckPointer(Pointer.current.position.value);
-
-                if (isSelected == false)
-                {
-                    return;
-                }
-            }
-
-            if (_count > 0 && _currentSlotIndex < _count)
-            {
-                _slotsAnimator[_currentSlotIndex].enabled = true;
-                RocketMovement rocketMovement = _slots[_currentSlotIndex].GetComponentInChildren<RocketMovement>();
-                rocketMovement.enabled = true;
-                _currentSlotIndex++;
-            }
-
-            if (_currentSlotIndex == _count)
-            {
-                _currentSlotIndex = 0;
-                _count = 0;
-            }
+            Rocket rocket = Instantiate(_prefab, _slots[index].transform).GetComponent<Rocket>();
+            rocket.Destroyed += OnRocketDestroyed;
+            _rockets[index] = rocket;
         }
 
         private bool CheckPointer(Vector2 position)
         {
-            Debug.Log($"PointerPosition: {position.x} {position.y}");
             Vector2 pointerWorldPosition = ConvertPointerPosition(position);
-            Debug.Log($"PointerWorldPosition: {pointerWorldPosition.x} {pointerWorldPosition.y}");
             RaycastHit2D raycastHit = Physics2D.Raycast(pointerWorldPosition, Vector2.zero);
 
             if (raycastHit.collider == null)
@@ -103,7 +117,7 @@ namespace ShipBase
                 return false;
             }
 
-            if (raycastHit.collider.gameObject.TryGetComponent(out Movement movement))
+            if (raycastHit.collider.gameObject.CompareTag("Player"))
             {
                 return true;
             }
@@ -114,6 +128,49 @@ namespace ShipBase
         private Vector2 ConvertPointerPosition(Vector2 mousePosition)
         {
             return _camera.ScreenToWorldPoint(mousePosition);
+        }
+
+        private void OnRocketPerformed(InputAction.CallbackContext context)
+        {
+            if (context.control.device is Touchscreen)
+            {
+                bool isSelected = CheckPointer(Pointer.current.position.value);
+
+                if (isSelected == false)
+                {
+                    return;
+                }
+            }
+
+            if (_rocketCount > 0 && _currentSlotIndex < _rocketCount)
+            {
+                Rocket rocket = _rockets[_currentSlotIndex];
+                _slotsAnimator[_currentSlotIndex].SetTrigger(_launchTrigger);
+                rocket.Launch();
+                _currentSlotIndex++;
+            }
+        }
+
+        private void OnRocketAdded()
+        {
+            _rocketCount = 1;
+
+            for (int i = 0; i < _rocketCount; i++)
+            {
+                Spawn(i);
+            }
+
+            _button.interactable = false;
+        }
+
+        private void OnRocketDestroyed(Rocket rocket)
+        {
+            _destroyedRocketCount++;
+        }
+
+        private void OnDead()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

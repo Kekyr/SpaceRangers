@@ -7,13 +7,14 @@ namespace ShipBase
     public class Shooting : MonoBehaviour
     {
         [SerializeField] private Transform[] _spawnPoints;
-        [SerializeField] private ObjectPool _bulletPool;
+        [SerializeField] private BulletPool _bulletPool;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         [SerializeField] private float _interval;
         [SerializeField] private float _bulletSpeed;
 
         private WaitForSeconds _waitForSeconds;
+        private Health _health;
 
         private void Start()
         {
@@ -42,14 +43,22 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_spriteRenderer));
             }
 
+            _health = GetComponent<Health>();
+            _health.Died += OnDead;
+
             StartCoroutine(Spawn());
+        }
+
+        private void OnDisable()
+        {
+            _health.Died -= OnDead;
         }
 
         private IEnumerator Spawn()
         {
             int orderInLayer = _spriteRenderer.sortingOrder + 1;
-            
-            while (true)
+
+            while (gameObject.activeSelf == true)
             {
                 for (int i = 0; i < _spawnPoints.Length; i++)
                 {
@@ -62,6 +71,14 @@ namespace ShipBase
                 }
 
                 yield return new WaitForSeconds(_interval);
+            }
+        }
+
+        private void OnDead()
+        {
+            foreach (Transform spawnPoint in _spawnPoints)
+            {
+                spawnPoint.parent.gameObject.SetActive(false);
             }
         }
     }

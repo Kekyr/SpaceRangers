@@ -4,6 +4,7 @@ using UnityEngine;
 namespace ShipBase
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Animator))]
     public class RocketMovement : MonoBehaviour
     {
         [SerializeField] private float _force;
@@ -27,6 +28,11 @@ namespace ShipBase
             _animator.enabled = true;
             _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _rigidbody.AddForce(transform.up * _force, ForceMode2D.Impulse);
+        }
+
+        public void Stop()
+        {
+            _rigidbody.velocity = Vector2.zero;
         }
     }
 }

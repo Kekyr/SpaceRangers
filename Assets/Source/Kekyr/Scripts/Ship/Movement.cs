@@ -21,6 +21,7 @@ namespace ShipBase
         private PlayerInputRouter _playerInputRouter;
         private Camera _camera;
         private Rigidbody2D _rigidbody;
+        private Health _health;
 
         private Vector3 _endPosition;
 
@@ -36,7 +37,9 @@ namespace ShipBase
 
             _playerInputRouter = GetComponent<PlayerInputRouter>();
             _rigidbody = GetComponent<Rigidbody2D>();
+            _health = GetComponent<Health>();
 
+            _health.Died += OnDead;
             _playerInputRouter.Move.performed += OnMovePerformed;
             _playerInputRouter.Select.started += OnSelectStarted;
             _playerInputRouter.Select.canceled += OnSelectCanceled;
@@ -44,6 +47,7 @@ namespace ShipBase
 
         private void OnDisable()
         {
+            _health.Died -= OnDead;
             _playerInputRouter.Move.performed -= OnMovePerformed;
             _playerInputRouter.Select.started -= OnSelectStarted;
             _playerInputRouter.Select.canceled -= OnSelectCanceled;
@@ -96,7 +100,7 @@ namespace ShipBase
                 return;
             }
 
-            if (raycastHit.collider.gameObject.TryGetComponent(out Movement movement))
+            if (raycastHit.collider.gameObject.CompareTag("Player"))
             {
                 
                 _isSelected = !_isSelected;
@@ -114,6 +118,12 @@ namespace ShipBase
         private Vector2 ConvertPointerPosition(Vector2 mousePosition)
         {
             return _camera.ScreenToWorldPoint(mousePosition);
+        }
+
+        private void OnDead()
+        {
+            _engineAnimator.gameObject.SetActive(false);
+            enabled = false;
         }
     }
 }
