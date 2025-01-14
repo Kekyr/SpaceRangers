@@ -21,7 +21,7 @@ namespace Enemy
 
         private void OnDie()
         {
-            StartCoroutine(base.Deactivate());
+            Deactivate();
         }
 
         private void OnTriggerEnter2D(Collider2D collider)

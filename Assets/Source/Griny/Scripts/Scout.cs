@@ -22,7 +22,7 @@ namespace Enemy
 
         private void OnDie()
         { 
-            StartCoroutine(Deactivate());
+            Deactivate();
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
