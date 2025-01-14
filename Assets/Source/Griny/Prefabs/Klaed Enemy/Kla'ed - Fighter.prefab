@@ -305,10 +305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1963059872914825510, guid: 9ed01957719d3b24b85cf6a4828e2323, type: 3}
-  _pointSpawner: {fileID: 6460896961755912630}
+  _prefab: {fileID: 8729685428340258076, guid: 9ed01957719d3b24b85cf6a4828e2323, type: 3}
+  _spawnPoint: {fileID: 6460896961755912630}
   _direction: {fileID: 6027145207832377604}
-  _capasity: 20
+  _capacity: 20
 --- !u!1 &2905656645807563297
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,9 +549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6318a40f06626aa43a25a8ffe0cc57b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 2428123006579966196}
-  _sheeld: {fileID: 6399067458932203803}
   _animator: {fileID: 8084514693075339913}
+  _health: {fileID: 2428123006579966196}
+  shield: {fileID: 6399067458932203803}
 --- !u!114 &6399067458932203803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,10 +643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1963059872914825510, guid: 9ed01957719d3b24b85cf6a4828e2323, type: 3}
-  _pointSpawner: {fileID: 5120819418352446140}
+  _prefab: {fileID: 8729685428340258076, guid: 9ed01957719d3b24b85cf6a4828e2323, type: 3}
+  _spawnPoint: {fileID: 5120819418352446140}
   _direction: {fileID: 821419178406070936}
-  _capasity: 20
+  _capacity: 20
 --- !u!1 &4513974278191846896
 GameObject:
   m_ObjectHideFlags: 0

@@ -114,10 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4833151124058977201, guid: b40ce12280d771749868ce03e5afedfb, type: 3}
-  _pointSpawner: {fileID: 5170733217644765823}
+  _prefab: {fileID: 3850602350457569866, guid: b40ce12280d771749868ce03e5afedfb, type: 3}
+  _spawnPoint: {fileID: 5170733217644765823}
   _direction: {fileID: 5279710163837396697}
-  _capasity: 20
+  _capacity: 20
 --- !u!1 &5579680336505681102
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,10 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4833151124058977201, guid: b40ce12280d771749868ce03e5afedfb, type: 3}
-  _pointSpawner: {fileID: 7882275194934812709}
+  _prefab: {fileID: 3850602350457569866, guid: b40ce12280d771749868ce03e5afedfb, type: 3}
+  _spawnPoint: {fileID: 7882275194934812709}
   _direction: {fileID: 880459760153948065}
-  _capasity: 20
+  _capacity: 20
 --- !u!1 &5677362596419041293
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,9 +423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63db5f77ee749ef42bc86ad5bc89c596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 2999850320498237334}
-  _sheeld: {fileID: -2750336864297814554}
   _animator: {fileID: 5867195421094958698}
+  _health: {fileID: 2999850320498237334}
+  shield: {fileID: -2750336864297814554}
 --- !u!114 &-2750336864297814554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,10 +484,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4833151124058977201, guid: b40ce12280d771749868ce03e5afedfb, type: 3}
-  _pointSpawner: {fileID: 5155489497638860264}
+  _prefab: {fileID: 3850602350457569866, guid: b40ce12280d771749868ce03e5afedfb, type: 3}
+  _spawnPoint: {fileID: 5155489497638860264}
   _direction: {fileID: 216647905994206137}
-  _capasity: 20
+  _capacity: 20
 --- !u!1 &7267592927758843077
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4833151124058977201, guid: b40ce12280d771749868ce03e5afedfb, type: 3}
-  _pointSpawner: {fileID: 7308905096327393503}
+  _prefab: {fileID: 3850602350457569866, guid: b40ce12280d771749868ce03e5afedfb, type: 3}
+  _spawnPoint: {fileID: 7308905096327393503}
   _direction: {fileID: 6032731607149708004}
-  _capasity: 20
+  _capacity: 20

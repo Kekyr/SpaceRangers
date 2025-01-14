@@ -93,7 +93,7 @@ namespace Enemy
             }
 
             enemy.transform.position = _spawnPoint.position;
-            Debug.Log("Activate in EnemySpawner");
+
             enemy.gameObject.SetActive(true);
             _currentInstanceIndex++;
         }

@@ -30,9 +30,9 @@ namespace Enemy
             return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
         }
 
-        protected override void CollideShip(Collider2D collision, float speed)
+        protected override void CollideShip(Collider2D col, float speed)
         {
-            if (collision.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
+            if (col.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
             {
                 switch (backgruondBorder.GetName())
                 {

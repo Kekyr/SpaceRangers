@@ -18,7 +18,7 @@ namespace Enemy
             float animationLength = _animator.GetCurrentAnimatorStateInfo(0).length;
 
             yield return new WaitForSeconds(animationLength);
-            Debug.Log("Deactivate!");
+
             gameObject.SetActive(false);
             _animator.SetBool(_destruction, false);
 

@@ -32,9 +32,9 @@ namespace Enemy
             return Vector2.down * speed * Time.deltaTime;
         }
 
-        protected virtual void CollideShip(Collider2D collision, float speed)
+        protected virtual void CollideShip(Collider2D col, float speed)
         {
-            if (collision.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
+            if (col.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
             {
                 if (backgruondBorder.GetName() == _borderDown)
                 {

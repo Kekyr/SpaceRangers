@@ -7,74 +7,60 @@ namespace Enemy
 {
     public class Gun : MonoBehaviour
     {
-        private const float _delyeCoroutine = 0.5f;
+        private const float _delay = 0.5f;
 
-        [SerializeField] private GameObject _prefab;
-        [SerializeField] private Transform _pointSpawner;
+        [SerializeField] private Bullet _prefab;
+        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _direction;
-        [SerializeField] private int _capasity;
+        [SerializeField] private int _capacity;
 
-        private List<GameObject> _pool = new List<GameObject>();
-
-        private WaitForSeconds _timeCoroutine = new WaitForSeconds(_delyeCoroutine);
-        private Coroutine _coroutine;
+        private List<Bullet> _pool = new List<Bullet>();
+        private WaitForSeconds _wait = new WaitForSeconds(_delay);
 
         private void Awake()
         {
-            Initialize(_prefab, _pointSpawner);
+            Initialize();
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            if (_coroutine != null)
-            {
-                StopCoroutine(_coroutine);
-            }
-
-            _coroutine = StartCoroutine(ShootBullet());
+            StartCoroutine(ShootBullet());
         }
 
-        private void Initialize(GameObject prefab, Transform spavnerPosition)
+        private void Initialize()
         {
-            for (int i = 0; i < _capasity; i++)
+            for (int i = 0; i < _capacity; i++)
             {
-                GameObject spawned = Instantiate(prefab, spavnerPosition);
-
-                spawned.gameObject.SetActive(false);
-
-                _pool.Add(spawned);
+                Bullet bullet = Instantiate(_prefab, _spawnPoint);
+                bullet.gameObject.SetActive(false);
+                _pool.Add(bullet);
             }
         }
 
         private IEnumerator ShootBullet()
         {
-            while (true)
+            while (gameObject.activeSelf == true)
             {
-                if (TryGetBoard(out GameObject gameObject))
+                if (TryGetInstance(out Bullet instance))
                 {
-                    SetGameObject(gameObject, _pointSpawner.position);
+                    SetInstance(instance, _spawnPoint.position);
                 }
 
-                yield return _timeCoroutine;
+                yield return _wait;
             }
         }
 
-        private void SetGameObject(GameObject bullet, Vector3 spawnPosition)
+        private void SetInstance(Bullet bullet, Vector3 spawnPosition)
         {
-            bullet.gameObject.SetActive(true);
+            bullet.SetVector(-_direction.transform.localPosition);
             bullet.transform.position = spawnPosition;
             bullet.transform.rotation = gameObject.transform.rotation;
-
-            if(bullet.GetComponent<Bullet>() != null)
-            {
-                bullet.GetComponent<Bullet>().SetVector(-_direction.transform.localPosition);
-            }
+            bullet.gameObject.SetActive(true);
         }
 
-        private bool TryGetBoard(out GameObject result)
+        private bool TryGetInstance(out Bullet result)
         {
-            result = _pool.FirstOrDefault(p => p.gameObject.activeSelf == false);
-
+            result = _pool.FirstOrDefault(instance => instance.gameObject.activeSelf == false);
             return result != null;
         }
     }
