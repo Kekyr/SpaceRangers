@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 namespace Enemy
@@ -9,11 +8,11 @@ namespace Enemy
         private readonly string _destruction = "Destruction";
 
         [SerializeField] private Animator _animator;
+
         public event Action Destroyed;
 
         protected void Deactivate()
         {
-            Debug.Log("Deactivate!");
             _animator.SetBool(_destruction, true);
         }
         

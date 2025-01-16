@@ -22,7 +22,6 @@ namespace Enemy
 
         private void OnDie()
         {
-            Debug.Log("Died!");
             Deactivate();
         }
         

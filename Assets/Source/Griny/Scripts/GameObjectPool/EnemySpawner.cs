@@ -16,9 +16,14 @@ namespace Enemy
             Initialize(_prefabs, _spawnPoint);
         }
 
+
+        private void Start()
+        {
+            Spawn();
+        }
+
         private void OnDisable()
         {
-            Debug.Log("I'm disabled!");
             foreach (GameObject instance in _pool)
             {
                 instance.GetComponent<EnemyShip>().Destroyed -= Spawn;
@@ -42,14 +47,8 @@ namespace Enemy
             }
         }
 
-        private void Start()
-        {
-            Spawn();
-        }
-
         private void Initialize(List<GameObject> prefabs, Transform spawnPoint)
         {
-            Debug.Log($"prefabs ==null:{prefabs == null}");
             foreach (GameObject prefab in prefabs)
             {
                 GameObject instance = Instantiate(prefab, spawnPoint);
