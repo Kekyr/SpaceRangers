@@ -61,7 +61,7 @@ namespace ShipBase
                 {
                     ""name"": """",
                     ""id"": ""7d876699-e31d-4cc0-a550-a52f7111c3d2"",
-                    ""path"": ""<Mouse>/position"",
+                    ""path"": ""<Pointer>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse;Touchscreen"",

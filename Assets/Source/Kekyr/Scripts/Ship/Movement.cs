@@ -102,7 +102,6 @@ namespace ShipBase
 
             if (raycastHit.collider.gameObject.CompareTag("Player"))
             {
-                
                 _isSelected = !_isSelected;
             }
         }
