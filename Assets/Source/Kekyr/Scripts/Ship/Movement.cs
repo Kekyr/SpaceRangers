@@ -21,7 +21,7 @@ namespace ShipBase
         private PlayerInputRouter _playerInputRouter;
         private Camera _camera;
         private Rigidbody2D _rigidbody;
-        private Health _health;
+        private ShipHealth _health;
 
         private Vector3 _endPosition;
 
@@ -37,7 +37,7 @@ namespace ShipBase
 
             _playerInputRouter = GetComponent<PlayerInputRouter>();
             _rigidbody = GetComponent<Rigidbody2D>();
-            _health = GetComponent<Health>();
+            _health = GetComponent<ShipHealth>();
 
             _health.Died += OnDead;
             _playerInputRouter.Move.performed += OnMovePerformed;

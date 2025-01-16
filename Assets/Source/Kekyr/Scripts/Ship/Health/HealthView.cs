@@ -9,7 +9,7 @@ namespace ShipBase
         private readonly float _duration = 0.5f;
         
         private Slider _slider;
-        private Health _health;
+        private ShipHealth _health;
 
         private void OnEnable()
         {
@@ -26,9 +26,9 @@ namespace ShipBase
             _health.ValueChanged -= OnValueChanged;
         }
 
-        public void Init(Health health)
+        public void Init(ShipHealth shipHealth)
         {
-            _health = health;
+            _health = shipHealth;
             enabled = true;
         }
 

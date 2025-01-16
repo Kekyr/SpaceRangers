@@ -9,7 +9,7 @@ namespace ShipBase
         private readonly int _interval = 1;
 
         [SerializeField] private Collider2D _healthCollider;
-        [SerializeField] private Health _health;
+        [SerializeField] private ShipHealth _health;
 
         private Coroutine _tryRegenerate;
         private SpriteRenderer _spriteRenderer;

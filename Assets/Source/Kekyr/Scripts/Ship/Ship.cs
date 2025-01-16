@@ -6,19 +6,13 @@ namespace ShipBase
 {
     public class Ship : MonoBehaviour
     {
-        [SerializeField] private Collider2D _collider;
         [SerializeField] private Wallet _wallet;
         [SerializeField] private Shield _shield;
 
-        private Health _health;
+        private ShipHealth _health;
 
         private void Awake()
         {
-            if (_collider == null)
-            {
-                throw new ArgumentNullException(nameof(_collider));
-            }
-
             if (_wallet == null)
             {
                 throw new ArgumentNullException(nameof(_wallet));
@@ -29,7 +23,7 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_shield));
             }
 
-            _health = GetComponent<Health>();
+            _health = GetComponent<ShipHealth>();
         }
 
         private void OnTriggerEnter2D(Collider2D col)

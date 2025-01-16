@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4038468500015706478}
   m_Layer: 0
   m_Name: Kla'ed - Support
-  m_TagString: EnemyShip
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

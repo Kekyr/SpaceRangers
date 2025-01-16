@@ -79,7 +79,7 @@ namespace ShipBase
             GameObject ship = Instantiate(_shipData.CurrentLevel);
 
             Movement movement = ship.GetComponent<Movement>();
-            Health health = ship.GetComponent<Health>();
+            ShipHealth health = ship.GetComponent<ShipHealth>();
             Wallet wallet = ship.GetComponent<Wallet>();
             Shield shield = ship.GetComponentInChildren<Shield>();
             RocketLauncher rocketLauncher = ship.GetComponentInChildren<RocketLauncher>();

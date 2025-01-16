@@ -12,6 +12,8 @@ namespace Enemy
         public event Action ChangedHealth;
         public event Action Died;
 
+        public bool IsDead => _value <= 0;
+
         private void Start()
         {
             ResetHealth();

@@ -6,7 +6,7 @@ using UnityEngine;
 public class BulletPool : MonoBehaviour
 {
     [SerializeField] private int _count;
-    [SerializeField] private Health _health;
+    [SerializeField] private ShipHealth _health;
 
     private GameObject _prefab;
 

@@ -10,7 +10,7 @@ namespace ShipBase
         
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("EnemyShip"))
+            if (collider.gameObject.CompareTag("Enemy"))
             {
                 Entered?.Invoke(collider.gameObject);
             }
@@ -18,7 +18,7 @@ namespace ShipBase
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("EnemyShip"))
+            if (other.gameObject.CompareTag("Enemy"))
             {
                 Exited?.Invoke(other.gameObject);
             }
