@@ -17,6 +17,7 @@ namespace ShipBase
         private int _currentPart;
 
         public event Action<float> ValueChanged;
+        public event Action Damaged;
         public event Action Died;
 
         public bool IsDead => _current <= 0;
@@ -37,7 +38,7 @@ namespace ShipBase
             }
             
             _current -= damage;
-
+            Damaged?.Invoke();
             CheckState();
 
             ValueChanged?.Invoke(_current);

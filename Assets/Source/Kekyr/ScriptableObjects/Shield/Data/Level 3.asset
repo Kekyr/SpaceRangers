@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 20
   _delay: 4
-  _speed: 0.25
+  _restoreRate: 0.25

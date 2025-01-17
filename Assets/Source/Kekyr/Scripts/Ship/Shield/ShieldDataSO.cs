@@ -7,10 +7,10 @@ namespace ShipBase
     {
         [SerializeField] private int _maxHealth;
         [SerializeField] private int _delay;
-        [SerializeField] private float _speed;
+        [SerializeField] private float _restoreRate;
 
         public int MaxHealth => _maxHealth;
         public int Delay => _delay;
-        public float Speed => _speed;
+        public float RestoreRate => _restoreRate;
     }
 }

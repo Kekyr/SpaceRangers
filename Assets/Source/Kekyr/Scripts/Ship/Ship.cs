@@ -7,9 +7,7 @@ namespace ShipBase
     public class Ship : MonoBehaviour
     {
         [SerializeField] private Wallet _wallet;
-        [SerializeField] private Shield _shield;
-
-        private ShipHealth _health;
+        [SerializeField] private DamageHandler _damageHandler;
 
         private void Awake()
         {
@@ -18,23 +16,17 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_wallet));
             }
 
-            if (_shield == null)
+            if (_damageHandler == null)
             {
-                throw new ArgumentNullException(nameof(_shield));
+                throw new ArgumentNullException(nameof(_damageHandler));
             }
-
-            _health = GetComponent<ShipHealth>();
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("Enemy") && _shield.IsDead == false)
+            if (col.gameObject.CompareTag("Enemy"))
             {
-                _shield.TakeDamage(2);
-            }
-            else if (col.gameObject.CompareTag("Enemy"))
-            {
-                _health.TakeDamage(2);
+                _damageHandler.TakeDamage(2);
             }
 
             if (col.gameObject.TryGetComponent(out Coin coin))
