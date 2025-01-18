@@ -7,6 +7,7 @@ namespace Enemy
 {
     public class Gun : MonoBehaviour
     {
+        private const string _paretBullets = "ParentBullets";
         private const float _delay = 0.5f;
 
         [SerializeField] private Bullet _prefab;
@@ -14,11 +15,18 @@ namespace Enemy
         [SerializeField] private Transform _direction;
         [SerializeField] private int _capacity;
 
+        private Transform _parent;
         private List<Bullet> _pool = new List<Bullet>();
         private WaitForSeconds _wait = new WaitForSeconds(_delay);
 
         private void Awake()
         {
+
+        }
+
+        private void Start()
+        {
+            _parent = GameObject.FindWithTag(_paretBullets).transform;
             Initialize();
         }
 
@@ -31,7 +39,7 @@ namespace Enemy
         {
             for (int i = 0; i < _capacity; i++)
             {
-                Bullet bullet = Instantiate(_prefab, _spawnPoint);
+                Bullet bullet = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity, _parent);
                 bullet.gameObject.SetActive(false);
                 _pool.Add(bullet);
             }

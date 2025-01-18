@@ -3,14 +3,17 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IChanging
     {
         [SerializeField] private float _startValue;
 
         private float _value;
 
-        public event Action ChangedHealth;
+        public float Value => _value;
+        public float StartValue => _startValue;
+
         public event Action Died;
+        public event Action<float, float> ChangedValue;
 
         private void Start()
         {
@@ -22,23 +25,27 @@ namespace Enemy
             return _value;
         }
 
+        public float GetStartValue()
+        {
+            return _startValue;
+        }
+
         public void ResetHealth()
         {
             _value = _startValue;
-            ChangedHealth?.Invoke();
+            ChangedValue?.Invoke(_value, _startValue);
         }
 
         public void TakeDamage(float damage)
         {
-            _value -= damage;
+            _value = Mathf.Clamp(_value - damage, 0, _startValue);
 
-            if (_value <= 0)
+            if (_value == 0)
             {
-                _value = 0;
                 Died?.Invoke();
             }
 
-            ChangedHealth?.Invoke();
+            ChangedValue?.Invoke(_value, _startValue);
         }
     }
 }

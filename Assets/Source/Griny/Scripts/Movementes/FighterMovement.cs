@@ -4,7 +4,7 @@ using WordGame;
 
 namespace Enemy
 {
-    public class FighterMovement : Movement, IGettingOutSight
+    public class FighterMovement : Movement
     {
         private const string _borderFighterDown = "fighterDown";
         private const string _borderLeft = "left";

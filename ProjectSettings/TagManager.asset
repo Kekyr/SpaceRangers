@@ -8,6 +8,8 @@ TagManager:
   - EnemyShip
   - Enemy
   - Coin
+  - BulletEnemy
+  - ParentBullets
   layers:
   - Default
   - TransparentFX

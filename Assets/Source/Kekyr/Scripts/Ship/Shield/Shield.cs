@@ -25,7 +25,7 @@ namespace ShipBase
         private float _speed;
 
         public event Action<float> ValueChanged;
-        public event Action<Collider2D> Entered;
+        //public event Action<Collider2D> Entered;
 
         public int Max => _max;
         public bool IsDead => _current <= 0;
