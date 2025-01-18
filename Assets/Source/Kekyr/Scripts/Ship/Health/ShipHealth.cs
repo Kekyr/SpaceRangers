@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ShipBase
 {
-    public class Health : MonoBehaviour
+    public class ShipHealth : MonoBehaviour
     {
         private readonly string _damagedTrigger = "Damaged";
         private readonly string _deadTrigger = "Dead";
@@ -17,6 +17,7 @@ namespace ShipBase
         private int _currentPart;
 
         public event Action<float> ValueChanged;
+        public event Action Damaged;
         public event Action Died;
 
         public bool IsDead => _current <= 0;
@@ -37,7 +38,7 @@ namespace ShipBase
             }
             
             _current -= damage;
-
+            Damaged?.Invoke();
             CheckState();
 
             ValueChanged?.Invoke(_current);

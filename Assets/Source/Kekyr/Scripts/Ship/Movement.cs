@@ -8,10 +8,10 @@ namespace ShipBase
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour
     {
-        private readonly float _minX = -2.3f;
+        private readonly float _minX = -2.15f;
         private readonly float _minY = -4.7f;
 
-        private readonly float _maxX = 2.3f;
+        private readonly float _maxX = 2.15f;
         private readonly float _maxY = 5.7f;
 
         private readonly string _movingAnimation = "IsMoving";
@@ -21,7 +21,7 @@ namespace ShipBase
         private PlayerInputRouter _playerInputRouter;
         private Camera _camera;
         private Rigidbody2D _rigidbody;
-        private Health _health;
+        private ShipHealth _health;
 
         private Vector3 _endPosition;
 
@@ -37,7 +37,7 @@ namespace ShipBase
 
             _playerInputRouter = GetComponent<PlayerInputRouter>();
             _rigidbody = GetComponent<Rigidbody2D>();
-            _health = GetComponent<Health>();
+            _health = GetComponent<ShipHealth>();
 
             _health.Died += OnDead;
             _playerInputRouter.Move.performed += OnMovePerformed;
@@ -102,7 +102,6 @@ namespace ShipBase
 
             if (raycastHit.collider.gameObject.CompareTag("Player"))
             {
-                
                 _isSelected = !_isSelected;
             }
         }

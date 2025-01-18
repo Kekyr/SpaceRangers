@@ -14,7 +14,7 @@ namespace ShipBase
         [SerializeField] private float _bulletSpeed;
 
         private WaitForSeconds _waitForSeconds;
-        private Health _health;
+        private ShipHealth _health;
 
         private void Start()
         {
@@ -43,7 +43,7 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_spriteRenderer));
             }
 
-            _health = GetComponent<Health>();
+            _health = GetComponent<ShipHealth>();
             _health.Died += OnDead;
 
             StartCoroutine(Spawn());

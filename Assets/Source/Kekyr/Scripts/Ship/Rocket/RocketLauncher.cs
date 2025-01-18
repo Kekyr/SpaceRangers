@@ -10,7 +10,7 @@ namespace ShipBase
         private readonly string _launchTrigger = "Launch";
 
         [SerializeField] private PlayerInputRouter _playerInputRouter;
-        [SerializeField] private Health _health;
+        [SerializeField] private ShipHealth _health;
 
         [SerializeField] private GameObject[] _slots;
         [SerializeField] private GameObject _prefab;

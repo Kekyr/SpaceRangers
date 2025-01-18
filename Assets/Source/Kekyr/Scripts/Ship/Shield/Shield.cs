@@ -4,68 +4,43 @@ using UnityEngine;
 
 namespace ShipBase
 {
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Shield : MonoBehaviour
     {
         private readonly int _interval = 1;
 
-        [SerializeField] private Collider2D _healthCollider;
-        [SerializeField] private Health _health;
+        private ShieldDataSO _shieldData;
 
         private Coroutine _tryRegenerate;
-        private SpriteRenderer _spriteRenderer;
-        private Collider2D _collider;
 
         private WaitForSeconds _withoutDamage;
         private WaitForSeconds _wait;
 
-        private int _max;
-        private int _delay;
-
         private float _current;
-        private float _speed;
+
+        public event Action Regenerating;
+        public event Action Emptied;
 
         public event Action<float> ValueChanged;
-        //public event Action<Collider2D> Entered;
 
-        public int Max => _max;
+
+        public event Action<float> Remained;
+
+        public int Max => _shieldData.MaxHealth;
         public bool IsDead => _current <= 0;
 
         private void Start()
         {
-            if (_healthCollider == null)
-            {
-                throw new ArgumentNullException(nameof(_healthCollider));
-            }
-
-            if (_health == null)
-            {
-                throw new ArgumentNullException(nameof(_health));
-            }
-
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _collider = GetComponent<Collider2D>();
-
-            _withoutDamage = new WaitForSeconds(_delay);
+            _withoutDamage = new WaitForSeconds(_shieldData.Delay);
             _wait = new WaitForSeconds(_interval);
-
-            _current = _max;
+            _current = _shieldData.MaxHealth;
             ValueChanged?.Invoke(_current);
-
-            _health.ValueChanged += OnValueChanged;
-            _health.Died += OnDead;
-        }
-
-        private void OnDestroy()
-        {
-            _health.ValueChanged -= OnValueChanged;
-            _health.Died -= OnDead;
         }
 
         public void Init(ShieldDataSO shieldData)
         {
-            _max = shieldData.MaxHealth;
-            _delay = shieldData.Delay;
-            _speed = shieldData.Speed;
+            _shieldData = shieldData;
             enabled = true;
         }
 
@@ -77,26 +52,15 @@ namespace ShipBase
             }
 
             _current -= damage;
+            OnDamage();
 
             ValueChanged?.Invoke(_current);
 
-            if (_tryRegenerate != null)
-            {
-                StopCoroutine(_tryRegenerate);
-            }
-
-            _tryRegenerate = StartCoroutine(TryRegenerate());
-
             if (IsDead == true)
             {
-                _spriteRenderer.enabled = false;
-
-                if (_current < 0)
-                {
-                    float remainingDamage = _current * -1;
-                    _health.TakeDamage(remainingDamage);
-                }
-
+                float remainingDamage = _current * -1;
+                Emptied?.Invoke();
+                Remained?.Invoke(remainingDamage);
                 _current = 0;
             }
         }
@@ -105,45 +69,29 @@ namespace ShipBase
         {
             yield return _withoutDamage;
 
-            _spriteRenderer.enabled = true;
-            Switch(false);
+            Regenerating?.Invoke();
 
-            while (_current < _max)
+            while (_current < _shieldData.MaxHealth)
             {
-                _current += _speed;
+                _current += _shieldData.RestoreRate;
                 ValueChanged?.Invoke(_current);
                 yield return _wait;
             }
 
-            _current = _max;
+            _current = _shieldData.MaxHealth;
         }
 
-        private void Switch(bool value)
+        public void OnDamage()
         {
-            _collider.enabled = !value;
-            _healthCollider.enabled = value;
-        }
-
-        private void OnValueChanged(float value)
-        {
-            if (IsDead == false)
+            if (_tryRegenerate != null)
             {
-                return;
+                StopCoroutine(_tryRegenerate);
             }
 
-            StopCoroutine(_tryRegenerate);
             _tryRegenerate = StartCoroutine((TryRegenerate()));
         }
 
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (IsDead == true)
-            {
-                Switch(true);
-            }
-        }
-
-        private void OnDead()
+        public void OnDead()
         {
             gameObject.SetActive(false);
         }

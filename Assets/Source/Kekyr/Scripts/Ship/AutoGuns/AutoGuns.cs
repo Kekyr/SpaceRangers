@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 namespace ShipBase
@@ -63,13 +63,13 @@ namespace ShipBase
 
         private void FixedUpdate()
         {
-            if (_targets.Count != 0 && _follow == null)
+            if (_targets.Count != 0 && _target == null)
             {
-                _follow = StartCoroutine(Follow());
+                Follow();
             }
         }
 
-        private IEnumerator Follow()
+        private void Follow()
         {
             int lastElementIndex = _targets.Count - 1;
 
@@ -87,15 +87,13 @@ namespace ShipBase
                     Vector3 direction = (_target.transform.position - _guns[i].position).normalized;
                     Rotate(_guns[i], direction);
                 }
-
-                yield return null;
             }
 
-            StartCoroutine(ReturnToDefault());
-            _follow = null;
+            ReturnToDefault();
+            _target = null;
         }
 
-        private IEnumerator ReturnToDefault()
+        private void ReturnToDefault()
         {
             Shoot(false);
 
@@ -105,8 +103,6 @@ namespace ShipBase
                 {
                     Rotate(_guns[i], Vector2.up);
                 }
-
-                yield return null;
             }
         }
 

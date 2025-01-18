@@ -16,6 +16,12 @@ namespace Enemy
             Initialize(_prefabs, _spawnPoint);
         }
 
+
+        private void Start()
+        {
+            Spawn();
+        }
+
         private void OnDisable()
         {
             foreach (GameObject instance in _pool)
@@ -41,19 +47,12 @@ namespace Enemy
             }
         }
 
-        private void Start()
-        {
-            Spawn();
-        }
-
         private void Initialize(List<GameObject> prefabs, Transform spawnPoint)
         {
             foreach (GameObject prefab in prefabs)
             {
                 GameObject instance = Instantiate(prefab, spawnPoint);
-                instance.gameObject.SetActive(false);
-                _pool.Add(instance);
-
+                instance.SetActive(false);
                 instance.GetComponent<EnemyShip>().Destroyed += Spawn;
 
                 Movement movement = instance.GetComponent<Movement>();
@@ -72,13 +71,15 @@ namespace Enemy
                         movement.OutSight += Spawn;
                         break;
                 }
+
+                _pool.Add(instance);
             }
         }
 
         private void Spawn()
         {
             GameObject enemy;
-            
+
             if (_currentInstanceIndex >= _pool.Count)
             {
                 _currentInstanceIndex = 0;
@@ -86,14 +87,13 @@ namespace Enemy
 
             enemy = _pool[_currentInstanceIndex];
             enemy.GetComponent<Health>().ResetHealth();
-            
+
             if (enemy.TryGetComponent(out Shield shield))
             {
                 shield.ReStartValue();
             }
 
             enemy.transform.position = _spawnPoint.position;
-
             enemy.gameObject.SetActive(true);
             _currentInstanceIndex++;
         }

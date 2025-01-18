@@ -425,7 +425,7 @@ MonoBehaviour:
   _guns:
   - {fileID: 2609730027230994942}
   - {fileID: 5958306267499966171}
-  _rotationSpeed: 5
+  _rotationSpeed: 80
 --- !u!212 &5323488901975839018 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4745798230702905064, guid: be261544c5dcf3241b620faf26126c87, type: 3}

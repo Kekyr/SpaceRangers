@@ -16,7 +16,7 @@ public class Scroller : MonoBehaviour
         _positionModifier = new Vector2(_rawImage.uvRect.x, _yModifier);
     }
 
-    private void OnGUI()
+    private void LateUpdate()
     {
         _rawImage.uvRect = new Rect(_rawImage.uvRect.position + _positionModifier * Time.deltaTime,
             _rawImage.uvRect.size);

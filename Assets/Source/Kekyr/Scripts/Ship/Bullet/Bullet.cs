@@ -15,7 +15,7 @@ namespace ShipBase
                 gameObject.SetActive(false);
             }
 
-            if (collider.gameObject.CompareTag("EnemyShip"))
+            if (collider.gameObject.CompareTag("Enemy"))
             {
                 gameObject.SetActive(false);
             }

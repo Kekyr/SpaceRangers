@@ -15,6 +15,8 @@ namespace Enemy
         public event Action Died;
         public event Action<float, float> ChangedValue;
 
+        public bool IsDead => _value <= 0;
+
         private void Start()
         {
             ResetHealth();
