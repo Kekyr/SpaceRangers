@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Enemy;
 using UnityEngine;
@@ -12,17 +13,15 @@ namespace ShipBase
         [SerializeField] private Transform[] _guns;
         [SerializeField] private float _rotationSpeed;
 
-        private List<GameObject> _targets = new List<GameObject>();
+        private List<GameObject> _queue = new List<GameObject>();
         private GameObject[] _spawnPoints;
         private Animator[] _animators;
 
         private GameObject _target;
-        private Health _targetHealth;
+
         private AutoGunsZone _shootingZone;
 
-        private Coroutine _follow;
-
-        private bool _isNear;
+        private bool _isFollowing;
 
         private void Start()
         {
@@ -45,8 +44,22 @@ namespace ShipBase
                 _animators[i] = _guns[i].GetComponent<Animator>();
             }
 
-            _shootingZone.Entered += OnTargetEntered;
-            _shootingZone.Exited += OnTargetExited;
+            _shootingZone.Entered += OnEnemyEntered;
+            _shootingZone.Exited += OnEnemyExited;
+        }
+
+        private void OnDisable()
+        {
+            _shootingZone.Entered -= OnEnemyEntered;
+            _shootingZone.Exited -= OnEnemyExited;
+        }
+
+        private void FixedUpdate()
+        {
+            if (_queue.Count != 0 && _isFollowing == false)
+            {
+                SetTarget();
+            }
         }
 
         public void Init(AutoGunsZone shootingZone)
@@ -55,55 +68,20 @@ namespace ShipBase
             enabled = true;
         }
 
-        private void OnDisable()
+        private void SetTarget()
         {
-            _shootingZone.Entered -= OnTargetEntered;
-            _shootingZone.Exited -= OnTargetExited;
-        }
+            int lastElementIndex = _queue.Count - 1;
 
-        private void FixedUpdate()
-        {
-            if (_targets.Count != 0 && _target == null)
-            {
-                Follow();
-            }
-        }
+            _isFollowing = true;
+            _target = _queue[lastElementIndex];
 
-        private void Follow()
-        {
-            int lastElementIndex = _targets.Count - 1;
+            EnemyShip enemy = _target.GetComponent<EnemyShip>();
+            enemy.Exited += OnTargetExited;
 
-            _target = _targets[lastElementIndex];
-            _targetHealth = _target.GetComponent<Health>();
-            _targets.Remove(_target);
+            _queue.Remove(_target);
 
-            _isNear = true;
             Shoot(true);
-
-            while (_isNear == true && _targetHealth.IsDead == false)
-            {
-                for (int i = 0; i < _guns.Length; i++)
-                {
-                    Vector3 direction = (_target.transform.position - _guns[i].position).normalized;
-                    Rotate(_guns[i], direction);
-                }
-            }
-
-            ReturnToDefault();
-            _target = null;
-        }
-
-        private void ReturnToDefault()
-        {
-            Shoot(false);
-
-            while (_isNear == false)
-            {
-                for (int i = 0; i < _guns.Length; i++)
-                {
-                    Rotate(_guns[i], Vector2.up);
-                }
-            }
+            StartCoroutine(Follow());
         }
 
         private void Shoot(bool canShoot)
@@ -115,28 +93,42 @@ namespace ShipBase
             }
         }
 
+        private IEnumerator Follow()
+        {
+            while (_isFollowing == true)
+            {
+                for (int i = 0; i < _guns.Length; i++)
+                {
+                    Vector3 direction = (_target.transform.position - _guns[i].position).normalized;
+                    Rotate(_guns[i], direction);
+                }
+
+                yield return null;
+            }
+        }
+
         private void Rotate(Transform transform, Vector3 direction)
         {
             Quaternion newRotation = Quaternion.LookRotation(Vector3.forward, direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, _rotationSpeed);
+            transform.rotation = newRotation;
         }
 
-        private void OnTargetEntered(GameObject target)
+        private void OnTargetExited(EnemyShip enemy)
         {
-            _targets.Insert(0, target);
+            enemy.Exited -= OnTargetExited;
+            _isFollowing = false;
         }
 
-        private void OnTargetExited(GameObject target)
+        private void OnEnemyEntered(GameObject enemy)
         {
-            if (_targets.Contains(target) == true)
-            {
-                _targets.Remove(target);
-                return;
-            }
+            _queue.Insert(0, enemy);
+        }
 
-            if (_target == target)
+        private void OnEnemyExited(GameObject enemy)
+        {
+            if (_queue.Contains(enemy) == true)
             {
-                _isNear = false;
+                _queue.Remove(enemy);
             }
         }
     }

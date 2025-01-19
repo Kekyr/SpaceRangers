@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63db5f77ee749ef42bc86ad5bc89c596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 4
   _animator: {fileID: 5867195421094958698}
   _health: {fileID: 2999850320498237334}
   shield: {fileID: -2750336864297814554}

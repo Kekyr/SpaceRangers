@@ -1069,10 +1069,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoGunZone
       objectReference: {fileID: 0}
-    - target: {fileID: 4768383672838810239, guid: ba962ff3afe488548810e4566c6772c9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1119,11 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabs:
-  - {fileID: 5705803770423958430, guid: 46adb334d49dc704da1ed5250a7a664b, type: 3}
-  - {fileID: 2905656645807563297, guid: 13f57c7423d23b746a7896230cb0e4d3, type: 3}
-  - {fileID: 5682566469513251614, guid: 2cdd8152aea0f4b46b9bc7b2f1d51fe3, type: 3}
   - {fileID: 2331008148012028749, guid: 0f5de4c3db011f54e898c5b6ccc0a452, type: 3}
-  - {fileID: 2078749490920682149, guid: 46abb7802b5960148bbe6dfff11c2ffc, type: 3}
   _spawnPoint: {fileID: 2051804542}
 --- !u!4 &2051804542
 Transform:

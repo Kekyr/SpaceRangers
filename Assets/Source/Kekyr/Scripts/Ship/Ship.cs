@@ -4,35 +4,35 @@ using UnityEngine;
 
 namespace ShipBase
 {
+    [RequireComponent(typeof(Wallet))]
+    [RequireComponent(typeof(DamageHandler))]
     public class Ship : MonoBehaviour
     {
-        [SerializeField] private Wallet _wallet;
-        [SerializeField] private DamageHandler _damageHandler;
+        private Wallet _wallet;
+        private DamageHandler _damageHandler;
 
         private void Awake()
         {
-            if (_wallet == null)
-            {
-                throw new ArgumentNullException(nameof(_wallet));
-            }
-
-            if (_damageHandler == null)
-            {
-                throw new ArgumentNullException(nameof(_damageHandler));
-            }
+            _wallet = GetComponent<Wallet>();
+            _damageHandler = GetComponent<DamageHandler>();
         }
 
-        private void OnTriggerEnter2D(Collider2D col)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (col.gameObject.CompareTag("Enemy"))
+            if (collider.gameObject.TryGetComponent(out Attacker attacker))
             {
-                _damageHandler.TakeDamage(2);
+                _damageHandler.TakeDamage(attacker.Damage);
             }
 
-            if (col.gameObject.TryGetComponent(out Coin coin))
+            if (collider.gameObject.TryGetComponent(out Coin coin))
             {
                 _wallet.Add(coin.Nominal);
             }
+        }
+
+        private void OnDestruct()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

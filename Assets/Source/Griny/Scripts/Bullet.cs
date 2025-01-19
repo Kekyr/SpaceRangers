@@ -2,13 +2,9 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : Attacker
     {
-        [SerializeField] private int _damage;
-
         private Vector3 _direction;
-
-        public int Damage => _damage;
 
         public Vector2 Direction => _direction;
 

@@ -9,7 +9,7 @@ namespace ShipBase
         [SerializeField] private Shield _shield;
 
         [SerializeField] private Collider2D _shieldCollider;
-        [SerializeField] private Collider2D _healthCollider;
+        [SerializeField] private Collider2D _collider;
 
         [SerializeField] private SpriteRenderer _shieldSpriteRenderer;
 
@@ -35,9 +35,9 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_shieldCollider));
             }
 
-            if (_healthCollider == null)
+            if (_collider == null)
             {
-                throw new ArgumentNullException(nameof(_healthCollider));
+                throw new ArgumentNullException(nameof(_collider));
             }
 
             _shield.Regenerating += OnRegenerating;
@@ -45,6 +45,7 @@ namespace ShipBase
             _shield.Remained += _health.TakeDamage;
             _health.Damaged += _shield.OnDamage;
             _health.Died += _shield.OnDead;
+            _health.Died += OnDead;
         }
 
         private void OnDestroy()
@@ -54,6 +55,7 @@ namespace ShipBase
             _shield.Remained -= _health.TakeDamage;
             _health.Damaged -= _shield.OnDamage;
             _health.Died -= _shield.OnDead;
+            _health.Died -= OnDead;
         }
 
         public void TakeDamage(float damage)
@@ -76,7 +78,15 @@ namespace ShipBase
         {
             _shieldSpriteRenderer.enabled = !value;
             _shieldCollider.enabled = !value;
-            _healthCollider.enabled = value;
+            _collider.enabled = value;
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (_shield.IsDead == true)
+            {
+                Switch(true);
+            }
         }
 
         private void OnRegenerating()
@@ -89,12 +99,9 @@ namespace ShipBase
             _shieldSpriteRenderer.enabled = false;
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        private void OnDead()
         {
-            if (_shield.IsDead == true)
-            {
-                Switch(true);
-            }
+            _collider.enabled = false;
         }
     }
 }
