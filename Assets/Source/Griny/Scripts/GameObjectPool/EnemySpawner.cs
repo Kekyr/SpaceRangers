@@ -5,20 +5,15 @@ namespace Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> _prefabs;
         [SerializeField] private Transform _spawnPoint;
 
+        private EnemySpawnerSO _data;
         private List<GameObject> _pool = new List<GameObject>();
         private int _currentInstanceIndex = 0;
-
-        private void Awake()
-        {
-            Initialize(_prefabs, _spawnPoint);
-        }
-
-
+        
         private void Start()
         {
+            Initialize(_data.Prefabs, _spawnPoint);
             Spawn();
         }
 
@@ -45,6 +40,12 @@ namespace Enemy
                         break;
                 }
             }
+        }
+
+        public void Init(EnemySpawnerSO data)
+        {
+            _data = data;
+            enabled = true;
         }
 
         private void Initialize(List<GameObject> prefabs, Transform spawnPoint)

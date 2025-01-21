@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Enemy;
 using UnityEngine;
@@ -54,11 +53,16 @@ namespace ShipBase
             _shootingZone.Exited -= OnEnemyExited;
         }
 
-        private void FixedUpdate()
+        private void LateUpdate()
         {
             if (_queue.Count != 0 && _isFollowing == false)
             {
                 SetTarget();
+            }
+
+            if (_isFollowing == true)
+            {
+                Follow();
             }
         }
 
@@ -81,7 +85,6 @@ namespace ShipBase
             _queue.Remove(_target);
 
             Shoot(true);
-            StartCoroutine(Follow());
         }
 
         private void Shoot(bool canShoot)
@@ -93,17 +96,12 @@ namespace ShipBase
             }
         }
 
-        private IEnumerator Follow()
+        private void Follow()
         {
-            while (_isFollowing == true)
+            for (int i = 0; i < _guns.Length; i++)
             {
-                for (int i = 0; i < _guns.Length; i++)
-                {
-                    Vector3 direction = (_target.transform.position - _guns[i].position).normalized;
-                    Rotate(_guns[i], direction);
-                }
-
-                yield return null;
+                Vector3 direction = (_target.transform.position - _guns[i].position).normalized;
+                Rotate(_guns[i], direction);
             }
         }
 
