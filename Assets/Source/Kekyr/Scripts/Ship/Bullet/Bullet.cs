@@ -2,12 +2,8 @@ using UnityEngine;
 
 namespace ShipBase
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : Attacker
     {
-        [SerializeField] private uint _damage;
-
-        public uint Damage => _damage;
-        
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.gameObject.CompareTag("Boundary"))

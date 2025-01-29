@@ -331,6 +331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThirdExplosionRadius
       objectReference: {fileID: 0}
+    - target: {fileID: 4458076590425005288, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
+      objectReference: {fileID: 0}
     - target: {fileID: 6257513597537160564, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -396,6 +400,10 @@ PrefabInstance:
     - target: {fileID: 4458076590425005288, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
       propertyPath: m_Name
       value: SecondExplosionRadius
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458076590425005288, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 6257513597537160564, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -466,6 +474,10 @@ PrefabInstance:
     - target: {fileID: 4458076590425005288, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
       propertyPath: m_Name
       value: FirstExplosionRadius
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458076590425005288, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 6257513597537160564, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
       propertyPath: m_LocalPosition.x

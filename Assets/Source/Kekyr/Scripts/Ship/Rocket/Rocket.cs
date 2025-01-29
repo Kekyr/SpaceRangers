@@ -11,13 +11,14 @@ namespace ShipBase
     {
         [SerializeField] private GameObject _explosion;
         [SerializeField] private float _explosionDuration;
-        
+
         private BoxCollider2D _collider;
         private SpriteRenderer _spriteRenderer;
         private RocketMovement _rocketMovement;
-        
+
         private WaitForSeconds _waitForExplosionEnd;
-        
+        private Coroutine _explode;
+
         public event Action<Rocket> Destroyed;
 
         private void OnEnable()
@@ -31,7 +32,7 @@ namespace ShipBase
             {
                 throw new ArgumentOutOfRangeException(nameof(_explosionDuration));
             }
-            
+
             _collider = GetComponent<BoxCollider2D>();
             _rocketMovement = GetComponent<RocketMovement>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -44,10 +45,10 @@ namespace ShipBase
             _collider.enabled = true;
             _rocketMovement.enabled = true;
         }
-        
+
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("Enemy"))
+            if (collider.gameObject.CompareTag("Enemy") && _collider.enabled == true)
             {
                 _rocketMovement.Stop();
                 _collider.enabled = false;
@@ -55,7 +56,7 @@ namespace ShipBase
                 StartCoroutine(Explode());
             }
 
-            if (collider.gameObject.CompareTag("Boundary"))
+            if (collider.gameObject.CompareTag("Boundary") && _collider.enabled == true)
             {
                 Destroyed?.Invoke(this);
                 Destroy(gameObject);

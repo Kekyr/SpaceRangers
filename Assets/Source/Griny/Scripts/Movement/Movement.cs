@@ -21,9 +21,9 @@ namespace Enemy
             Move();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            CollideShip(collision, _speed);
+            CollideShip(collider, _speed);
             InvokeActionOutSight();
         }
 

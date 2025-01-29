@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - EnemyBullet
   - BulletEnemy
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

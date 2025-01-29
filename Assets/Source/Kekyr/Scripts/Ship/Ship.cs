@@ -19,8 +19,9 @@ namespace ShipBase
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.TryGetComponent(out Attacker attacker))
+            if (collider.gameObject.CompareTag("EnemyBullet"))
             {
+                Attacker attacker = collider.gameObject.GetComponent<Attacker>();
                 _damageHandler.TakeDamage(attacker.Damage);
             }
 
