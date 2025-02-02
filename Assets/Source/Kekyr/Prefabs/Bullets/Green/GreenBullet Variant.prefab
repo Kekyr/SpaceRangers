@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4942223468798196494
+--- !u!1001 &4152092343322483702
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,14 +11,30 @@ PrefabInstance:
     - target: {fileID: 260019187030554480, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: d74051cbbd8009149bc755642c39d8fc, type: 2}
+      objectReference: {fileID: 9100000, guid: ea03ba7b8ce056a428f7a8a18726b8cd, type: 2}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damageColor.a
+      value: 0.5372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damageColor.b
+      value: 0.45098042
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damageColor.g
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damageColor.r
+      value: 0.11764707
+      objectReference: {fileID: 0}
     - target: {fileID: 1517510065423847173, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
       propertyPath: _damage
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4052172499170102749, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
       propertyPath: m_Name
-      value: BlueBullet Variant
+      value: GreenBullet Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5726092034998135096, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 8651158796582266671, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 238066366, guid: e15944b6d4509b14fa5efa094531dbc5, type: 3}
+      objectReference: {fileID: 1040385619, guid: af411986d6cf8654b8c33511de5fe382, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

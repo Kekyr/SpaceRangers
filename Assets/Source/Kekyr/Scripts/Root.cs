@@ -13,6 +13,7 @@ namespace ShipBase
         [SerializeField] private AutoGunsZone _autoGunsZone;
         [SerializeField] private Button _addRocketButton;
         [SerializeField] private List<EnemySpawner> _enemySpawners;
+        [SerializeField] private SpriteModifier _spriteModifier;
 
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
@@ -46,6 +47,11 @@ namespace ShipBase
             if (_enemySpawners.Count == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(_enemySpawners));
+            }
+
+            if (_spriteModifier == null)
+            {
+                throw new ArgumentNullException(nameof(_spriteModifier));
             }
 
             if (_bulletData == null)
@@ -129,10 +135,10 @@ namespace ShipBase
             _walletView.Init(wallet);
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
-            
+
             for (int i = 0; i < _enemySpawners.Count; i++)
             {
-                _enemySpawners[i].Init(enemySpawnersData[i]);
+                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier);
             }
         }
     }

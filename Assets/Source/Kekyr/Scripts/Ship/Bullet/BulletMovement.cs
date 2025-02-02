@@ -10,7 +10,7 @@ namespace ShipBase
         private Vector2 _direction;
         private SpriteRenderer _spriteRenderer;
 
-        private void OnEnable()
+        private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -27,6 +27,12 @@ namespace ShipBase
             _direction = direction;
             _spriteRenderer.sortingOrder = sortingOrder;
             transform.rotation = Quaternion.LookRotation(Vector3.forward, _direction);
+        }
+
+        public void Stop()
+        {
+            enabled = false;
+            _rigidbody.velocity = Vector3.zero;
         }
     }
 }

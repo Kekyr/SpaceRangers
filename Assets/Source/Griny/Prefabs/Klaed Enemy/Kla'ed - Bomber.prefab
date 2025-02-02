@@ -345,10 +345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f2c4b5947717a4f99f16ac148405d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageColor: {r: 0, g: 0, b: 0, a: 0}
   _damage: 2
-  _animator: {fileID: 3743183409605733229}
-  _health: {fileID: 8586320738126057408}
-  shield: {fileID: 5389721942864215398}
+  _shieldSpriteRenderer: {fileID: 8396151735463552572}
 --- !u!1 &8191711220369556275
 GameObject:
   m_ObjectHideFlags: 0

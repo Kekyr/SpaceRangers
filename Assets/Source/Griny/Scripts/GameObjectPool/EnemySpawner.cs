@@ -7,6 +7,7 @@ namespace Enemy
     {
         [SerializeField] private Transform _spawnPoint;
 
+        private SpriteModifier _spriteModifier;
         private EnemySpawnerSO _data;
         private List<GameObject> _pool = new List<GameObject>();
         private int _currentInstanceIndex = 0;
@@ -42,9 +43,10 @@ namespace Enemy
             }
         }
 
-        public void Init(EnemySpawnerSO data)
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier)
         {
             _data = data;
+            _spriteModifier = spriteModifier;
             enabled = true;
         }
 
@@ -54,7 +56,9 @@ namespace Enemy
             {
                 GameObject instance = Instantiate(prefab, spawnPoint);
                 instance.SetActive(false);
-                instance.GetComponent<EnemyShip>().Destroyed += Spawn;
+                EnemyShip enemyShip=instance.GetComponent<EnemyShip>();
+                enemyShip.Init(_spriteModifier);
+                enemyShip.Destroyed += Spawn;
 
                 Movement movement = instance.GetComponent<Movement>();
 

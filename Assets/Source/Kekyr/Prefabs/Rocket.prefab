@@ -327,6 +327,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 865314895753242108}
     m_Modifications:
+    - target: {fileID: 1575060107162491312, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
+      propertyPath: _damageColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458076590425005288, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
       propertyPath: m_Name
       value: ThirdExplosionRadius
@@ -397,6 +401,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 865314895753242108}
     m_Modifications:
+    - target: {fileID: 1575060107162491312, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
+      propertyPath: _damageColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458076590425005288, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
       propertyPath: m_Name
       value: SecondExplosionRadius
@@ -471,6 +479,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 865314895753242108}
     m_Modifications:
+    - target: {fileID: 1575060107162491312, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
+      propertyPath: _damageColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458076590425005288, guid: de27a4e6d1a3d114dbae99c727b47d6d, type: 3}
       propertyPath: m_Name
       value: FirstExplosionRadius
