@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using ShipBase;
 using UnityEngine;
 
@@ -10,9 +11,10 @@ namespace Enemy
     public class EnemyShip : Attacker
     {
         private readonly string _destruction = "Destruction";
+        private readonly float _changeColorDuration = 0.1f;
 
         [SerializeField] private SpriteRenderer _shieldSpriteRenderer;
-        
+
         private SpriteModifier _spriteModifier;
         private SpriteRenderer _spriteRenderer;
         private Health _health;
@@ -29,12 +31,12 @@ namespace Enemy
             {
                 throw new ArgumentNullException(nameof(_shieldSpriteRenderer));
             }
-            
+
             _health = GetComponent<Health>();
             _shield = GetComponent<Shield>();
             _animator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            
+
             _health.Died += OnDie;
         }
 
@@ -57,22 +59,24 @@ namespace Enemy
         {
             _animator.SetBool(_destruction, true);
         }
-        
+
+
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.gameObject.CompareTag("PlayerProjectile"))
             {
                 Attacker attacker = collider.gameObject.GetComponent<Attacker>();
-                
+
                 if (_shield.GetValue() <= 0)
                 {
-                    _health.TakeDamage(attacker.Damage);
-                    _spriteModifier.ChangeColor(_spriteRenderer, attacker.DamageColor);
+                    Sequence sequence =
+                        _spriteModifier.ChangeColor(_spriteRenderer, attacker.DamageColor, _changeColorDuration);
+                    sequence.OnComplete(() => { _health.TakeDamage(attacker.Damage); });
                 }
                 else
                 {
-                    _shield.TakeDamage(attacker.Damage);
-                    _spriteModifier.ChangeColor(_shieldSpriteRenderer, attacker.DamageColor);
+                    Sequence sequence = _spriteModifier.ChangeColor(_shieldSpriteRenderer, attacker.DamageColor, _changeColorDuration);
+                    sequence.OnComplete(() => { _shield.TakeDamage(attacker.Damage); });
                 }
             }
         }

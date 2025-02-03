@@ -1,10 +1,13 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace ShipBase
 {
     public class DamageHandler : MonoBehaviour
     {
+        private readonly float _changeColorDuration = 0.15f;
+
         [SerializeField] private ShipHealth _health;
         [SerializeField] private Shield _shield;
 
@@ -12,6 +15,9 @@ namespace ShipBase
         [SerializeField] private Collider2D _collider;
 
         [SerializeField] private SpriteRenderer _shieldSpriteRenderer;
+
+        private SpriteRenderer _spriteRenderer;
+        private SpriteModifier _spriteModifier;
 
         private void Awake()
         {
@@ -40,6 +46,8 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_collider));
             }
 
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+
             _shield.Regenerating += OnRegenerating;
             _shield.Emptied += OnEmptied;
             _shield.Remained += _health.TakeDamage;
@@ -58,20 +66,24 @@ namespace ShipBase
             _health.Died -= OnDead;
         }
 
-        public void TakeDamage(float damage)
+        public void Init(SpriteModifier spriteModifier)
         {
-            if (damage < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(damage));
-            }
+            _spriteModifier = spriteModifier;
+        }
 
+        public void TakeDamage(Attacker attacker)
+        {
             if (_shield.IsDead == false)
             {
-                _shield.TakeDamage(damage);
+                Sequence shieldSequence =
+                    _spriteModifier.ChangeColor(_shieldSpriteRenderer, attacker.DamageColor, _changeColorDuration);
+                shieldSequence.OnComplete(() => { _shield.TakeDamage(attacker.Damage); });
                 return;
             }
 
-            _health.TakeDamage(damage);
+            Sequence healthSequence =
+                _spriteModifier.ChangeColor(_spriteRenderer, attacker.DamageColor, _changeColorDuration);
+            healthSequence.OnComplete(() => { _health.TakeDamage(attacker.Damage); });
         }
 
         private void Switch(bool value)
@@ -83,7 +95,7 @@ namespace ShipBase
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (_shield.IsDead == true)
+            if (_shield.IsDead == true && other.gameObject.CompareTag("Enemy"))
             {
                 Switch(true);
             }

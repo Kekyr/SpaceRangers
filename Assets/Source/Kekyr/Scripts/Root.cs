@@ -113,6 +113,7 @@ namespace ShipBase
 
             GameObject ship = Instantiate(_shipData.CurrentLevel);
 
+            DamageHandler damageHandler = ship.GetComponent<DamageHandler>();
             Movement movement = ship.GetComponent<Movement>();
             ShipHealth health = ship.GetComponent<ShipHealth>();
             Wallet wallet = ship.GetComponent<Wallet>();
@@ -124,7 +125,8 @@ namespace ShipBase
             {
                 autoGuns.Init(_autoGunsZone);
             }
-
+            
+            damageHandler.Init(_spriteModifier);
             movement.Init(_camera);
             rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel);
             pool.Init(_bulletData.CurrentLevel);

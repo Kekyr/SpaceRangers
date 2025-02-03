@@ -50,6 +50,12 @@ namespace Enemy
             _rigidbody.velocity = GetVelocity(_speed);
         }
 
+        protected void Stop()
+        {
+            enabled = false;
+            _rigidbody.velocity = Vector3.zero;
+        }
+
         protected virtual void InvokeActionOutSight()
         {
             if(_isCollideDown == true)

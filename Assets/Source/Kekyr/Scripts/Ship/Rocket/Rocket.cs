@@ -50,8 +50,8 @@ namespace ShipBase
         {
             if (collider.gameObject.CompareTag("Enemy") && _collider.enabled == true)
             {
-                _rocketMovement.Stop();
                 _collider.enabled = false;
+                _rocketMovement.Stop();
                 _spriteRenderer.enabled = false;
                 StartCoroutine(Explode());
             }

@@ -6,10 +6,25 @@ namespace Enemy
 {
     public class BulletMovement : Movement
     {
+        private readonly string _destructionTrigger = "Destruct";
         private readonly string _leftBorder = "left";
         private readonly string _rightBorder = "right";
 
         [SerializeField] private Bullet _bullet;
+
+        private Animator _animator;
+        private Collider2D _collider;
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            _collider = GetComponent<Collider2D>();
+        }
+
+        private void OnEnable()
+        {
+            _collider.enabled = true;
+        }
         
         protected override Vector2 GetVelocity(float speed)
         {
@@ -32,7 +47,9 @@ namespace Enemy
 
             if (collider.gameObject.CompareTag("Player"))
             {
-                gameObject.SetActive(false);
+                _collider.enabled = false;
+                Stop();
+                _animator.SetTrigger(_destructionTrigger);
             }
         }
     }

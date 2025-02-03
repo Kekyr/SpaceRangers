@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6318a40f06626aa43a25a8ffe0cc57b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageColor: {r: 0, g: 0, b: 0, a: 0}
+  _damageColor: {r: 0.67058825, g: 0, b: 0, a: 1}
   _damage: 2
   _shieldSpriteRenderer: {fileID: 6082633250246679598}
 --- !u!114 &6399067458932203803
