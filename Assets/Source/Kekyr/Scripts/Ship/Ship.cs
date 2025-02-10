@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
+using Audio;
+using Enemy;
 using Game;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ShipBase
@@ -10,16 +14,41 @@ namespace ShipBase
     {
         private readonly float _stayingDamageInterval = 1f;
 
+        [SerializeField] private SFXSO _damageSFX;
+        [SerializeField] private SFXSO _explosionSFX;
+
         private Wallet _wallet;
         private DamageHandler _damageHandler;
+        private SFX _sfx;
+        private ShipHealth _health;
+
         private Coroutine _staying;
         private WaitForSeconds _waitInterval;
 
         private void Awake()
         {
+            if (_damageSFX == null)
+            {
+                throw new ArgumentNullException(nameof(_damageSFX));
+            }
+
+            if (_explosionSFX == null)
+            {
+                throw new ArgumentNullException(nameof(_explosionSFX));
+            }
+
+            _sfx = GetComponent<SFX>();
+            _health = GetComponent<ShipHealth>();
             _wallet = GetComponent<Wallet>();
             _damageHandler = GetComponent<DamageHandler>();
             _waitInterval = new WaitForSeconds(_stayingDamageInterval);
+
+            _health.Died += OnDead;
+        }
+
+        private void OnDestroy()
+        {
+            _health.Died -= OnDead;
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
@@ -28,6 +57,7 @@ namespace ShipBase
             {
                 Attacker attacker = collider.gameObject.GetComponent<Attacker>();
                 _damageHandler.TakeDamage(attacker);
+                _sfx.Play(_damageSFX);
             }
 
             if (collider.gameObject.TryGetComponent(out Coin coin))
@@ -58,7 +88,13 @@ namespace ShipBase
         {
             yield return _waitInterval;
             _damageHandler.TakeDamage(attacker);
+            _sfx.Play(_damageSFX);
             _staying = null;
+        }
+
+        private void OnDead()
+        {
+            _sfx.Play(_explosionSFX);
         }
 
         private void OnDestruct()

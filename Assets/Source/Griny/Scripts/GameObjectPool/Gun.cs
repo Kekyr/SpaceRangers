@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using UnityEngine;
 
 namespace Enemy
@@ -9,6 +11,7 @@ namespace Enemy
     {
         private const float _delay = 0.5f;
 
+        [SerializeField] private SFXSO _shootSFX;
         [SerializeField] private Bullet _prefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _direction;
@@ -16,9 +19,17 @@ namespace Enemy
 
         private List<Bullet> _pool = new List<Bullet>();
         private WaitForSeconds _wait = new WaitForSeconds(_delay);
+        private SFX _sfx;
 
         private void Awake()
         {
+            if (_shootSFX == null)
+            {
+                throw new ArgumentNullException(nameof(_shootSFX));
+            }
+
+            _sfx = GetComponentInParent<SFX>();
+
             Initialize();
         }
 
@@ -55,6 +66,7 @@ namespace Enemy
             bullet.SetVector(-_direction.transform.localPosition);
             bullet.transform.position = spawnPosition;
             bullet.transform.rotation = gameObject.transform.rotation;
+            _sfx.Play(_shootSFX);
             bullet.gameObject.SetActive(true);
         }
 

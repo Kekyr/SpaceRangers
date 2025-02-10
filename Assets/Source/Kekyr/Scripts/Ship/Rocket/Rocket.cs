@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Audio;
 using UnityEngine;
 
 namespace ShipBase
@@ -7,14 +8,17 @@ namespace ShipBase
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(RocketMovement))]
+    [RequireComponent(typeof(SFX))]
     public class Rocket : MonoBehaviour
     {
         [SerializeField] private GameObject _explosion;
         [SerializeField] private float _explosionDuration;
+        [SerializeField] private SFXSO _explosionSFX;
 
         private BoxCollider2D _collider;
         private SpriteRenderer _spriteRenderer;
         private RocketMovement _rocketMovement;
+        private SFX _sfx;
 
         private WaitForSeconds _waitForExplosionEnd;
         private Coroutine _explode;
@@ -36,6 +40,7 @@ namespace ShipBase
             _collider = GetComponent<BoxCollider2D>();
             _rocketMovement = GetComponent<RocketMovement>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _sfx = GetComponent<SFX>();
 
             _waitForExplosionEnd = new WaitForSeconds(_explosionDuration);
         }
@@ -53,6 +58,7 @@ namespace ShipBase
                 _collider.enabled = false;
                 _rocketMovement.Stop();
                 _spriteRenderer.enabled = false;
+                _sfx.Play(_explosionSFX);
                 StartCoroutine(Explode());
             }
 

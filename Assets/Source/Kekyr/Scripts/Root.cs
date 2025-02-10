@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Enemy;
+using FirstGearGames.SmoothCameraShaker;
 using LevelEnemy;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,8 @@ namespace ShipBase
         [SerializeField] private ShieldImprovementsSO _shieldData;
         [SerializeField] private BackgroundSO _backgroundData;
         [SerializeField] private LevelSO _levelData;
+
+        [SerializeField] private ShakeData _explosionShake;
 
         private void Validate()
         {
@@ -103,6 +106,11 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_background));
             }
+
+            if (_explosionShake == null)
+            {
+                throw new ArgumentNullException(nameof(_explosionShake));
+            }
         }
 
         private void Awake()
@@ -125,7 +133,7 @@ namespace ShipBase
             {
                 autoGuns.Init(_autoGunsZone);
             }
-            
+
             damageHandler.Init(_spriteModifier);
             movement.Init(_camera);
             rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel);
@@ -140,7 +148,7 @@ namespace ShipBase
 
             for (int i = 0; i < _enemySpawners.Count; i++)
             {
-                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier);
+                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _explosionShake);
             }
         }
     }
