@@ -6,13 +6,14 @@ namespace Enemy
 {
     public class ValueBar : MonoBehaviour
     {
-        [SerializeField] private IChanging _gameObject;
+        [SerializeReference] private CharacteristicEnemy _characteristic;
         [SerializeField] public Slider _slider;
         [SerializeField] private float _speedChange;
 
         private float _targetHealth;
         private Coroutine _coroutine;
         private float _maxValue = 1;
+
 
         private void Awake()
         {
@@ -21,12 +22,12 @@ namespace Enemy
 
         private void OnEnable()
         {
-            _gameObject.ChangedValue += OnChangeValue;
+            _characteristic.ChangedValue += OnChangeValue;
         }
 
         private void OnDisable()
         {
-            _gameObject.ChangedValue -= OnChangeValue;
+            _characteristic.ChangedValue -= OnChangeValue;
         }
 
         private void OnChangeValue(float value, float startValue)

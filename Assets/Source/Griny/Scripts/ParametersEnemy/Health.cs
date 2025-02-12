@@ -3,17 +3,13 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Health : MonoBehaviour, IChanging
+    public class Health : CharacteristicEnemy
     {
         [SerializeField] private float _startValue;
 
         private float _value;
 
-        public float Value => _value;
-        public float StartValue => _startValue;
-
         public event Action Died;
-        public event Action<float, float> ChangedValue;
 
         public bool IsDead => _value <= 0;
 
@@ -35,7 +31,7 @@ namespace Enemy
         public void ResetHealth()
         {
             _value = _startValue;
-            ChangedValue?.Invoke(_value, _startValue);
+            GetActionChangedValue(_value, _startValue);
         }
 
         public void TakeDamage(float damage)
@@ -47,7 +43,7 @@ namespace Enemy
                 Died?.Invoke();
             }
 
-            ChangedValue?.Invoke(_value, _startValue);
+            GetActionChangedValue(_value, _startValue);
         }
     }
 }

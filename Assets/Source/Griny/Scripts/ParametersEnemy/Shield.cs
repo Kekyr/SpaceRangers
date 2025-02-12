@@ -3,14 +3,12 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Shield : MonoBehaviour, IChanging
+    public class Shield : CharacteristicEnemy
     {
         [SerializeField] private float _startValue;
         [SerializeField] private GameObject _sheeld;
 
         private float _value;
-
-        public event Action<float, float> ChangedValue;
 
         private void Start()
         {
@@ -30,7 +28,7 @@ namespace Enemy
         public void ReStartValue()
         {
             _value = _startValue;
-            ChangedValue?.Invoke(_value, _startValue);
+            GetActionChangedValue(_value, _startValue);
             _sheeld.gameObject.SetActive(true);
         }
 
@@ -43,7 +41,7 @@ namespace Enemy
                 _sheeld.gameObject.SetActive(false);
             }
 
-            ChangedValue?.Invoke(_value, _startValue);
+            GetActionChangedValue(_value, _startValue);
         }
     }
 }

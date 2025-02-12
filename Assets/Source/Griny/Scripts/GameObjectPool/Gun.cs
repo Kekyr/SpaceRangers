@@ -26,7 +26,7 @@ namespace Enemy
 
         private void Start()
         {
-            _parent = GameObject.FindWithTag(_paretBullets).transform;
+            //_parent = GameObject.FindWithTag(_paretBullets).transform;
             Initialize();
         }
 
@@ -43,6 +43,11 @@ namespace Enemy
                 bullet.gameObject.SetActive(false);
                 _pool.Add(bullet);
             }
+        }
+
+        public void Init(GameObject gameObject)
+        {
+            _parent = gameObject.transform;           
         }
 
         private IEnumerator ShootBullet()

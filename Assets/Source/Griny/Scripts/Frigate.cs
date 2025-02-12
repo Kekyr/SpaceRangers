@@ -9,8 +9,7 @@ namespace Enemy
     {
         [SerializeField] private Health _health;
 
-        [FormerlySerializedAs("_sheeld")] [SerializeField]
-        private Shield shield;
+        [FormerlySerializedAs("_sheeld")] [SerializeField] private Shield shield;
 
         private void OnEnable()
         {
