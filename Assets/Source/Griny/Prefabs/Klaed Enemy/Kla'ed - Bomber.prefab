@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 5389721942864215398}
   - component: {fileID: 6631497304035476189}
   - component: {fileID: 8392971655588789242}
+  - component: {fileID: -8796427447173495233}
   m_Layer: 0
   m_Name: Kla'ed - Bomber
   m_TagString: Enemy
@@ -446,9 +447,10 @@ MonoBehaviour:
   _damageColor: {r: 0.67058825, g: 0.003915994, b: 0.003915994, a: 1}
   _damage: 2
   _shieldSpriteRenderer: {fileID: 8396151735463552572}
-  _explosionShake: {fileID: 11400000, guid: 1353dc33119d0f1498cd39bfa9057ab6, type: 2}
   _damageSFX: {fileID: 11400000, guid: 6e2778f1945cec14e8d4c04bd30ad0ec, type: 2}
   _explosionSFX: {fileID: 11400000, guid: 0f78e38f5b3abcb438319beac7797a6c, type: 2}
+  _impulseForce: 0.05
+  _impulseDirection: {x: 1, y: 1, z: 1}
 --- !u!114 &8392971655588789242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +463,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff1a2c201496b44e87b27f97fc6c11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8796427447173495233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705803770423958430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 1, y: 1, z: 1}
 --- !u!1 &8191711220369556275
 GameObject:
   m_ObjectHideFlags: 0

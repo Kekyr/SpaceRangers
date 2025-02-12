@@ -1,7 +1,7 @@
 using System;
 using Audio;
+using Cinemachine;
 using DG.Tweening;
-using FirstGearGames.SmoothCameraShaker;
 using ShipBase;
 using UnityEngine;
 
@@ -11,17 +11,23 @@ namespace Enemy
     [RequireComponent(typeof(Shield))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(SFX))]
+    [RequireComponent(typeof(CinemachineImpulseSource))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public class EnemyShip : Attacker
     {
         private readonly string _destruction = "Destruction";
         private readonly float _changeColorDuration = 0.1f;
+        private readonly float _impulseForce = 0.025f;
+        private readonly Vector3 _impulseDirection = new Vector3(1, 1, 1);
 
         [SerializeField] private SpriteRenderer _shieldSpriteRenderer;
         [SerializeField] private SFXSO _damageSFX;
         [SerializeField] private SFXSO _explosionSFX;
 
-        private ShakeData _explosionShake;
         private SpriteModifier _spriteModifier;
+        private Vector3 _impulseVelocity;
+
+        private CinemachineImpulseSource _impulseSource;
         private SpriteRenderer _spriteRenderer;
         private Health _health;
         private Shield _shield;
@@ -34,6 +40,16 @@ namespace Enemy
 
         private void Awake()
         {
+            if (_impulseForce == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_impulseForce));
+            }
+
+            if (_impulseDirection == Vector3.zero)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_impulseDirection));
+            }
+
             if (_shieldSpriteRenderer == null)
             {
                 throw new ArgumentNullException(nameof(_shieldSpriteRenderer));
@@ -54,6 +70,9 @@ namespace Enemy
             _animator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _sfx = GetComponent<SFX>();
+            _impulseSource = GetComponent<CinemachineImpulseSource>();
+
+            _impulseVelocity = _impulseDirection * _impulseForce;
 
             _health.Died += OnDie;
         }
@@ -68,17 +87,16 @@ namespace Enemy
             Deactivate();
         }
 
-        public void Init(SpriteModifier spriteModifier, ShakeData explosionShake)
+        public void Init(SpriteModifier spriteModifier)
         {
             _spriteModifier = spriteModifier;
-            _explosionShake = explosionShake;
         }
 
         private void Deactivate()
         {
             _sfx.Play(_explosionSFX);
-            CameraShakerHandler.Shake(_explosionShake);
             _animator.SetBool(_destruction, true);
+            _impulseSource.GenerateImpulseWithVelocity(_impulseVelocity);
         }
 
         private void OnTriggerEnter2D(Collider2D collider)

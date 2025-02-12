@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using FirstGearGames.SmoothCameraShaker;
 using UnityEngine;
 
 namespace Enemy
@@ -12,7 +11,6 @@ namespace Enemy
         private EnemySpawnerSO _data;
         private List<GameObject> _pool = new List<GameObject>();
         private int _currentInstanceIndex = 0;
-        private ShakeData _explosionShake;
 
         private void Start()
         {
@@ -45,11 +43,10 @@ namespace Enemy
             }
         }
 
-        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier, ShakeData explosionShake)
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier)
         {
             _data = data;
             _spriteModifier = spriteModifier;
-            _explosionShake = explosionShake;
             enabled = true;
         }
 
@@ -60,7 +57,7 @@ namespace Enemy
                 GameObject instance = Instantiate(prefab, spawnPoint);
                 instance.SetActive(false);
                 EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
-                enemyShip.Init(_spriteModifier, _explosionShake);
+                enemyShip.Init(_spriteModifier);
                 enemyShip.Destroyed += Spawn;
 
                 Movement movement = instance.GetComponent<Movement>();

@@ -1,18 +1,21 @@
 using System;
 using System.Collections;
 using Audio;
-using Enemy;
+using Cinemachine;
 using Game;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ShipBase
 {
     [RequireComponent(typeof(Wallet))]
     [RequireComponent(typeof(DamageHandler))]
+    [RequireComponent(typeof(CinemachineImpulseSource))]
     public class Ship : MonoBehaviour
     {
         private readonly float _stayingDamageInterval = 1f;
+        private readonly float _impulseExplosionForce = 0.08f;
+        private readonly float _impulseDamageForce = 0.01f;
+        private readonly Vector3 _impulseDirection = new Vector3(1, 1, 1);
 
         [SerializeField] private SFXSO _damageSFX;
         [SerializeField] private SFXSO _explosionSFX;
@@ -21,7 +24,10 @@ namespace ShipBase
         private DamageHandler _damageHandler;
         private SFX _sfx;
         private ShipHealth _health;
+        private CinemachineImpulseSource _impulseSource;
 
+        private Vector3 _impulseExplosionVelocity;
+        private Vector3 _impulseDamageVelocity;
         private Coroutine _staying;
         private WaitForSeconds _waitInterval;
 
@@ -41,6 +47,10 @@ namespace ShipBase
             _health = GetComponent<ShipHealth>();
             _wallet = GetComponent<Wallet>();
             _damageHandler = GetComponent<DamageHandler>();
+            _impulseSource = GetComponent<CinemachineImpulseSource>();
+
+            _impulseExplosionVelocity = _impulseDirection * _impulseExplosionForce;
+            _impulseDamageVelocity = _impulseDirection * _impulseDamageForce;
             _waitInterval = new WaitForSeconds(_stayingDamageInterval);
 
             _health.Died += OnDead;
@@ -58,6 +68,7 @@ namespace ShipBase
                 Attacker attacker = collider.gameObject.GetComponent<Attacker>();
                 _damageHandler.TakeDamage(attacker);
                 _sfx.Play(_damageSFX);
+                _impulseSource.GenerateImpulseWithVelocity(_impulseDamageVelocity);
             }
 
             if (collider.gameObject.TryGetComponent(out Coin coin))
@@ -95,6 +106,7 @@ namespace ShipBase
         private void OnDead()
         {
             _sfx.Play(_explosionSFX);
+            _impulseSource.GenerateImpulseWithVelocity(_impulseExplosionVelocity);
         }
 
         private void OnDestruct()
