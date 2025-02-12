@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +8,7 @@ namespace Enemy
 {
     public class Gun : MonoBehaviour
     {
+        private const string _paretBullets = "ParentBullets";
         private const float _delay = 0.5f;
 
         [SerializeField] private SFXSO _shootSFX;
@@ -17,6 +17,7 @@ namespace Enemy
         [SerializeField] private Transform _direction;
         [SerializeField] private int _capacity;
 
+        private Transform _parent;
         private List<Bullet> _pool = new List<Bullet>();
         private WaitForSeconds _wait = new WaitForSeconds(_delay);
         private SFX _sfx;
@@ -42,10 +43,15 @@ namespace Enemy
         {
             for (int i = 0; i < _capacity; i++)
             {
-                Bullet bullet = Instantiate(_prefab, _spawnPoint);
+                Bullet bullet = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity, _parent);
                 bullet.gameObject.SetActive(false);
                 _pool.Add(bullet);
             }
+        }
+
+        public void Init(GameObject gameObject)
+        {
+            _parent = gameObject.transform;           
         }
 
         private IEnumerator ShootBullet()
