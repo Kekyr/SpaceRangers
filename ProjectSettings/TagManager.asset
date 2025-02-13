@@ -10,6 +10,7 @@ TagManager:
   - BulletEnemy
   - ParentBullets
   - EnemyBullet
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

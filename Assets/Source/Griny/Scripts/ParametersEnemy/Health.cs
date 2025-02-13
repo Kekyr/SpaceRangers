@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using UnityEngine;
 
 namespace Enemy
@@ -10,8 +11,6 @@ namespace Enemy
         private float _value;
 
         public event Action Died;
-
-        public bool IsDead => _value <= 0;
 
         private void Start()
         {

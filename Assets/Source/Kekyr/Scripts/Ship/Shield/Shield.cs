@@ -88,7 +88,10 @@ namespace ShipBase
                 StopCoroutine(_tryRegenerate);
             }
 
-            _tryRegenerate = StartCoroutine((TryRegenerate()));
+            if (gameObject.activeSelf == true)
+            {
+                _tryRegenerate = StartCoroutine((TryRegenerate()));
+            }
         }
 
         public void OnDead()

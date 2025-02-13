@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4351135277595546394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.284, y: -0.109, z: 0}
+  m_LocalPosition: {x: -0.284, y: -0.095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 6238323390971179177}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2807, y: -0.109, z: 0}
+  m_LocalPosition: {x: 0.2807, y: -0.107, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -372,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 6889173142970826883, guid: be261544c5dcf3241b620faf26126c87, type: 3}
       propertyPath: _spriteRenderer
       value: 
-      objectReference: {fileID: 5323488901975839018}
+      objectReference: {fileID: 7471286104067659934}
     - target: {fileID: 6889173142970826883, guid: be261544c5dcf3241b620faf26126c87, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 3
@@ -426,8 +426,8 @@ MonoBehaviour:
   - {fileID: 2609730027230994942}
   - {fileID: 5958306267499966171}
   _rotationSpeed: 80
---- !u!212 &5323488901975839018 stripped
+--- !u!212 &7471286104067659934 stripped
 SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4745798230702905064, guid: be261544c5dcf3241b620faf26126c87, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8040039740172115804, guid: be261544c5dcf3241b620faf26126c87, type: 3}
   m_PrefabInstance: {fileID: 593528107247880130}
   m_PrefabAsset: {fileID: 0}

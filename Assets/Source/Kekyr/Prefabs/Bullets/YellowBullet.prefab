@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1293311126362801025}
   m_Layer: 0
   m_Name: YellowBullet
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16666667, y: 0.16666667}
+  m_Size: {x: 0.33333334, y: 0.33333334}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -174,7 +174,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.375}
     oldSize: {x: 0.33333334, y: 0.33333334}
-    newSize: {x: 0.16666667, y: 0.16666667}
+    newSize: {x: 0.33333334, y: 0.33333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -206,4 +206,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0793a063bb7f60241afcd6b01e01d5ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageColor: {r: 0.8773585, g: 0.5082542, b: 0.028969401, a: 0.54509807}
   _damage: 1

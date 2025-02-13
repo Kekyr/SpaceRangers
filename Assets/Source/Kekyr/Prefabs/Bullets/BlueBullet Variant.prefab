@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d74051cbbd8009149bc755642c39d8fc, type: 2}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damageColor.a
+      value: 0.54509807
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damageColor.b
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damageColor.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damageColor.r
+      value: 0.1254902
+      objectReference: {fileID: 0}
     - target: {fileID: 1517510065423847173, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
       propertyPath: _damage
       value: 2

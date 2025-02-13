@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using Enemy;
+using LevelEnemy;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +12,8 @@ namespace ShipBase
         [SerializeField] private Camera _camera;
         [SerializeField] private AutoGunsZone _autoGunsZone;
         [SerializeField] private Button _addRocketButton;
+        [SerializeField] private List<EnemySpawner> _enemySpawners;
+        [SerializeField] private SpriteModifier _spriteModifier;
 
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
@@ -20,6 +25,7 @@ namespace ShipBase
         [SerializeField] private ImprovementsSO<int> _rocketData;
         [SerializeField] private ShieldImprovementsSO _shieldData;
         [SerializeField] private BackgroundSO _backgroundData;
+        [SerializeField] private LevelSO _levelData;
 
         private void Validate()
         {
@@ -36,6 +42,16 @@ namespace ShipBase
             if (_addRocketButton == null)
             {
                 throw new ArgumentNullException(nameof(_addRocketButton));
+            }
+
+            if (_enemySpawners.Count == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_enemySpawners));
+            }
+
+            if (_spriteModifier == null)
+            {
+                throw new ArgumentNullException(nameof(_spriteModifier));
             }
 
             if (_bulletData == null)
@@ -61,6 +77,11 @@ namespace ShipBase
             if (_backgroundData == null)
             {
                 throw new ArgumentNullException(nameof(_backgroundData));
+            }
+
+            if (_levelData == null)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_levelData));
             }
 
             if (_healthView == null)
@@ -92,6 +113,7 @@ namespace ShipBase
 
             GameObject ship = Instantiate(_shipData.CurrentLevel);
 
+            DamageHandler damageHandler = ship.GetComponent<DamageHandler>();
             Movement movement = ship.GetComponent<Movement>();
             ShipHealth health = ship.GetComponent<ShipHealth>();
             Wallet wallet = ship.GetComponent<Wallet>();
@@ -104,6 +126,7 @@ namespace ShipBase
                 autoGuns.Init(_autoGunsZone);
             }
 
+            damageHandler.Init(_spriteModifier);
             movement.Init(_camera);
             rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel);
             pool.Init(_bulletData.CurrentLevel);
@@ -112,6 +135,13 @@ namespace ShipBase
             _healthView.Init(health);
             _shieldView.Init(shield);
             _walletView.Init(wallet);
+
+            List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
+
+            for (int i = 0; i < _enemySpawners.Count; i++)
+            {
+                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier);
+            }
         }
     }
 }

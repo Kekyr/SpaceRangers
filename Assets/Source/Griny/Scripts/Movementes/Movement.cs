@@ -21,10 +21,10 @@ namespace Enemy
             Move();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            CollideShip(collision, _speed);
-            InvokActionOutSight();
+            CollideShip(collider, _speed);
+            InvokeActionOutSight();
         }
 
         protected virtual Vector2 GetVelocity(float speed)
@@ -32,9 +32,9 @@ namespace Enemy
             return Vector2.down * speed * Time.deltaTime;
         }
 
-        protected virtual void CollideShip(Collider2D col, float speed)
+        protected virtual void CollideShip(Collider2D collider, float speed)
         {
-            if (col.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
+            if (collider.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
             {
                 if (backgruondBorder.GetName() == _borderDown)
                 {
@@ -50,7 +50,13 @@ namespace Enemy
             _rigidbody.velocity = GetVelocity(_speed);
         }
 
-        protected virtual void InvokActionOutSight()
+        protected void Stop()
+        {
+            enabled = false;
+            _rigidbody.velocity = Vector3.zero;
+        }
+
+        protected virtual void InvokeActionOutSight()
         {
             if(_isCollideDown == true)
             {

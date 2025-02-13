@@ -5,22 +5,18 @@ namespace Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> _prefabs;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private GameObject _parentBullets;
 
+        private SpriteModifier _spriteModifier;
+        private EnemySpawnerSO _data;
         private List<GameObject> _pool = new List<GameObject>();
         private int _currentInstanceIndex = 0;
         private List<Gun> _gans = new List<Gun>();
 
-        private void Awake()
-        {
-            Initialize(_prefabs, _spawnPoint);
-        }
-
-
         private void Start()
         {
+            Initialize(_data.Prefabs, _spawnPoint);
             Spawn();
         }
 
@@ -49,13 +45,22 @@ namespace Enemy
             }
         }
 
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier)
+        {
+            _data = data;
+            _spriteModifier = spriteModifier;
+            enabled = true;
+        }
+
         private void Initialize(List<GameObject> prefabs, Transform spawnPoint)
         {
             foreach (GameObject prefab in prefabs)
             {
                 GameObject instance = Instantiate(prefab, spawnPoint);
                 instance.SetActive(false);
-                instance.GetComponent<EnemyShip>().Destroyed += Spawn;
+                EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
+                enemyShip.Init(_spriteModifier);
+                enemyShip.Destroyed += Spawn;
 
                 _gans.AddRange(instance.GetComponentsInChildren<Gun>());
 
