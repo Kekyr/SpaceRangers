@@ -1,18 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private GameObject _parentBullets;
 
         private SpriteModifier _spriteModifier;
+        private Transform _enemyBulletsContainer;
+
         private EnemySpawnerSO _data;
         private List<GameObject> _pool = new List<GameObject>();
         private int _currentInstanceIndex = 0;
-        private List<Gun> _gans = new List<Gun>();
+        private List<Gun> _guns = new List<Gun>();
 
         private void Start()
         {
@@ -26,29 +28,30 @@ namespace Enemy
             {
                 instance.GetComponent<EnemyShip>().Destroyed -= Spawn;
 
-                Movement movement = instance.GetComponent<Movement>();
+                EnemyMovement enemyMovement = instance.GetComponent<EnemyMovement>();
 
-                switch (movement)
+                switch (enemyMovement)
                 {
-                    case FighterMovement:
+                    case FighterEnemyMovement:
                         break;
 
-                    case ScoutMovement:
-                        ScoutMovement scoutMovement = (ScoutMovement)movement;
-                        scoutMovement.DisabledEnemy -= Spawn;
+                    case ScoutEnemyMovement:
+                        ScoutEnemyMovement scoutEnemyMovement = (ScoutEnemyMovement)enemyMovement;
+                        scoutEnemyMovement.DisabledEnemy -= Spawn;
                         break;
 
-                    case Movement:
-                        movement.OutSight -= Spawn;
+                    case EnemyMovement:
+                        enemyMovement.OutSight -= Spawn;
                         break;
                 }
             }
         }
 
-        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier)
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier, Transform enemyBulletsContainer)
         {
             _data = data;
             _spriteModifier = spriteModifier;
+            _enemyBulletsContainer = enemyBulletsContainer;
             enabled = true;
         }
 
@@ -58,31 +61,32 @@ namespace Enemy
             {
                 GameObject instance = Instantiate(prefab, spawnPoint);
                 instance.SetActive(false);
+
                 EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
                 enemyShip.Init(_spriteModifier);
                 enemyShip.Destroyed += Spawn;
 
-                _gans.AddRange(instance.GetComponentsInChildren<Gun>());
+                _guns.AddRange(instance.GetComponentsInChildren<Gun>());
 
-                foreach (Gun gun in _gans)
+                foreach (Gun gun in _guns)
                 {
-                    gun.Init(_parentBullets);
+                    gun.Init(_enemyBulletsContainer);
                 }
 
-                Movement movement = instance.GetComponent<Movement>();
+                EnemyMovement enemyMovement = instance.GetComponent<EnemyMovement>();
 
-                switch (movement)
+                switch (enemyMovement)
                 {
-                    case FighterMovement:
+                    case FighterEnemyMovement:
                         break;
 
-                    case ScoutMovement:
-                        ScoutMovement scoutMovement = (ScoutMovement)movement;
-                        scoutMovement.DisabledEnemy += Spawn;
+                    case ScoutEnemyMovement:
+                        ScoutEnemyMovement scoutEnemyMovement = (ScoutEnemyMovement)enemyMovement;
+                        scoutEnemyMovement.DisabledEnemy += Spawn;
                         break;
 
-                    case Movement:
-                        movement.OutSight += Spawn;
+                    case EnemyMovement:
+                        enemyMovement.OutSight += Spawn;
                         break;
                 }
 
@@ -103,16 +107,16 @@ namespace Enemy
 
             if (enemy.GetComponent<FighterNairan>())
             {
-                enemy.GetComponent<FighterNairan>().RestsrtRockets();
+                enemy.GetComponent<FighterNairan>().RestartRockets();
             }
 
             enemy.gameObject.SetActive(true);
             enemy.transform.position = _spawnPoint.position;
             _currentInstanceIndex++;
 
-            enemy.GetComponent<Health>().ResetHealth();
+            enemy.GetComponent<EnemyHealth>().ResetHealth();
 
-            if (enemy.TryGetComponent(out Shield shield))
+            if (enemy.TryGetComponent(out EnemyShield shield))
             {
                 shield.ReStartValue();
             }

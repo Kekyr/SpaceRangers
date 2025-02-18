@@ -4,7 +4,7 @@ using UnityEngine;
 using WordGame;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Rocket : MonoBehaviour
+public class Rocket : Attacker
 {
     [SerializeField] private int _speed;
     [SerializeField] private Rigidbody2D _rigidbody;
@@ -15,8 +15,6 @@ public class Rocket : MonoBehaviour
 
     public void RunRocket()
     {
-        Debug.Log("в методе корутыны");
-
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
@@ -27,13 +25,11 @@ public class Rocket : MonoBehaviour
 
     private IEnumerator FlyRocket()
     {
-        Debug.Log("в корутине");
         gameObject.transform.parent = null;
 
         while (_speed != 0)
         {
             _rigidbody.MovePosition(_rigidbody.position + Vector2.down * _speed * Time.deltaTime);
-
             yield return null;
         }
     }
@@ -54,7 +50,6 @@ public class Rocket : MonoBehaviour
     public void Restart()
     {
         gameObject.transform.position = _pointRocketOnShip.transform.position;
-        Debug.Log(gameObject.transform.position + "рестарт");
         gameObject.SetActive(true);
     }
 }

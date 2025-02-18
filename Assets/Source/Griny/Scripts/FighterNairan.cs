@@ -7,18 +7,15 @@ namespace Enemy
     public class FighterNairan : MonoBehaviour
     {
         [SerializeField] private List<Rocket> _rockets;
-
         private int _number = 0;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.TryGetComponent<Ship>(out Ship ship) || collision.gameObject.TryGetComponent<Shield>(out Shield shield))
+            if (collision.gameObject.TryGetComponent<Ship>(out Ship ship) ||
+                collision.gameObject.TryGetComponent<EnemyShield>(out EnemyShield shield))
             {
-                Debug.Log("заметил корабль");
-
-                if(_number < _rockets.Count)
+                if (_number < _rockets.Count)
                 {
-                    Debug.Log("выстрел");
                     _rockets[_number].RunRocket();
                     _number++;
                 }
@@ -29,9 +26,9 @@ namespace Enemy
             }
         }
 
-        public void RestsrtRockets()
+        public void RestartRockets()
         {
-            foreach(Rocket rocket in _rockets)
+            foreach (Rocket rocket in _rockets)
             {
                 rocket.Restart();
                 rocket.transform.parent = gameObject.transform;
@@ -39,6 +36,5 @@ namespace Enemy
 
             _number = 0;
         }
-
     }
 }

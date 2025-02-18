@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3049415075517148434}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2d0fcdd639f894348af5d209002f1187, type: 2}
+  m_Controller: {fileID: 9100000, guid: eaffc7070fd70e7478fe276187be721b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -119,17 +119,17 @@ GameObject:
   - component: {fileID: 3743183409605733229}
   - component: {fileID: 6027078968053492090}
   - component: {fileID: 6662963656171087556}
-  - component: {fileID: 6615968939708067787}
+  - component: {fileID: 219758533265080494}
+  - component: {fileID: 1235866263473220942}
   - component: {fileID: 4998242896753178374}
   - component: {fileID: 8586320738126057408}
   - component: {fileID: 5389721942864215398}
   - component: {fileID: -6170847843833961912}
   - component: {fileID: 244414058047415382}
-  - component: {fileID: 2898610736869058846}
-  - component: {fileID: 5736876460671187953}
-  - component: {fileID: 125345487991039614}
+  - component: {fileID: 8392971655588789242}
+  - component: {fileID: 6222478504704889064}
   m_Layer: 0
-  m_Name: Kla'ed - Bomber
+  m_Name: Nairan - Bomber
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 594d8c6fa46909245a80c8a049c475a9, type: 3}
+  m_Sprite: {fileID: 1525294733, guid: da266a5cebfdd934c8c8d1a8cdd96676, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -215,7 +215,7 @@ Animator:
   m_GameObject: {fileID: 5705803770423958430}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a5fb8d1f8deb3f46a13d74369f6a999, type: 2}
+  m_Controller: {fileID: 9100000, guid: d86370c5bac3a644da6209bf1966483c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -298,7 +298,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!82 &6615968939708067787
+--- !u!82 &219758533265080494
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,6 +394,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1235866263473220942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705803770423958430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86c36b7b5ced8046931202e79b55183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageColor: {r: 1, g: 0, b: 0, a: 1}
+  _damage: 5
+  _shieldSpriteRenderer: {fileID: 8396151735463552572}
+  _damageSFX: {fileID: 11400000, guid: 6e2778f1945cec14e8d4c04bd30ad0ec, type: 2}
+  _explosionSFX: {fileID: 11400000, guid: 0f78e38f5b3abcb438319beac7797a6c, type: 2}
 --- !u!114 &4998242896753178374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,24 +482,7 @@ MonoBehaviour:
   _characteristic: {fileID: 5389721942864215398}
   _slider: {fileID: 8463515370413433857}
   _speedChange: 1
---- !u!114 &2898610736869058846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5705803770423958430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86c36b7b5ced8046931202e79b55183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageColor: {r: 1, g: 0, b: 0, a: 0.74509805}
-  _damage: 10
-  _shieldSpriteRenderer: {fileID: 8396151735463552572}
-  _damageSFX: {fileID: 11400000, guid: 6e2778f1945cec14e8d4c04bd30ad0ec, type: 2}
-  _explosionSFX: {fileID: 11400000, guid: 0f78e38f5b3abcb438319beac7797a6c, type: 2}
---- !u!114 &5736876460671187953
+--- !u!114 &8392971655588789242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff1a2c201496b44e87b27f97fc6c11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &125345487991039614
+--- !u!114 &6222478504704889064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -642,7 +642,7 @@ Animator:
   m_GameObject: {fileID: 8191711220369556275}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f2e5f7f5af2e6474bbe7219ab8d15a4a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 08ad02c6f89fbd74784740a67a03de08, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -663,6 +663,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1450332263480754136, guid: 96dfad32df10f8a4095215f46e75ce03, type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606111498069848811, guid: 96dfad32df10f8a4095215f46e75ce03, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606111498069848811, guid: 96dfad32df10f8a4095215f46e75ce03, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4946393949021518449, guid: 96dfad32df10f8a4095215f46e75ce03, type: 3}

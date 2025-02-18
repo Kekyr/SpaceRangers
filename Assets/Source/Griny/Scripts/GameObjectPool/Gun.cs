@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Enemy
 {
     public class Gun : MonoBehaviour
     {
-        private const string _paretBullets = "ParentBullets";
         private const float _delay = 0.5f;
 
         [SerializeField] private SFXSO _shootSFX;
@@ -31,8 +31,6 @@ namespace Enemy
             }
 
             _sfx = GetComponentInParent<SFX>();
-
-            Initialize();
         }
 
         private void OnEnable()
@@ -40,19 +38,28 @@ namespace Enemy
             StartCoroutine(ShootBullet());
         }
 
+        private void Start()
+        {
+            Initialize();
+        }
+
         private void Initialize()
         {
+            GameObject container = new GameObject(_prefab.name);
+            container.transform.parent = _parent;
+            
             for (int i = 0; i < _capacity; i++)
             {
-                Bullet bullet = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity, _parent);
+                Bullet bullet = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity, container.transform);
                 bullet.gameObject.SetActive(false);
                 _pool.Add(bullet);
             }
         }
 
-        public void Init(GameObject gameObject)
+        public void Init(Transform parent)
         {
-            _parent = gameObject.transform;           
+            _parent = parent;
+            enabled = true;
         }
 
         private IEnumerator ShootBullet()

@@ -14,11 +14,12 @@ GameObject:
   - component: {fileID: 5873082725075249981}
   - component: {fileID: 7358982121281070170}
   - component: {fileID: 3676142306408518742}
+  - component: {fileID: -3556679063875948216}
   - component: {fileID: 3836976385785751080}
   - component: {fileID: 3623267450132054174}
   - component: {fileID: 7511217197265608188}
-  - component: {fileID: 8360603314556640113}
   - component: {fileID: 7575055454540595722}
+  - component: {fileID: -839585248781413878}
   m_Layer: 0
   m_Name: Kla'ed - Torpedo
   m_TagString: Enemy
@@ -285,6 +286,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3556679063875948216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078749490920682149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86c36b7b5ced8046931202e79b55183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageColor: {r: 1, g: 0, b: 0, a: 0.74509805}
+  _damage: 10
+  _shieldSpriteRenderer: {fileID: 7277802398036877222}
+  _damageSFX: {fileID: 11400000, guid: 6e2778f1945cec14e8d4c04bd30ad0ec, type: 2}
+  _explosionSFX: {fileID: 11400000, guid: 0f78e38f5b3abcb438319beac7797a6c, type: 2}
 --- !u!114 &3836976385785751080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,23 +344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startValue: 3
   _sheeld: {fileID: 3531610822046460794}
---- !u!114 &8360603314556640113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078749490920682149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316ee65c728123a4580bd4b13846c5da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageColor: {r: 0.67058825, g: 0, b: 0, a: 1}
-  _damage: 4
-  _shieldSpriteRenderer: {fileID: 7277802398036877222}
-  _damageSFX: {fileID: 11400000, guid: 6e2778f1945cec14e8d4c04bd30ad0ec, type: 2}
-  _explosionSFX: {fileID: 11400000, guid: 0f78e38f5b3abcb438319beac7797a6c, type: 2}
 --- !u!114 &7575055454540595722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +356,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff1a2c201496b44e87b27f97fc6c11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-839585248781413878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078749490920682149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!1 &3531610822046460794
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ namespace ShipBase
         [SerializeField] private Button _addRocketButton;
         [SerializeField] private List<EnemySpawner> _enemySpawners;
         [SerializeField] private SpriteModifier _spriteModifier;
+        [SerializeField] private Transform _enemyBulletsContainer;
 
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
@@ -52,6 +53,11 @@ namespace ShipBase
             if (_spriteModifier == null)
             {
                 throw new ArgumentNullException(nameof(_spriteModifier));
+            }
+
+            if (_enemyBulletsContainer == null)
+            {
+                throw new ArgumentNullException(nameof(_enemyBulletsContainer));
             }
 
             if (_bulletData == null)
@@ -140,7 +146,7 @@ namespace ShipBase
 
             for (int i = 0; i < _enemySpawners.Count; i++)
             {
-                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier);
+                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer);
             }
         }
     }

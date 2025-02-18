@@ -32,7 +32,7 @@ namespace Enemy
 
                 spawned.gameObject.SetActive(false);
 
-                //spawned.GetComponent<Health>().Died += SetEnemy;
+                //spawned.GetComponent<EnemyHealth>().Died += SetEnemy;
 
                 _pool.Add(spawned);
             }

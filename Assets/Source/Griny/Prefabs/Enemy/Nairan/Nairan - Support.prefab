@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1302283949229809720}
   - component: {fileID: -4038468500015706478}
   m_Layer: 0
-  m_Name: Kla'ed - Support
+  m_Name: Nairan - Support
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f387346503c1954468e1469d27125f12, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 866540187, guid: e6b6e13ba2fd51440a8fd9fcb415e3de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 4785543632735189292}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 247dc43e7095453489178ad8080cfe3c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 85fe1ddae1b5c994b8cabde297e03446, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -290,7 +290,7 @@ Animator:
   m_GameObject: {fileID: 6407928486756018887}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 628809942a5927c4697c6aabcd168dbf, type: 2}
+  m_Controller: {fileID: 9100000, guid: af58822e0f30bae49b5592235a02fb69, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
