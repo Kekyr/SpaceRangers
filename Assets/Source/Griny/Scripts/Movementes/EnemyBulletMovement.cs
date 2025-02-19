@@ -4,19 +4,24 @@ using WordGame;
 
 namespace Enemy
 {
-    public class BulletEnemyMovement : EnemyMovement
+    [RequireComponent(typeof(Bullet))]
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Collider2D))]
+    public class EnemyBulletMovement : EnemyMovement
     {
         private readonly string _destructionTrigger = "Destruct";
         private readonly string _leftBorder = "left";
         private readonly string _rightBorder = "right";
 
-        [SerializeField] private Bullet _bullet;
-
+        private Bullet _bullet;
         private Animator _animator;
         private Collider2D _collider;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
+            _bullet = GetComponent<Bullet>();
             _animator = GetComponent<Animator>();
             _collider = GetComponent<Collider2D>();
         }

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Enemy
@@ -13,9 +12,8 @@ namespace Enemy
         private const float _delay = 0.5f;
 
         [SerializeField] private SFXSO _shootSFX;
-        [SerializeField] private Bullet _prefab;
-        [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private Transform _direction;
+        [SerializeField] private Bullet _bulletPrefab;
+        [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private int _capacity;
 
         private Transform _parent;
@@ -28,6 +26,16 @@ namespace Enemy
             if (_shootSFX == null)
             {
                 throw new ArgumentNullException(nameof(_shootSFX));
+            }
+
+            if (_bulletPrefab == null)
+            {
+                throw new ArgumentNullException(nameof(_bulletPrefab));
+            }
+
+            if (_spawnPoints.Length == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_spawnPoints));
             }
 
             _sfx = GetComponentInParent<SFX>();
@@ -45,14 +53,18 @@ namespace Enemy
 
         private void Initialize()
         {
-            GameObject container = new GameObject(_prefab.name);
+            GameObject container = new GameObject(_bulletPrefab.name);
             container.transform.parent = _parent;
-            
-            for (int i = 0; i < _capacity; i++)
+
+            foreach (Transform spawnPoint in _spawnPoints)
             {
-                Bullet bullet = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity, container.transform);
-                bullet.gameObject.SetActive(false);
-                _pool.Add(bullet);
+                for (int i = 0; i < _capacity; i++)
+                {
+                    Bullet bullet = Instantiate(_bulletPrefab, spawnPoint.position, Quaternion.identity,
+                        container.transform);
+                    bullet.gameObject.SetActive(false);
+                    _pool.Add(bullet);
+                }
             }
         }
 
@@ -66,28 +78,31 @@ namespace Enemy
         {
             while (gameObject.activeSelf == true)
             {
-                if (TryGetInstance(out Bullet instance))
+                foreach (Transform spawnPoint in _spawnPoints)
                 {
-                    SetInstance(instance, _spawnPoint.position);
+                    if (TryGetInstance(out Bullet instance))
+                    {
+                        SetInstance(instance, spawnPoint);
+                    }
                 }
 
                 yield return _wait;
             }
         }
 
-        private void SetInstance(Bullet bullet, Vector3 spawnPosition)
-        {
-            bullet.SetVector(-_direction.transform.localPosition);
-            bullet.transform.position = spawnPosition;
-            bullet.transform.rotation = gameObject.transform.rotation;
-            _sfx.Play(_shootSFX);
-            bullet.gameObject.SetActive(true);
-        }
+        private void SetInstance(Bullet bullet, Transform spawnPoint)
+            {
+                bullet.SetVector(spawnPoint.transform.up);
+                bullet.transform.position = spawnPoint.position;
+                bullet.transform.rotation = gameObject.transform.rotation;
+                _sfx.Play(_shootSFX);
+                bullet.gameObject.SetActive(true);
+            }
 
-        private bool TryGetInstance(out Bullet result)
-        {
-            result = _pool.FirstOrDefault(instance => instance.gameObject.activeSelf == false);
-            return result != null;
+            private bool TryGetInstance(out Bullet result)
+            {
+                result = _pool.FirstOrDefault(instance => instance.gameObject.activeSelf == false);
+                return result != null;
+            }
         }
     }
-}

@@ -10,12 +10,17 @@ namespace Enemy
         private const string _borderDown = "down";
 
         [SerializeField] private float _speed;
-        [SerializeField] private Rigidbody2D _rigidbody;
-
+        
+        private Rigidbody2D _rigidbody;
         private bool _isCollideDown = false;
 
         public event Action OutSight;
 
+        protected virtual void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
+        
         private void FixedUpdate()
         {
             Move();

@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 5912266569409897860}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e245c52d03a7f25429e639a82f0eff01, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0ccfdceba3f6e5479c79bb5427d11d3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -195,8 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 200
-  _rigidbody: {fileID: 3897566004436110189}
-  _bullet: {fileID: 7489470840651271039}
 --- !u!114 &7489470840651271039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,4 +207,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da19fa62b07621b47924699b9e491394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageColor: {r: 1, g: 0, b: 0, a: 1}
   _damage: 1

@@ -6,12 +6,17 @@ namespace Enemy
     public class EnemyShield : CharacteristicEnemy
     {
         [SerializeField] private float _startValue;
-        [SerializeField] private GameObject _sheeld;
+        [SerializeField] private GameObject _shield;
 
         private float _value;
 
         private void Start()
         {
+            if (_shield == null)
+            {
+                throw new ArgumentNullException(nameof(_shield));
+            }
+            
             ReStartValue();
         }
 
@@ -29,7 +34,7 @@ namespace Enemy
         {
             _value = _startValue;
             GetActionChangedValue(_value, _startValue);
-            _sheeld.gameObject.SetActive(true);
+            _shield.gameObject.SetActive(true);
         }
 
         public void TakeDamage(float damage)
@@ -38,7 +43,7 @@ namespace Enemy
 
             if (_value == 0)
             {
-                _sheeld.gameObject.SetActive(false);
+                _shield.gameObject.SetActive(false);
             }
 
             GetActionChangedValue(_value, _startValue);
