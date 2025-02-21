@@ -30,7 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 79fde2b534525fb45a1ae849c700ffc6, type: 2}
     - target: {fileID: 5376478595322631341, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Name
-      value: Nautolan Fighter Variant
+      value: Nautolan Fighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661331434239601847, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: _startValue
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6776372342168281959, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_AnchorMax.x
@@ -83,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 7083905582099775927, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620058634271823618, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: _startValue
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8476281416062757092, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
