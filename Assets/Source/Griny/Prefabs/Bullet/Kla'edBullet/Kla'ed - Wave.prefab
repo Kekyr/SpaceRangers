@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 7448732560497561774}
   - component: {fileID: 5156510332224619815}
   - component: {fileID: 3897566004436110189}
-  - component: {fileID: 4967434506257920666}
   - component: {fileID: 7489470840651271039}
+  - component: {fileID: 4967434506257920666}
   m_Layer: 0
-  m_Name: Kla'ed - Wave_0
+  m_Name: Kla'ed - Wave
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1110619643, guid: 28e05c6599dec7b4e92123134ee5ddbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -182,19 +182,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4967434506257920666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5912266569409897860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6449a12890df34495aaa6546a33616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 200
 --- !u!114 &7489470840651271039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +196,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageColor: {r: 1, g: 0, b: 0, a: 1}
   _damage: 1
+--- !u!114 &4967434506257920666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912266569409897860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6449a12890df34495aaa6546a33616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 200

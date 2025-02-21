@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ShipBase;
@@ -7,7 +8,16 @@ namespace Enemy
     public class FighterNairan : MonoBehaviour
     {
         [SerializeField] private List<Rocket> _rockets;
+
         private int _number = 0;
+
+        private void Awake()
+        {
+            if (_rockets.Count == 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

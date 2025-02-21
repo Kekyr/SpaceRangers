@@ -94,7 +94,7 @@ namespace Enemy
             {
                 bullet.SetVector(spawnPoint.transform.up);
                 bullet.transform.position = spawnPoint.position;
-                bullet.transform.rotation = gameObject.transform.rotation;
+                bullet.transform.rotation = spawnPoint.transform.rotation;
                 _sfx.Play(_shootSFX);
                 bullet.gameObject.SetActive(true);
             }

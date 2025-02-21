@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 622638937943094251}
   - component: {fileID: 8564071149009619079}
   m_Layer: 0
-  m_Name: EnemyShip
+  m_Name: EnemyShip(No Gun)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

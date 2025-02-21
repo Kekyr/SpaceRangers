@@ -7,11 +7,16 @@ using WordGame;
 public class Rocket : Attacker
 {
     [SerializeField] private int _speed;
-    [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private Transform _direction;
-    [SerializeField] private Transform _pointRocketOnShip;
 
+    private Transform _pointRocketOnShip;
     private Coroutine _coroutine;
+    private Rigidbody2D _rigidbody;
+
+    private void Awake()
+    {
+        _pointRocketOnShip = transform.parent;
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     public void RunRocket()
     {
@@ -34,11 +39,11 @@ public class Rocket : Attacker
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collision.gameObject.TryGetComponent(out BackgroundBorder border))
+        if (collider.gameObject.TryGetComponent(out BackgroundBorder border))
         {
-            if(border.GetName() == "down")
+            if (border.GetName() == "down")
             {
                 _speed = 0;
                 gameObject.SetActive(false);
