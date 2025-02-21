@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7375172456202232003, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: m_Name
-      value: Kla'ed Support Variant
+      value: Kla'ed Support
       objectReference: {fileID: 0}
     - target: {fileID: 7375172456202232003, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: m_TagString

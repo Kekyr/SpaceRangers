@@ -305,7 +305,7 @@ PrefabInstance:
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _bulletPrefab
       value: 
-      objectReference: {fileID: 7489470840651271039, guid: fc9da032ef7bad344b8275adf0c59182, type: 3}
+      objectReference: {fileID: 329993748242241713, guid: ece0c9026bac581488b99bf63dc52a6c, type: 3}
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 1

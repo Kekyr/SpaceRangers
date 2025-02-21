@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.030291408
       objectReference: {fileID: 0}
+    - target: {fileID: 5883491886588737996, guid: 12cbfa95c24e9e544959054e54ffeb88, type: 3}
+      propertyPath: _startValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6509575986590183289, guid: 12cbfa95c24e9e544959054e54ffeb88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.68
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7235160224201867897, guid: 12cbfa95c24e9e544959054e54ffeb88, type: 3}
+      propertyPath: _startValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7355289654638202281, guid: 12cbfa95c24e9e544959054e54ffeb88, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -74,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251905742619703907, guid: 12cbfa95c24e9e544959054e54ffeb88, type: 3}
       propertyPath: m_Name
-      value: Nairan Support Variant
+      value: Nairan Support
       objectReference: {fileID: 0}
     - target: {fileID: 9162481005942889420, guid: 12cbfa95c24e9e544959054e54ffeb88, type: 3}
       propertyPath: m_AnchorMax.x

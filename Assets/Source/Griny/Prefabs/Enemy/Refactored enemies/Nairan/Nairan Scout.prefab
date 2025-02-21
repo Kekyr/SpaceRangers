@@ -41,7 +41,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 315883301949075638, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_Name
-      value: Nairan Scout Variant
+      value: Nairan Scout
       objectReference: {fileID: 0}
     - target: {fileID: 465889240017863461, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_Controller
@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1337258331792345260, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _startValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2716847029331246695, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -82,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 2716847029331246695, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828482731980043033, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _startValue
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3220142329312732588, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -155,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f51468f9f06f5194c981afe6fe2025f9, type: 2}
+    - target: {fileID: 6654218760522164670, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 8261683271524208002, guid: c1b117b44d87b4141a0d7aae52193045, type: 3}
     - target: {fileID: 6654218760522164670, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 2
