@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -10,6 +9,7 @@ namespace Enemy
 
         private SpriteModifier _spriteModifier;
         private Transform _enemyBulletsContainer;
+        private CoinPool _coinPool;
 
         private EnemySpawnerSO _data;
         private List<GameObject> _pool = new List<GameObject>();
@@ -47,11 +47,12 @@ namespace Enemy
             }
         }
 
-        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier, Transform enemyBulletsContainer)
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier, Transform enemyBulletsContainer, CoinPool coinPool)
         {
             _data = data;
             _spriteModifier = spriteModifier;
             _enemyBulletsContainer = enemyBulletsContainer;
+            _coinPool = coinPool;
             enabled = true;
         }
 
@@ -65,6 +66,7 @@ namespace Enemy
                 EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
                 enemyShip.Init(_spriteModifier);
                 enemyShip.Destroyed += Spawn;
+                enemyShip.Annihilated += _coinPool.Spawn;
 
                 _guns.AddRange(instance.GetComponentsInChildren<Gun>());
 

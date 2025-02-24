@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5066286771094396381}
   - component: {fileID: 9103546140083646417}
   m_Layer: 2
-  m_Name: AutoGunZone
+  m_Name: AutoGunsZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8,9 +8,9 @@ namespace Game
 
         public int Nominal => _nominal;
 
-        private void OnTriggerEnter2D(Collider2D col)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (col.gameObject.CompareTag("Player"))
+            if (collider.gameObject.CompareTag("Player"))
             {
                 gameObject.SetActive(false);
             }

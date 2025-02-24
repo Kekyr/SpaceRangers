@@ -35,7 +35,7 @@ namespace Enemy
         private SFX _sfx;
 
         public event Action Destroyed;
-
+        public event Action<Vector3> Annihilated;
         public event Action<EnemyShip> Exited;
 
         private void Awake()
@@ -131,9 +131,10 @@ namespace Enemy
 
         private void OnDestruct()
         {
-            _animator.SetBool(_destruction, false);
             gameObject.SetActive(false);
+            _animator.SetBool(_destruction, false);
             Destroyed?.Invoke();
+            Annihilated?.Invoke(transform.position);
         }
     }
 }

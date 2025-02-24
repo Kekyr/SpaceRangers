@@ -14,7 +14,9 @@ namespace ShipBase
         [SerializeField] private Button _addRocketButton;
         [SerializeField] private List<EnemySpawner> _enemySpawners;
         [SerializeField] private SpriteModifier _spriteModifier;
+
         [SerializeField] private Transform _enemyBulletsContainer;
+        [SerializeField] private CoinPool _coinPool;
 
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
@@ -58,6 +60,11 @@ namespace ShipBase
             if (_enemyBulletsContainer == null)
             {
                 throw new ArgumentNullException(nameof(_enemyBulletsContainer));
+            }
+
+            if (_coinPool == null)
+            {
+                throw new ArgumentNullException(nameof(_coinPool));
             }
 
             if (_bulletData == null)
@@ -119,6 +126,8 @@ namespace ShipBase
 
             GameObject ship = Instantiate(_shipData.CurrentLevel);
 
+            _coinPool.Init(ship.transform);
+
             DamageHandler damageHandler = ship.GetComponent<DamageHandler>();
             Movement movement = ship.GetComponent<Movement>();
             ShipHealth health = ship.GetComponent<ShipHealth>();
@@ -146,7 +155,7 @@ namespace ShipBase
 
             for (int i = 0; i < _enemySpawners.Count; i++)
             {
-                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer);
+                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool);
             }
         }
     }
