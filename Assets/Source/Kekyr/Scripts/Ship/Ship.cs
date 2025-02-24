@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace ShipBase
 {
-    [RequireComponent(typeof(Wallet))]
     [RequireComponent(typeof(DamageHandler))]
     [RequireComponent(typeof(CinemachineImpulseSource))]
     public class Ship : MonoBehaviour
@@ -17,10 +16,10 @@ namespace ShipBase
         private readonly float _impulseDamageForce = 0.01f;
         private readonly Vector3 _impulseDirection = new Vector3(1, 1, 1);
 
+        [SerializeField] private Wallet _wallet;
         [SerializeField] private SFXSO _damageSFX;
         [SerializeField] private SFXSO _explosionSFX;
 
-        private Wallet _wallet;
         private DamageHandler _damageHandler;
         private SFX _sfx;
         private ShipHealth _health;
@@ -33,6 +32,11 @@ namespace ShipBase
 
         private void Awake()
         {
+            if (_wallet == null)
+            {
+                throw new ArgumentNullException(nameof(_wallet));
+            }
+            
             if (_damageSFX == null)
             {
                 throw new ArgumentNullException(nameof(_damageSFX));
@@ -45,7 +49,6 @@ namespace ShipBase
 
             _sfx = GetComponent<SFX>();
             _health = GetComponent<ShipHealth>();
-            _wallet = GetComponent<Wallet>();
             _damageHandler = GetComponent<DamageHandler>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
 

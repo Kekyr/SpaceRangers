@@ -126,15 +126,15 @@ namespace ShipBase
 
             GameObject ship = Instantiate(_shipData.CurrentLevel);
 
-            _coinPool.Init(ship.transform);
-
             DamageHandler damageHandler = ship.GetComponent<DamageHandler>();
             Movement movement = ship.GetComponent<Movement>();
             ShipHealth health = ship.GetComponent<ShipHealth>();
-            Wallet wallet = ship.GetComponent<Wallet>();
+            Wallet wallet = ship.GetComponentInChildren<Wallet>();
             Shield shield = ship.GetComponentInChildren<Shield>();
             RocketLauncher rocketLauncher = ship.GetComponentInChildren<RocketLauncher>();
             BulletPool pool = ship.GetComponentInChildren<BulletPool>();
+
+            _coinPool.Init(ship.transform, health);
 
             if (ship.TryGetComponent(out AutoGuns autoGuns))
             {

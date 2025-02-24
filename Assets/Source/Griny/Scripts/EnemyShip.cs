@@ -21,6 +21,7 @@ namespace Enemy
         private readonly Vector3 _impulseDirection = new Vector3(1, 1, 1);
 
         [SerializeField] private SpriteRenderer _shieldSpriteRenderer;
+        [SerializeField] private EnemyDataSO _data;
         [SerializeField] private SFXSO _damageSFX;
         [SerializeField] private SFXSO _explosionSFX;
 
@@ -35,24 +36,19 @@ namespace Enemy
         private SFX _sfx;
 
         public event Action Destroyed;
-        public event Action<Vector3> Annihilated;
+        public event Action<Vector3, EnemyDataSO> Annihilated;
         public event Action<EnemyShip> Exited;
 
         private void Awake()
         {
-            if (_impulseForce == 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_impulseForce));
-            }
-
-            if (_impulseDirection == Vector3.zero)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_impulseDirection));
-            }
-
             if (_shieldSpriteRenderer == null)
             {
                 throw new ArgumentNullException(nameof(_shieldSpriteRenderer));
+            }
+
+            if (_data == null)
+            {
+                throw new ArgumentNullException(nameof(_data));
             }
 
             if (_damageSFX == null)
@@ -134,7 +130,7 @@ namespace Enemy
             gameObject.SetActive(false);
             _animator.SetBool(_destruction, false);
             Destroyed?.Invoke();
-            Annihilated?.Invoke(transform.position);
+            Annihilated?.Invoke(transform.position, _data);
         }
     }
 }

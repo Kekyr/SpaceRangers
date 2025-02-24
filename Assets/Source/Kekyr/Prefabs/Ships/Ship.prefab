@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7460828678885418213}
   - component: {fileID: 3475974704705210062}
   - component: {fileID: 1431182261619774408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8023607165959982446}
   - component: {fileID: 3001645388370621182}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,12 +184,11 @@ GameObject:
   - component: {fileID: 3270724344777876474}
   - component: {fileID: 4986557118121901558}
   - component: {fileID: 6889173142970826883}
-  - component: {fileID: 4398162430017912245}
   - component: {fileID: 8683533884103963677}
   - component: {fileID: 579760332143537150}
   - component: {fileID: 1970098109006422710}
   - component: {fileID: 563247494625002921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -212,6 +211,7 @@ Transform:
   - {fileID: 4839115891525811929}
   - {fileID: 6161222526507748520}
   - {fileID: 6963272148264181150}
+  - {fileID: 8668734355045932593}
   - {fileID: 2957430606158937480}
   - {fileID: 8023607165959982446}
   m_Father: {fileID: 0}
@@ -479,6 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deffef4b588043442ab8b08027697c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallet: {fileID: 8154046768841884045}
   _damageSFX: {fileID: 11400000, guid: 7b4d1053309857844b2c89c5829930b3, type: 2}
   _explosionSFX: {fileID: 11400000, guid: d50a5f411282fc14da9c5062981f701d, type: 2}
 --- !u!114 &3270724344777876474
@@ -524,18 +525,6 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 8040039740172115804}
   _interval: 0.2
   _bulletSpeed: 10
---- !u!114 &4398162430017912245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757126576815746414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e53386b6ebe9946ac7b3bb094d9af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8683533884103963677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,7 +632,7 @@ GameObject:
   - component: {fileID: 5544954610404880759}
   - component: {fileID: 5088588350041383772}
   - component: {fileID: 4773074697934706269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6963272148264181150}
   - component: {fileID: 2489687055537609100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +784,7 @@ GameObject:
   - component: {fileID: 7373649687404342928}
   - component: {fileID: 4972176140862411178}
   - component: {fileID: 6008533102681808826}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,6 +879,161 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4172725980975226089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8668734355045932593}
+  - component: {fileID: 515242260726620901}
+  - component: {fileID: 8154046768841884045}
+  - component: {fileID: 6872113862969625047}
+  m_Layer: 6
+  m_Name: Wallet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8668734355045932593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172725980975226089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1899103401002592528}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &515242260726620901
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172725980975226089}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8154046768841884045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172725980975226089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e53386b6ebe9946ac7b3bb094d9af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _addSFX: {fileID: 11400000, guid: ff66f26711f0b73449c3c8a5fd87fc25, type: 2}
+--- !u!114 &6872113862969625047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172725980975226089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff1a2c201496b44e87b27f97fc6c11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5127854480046564397
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +1043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419452371584249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +1075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3227741456313661365}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +1108,7 @@ GameObject:
   - component: {fileID: 956088733772212810}
   - component: {fileID: 8173879334993240039}
   - component: {fileID: 4621568710631794206}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,7 +1214,7 @@ GameObject:
   - component: {fileID: 5887992181449905636}
   - component: {fileID: 2035248558100697344}
   - component: {fileID: 2246764822130146590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1322,7 @@ GameObject:
   - component: {fileID: 6864305221091486262}
   - component: {fileID: 6196825453265458331}
   - component: {fileID: 5333303029091593037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1359,7 +1503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2957430606158937480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,7 +1537,7 @@ GameObject:
   - component: {fileID: 8022040930433337458}
   - component: {fileID: 8536741177162550330}
   - component: {fileID: 4311149947852139334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1499,7 +1643,7 @@ GameObject:
   - component: {fileID: 4839115891525811929}
   - component: {fileID: 5928094376910900511}
   - component: {fileID: 1651400367860709072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

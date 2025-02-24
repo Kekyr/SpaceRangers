@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CoinMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
     [SerializeField] private float _nearSpeed;
     [SerializeField] private float _nearDistance;
 
@@ -13,11 +13,11 @@ public class CoinMovement : MonoBehaviour
 
     private void Awake()
     {
-        if (_speed == 0)
+        if (_jumpForce == 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(_speed));
+            throw new ArgumentOutOfRangeException(nameof(_jumpForce));
         }
-
+        
         if (_nearSpeed == 0)
         {
             throw new ArgumentOutOfRangeException(nameof(_nearSpeed));
@@ -31,18 +31,20 @@ public class CoinMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    private void OnEnable()
+    {
+        _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+    }
+
     private void FixedUpdate()
     {
-        Vector3 direction = (_destination.position - transform.position).normalized;
         float distance = Vector2.Distance(_destination.position, transform.position);
-        float speed = _speed;
-        
+
         if (distance <= _nearDistance)
         {
-            speed = _nearSpeed;
+            Vector3 direction = (_destination.position - transform.position).normalized;
+            _rigidbody.velocity = direction * _nearSpeed;
         }
-
-        _rigidbody.velocity = direction * speed;
     }
 
     public void Init(Transform destination)

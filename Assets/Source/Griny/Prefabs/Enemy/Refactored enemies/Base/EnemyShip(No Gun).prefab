@@ -1078,6 +1078,7 @@ MonoBehaviour:
   _damageColor: {r: 1, g: 0, b: 0, a: 1}
   _damage: 10
   _shieldSpriteRenderer: {fileID: 6831405794619561381}
+  _data: {fileID: 11400000, guid: 76cba0a4280bfd8489f902b72b153178, type: 2}
   _damageSFX: {fileID: 11400000, guid: 6e2778f1945cec14e8d4c04bd30ad0ec, type: 2}
   _explosionSFX: {fileID: 11400000, guid: 0f78e38f5b3abcb438319beac7797a6c, type: 2}
 --- !u!114 &148222024313390331
