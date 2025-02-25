@@ -1,4 +1,6 @@
+using ShipBase;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Enemy
@@ -13,6 +15,7 @@ namespace Enemy
         private List<GameObject> _pool = new List<GameObject>();
         private int _currentInstanceIndex = 0;
         private List<Gun> _gans = new List<Gun>();
+        private List<RocketLauncher> _rocketLaunchers = new List<RocketLauncher>();
 
         private void Start()
         {
@@ -69,6 +72,13 @@ namespace Enemy
                     gun.Init(_parentBullets);
                 }
 
+                _rocketLaunchers.AddRange(instance.GetComponentsInChildren<RocketLauncher>());
+
+                foreach (RocketLauncher rocketLauncher in _rocketLaunchers)
+                {
+                    rocketLauncher.Init(_parentBullets);
+                }
+
                 Movement movement = instance.GetComponent<Movement>();
 
                 switch (movement)
@@ -101,10 +111,6 @@ namespace Enemy
 
             enemy = _pool[_currentInstanceIndex];
 
-            if (enemy.GetComponent<FighterNairan>())
-            {
-                enemy.GetComponent<FighterNairan>().RestsrtRockets();
-            }
 
             enemy.gameObject.SetActive(true);
             enemy.transform.position = _spawnPoint.position;
@@ -115,6 +121,11 @@ namespace Enemy
             if (enemy.TryGetComponent(out Shield shield))
             {
                 shield.ReStartValue();
+            }
+
+            if (enemy.GetComponentInChildren<SetRockets>())
+            {
+                enemy.GetComponentInChildren<SetRockets>().RestartRockets();
             }
         }
     }

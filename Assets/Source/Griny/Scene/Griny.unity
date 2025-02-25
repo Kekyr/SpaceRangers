@@ -191,6 +191,11 @@ MonoBehaviour:
   _camera: {fileID: 519420031}
   _autoGunsZone: {fileID: 1382952010}
   _addRocketButton: {fileID: 325008854}
+  _enemySpawners:
+  - {fileID: 2051804541}
+  - {fileID: 1449182087}
+  - {fileID: 722230247}
+  _spriteModifier: {fileID: 1779320796}
   _healthView: {fileID: 325008853}
   _shieldView: {fileID: 325008852}
   _walletView: {fileID: 325008851}
@@ -200,6 +205,7 @@ MonoBehaviour:
   _rocketData: {fileID: 11400000, guid: 50574b0a226cc174b9663743d53ac972, type: 2}
   _shieldData: {fileID: 11400000, guid: 1a103f3b12fbc9f459ad7be3b40c1a36, type: 2}
   _backgroundData: {fileID: 11400000, guid: 8f1e85bf35a085449b88d37e729e65d1, type: 2}
+  _levelData: {fileID: 11400000, guid: ea1f63c06399b794b83ae6b88acf7291, type: 2}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0
@@ -798,12 +804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7000dedab36d524eaa05b0de0a22eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabs:
-  - {fileID: 5705803770423958430, guid: 46adb334d49dc704da1ed5250a7a664b, type: 3}
-  - {fileID: 2905656645807563297, guid: 13f57c7423d23b746a7896230cb0e4d3, type: 3}
-  - {fileID: 5682566469513251614, guid: 2cdd8152aea0f4b46b9bc7b2f1d51fe3, type: 3}
-  - {fileID: 2331008148012028749, guid: 0f5de4c3db011f54e898c5b6ccc0a452, type: 3}
-  - {fileID: 2078749490920682149, guid: 46abb7802b5960148bbe6dfff11c2ffc, type: 3}
   _spawnPoint: {fileID: 0}
   _parentBullets: {fileID: 0}
 --- !u!4 &722230248
@@ -1697,12 +1697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7000dedab36d524eaa05b0de0a22eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabs:
-  - {fileID: 2078749490920682149, guid: 46abb7802b5960148bbe6dfff11c2ffc, type: 3}
-  - {fileID: 5705803770423958430, guid: 46adb334d49dc704da1ed5250a7a664b, type: 3}
-  - {fileID: 2905656645807563297, guid: 13f57c7423d23b746a7896230cb0e4d3, type: 3}
-  - {fileID: 5682566469513251614, guid: 2cdd8152aea0f4b46b9bc7b2f1d51fe3, type: 3}
-  - {fileID: 2331008148012028749, guid: 0f5de4c3db011f54e898c5b6ccc0a452, type: 3}
   _spawnPoint: {fileID: 0}
   _parentBullets: {fileID: 0}
 --- !u!4 &1449182088
@@ -2145,6 +2139,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 310b788640152454a9f95c7d3acfda0e, type: 3}
+--- !u!1 &1779320795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1779320797}
+  - component: {fileID: 1779320796}
+  m_Layer: 0
+  m_Name: SpriteModifier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1779320796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779320795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a368d04cb7f41748add705b84a86c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1779320797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779320795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.4486835, y: -0.61571014, z: -0.083155185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780518848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,8 +2320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7000dedab36d524eaa05b0de0a22eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabs:
-  - {fileID: 2905656645807563297, guid: 9807d5b9fd09e6f4e9dc8b5c20486e71, type: 3}
   _spawnPoint: {fileID: 2051804542}
   _parentBullets: {fileID: 1710386432}
 --- !u!4 &2051804542
@@ -2318,3 +2354,4 @@ SceneRoots:
   - {fileID: 325008850}
   - {fileID: 1737828997}
   - {fileID: 1710386433}
+  - {fileID: 1779320797}

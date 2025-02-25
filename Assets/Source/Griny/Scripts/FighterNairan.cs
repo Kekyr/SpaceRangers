@@ -19,7 +19,7 @@ namespace Enemy
                 if(_number < _rockets.Count)
                 {
                     Debug.Log("выстрел");
-                    _rockets[_number].RunRocket();
+                    //_rockets[_number].RunRocket();
                     _number++;
                 }
                 else
@@ -33,7 +33,7 @@ namespace Enemy
         {
             foreach(Rocket rocket in _rockets)
             {
-                rocket.Restart();
+                //rocket.Restart();
                 rocket.transform.parent = gameObject.transform;
             }
 

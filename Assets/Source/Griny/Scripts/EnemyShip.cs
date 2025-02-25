@@ -35,7 +35,6 @@ namespace Enemy
         private SFX _sfx;
 
         public event Action Destroyed;
-
         public event Action<EnemyShip> Exited;
 
         private void Awake()

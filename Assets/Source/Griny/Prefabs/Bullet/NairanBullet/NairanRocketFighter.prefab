@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8163783931233371029}
   - component: {fileID: 5517523574363414388}
   - component: {fileID: 2022658540640693381}
-  - component: {fileID: 8086968316443613437}
+  - component: {fileID: 7538154918202548307}
+  - component: {fileID: 5844862090612895207}
   m_Layer: 0
   m_Name: NairanRocketFighter
   m_TagString: EnemyBullet
@@ -163,7 +164,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4833151124058977201}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -182,7 +183,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8086968316443613437
+--- !u!114 &7538154918202548307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,13 +192,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4833151124058977201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c705a4508bb9840a4fc6ae4eaf0e59, type: 3}
+  m_Script: {fileID: 11500000, guid: f56bc1a647725e84682a33565707efdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 50
+  _movementRocket: {fileID: 5844862090612895207}
+  _animator: {fileID: 8163783931233371029}
+--- !u!114 &5844862090612895207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833151124058977201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b340f6a67fa50a4cb52077405e10640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 200
   _rigidbody: {fileID: 2022658540640693381}
-  _direction: {fileID: 3509279565178329971}
-  _pointRocketOnShip: {fileID: 0}
 --- !u!1 &5550645017777259245
 GameObject:
   m_ObjectHideFlags: 0
