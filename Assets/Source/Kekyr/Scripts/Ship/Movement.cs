@@ -8,12 +8,6 @@ namespace ShipBase
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour
     {
-        private readonly float _minX = -2.15f;
-        private readonly float _minY = -4.7f;
-
-        private readonly float _maxX = 2.15f;
-        private readonly float _maxY = 5.7f;
-
         private readonly string _movingAnimation = "IsMoving";
 
         [SerializeField] private Animator _engineAnimator;
@@ -82,9 +76,7 @@ namespace ShipBase
             Vector2 pointerPosition = context.ReadValue<Vector2>();
             Vector2 pointerWorldPosition = ConvertPointerPosition(pointerPosition);
 
-            _endPosition = new Vector2(
-                Mathf.Clamp(pointerWorldPosition.x, _minX, _maxX),
-                Mathf.Clamp(pointerWorldPosition.y, _minY, _maxY));
+            _endPosition = pointerWorldPosition;
 
             _isMoving = true;
             _engineAnimator.SetBool(_movingAnimation, _isMoving);

@@ -14,13 +14,17 @@ namespace ShipBase
         [SerializeField] private Button _addRocketButton;
         [SerializeField] private List<EnemySpawner> _enemySpawners;
         [SerializeField] private SpriteModifier _spriteModifier;
+        [SerializeField] private Score _score;
+        [SerializeField] private Wallet _wallet;
 
         [SerializeField] private Transform _enemyBulletsContainer;
+        [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private CoinPool _coinPool;
 
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
         [SerializeField] private WalletView _walletView;
+        [SerializeField] private ScoreView _scoreView;
         [SerializeField] private RawImage _background;
 
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
@@ -57,9 +61,24 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_spriteModifier));
             }
 
+            if (_score == null)
+            {
+                throw new ArgumentNullException(nameof(_score));
+            }
+
+            if (_wallet == null)
+            {
+                throw new ArgumentNullException(nameof(_wallet));
+            }
+
             if (_enemyBulletsContainer == null)
             {
                 throw new ArgumentNullException(nameof(_enemyBulletsContainer));
+            }
+
+            if (_playerSpawnPoint == null)
+            {
+                throw new ArgumentNullException(nameof(_playerSpawnPoint));
             }
 
             if (_coinPool == null)
@@ -112,6 +131,11 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_walletView));
             }
 
+            if (_scoreView == null)
+            {
+                throw new ArgumentNullException(nameof(_scoreView));
+            }
+
             if (_background == null)
             {
                 throw new ArgumentNullException(nameof(_background));
@@ -124,23 +148,24 @@ namespace ShipBase
 
             _background.texture = _backgroundData.CurrentTexture;
 
-            GameObject ship = Instantiate(_shipData.CurrentLevel);
+            GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 
-            DamageHandler damageHandler = ship.GetComponent<DamageHandler>();
-            Movement movement = ship.GetComponent<Movement>();
-            ShipHealth health = ship.GetComponent<ShipHealth>();
-            Wallet wallet = ship.GetComponentInChildren<Wallet>();
-            Shield shield = ship.GetComponentInChildren<Shield>();
-            RocketLauncher rocketLauncher = ship.GetComponentInChildren<RocketLauncher>();
-            BulletPool pool = ship.GetComponentInChildren<BulletPool>();
+            Ship ship = player.GetComponent<Ship>();
+            DamageHandler damageHandler = player.GetComponent<DamageHandler>();
+            Movement movement = player.GetComponent<Movement>();
+            ShipHealth health = player.GetComponent<ShipHealth>();
+            Shield shield = player.GetComponentInChildren<Shield>();
+            RocketLauncher rocketLauncher = player.GetComponentInChildren<RocketLauncher>();
+            BulletPool pool = player.GetComponentInChildren<BulletPool>();
 
-            _coinPool.Init(ship.transform, health);
+            _coinPool.Init(player.transform, health);
 
-            if (ship.TryGetComponent(out AutoGuns autoGuns))
+            if (player.TryGetComponent(out AutoGuns autoGuns))
             {
                 autoGuns.Init(_autoGunsZone);
             }
 
+            ship.Init(_wallet);
             damageHandler.Init(_spriteModifier);
             movement.Init(_camera);
             rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel);
@@ -149,13 +174,15 @@ namespace ShipBase
 
             _healthView.Init(health);
             _shieldView.Init(shield);
-            _walletView.Init(wallet);
+            _walletView.Init(_wallet);
+            _scoreView.Init(_score);
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
             for (int i = 0; i < _enemySpawners.Count; i++)
             {
-                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool);
+                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool,
+                    _score);
             }
         }
     }

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e9b92030e03864ea3d0e9dd254e47d, type: 3}
   m_Name: Torpedo
   m_EditorClassIdentifier: 
+  _pointsCount: 500
   _coinsCount: 0100000002000000

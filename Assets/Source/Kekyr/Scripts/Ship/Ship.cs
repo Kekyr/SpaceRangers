@@ -16,10 +16,10 @@ namespace ShipBase
         private readonly float _impulseDamageForce = 0.01f;
         private readonly Vector3 _impulseDirection = new Vector3(1, 1, 1);
 
-        [SerializeField] private Wallet _wallet;
         [SerializeField] private SFXSO _damageSFX;
         [SerializeField] private SFXSO _explosionSFX;
 
+        private Wallet _wallet;
         private DamageHandler _damageHandler;
         private SFX _sfx;
         private ShipHealth _health;
@@ -32,11 +32,6 @@ namespace ShipBase
 
         private void Awake()
         {
-            if (_wallet == null)
-            {
-                throw new ArgumentNullException(nameof(_wallet));
-            }
-            
             if (_damageSFX == null)
             {
                 throw new ArgumentNullException(nameof(_damageSFX));
@@ -96,6 +91,11 @@ namespace ShipBase
                 StopCoroutine(_staying);
                 _staying = null;
             }
+        }
+
+        public void Init(Wallet wallet)
+        {
+            _wallet = wallet;
         }
 
         private IEnumerator StayingIn(Attacker attacker)

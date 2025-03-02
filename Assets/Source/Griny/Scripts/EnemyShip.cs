@@ -36,8 +36,10 @@ namespace Enemy
         private SFX _sfx;
 
         public event Action Destroyed;
-        public event Action<Vector3, EnemyDataSO> Annihilated;
+        public event Action<EnemyShip> Annihilated;
         public event Action<EnemyShip> Exited;
+
+        public EnemyDataSO Data => _data;
 
         private void Awake()
         {
@@ -130,7 +132,7 @@ namespace Enemy
             gameObject.SetActive(false);
             _animator.SetBool(_destruction, false);
             Destroyed?.Invoke();
-            Annihilated?.Invoke(transform.position, _data);
+            Annihilated?.Invoke(this);
         }
     }
 }

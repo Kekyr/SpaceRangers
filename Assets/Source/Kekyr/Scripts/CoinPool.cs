@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Enemy;
 using Game;
 using ShipBase;
 using UnityEngine;
@@ -63,16 +64,16 @@ public class CoinPool : MonoBehaviour
         enabled = true;
     }
 
-    public void Spawn(Vector3 position, EnemyDataSO enemyData)
+    public void Spawn(EnemyShip enemy)
     {
         for (int i = 0; i < _prefabs.Length; i++)
         {
-            for (int j = 0; j < enemyData.CoinsCount[i]; j++)
+            for (int j = 0; j < enemy.Data.CoinsCount[i]; j++)
             {
                 Coin instance = _instances[i].Dequeue();
                 Vector3 offset = new Vector3(Random.Range(MinRandomX, MaxRandomX),
                     Random.Range(MinRandomY, MaxRandomY));
-                instance.transform.position = position + offset;
+                instance.transform.position = enemy.transform.position + offset;
                 instance.gameObject.SetActive(true);
                 _instances[i].Enqueue(instance);
             }

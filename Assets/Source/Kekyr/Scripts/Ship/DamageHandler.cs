@@ -108,7 +108,7 @@ namespace ShipBase
 
         private void OnEmptied()
         {
-            _shieldSpriteRenderer.enabled = false;
+            Switch(true);
         }
 
         private void OnDead()

@@ -10,6 +10,7 @@ namespace Enemy
         private SpriteModifier _spriteModifier;
         private Transform _enemyBulletsContainer;
         private CoinPool _coinPool;
+        private Score _score;
 
         private EnemySpawnerSO _data;
         private List<GameObject> _pool = new List<GameObject>();
@@ -47,12 +48,13 @@ namespace Enemy
             }
         }
 
-        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier, Transform enemyBulletsContainer, CoinPool coinPool)
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier, Transform enemyBulletsContainer, CoinPool coinPool, Score score)
         {
             _data = data;
             _spriteModifier = spriteModifier;
             _enemyBulletsContainer = enemyBulletsContainer;
             _coinPool = coinPool;
+            _score = score;
             enabled = true;
         }
 
@@ -67,6 +69,7 @@ namespace Enemy
                 enemyShip.Init(_spriteModifier);
                 enemyShip.Destroyed += Spawn;
                 enemyShip.Annihilated += _coinPool.Spawn;
+                enemyShip.Annihilated += _score.Add;
 
                 _guns.AddRange(instance.GetComponentsInChildren<Gun>());
 
