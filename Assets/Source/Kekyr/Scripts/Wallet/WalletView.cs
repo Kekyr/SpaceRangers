@@ -10,7 +10,7 @@ namespace ShipBase
 
         private void OnEnable()
         {
-            _textMeshPro = GetComponent<TextMeshProUGUI>();
+            _textMeshPro = GetComponentInChildren<TextMeshProUGUI>();
             _wallet.Changed += OnChanged;
         }
 
