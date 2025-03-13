@@ -1,14 +1,20 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class ScoreView : MonoBehaviour
 {
-    private TextMeshProUGUI _textMeshPro;
+    [SerializeField] private TextMeshProUGUI _textMeshPro;
+
     private Score _score;
 
     private void OnEnable()
     {
-        _textMeshPro = GetComponent<TextMeshProUGUI>();
+        if (_textMeshPro == null)
+        {
+            throw new ArgumentNullException(nameof(_textMeshPro));
+        }
+
         _score.Changed += OnChanged;
     }
 
