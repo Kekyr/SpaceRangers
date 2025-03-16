@@ -1,5 +1,4 @@
 using System;
-using Audio;
 using UnityEngine;
 
 namespace Audio
@@ -10,6 +9,7 @@ namespace Audio
         [SerializeField] private MusicSO _data;
 
         private AudioSource _audioSource;
+        private float _volume;
 
         private void Awake()
         {
@@ -31,8 +31,19 @@ namespace Audio
             }
 
             _audioSource.clip = audio.Clip;
-            _audioSource.volume = audio.Volume == 0 ? _audioSource.volume : audio.Volume;
+            _volume = audio.Volume == 0 ? _audioSource.volume : audio.Volume;
+            _audioSource.volume = _volume;
             _audioSource.Play();
+        }
+
+        public void Pause()
+        {
+            _audioSource.volume = 0f;
+        }
+
+        public void Continue()
+        {
+            _audioSource.volume = _volume;
         }
     }
 }

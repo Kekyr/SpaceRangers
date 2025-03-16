@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using Enemy;
 using LevelEnemy;
 using UnityEngine;
@@ -16,14 +17,18 @@ namespace ShipBase
         [SerializeField] private SpriteModifier _spriteModifier;
         [SerializeField] private Score _score;
         [SerializeField] private Wallet _wallet;
+        [SerializeField] private Music _music;
 
         [SerializeField] private Transform _enemyBulletsContainer;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private CoinPool _coinPool;
 
+        [SerializeField] private RewardedAd _rewardedAd;
+
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
         [SerializeField] private WalletView _walletView;
+        [SerializeField] private RocketView _rocketView;
         [SerializeField] private ScoreView _scoreView;
         [SerializeField] private RawImage _background;
 
@@ -71,6 +76,11 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_wallet));
             }
 
+            if (_music == null)
+            {
+                throw new ArgumentNullException(nameof(_music));
+            }
+
             if (_enemyBulletsContainer == null)
             {
                 throw new ArgumentNullException(nameof(_enemyBulletsContainer));
@@ -84,6 +94,11 @@ namespace ShipBase
             if (_coinPool == null)
             {
                 throw new ArgumentNullException(nameof(_coinPool));
+            }
+
+            if (_rewardedAd == null)
+            {
+                throw new ArgumentNullException(nameof(_rewardedAd));
             }
 
             if (_bulletData == null)
@@ -136,6 +151,11 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_scoreView));
             }
 
+            if (_rocketView == null)
+            {
+                throw new ArgumentNullException(nameof(_rocketView));
+            }
+
             if (_background == null)
             {
                 throw new ArgumentNullException(nameof(_background));
@@ -168,7 +188,7 @@ namespace ShipBase
             ship.Init(_wallet);
             damageHandler.Init(_spriteModifier);
             movement.Init(_camera);
-            rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel);
+            rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel, _rewardedAd);
             pool.Init(_bulletData.CurrentLevel);
             shield.Init(_shieldData.CurrentLevel);
 
@@ -176,6 +196,9 @@ namespace ShipBase
             _shieldView.Init(shield);
             _walletView.Init(_wallet);
             _scoreView.Init(_score);
+            _rocketView.Init(rocketLauncher);
+
+            _rewardedAd.Init(_music);
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 

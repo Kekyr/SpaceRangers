@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,6 +9,9 @@ namespace ShipBase
     public class RocketLauncher : MonoBehaviour
     {
         private readonly string _launchTrigger = "Launch";
+        private readonly float _scalingDuration = 0.7f;
+        private readonly float _newScale = 1f;
+        private readonly int _addCount = 1;
 
         [SerializeField] private PlayerInputRouter _playerInputRouter;
         [SerializeField] private ShipHealth _health;
@@ -17,13 +21,17 @@ namespace ShipBase
 
         private Button _button;
         private Camera _camera;
+        private RewardedAd _rewardedAd;
 
         private Animator[] _slotsAnimator;
         private Rocket[] _rockets;
 
+        private int _maxRocketCount;
         private int _rocketCount;
         private int _currentSlotIndex;
         private int _destroyedRocketCount;
+
+        public event Action<int> CountChanged;
 
         private void Start()
         {
@@ -49,9 +57,11 @@ namespace ShipBase
 
             _playerInputRouter.Rocket.performed += OnRocketPerformed;
             _health.Died += OnDead;
+            _rewardedAd.Rewarded += OnRewarded;
 
-            _button.onClick.AddListener(OnRocketAdded);
-
+            _rocketCount = _maxRocketCount;
+            CountChanged?.Invoke(_rocketCount);
+            
             _slotsAnimator = new Animator[_slots.Length];
             _rockets = new Rocket[_slots.Length];
 
@@ -59,7 +69,7 @@ namespace ShipBase
             {
                 _slotsAnimator[i] = _slots[i].GetComponent<Animator>();
 
-                if (i < _rocketCount)
+                if (i < _maxRocketCount)
                 {
                     Spawn(i);
                 }
@@ -70,7 +80,7 @@ namespace ShipBase
         {
             _playerInputRouter.Rocket.performed -= OnRocketPerformed;
             _health.Died -= OnDead;
-            _button.onClick.RemoveListener(OnRocketAdded);
+            _rewardedAd.Rewarded -= OnRewarded;
 
             for (int i = 0; i < _rockets.Length; i++)
             {
@@ -83,20 +93,22 @@ namespace ShipBase
 
         private void FixedUpdate()
         {
-            if (_destroyedRocketCount == _rocketCount && _button.interactable == false)
+            if (_destroyedRocketCount == _maxRocketCount && _button.interactable == false)
             {
                 _currentSlotIndex = 0;
-                _rocketCount = 0;
+                _maxRocketCount = 0;
                 _destroyedRocketCount = 0;
-                _button.interactable = true;
+                _button.transform.DOScale(_newScale, _scalingDuration).SetEase(Ease.OutSine)
+                    .OnComplete(() => { _button.interactable = true; });
             }
         }
 
-        public void Init(Camera camera, Button button, int rocketCount)
+        public void Init(Camera camera, Button button, int rocketCount, RewardedAd rewardedAd)
         {
             _camera = camera;
             _button = button;
-            _rocketCount = rocketCount;
+            _rewardedAd = rewardedAd;
+            _maxRocketCount = rocketCount;
             enabled = true;
         }
 
@@ -142,25 +154,30 @@ namespace ShipBase
                 }
             }
 
-            if (_rocketCount > 0 && _currentSlotIndex < _rocketCount)
+            if (_maxRocketCount > 0 && _currentSlotIndex < _maxRocketCount)
             {
                 Rocket rocket = _rockets[_currentSlotIndex];
                 _slotsAnimator[_currentSlotIndex].SetTrigger(_launchTrigger);
                 rocket.Launch();
+                _rocketCount--;
+                CountChanged?.Invoke(_rocketCount);
                 _currentSlotIndex++;
             }
         }
 
-        private void OnRocketAdded()
+        private void OnRewarded()
         {
-            _rocketCount = 1;
+            _button.gameObject.SetActive(false);
 
-            for (int i = 0; i < _rocketCount; i++)
+            _maxRocketCount = _addCount;
+            _rocketCount = _maxRocketCount;
+            
+            for (int i = 0; i < _maxRocketCount; i++)
             {
                 Spawn(i);
             }
-
-            _button.interactable = false;
+            
+            CountChanged?.Invoke(_rocketCount);
         }
 
         private void OnRocketDestroyed(Rocket rocket)
