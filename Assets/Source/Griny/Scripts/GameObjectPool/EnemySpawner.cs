@@ -6,6 +6,7 @@ namespace Enemy
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private Transform _spawnPoint;
+        [SerializeField] private GameObject _parentBullets;
 
         private SpriteModifier _spriteModifier;
         private Transform _enemyBulletsContainer;
@@ -16,6 +17,8 @@ namespace Enemy
         private List<GameObject> _pool = new List<GameObject>();
         private int _currentInstanceIndex = 0;
         private List<Gun> _guns = new List<Gun>();
+        private List<Gun> _gans = new List<Gun>();
+        private List<RocketLauncher> _rocketLaunchers = new List<RocketLauncher>();
 
         private void Start()
         {
@@ -79,6 +82,14 @@ namespace Enemy
                 }
 
                 EnemyMovement enemyMovement = instance.GetComponent<EnemyMovement>();
+                _rocketLaunchers.AddRange(instance.GetComponentsInChildren<RocketLauncher>());
+
+                foreach (RocketLauncher rocketLauncher in _rocketLaunchers)
+                {
+                    rocketLauncher.Init(_parentBullets);
+                }
+
+                Movement movement = instance.GetComponent<Movement>();
 
                 switch (enemyMovement)
                 {
@@ -119,11 +130,16 @@ namespace Enemy
             enemy.transform.position = _spawnPoint.position;
             _currentInstanceIndex++;
 
-            enemy.GetComponent<EnemyHealth>().ResetHealth();
+            enemy.GetComponent<Health>().ResetHealth();
 
-            if (enemy.TryGetComponent(out EnemyShield shield))
+            if (enemy.TryGetComponent(out Shield shield))
             {
                 shield.ReStartValue();
+            }
+
+            if (enemy.GetComponentInChildren<SetRockets>())
+            {
+                enemy.GetComponentInChildren<SetRockets>().RestartRockets();
             }
         }
     }

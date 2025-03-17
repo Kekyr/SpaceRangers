@@ -9,6 +9,7 @@ namespace Enemy
 {
     public class Gun : MonoBehaviour
     {
+        private const string _paretBullets = "ParentBullets";
         private const float _delay = 0.5f;
 
         [SerializeField] private SFXSO _shootSFX;

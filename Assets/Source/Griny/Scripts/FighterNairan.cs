@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ShipBase;
@@ -11,22 +10,16 @@ namespace Enemy
 
         private int _number = 0;
 
-        private void Awake()
-        {
-            if (_rockets.Count == 0)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.TryGetComponent<Ship>(out Ship ship) ||
-                collision.gameObject.TryGetComponent<EnemyShield>(out EnemyShield shield))
+            if (collision.gameObject.TryGetComponent<Ship>(out Ship ship) || collision.gameObject.TryGetComponent<Shield>(out Shield shield))
             {
-                if (_number < _rockets.Count)
+                Debug.Log("заметил корабль");
+
+                if(_number < _rockets.Count)
                 {
-                    _rockets[_number].RunRocket();
+                    Debug.Log("выстрел");
+                    //_rockets[_number].RunRocket();
                     _number++;
                 }
                 else
@@ -36,15 +29,16 @@ namespace Enemy
             }
         }
 
-        public void RestartRockets()
+        public void RestsrtRockets()
         {
-            foreach (Rocket rocket in _rockets)
+            foreach(Rocket rocket in _rockets)
             {
-                rocket.Restart();
+                //rocket.Restart();
                 rocket.transform.parent = gameObject.transform;
             }
 
             _number = 0;
         }
+
     }
 }

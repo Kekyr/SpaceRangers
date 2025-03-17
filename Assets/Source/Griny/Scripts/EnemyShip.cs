@@ -43,6 +43,16 @@ namespace Enemy
 
         private void Awake()
         {
+            if (_impulseForce == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_impulseForce));
+            }
+
+            if (_impulseDirection == Vector3.zero)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_impulseDirection));
+            }
+
             if (_shieldSpriteRenderer == null)
             {
                 throw new ArgumentNullException(nameof(_shieldSpriteRenderer));
@@ -129,6 +139,7 @@ namespace Enemy
 
         private void OnDestruct()
         {
+            _animator.SetBool(_destruction, false);
             gameObject.SetActive(false);
             _animator.SetBool(_destruction, false);
             Destroyed?.Invoke();

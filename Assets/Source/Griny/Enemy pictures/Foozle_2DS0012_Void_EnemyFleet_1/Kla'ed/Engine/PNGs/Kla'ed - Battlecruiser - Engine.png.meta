@@ -128,8 +128,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_1
       rect:
         serializedVersion: 2
-        x: 768
+        x: 640
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_2
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1280
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_3
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 1920
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_4
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 2560
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_5
       rect:
         serializedVersion: 2
-        x: 3840
+        x: 3200
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_6
       rect:
         serializedVersion: 2
-        x: 4608
+        x: 3840
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_7
       rect:
         serializedVersion: 2
-        x: 5376
+        x: 4480
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_8
       rect:
         serializedVersion: 2
-        x: 6144
+        x: 5120
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_9
       rect:
         serializedVersion: 2
-        x: 6912
+        x: 5760
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_10
       rect:
         serializedVersion: 2
-        x: 7680
+        x: 6400
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: Kla'ed - Battlecruiser - Engine_11
       rect:
         serializedVersion: 2
-        x: 8448
+        x: 7040
         y: 0
-        width: 768
-        height: 768
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
