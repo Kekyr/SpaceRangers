@@ -12,6 +12,7 @@ public class RewardedAd : MonoBehaviour
     private Music _music;
 
     public event Action Rewarded;
+    public event Action Closed;
 
     private void OnEnable()
     {
@@ -53,12 +54,14 @@ public class RewardedAd : MonoBehaviour
 
     private void OnRewardCallback(int id)
     {
+        Debug.Log("RewardCallback");
         Rewarded?.Invoke();
         _sfx.Play(_success);
     }
 
     private void OnCloseCallback()
     {
+        Closed?.Invoke();
         Time.timeScale = 1;
         _music.Continue();
     }

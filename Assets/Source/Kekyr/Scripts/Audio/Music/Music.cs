@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Audio
@@ -6,9 +7,13 @@ namespace Audio
     [RequireComponent(typeof(AudioSource))]
     public class Music : MonoBehaviour
     {
+        private readonly float _endPitch = 1.5f;
+
         [SerializeField] private MusicSO _data;
 
         private AudioSource _audioSource;
+        private Timer _timer;
+
         private float _volume;
 
         private void Awake()
@@ -18,9 +23,33 @@ namespace Audio
                 throw new ArgumentNullException(nameof(_data));
             }
 
+            _timer.Ends += OnEnds;
+            _timer.Ended += Pause;
             _audioSource = GetComponent<AudioSource>();
 
             Play(_data.GetRandomClip());
+        }
+
+        private void OnDisable()
+        {
+            _timer.Ends -= OnEnds;
+            _timer.Ended += Pause;
+        }
+
+        public void Init(Timer timer)
+        {
+            _timer = timer;
+            enabled = true;
+        }
+
+        public void Pause()
+        {
+            _audioSource.volume = 0f;
+        }
+
+        public void Continue()
+        {
+            _audioSource.volume = _volume;
         }
 
         private void Play(AudioSO audio)
@@ -36,14 +65,9 @@ namespace Audio
             _audioSource.Play();
         }
 
-        public void Pause()
+        private void OnEnds()
         {
-            _audioSource.volume = 0f;
-        }
-
-        public void Continue()
-        {
-            _audioSource.volume = _volume;
+            _audioSource.DOPitch(_endPitch, _timer.EndTime);
         }
     }
 }

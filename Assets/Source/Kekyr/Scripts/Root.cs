@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Audio;
 using Enemy;
 using LevelEnemy;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,7 @@ namespace ShipBase
         [SerializeField] private Score _score;
         [SerializeField] private Wallet _wallet;
         [SerializeField] private Music _music;
+        [SerializeField] private Timer _timer;
 
         [SerializeField] private Transform _enemyBulletsContainer;
         [SerializeField] private Transform _playerSpawnPoint;
@@ -30,6 +32,7 @@ namespace ShipBase
         [SerializeField] private WalletView _walletView;
         [SerializeField] private RocketView _rocketView;
         [SerializeField] private ScoreView _scoreView;
+        [SerializeField] private TimerView _timerView;
         [SerializeField] private RawImage _background;
 
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
@@ -79,6 +82,11 @@ namespace ShipBase
             if (_music == null)
             {
                 throw new ArgumentNullException(nameof(_music));
+            }
+
+            if (_timer == null)
+            {
+                throw new ArgumentNullException(nameof(_timer));
             }
 
             if (_enemyBulletsContainer == null)
@@ -156,6 +164,11 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_rocketView));
             }
 
+            if (_timerView == null)
+            {
+                throw new ArgumentNullException(nameof(_timerView));
+            }
+
             if (_background == null)
             {
                 throw new ArgumentNullException(nameof(_background));
@@ -192,11 +205,21 @@ namespace ShipBase
             pool.Init(_bulletData.CurrentLevel);
             shield.Init(_shieldData.CurrentLevel);
 
+            _timer.Init(_levelData.Duration);
+            _music.Init(_timer);
+
             _healthView.Init(health);
             _shieldView.Init(shield);
             _walletView.Init(_wallet);
             _scoreView.Init(_score);
+            _timerView.Init(_timer);
+
             _rocketView.Init(rocketLauncher);
+
+            if (_rocketData.CurrentLevel == 0)
+            {
+                _rocketView.gameObject.SetActive(false);
+            }
 
             _rewardedAd.Init(_music);
 

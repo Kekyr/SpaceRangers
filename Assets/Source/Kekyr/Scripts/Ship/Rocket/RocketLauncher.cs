@@ -58,10 +58,11 @@ namespace ShipBase
             _playerInputRouter.Rocket.performed += OnRocketPerformed;
             _health.Died += OnDead;
             _rewardedAd.Rewarded += OnRewarded;
+            _rewardedAd.Closed += OnClosed;
 
             _rocketCount = _maxRocketCount;
             CountChanged?.Invoke(_rocketCount);
-            
+
             _slotsAnimator = new Animator[_slots.Length];
             _rockets = new Rocket[_slots.Length];
 
@@ -81,6 +82,7 @@ namespace ShipBase
             _playerInputRouter.Rocket.performed -= OnRocketPerformed;
             _health.Died -= OnDead;
             _rewardedAd.Rewarded -= OnRewarded;
+            _rewardedAd.Closed -= OnClosed;
 
             for (int i = 0; i < _rockets.Length; i++)
             {
@@ -93,7 +95,7 @@ namespace ShipBase
 
         private void FixedUpdate()
         {
-            if (_destroyedRocketCount == _maxRocketCount && _button.interactable == false)
+            if (_maxRocketCount != 0 && _destroyedRocketCount == _maxRocketCount && _button.interactable == false)
             {
                 _currentSlotIndex = 0;
                 _maxRocketCount = 0;
@@ -171,13 +173,18 @@ namespace ShipBase
 
             _maxRocketCount = _addCount;
             _rocketCount = _maxRocketCount;
-            
+
             for (int i = 0; i < _maxRocketCount; i++)
             {
                 Spawn(i);
             }
-            
+
             CountChanged?.Invoke(_rocketCount);
+        }
+
+        private void OnClosed()
+        {
+            _button.gameObject.SetActive(false);
         }
 
         private void OnRocketDestroyed(Rocket rocket)
