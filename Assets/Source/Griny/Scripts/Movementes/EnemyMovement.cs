@@ -48,6 +48,13 @@ namespace Enemy
                     _isCollideDown = true;
                 }
             }
+
+            if (collider.gameObject.CompareTag("Player"))
+            {
+                speed = 0;
+                gameObject.SetActive(false);
+                _isCollideDown = true;
+            }
         }
 
         private void Move()

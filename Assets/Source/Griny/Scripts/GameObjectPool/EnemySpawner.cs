@@ -89,7 +89,7 @@ namespace Enemy
                     rocketLauncher.Init(_parentBullets);
                 }
 
-                Movement movement = instance.GetComponent<Movement>();
+                EnemyMovement movement = instance.GetComponent<EnemyMovement>();
 
                 switch (enemyMovement)
                 {
@@ -123,16 +123,16 @@ namespace Enemy
 
             if (enemy.GetComponent<FighterNairan>())
             {
-                enemy.GetComponent<FighterNairan>().RestartRockets();
+                enemy.GetComponent<FighterNairan>().RestsrtRockets();
             }
 
             enemy.gameObject.SetActive(true);
             enemy.transform.position = _spawnPoint.position;
             _currentInstanceIndex++;
 
-            enemy.GetComponent<Health>().ResetHealth();
+            enemy.GetComponent<EnemyHealth>().ResetHealth();
 
-            if (enemy.TryGetComponent(out Shield shield))
+            if (enemy.TryGetComponent(out EnemyShield shield))
             {
                 shield.ReStartValue();
             }

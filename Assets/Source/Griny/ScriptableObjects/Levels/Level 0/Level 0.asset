@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 17
   _spawnersData:
-  - {fileID: 11400000, guid: 04748613f4813a04abec05a807873a2d, type: 2}
-  - {fileID: 11400000, guid: 0621137e69361da49837c7df7c210eb0, type: 2}
-  - {fileID: 11400000, guid: a8f84a65ed5ff8a48b4d07458b85970a, type: 2}
+  - {fileID: 11400000, guid: 529038133bf300543a2057f31f47a1e9, type: 2}
+  - {fileID: 11400000, guid: d6bdeb4353ff1664f8a65bf0240d1c3c, type: 2}
+  - {fileID: 11400000, guid: f1caed1c816a59a408736301011e0869, type: 2}

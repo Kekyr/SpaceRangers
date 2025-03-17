@@ -92,18 +92,18 @@ namespace Enemy
         }
 
         private void SetInstance(Bullet bullet, Transform spawnPoint)
-            {
-                bullet.SetVector(spawnPoint.transform.up);
-                bullet.transform.position = spawnPoint.position;
-                bullet.transform.rotation = spawnPoint.transform.rotation;
-                _sfx.Play(_shootSFX);
-                bullet.gameObject.SetActive(true);
-            }
+        {
+            bullet.SetVector(spawnPoint.transform.up);
+            bullet.transform.position = spawnPoint.position;
+            bullet.transform.rotation = spawnPoint.transform.rotation;
+            _sfx.Play(_shootSFX);
+            bullet.gameObject.SetActive(true);
+        }
 
-            private bool TryGetInstance(out Bullet result)
-            {
-                result = _pool.FirstOrDefault(instance => instance.gameObject.activeSelf == false);
-                return result != null;
-            }
+        private bool TryGetInstance(out Bullet result)
+        {
+            result = _pool.FirstOrDefault(instance => instance.gameObject.activeSelf == false);
+            return result != null;
         }
     }
+}

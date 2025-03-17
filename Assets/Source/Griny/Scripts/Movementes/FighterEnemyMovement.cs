@@ -54,11 +54,8 @@ namespace Enemy
 
         protected override void CollideShip(Collider2D collider, float speed)
         {
-            Debug.Log(_isInside);
             if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
             {
-                Debug.Log(backgruondBorder.GetName());
-                
                 switch (backgruondBorder.GetName())
                 {
                     case _borderUp:
