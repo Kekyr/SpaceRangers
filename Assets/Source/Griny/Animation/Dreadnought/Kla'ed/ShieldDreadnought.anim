@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShieldDreadnoght
+  m_Name: ShieldDreadnought
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,23 +22,23 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 488973142, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
-    - time: 0.016666668
-      value: {fileID: 1644997175, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
     - time: 0.033333335
-      value: {fileID: 2054587515, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
-    - time: 0.05
-      value: {fileID: 602473802, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
-    - time: 0.06666667
-      value: {fileID: 1652077833, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
-    - time: 0.083333336
-      value: {fileID: -267822800, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
+      value: {fileID: 1644997175, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
     - time: 0.1
-      value: {fileID: -2140028403, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
-    - time: 0.11666667
-      value: {fileID: 948611849, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
-    - time: 0.13333334
-      value: {fileID: -1538834420, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
+      value: {fileID: 2054587515, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
     - time: 0.15
+      value: {fileID: 602473802, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
+    - time: 0.18333334
+      value: {fileID: 1652077833, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
+    - time: 0.23333333
+      value: {fileID: -267822800, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
+    - time: 0.26666668
+      value: {fileID: -2140028403, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
+    - time: 0.31666666
+      value: {fileID: 948611849, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
+    - time: 0.36666667
+      value: {fileID: -1538834420, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
+    - time: 0.41666666
       value: {fileID: -2117517914, guid: e64279f9903d26b4a827bfa9d1cc9c24, type: 3}
     attribute: m_Sprite
     path: 
@@ -77,7 +77,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.16666667
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

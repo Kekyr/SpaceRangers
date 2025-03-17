@@ -24,7 +24,14 @@ namespace Enemy
         private List<int> _downs = new List<int> { 3, 4, 5 };
         private List<int> _lefts = new List<int> { 1, 2, 3 };
         private List<int> _rights = new List<int> { 5, 6, 7 };
-        
+
+        private void Start()
+        {
+            GetStartTarget();
+            ReloadVariable();
+        }
+
+
         private void OnEnable()
         {
             GetStartTarget();
@@ -36,10 +43,21 @@ namespace Enemy
             return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
         }
 
-        protected override void CollideShip(Collider2D collider, float speed)
+        private void OnTriggerExit2D(Collider2D collider)
         {
             if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
             {
+                _isInside = true;
+            }
+        }
+
+        protected override void CollideShip(Collider2D collider, float speed)
+        {
+            Debug.Log(_isInside);
+            if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
+            {
+                Debug.Log(backgruondBorder.GetName());
+                
                 switch (backgruondBorder.GetName())
                 {
                     case _borderUp:
@@ -49,7 +67,6 @@ namespace Enemy
                             _currentTarget = GetTarget(_downs);
                         }
 
-                        _isInside = true;
                         break;
                     case _borderFighterDown:
                         _currentTarget = GetTarget(_ups);
