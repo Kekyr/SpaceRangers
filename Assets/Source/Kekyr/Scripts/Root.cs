@@ -5,6 +5,8 @@ using Enemy;
 using LevelEnemy;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 using UnityEngine.UI;
 
 namespace ShipBase
@@ -183,14 +185,15 @@ namespace ShipBase
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 
+            PlayerInputRouter playerInputRouter = player.GetComponent<PlayerInputRouter>();
             Ship ship = player.GetComponent<Ship>();
             DamageHandler damageHandler = player.GetComponent<DamageHandler>();
-            Movement movement = player.GetComponent<Movement>();
+            TouchMovement touchMovement = player.GetComponent<TouchMovement>();
             ShipHealth health = player.GetComponent<ShipHealth>();
             Shield shield = player.GetComponentInChildren<Shield>();
             RocketLauncher rocketLauncher = player.GetComponentInChildren<RocketLauncher>();
             BulletPool pool = player.GetComponentInChildren<BulletPool>();
-
+            
             _coinPool.Init(player.transform, health);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
@@ -200,7 +203,7 @@ namespace ShipBase
 
             ship.Init(_wallet);
             damageHandler.Init(_spriteModifier);
-            movement.Init(_camera);
+            touchMovement.Init(_camera);
             rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel, _rewardedAd);
             pool.Init(_bulletData.CurrentLevel);
             shield.Init(_shieldData.CurrentLevel);

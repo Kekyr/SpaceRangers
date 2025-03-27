@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using WordGame;
+using YG;
 
 namespace Enemy
 {
@@ -12,9 +13,12 @@ namespace Enemy
         private const string _borderRight = "right";
         private const string _borderUp = "up";
 
+        [SerializeField] private Canvas _canvas;
         [SerializeField] private List<Transform> _directionsMovement;
         [SerializeField] private Transform _pointStart;
-        [FormerlySerializedAs("_health")] [SerializeField] private EnemyHealth enemyHealth;
+
+        [FormerlySerializedAs("_health")] [SerializeField]
+        private EnemyHealth enemyHealth;
 
         private Vector3 _currentTarget;
         private int _randomNumber;
@@ -60,7 +64,7 @@ namespace Enemy
                 {
                     case _borderUp:
 
-                        if(_isInside == true)
+                        if (_isInside == true)
                         {
                             _currentTarget = GetTarget(_downs);
                         }

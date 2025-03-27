@@ -37,44 +37,121 @@
                 {
                     "name": "",
                     "id": "7d876699-e31d-4cc0-a550-a52f7111c3d2",
-                    "path": "<Pointer>/position",
+                    "path": "<Touchscreen>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse;Touchscreen",
+                    "groups": "Touchscreen",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Left Button [Mouse]",
-                    "id": "97ba00ff-6d86-41a4-90b3-c8d1fe87155d",
-                    "path": "OneModifier",
+                    "name": "Direction",
+                    "id": "f4b5e5e3-241f-4d20-8c42-8f06f242126d",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Select",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "modifier",
-                    "id": "d86b429e-689b-4455-9265-00ea140b510c",
-                    "path": "<Mouse>/leftButton",
+                    "name": "up",
+                    "id": "29389a0a-50bb-4936-aeed-c2a7f2181090",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
-                    "action": "Select",
+                    "groups": "Keyboard",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "binding",
-                    "id": "774ff83e-d48e-4795-a2ab-6243103c440f",
-                    "path": "<Pointer>/position",
+                    "name": "down",
+                    "id": "5bdd5931-2141-4182-b303-352eea504537",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
-                    "action": "Select",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "45285063-398e-462f-993c-e09527281251",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f5ead564-318a-413c-8b33-eb11150ecabe",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Direction (Arrows)",
+                    "id": "91fd1db3-ff7e-4faa-93f2-9421cd4f52f0",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "84836bc7-3d09-43ec-ad5d-befc5d748d17",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "aa74454e-6f25-41be-ac6b-f139ae585981",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "6b20c36b-4c63-4bd4-899f-52c65831350f",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "27874855-74e5-4229-8db0-4129ca1cb3ec",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -137,17 +214,6 @@
         }
     ],
     "controlSchemes": [
-        {
-            "name": "Mouse",
-            "bindingGroup": "Mouse",
-            "devices": [
-                {
-                    "devicePath": "<Mouse>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
         {
             "name": "Touchscreen",
             "bindingGroup": "Touchscreen",

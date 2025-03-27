@@ -9,10 +9,10 @@ namespace Enemy
 {
     [RequireComponent(typeof(EnemyHealth))]
     [RequireComponent(typeof(EnemyShield))]
-    [RequireComponent(typeof(Animator))]
+    //[RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(SFX))]
     [RequireComponent(typeof(CinemachineImpulseSource))]
-    [RequireComponent(typeof(SpriteRenderer))]
+    //[RequireComponent(typeof(SpriteRenderer))]
     public class EnemyShip : Attacker
     {
         private readonly string _destruction = "Destruction";
