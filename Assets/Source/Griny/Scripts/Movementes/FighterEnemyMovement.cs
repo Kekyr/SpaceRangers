@@ -14,7 +14,10 @@ namespace Enemy
 
         [SerializeField] private List<Transform> _directionsMovement;
         [SerializeField] private Transform _pointStart;
-        [FormerlySerializedAs("_health")] [SerializeField] private EnemyHealth enemyHealth;
+        //[FormerlySerializedAs("_health")] [SerializeField] private EnemyHealth enemyHealth;
+        [SerializeField] private Transform _pointInterectionDown;
+        [SerializeField] private Transform _pointInterectionLeft;
+        [SerializeField] private Transform _pointInterectionRight;
 
         private Vector3 _currentTarget;
         private int _randomNumber;
@@ -26,12 +29,10 @@ namespace Enemy
         private List<int> _lefts = new List<int> { 1, 2, 3 };
         private List<int> _rights = new List<int> { 5, 6, 7 };
 
-        private void Start()
-        {
-            GetStartTarget();
-            ReloadVariable();
-        }
-
+        private Vector3 _pointInterectUp;
+        private Vector3 _pointDown;
+        private Vector3 _pointLeft;
+        private Vector3 _pointRight;
 
         private void OnEnable()
         {
@@ -52,32 +53,75 @@ namespace Enemy
             }
         }
 
-        protected override void CollideShip(Collider2D collider, float speed)
+        protected override void InteractWithWorld(float speed)
         {
-            if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
+            //Debug.Log(_currentTarget);
+
+            _pointInterectUp = Camera.WorldToScreenPoint(PointInterectionUp.position);
+            _pointDown = Camera.WorldToScreenPoint(_pointInterectionDown.position);
+            _pointLeft = Camera.WorldToScreenPoint(_pointInterectionLeft.position);
+            _pointRight = Camera.WorldToScreenPoint(_pointInterectionRight.position);
+
+            if(_pointInterectUp.y <= Canvas.pixelRect.size.y)
             {
-                switch (backgruondBorder.GetName())
+                _isInside = true;
+                Debug.Log("зашЄл внутрь!");
+            }
+
+            if (_isInside == false)
+                return;
+
+            if (_pointInterectUp.y >= Canvas.pixelRect.size.y)
+            {
+                if (_isInside == true)
                 {
-                    case _borderUp:
-
-                        if(_isInside == true)
-                        {
-                            _currentTarget = GetTarget(_downs);
-                        }
-
-                        break;
-                    case _borderFighterDown:
-                        _currentTarget = GetTarget(_ups);
-                        break;
-                    case _borderRight:
-                        _currentTarget = GetTarget(_lefts);
-                        break;
-                    case _borderLeft:
-                        _currentTarget = GetTarget(_rights);
-                        break;
+                    _currentTarget = GetTarget(_downs);
+                    Debug.Log("¬низ");
                 }
             }
+            if(_pointDown.y <= Canvas.pixelRect.size.y / 100 * 50)
+            {
+                _currentTarget = GetTarget(_ups);
+                Debug.Log("¬верх");
+            }
+            if (_pointLeft.x <= 0)
+            {
+                _currentTarget = GetTarget(_rights);
+                Debug.Log("¬право");
+            }
+            if (_pointRight.x >= Canvas.pixelRect.size.x)
+            {
+                _currentTarget = GetTarget(_lefts);
+                Debug.Log("влево");
+            }
         }
+
+        //protected override void CollideShip(Collider2D collider, float speed)
+        //{
+        //    if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
+        //    {
+        //        switch (backgruondBorder.GetName())
+        //        {
+        //            case _borderUp:
+
+        //                if(_isInside == true)
+        //                {
+        //                    _currentTarget = GetTarget(_downs);
+        //                }
+
+        //                break;
+        //            case _borderFighterDown:
+        //                _currentTarget = GetTarget(_ups);
+        //                break;
+        //            case _borderRight:
+        //                _currentTarget = GetTarget(_lefts);
+        //                break;
+        //            case _borderLeft:
+        //                _currentTarget = GetTarget(_rights);
+        //                break;
+        //        }
+        //    }
+        //}
 
         private void GetStartTarget()
         {

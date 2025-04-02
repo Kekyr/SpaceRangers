@@ -62,6 +62,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6718678728541700829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3735281756338587619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2666317448352965079}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2666317448352965079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3735281756338587619}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7083905582099775927}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3823247599169001783
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 2cadd6dffdd811d4db97eee34e721cbf, type: 2}
     - target: {fileID: 508508242991191170, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Name
-      value: Kla'ed Fighter
+      value: Kla'ed Dreadnought
       objectReference: {fileID: 0}
     - target: {fileID: 508508242991191170, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_TagString
@@ -483,19 +514,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4049385118597458123, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Size.x
-      value: 0.79378295
+      value: 1.8143933
       objectReference: {fileID: 0}
     - target: {fileID: 4049385118597458123, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Size.y
-      value: 0.72424924
+      value: 2.5232909
       objectReference: {fileID: 0}
     - target: {fileID: 4049385118597458123, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Offset.x
-      value: -0.005665064
+      value: -0.031612754
       objectReference: {fileID: 0}
     - target: {fileID: 4049385118597458123, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Offset.y
-      value: 0.008418098
+      value: -0.026178956
       objectReference: {fileID: 0}
     - target: {fileID: 4049385118597458123, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_SpriteTilingProperty.border.w
@@ -515,15 +546,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4049385118597458123, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.6666666
+      value: 3.3333333
       objectReference: {fileID: 0}
     - target: {fileID: 4049385118597458123, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.6666666
+      value: 3.3333333
       objectReference: {fileID: 0}
     - target: {fileID: 4582820177630781924, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_FlipY
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393306213589237205, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393306213589237205, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989707675102767057, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -548,7 +587,7 @@ PrefabInstance:
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _bulletPrefab
       value: 
-      objectReference: {fileID: 4388095520503205541, guid: e9d7f559ae54b20478a7fa8ca8a5e369, type: 3}
+      objectReference: {fileID: 1345618768034425318, guid: e9d7f559ae54b20478a7fa8ca8a5e369, type: 3}
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 2
@@ -572,7 +611,7 @@ PrefabInstance:
     - target: {fileID: 8236130278547049483, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3f03079560f11134c84d09b076913a97, type: 3}
+      objectReference: {fileID: 21300000, guid: 1193defcd23cc464bb61b9e8c5bb9b4c, type: 3}
     m_RemovedComponents:
     - {fileID: 7159002598251573434, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
     m_RemovedGameObjects: []
@@ -580,6 +619,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3448796196298916248, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       insertIndex: 3
       addedObject: {fileID: 3258412160203405421}
+    - targetCorrespondingSourceObject: {fileID: 3448796196298916248, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2666317448352965079}
     - targetCorrespondingSourceObject: {fileID: 1201909088407569138, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1423708276231362090}
@@ -609,7 +651,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
-  _pointInterectionUp: {fileID: 0}
   _directionsMovement:
   - {fileID: 626363046267888131}
   - {fileID: 6820733260342925231}
@@ -620,9 +661,6 @@ MonoBehaviour:
   - {fileID: 8908343217564109093}
   - {fileID: 6510257015348862028}
   _pointStart: {fileID: 3217886473252405402}
-  _pointInterectionDown: {fileID: 0}
-  _pointInterectionLeft: {fileID: 0}
-  _pointInterectionRight: {fileID: 0}
 --- !u!4 &6718678728541700829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1201909088407569138, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
