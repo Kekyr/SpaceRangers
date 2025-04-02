@@ -279,7 +279,7 @@ PrefabInstance:
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _bulletPrefab
       value: 
-      objectReference: {fileID: 1652569862575164349, guid: beb3835cb94bb464297f2134754be576, type: 3}
+      objectReference: {fileID: 4081993042110115070, guid: beb3835cb94bb464297f2134754be576, type: 3}
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 4
@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: _speed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7159002598251573434, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
+      propertyPath: _pointInterectionUp
+      value: 
+      objectReference: {fileID: 4250271444357798018}
     - target: {fileID: 8236130278547049483, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_FlipY
       value: 1
@@ -333,6 +337,11 @@ PrefabInstance:
       addedObject: {fileID: 6587558434100570124}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
+--- !u!4 &4250271444357798018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4719092204215603250, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
+  m_PrefabInstance: {fileID: 8900918293074331824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7721531468863769154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1201909088407569138, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}

@@ -19,8 +19,8 @@ namespace Enemy
         private Animator _animator;
         private Collider2D _collider;
 
-        private Camera _camera;
-        private Canvas _canvas;
+        /*private Camera _camera;
+        private Canvas _canvas;*/
 
         protected override void Awake()
         {
@@ -41,20 +41,20 @@ namespace Enemy
             _collider.enabled = true;
         }
 
-        public new void Init(Camera camera, Canvas canvas)
+        /*public new void Init(Camera camera, Canvas canvas)
         {
             _camera = camera;
             _canvas = canvas;
-        }
+        }*/
 
 
         protected override void InteractWithWorld(float speed)
         {
             //Debug.Log(Camera);
 
-            _pointInterection = _camera.WorldToScreenPoint(PointInterectionUp.position);
+            _pointInterection = Camera.WorldToScreenPoint(PointInterectionUp.position);
 
-            if(_pointInterection.y <= 0 || _pointInterection.x >= _canvas.pixelRect.size.x || _pointInterection.x <= 0)
+            if(_pointInterection.y <= 0 || _pointInterection.x >= Canvas.pixelRect.size.x || _pointInterection.x <= 0)
             {
                 speed = 0;
                 gameObject.SetActive(false);

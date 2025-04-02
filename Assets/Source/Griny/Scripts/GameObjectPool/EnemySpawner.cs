@@ -62,9 +62,9 @@ namespace Enemy
             _enemyBulletsContainer = enemyBulletsContainer;
             _coinPool = coinPool;
             _score = score;
-            enabled = true;
             _camera = camera;
             _canvas = canvas;
+            enabled = true;
         }
 
         private void Initialize(List<GameObject> prefabs, Transform spawnPoint)

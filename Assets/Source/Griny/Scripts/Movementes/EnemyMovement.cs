@@ -31,14 +31,18 @@ namespace Enemy
 
         private void FixedUpdate()
         {
-            InteractWithWorld(_speed);
             Move();
+        }
+
+        private void LateUpdate()
+        {
+            InteractWithWorld(_speed);
+            InvokeActionOutSight();
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
             CollideShip(collider, _speed);
-            InvokeActionOutSight();
         }
 
         public void Init(Camera camera, Canvas canvas)
@@ -53,7 +57,7 @@ namespace Enemy
 
             //_canvas.pixelRect.size.y;
 
-            if (_pointUp.y >= 0)
+            if (_pointUp.y <= 0)
             {
                 speed = 0;
                 gameObject.SetActive(false);

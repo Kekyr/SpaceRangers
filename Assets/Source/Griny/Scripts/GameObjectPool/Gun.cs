@@ -81,9 +81,9 @@ namespace Enemy
         public void Init(Transform parent, Camera camera, Canvas canvas)
         {
             _parent = parent;
-            enabled = true;
             _camera = camera;
             _canvas = canvas;
+            enabled = true;
         }
 
         private IEnumerator ShootBullet()
