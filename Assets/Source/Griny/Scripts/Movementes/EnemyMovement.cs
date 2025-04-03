@@ -11,11 +11,10 @@ namespace Enemy
 
         [SerializeField] private float _speed;
         [SerializeField] private Transform _pointInterectionUp;
-        
+
         private Rigidbody2D _rigidbody;
         private bool _isCollideDown = false;
-
-        private Vector3 _pointUp;
+        
 
         public Camera Camera { get; private set; }
         public Canvas Canvas { get; private set; }
@@ -53,11 +52,11 @@ namespace Enemy
 
         protected virtual void InteractWithWorld(float speed)
         {
-            _pointUp = Camera.WorldToScreenPoint(PointInterectionUp.position);
+            Vector3 pointUp = Camera.WorldToScreenPoint(PointInterectionUp.position);
 
             //_canvas.pixelRect.size.y;
 
-            if (_pointUp.y <= 0)
+            if (pointUp.y <= 0)
             {
                 speed = 0;
                 gameObject.SetActive(false);
@@ -103,7 +102,7 @@ namespace Enemy
 
         protected virtual void InvokeActionOutSight()
         {
-            if(_isCollideDown == true)
+            if (_isCollideDown == true)
             {
                 OutSight?.Invoke();
                 _isCollideDown = false;

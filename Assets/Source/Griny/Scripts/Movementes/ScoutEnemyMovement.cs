@@ -19,6 +19,7 @@ namespace Enemy
         [SerializeField] private Transform _pointInterectionRight;
 
         private Vector3 _pointUp;
+
         //private Vector3 _pointDown;
         private Vector3 _pointLeft;
         private Vector3 _pointRight;
@@ -46,17 +47,19 @@ namespace Enemy
             _pointLeft = Camera.WorldToScreenPoint(_pointInterectionLeft.position);
             _pointRight = Camera.WorldToScreenPoint(_pointInterectionRight.position);
 
-            if(_pointUp.y >= 0)
+            if (_pointUp.y <= 0)
             {
                 speed = 0;
                 gameObject.SetActive(false);
                 _isCollide = true;
             }
-            if(_pointLeft.x >= 0)
+
+            if (_pointLeft.x <= 0)
             {
                 _currentTarget = _pointDirecrionRight.localPosition;
             }
-            if( _pointRight.x >= Canvas.pixelRect.size.x)
+
+            if (_pointRight.x >= Canvas.pixelRect.size.x)
             {
                 _currentTarget = _pointDirectionLeft.localPosition;
             }

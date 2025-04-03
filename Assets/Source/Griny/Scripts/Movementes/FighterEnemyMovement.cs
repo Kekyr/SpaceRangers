@@ -12,8 +12,13 @@ namespace Enemy
         private const string _borderRight = "right";
         private const string _borderUp = "up";
 
+        private const int _minHeightPercent = 50;
+        private const int _maxHeightPercent = 90;
+
         [SerializeField] private List<Transform> _directionsMovement;
+
         [SerializeField] private Transform _pointStart;
+
         //[FormerlySerializedAs("_health")] [SerializeField] private EnemyHealth enemyHealth;
         [SerializeField] private Transform _pointInterectionDown;
         [SerializeField] private Transform _pointInterectionLeft;
@@ -62,37 +67,42 @@ namespace Enemy
             _pointLeft = Camera.WorldToScreenPoint(_pointInterectionLeft.position);
             _pointRight = Camera.WorldToScreenPoint(_pointInterectionRight.position);
 
-            if(_pointInterectUp.y <= Canvas.pixelRect.size.y)
+            float oneYPercent = Canvas.pixelRect.size.y / 100;
+
+            if (_pointInterectUp.y <= Canvas.pixelRect.size.y)
             {
                 _isInside = true;
-                Debug.Log("зашёл внутрь!");
+                //Debug.Log("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ!");
             }
 
             if (_isInside == false)
                 return;
 
-            if (_pointInterectUp.y >= Canvas.pixelRect.size.y)
+            if (_pointInterectUp.y >= oneYPercent * _maxHeightPercent)
             {
                 if (_isInside == true)
                 {
                     _currentTarget = GetTarget(_downs);
-                    Debug.Log("Вниз");
+                    //Debug.Log("пїЅпїЅпїЅпїЅ");
                 }
             }
-            if(_pointDown.y <= Canvas.pixelRect.size.y / 100 * 50)
+
+            if (_pointDown.y <= oneYPercent * _minHeightPercent)
             {
                 _currentTarget = GetTarget(_ups);
-                Debug.Log("Вверх");
+                //Debug.Log("пїЅпїЅпїЅпїЅпїЅ");
             }
+
             if (_pointLeft.x <= 0)
             {
                 _currentTarget = GetTarget(_rights);
-                Debug.Log("Вправо");
+                //Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ");
             }
+
             if (_pointRight.x >= Canvas.pixelRect.size.x)
             {
                 _currentTarget = GetTarget(_lefts);
-                Debug.Log("влево");
+                //Debug.Log("пїЅпїЅпїЅпїЅпїЅ");
             }
         }
 
