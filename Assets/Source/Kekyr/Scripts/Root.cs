@@ -44,9 +44,16 @@ namespace ShipBase
         [SerializeField] private BackgroundSO _backgroundData;
         [SerializeField] private LevelSO _levelData;
 
+        [SerializeField] private Canvas _canvas;
+
         private void Validate()
         {
             if (_camera == null)
+            {
+                throw new ArgumentNullException(nameof(_camera));
+            }
+
+            if (_canvas == null)
             {
                 throw new ArgumentNullException(nameof(_camera));
             }
@@ -231,7 +238,7 @@ namespace ShipBase
             for (int i = 0; i < _enemySpawners.Count; i++)
             {
                 _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool,
-                    _score);
+                    _score, _camera, _canvas);
             }
         }
     }

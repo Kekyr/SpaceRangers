@@ -301,6 +301,7 @@ MonoBehaviour:
   _damageColor: {r: 1, g: 0, b: 0, a: 0.74509805}
   _damage: 10
   _shieldSpriteRenderer: {fileID: 7277802398036877222}
+  _data: {fileID: 0}
   _damageSFX: {fileID: 11400000, guid: 6e2778f1945cec14e8d4c04bd30ad0ec, type: 2}
   _explosionSFX: {fileID: 11400000, guid: 0f78e38f5b3abcb438319beac7797a6c, type: 2}
 --- !u!114 &3836976385785751080
@@ -316,7 +317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
-  _rigidbody: {fileID: 7358982121281070170}
 --- !u!114 &3623267450132054174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startValue: 3
-  _sheeld: {fileID: 3531610822046460794}
+  _shield: {fileID: 0}
 --- !u!114 &7575055454540595722
 MonoBehaviour:
   m_ObjectHideFlags: 0

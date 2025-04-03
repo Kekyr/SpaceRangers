@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866251450177637509, guid: 80dc51c038868774fa7eb0a92ec62c9a, type: 3}
       propertyPath: m_Name
-      value: Kla'ed Wave Variant
+      value: Kla'ed Wave
       objectReference: {fileID: 0}
     - target: {fileID: 6866251450177637509, guid: 80dc51c038868774fa7eb0a92ec62c9a, type: 3}
       propertyPath: m_TagString

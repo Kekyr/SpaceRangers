@@ -6,19 +6,29 @@ namespace Enemy
 {
     public class ScoutEnemyMovement : EnemyMovement
     {
-        private const string _borderDown = "down";
-        private const string _borderRight = "right";
-        private const string _borderLeft = "left";
+        //private const string _borderDown = "down";
+        //private const string _borderRight = "right";
+        //private const string _borderLeft = "left";
 
         [SerializeField] private Transform _pointStart;
-        [SerializeField] private Transform _pointLeft;
-        [SerializeField] private Transform _pointRight;
+        [SerializeField] private Transform _pointDirectionLeft;
+        [SerializeField] private Transform _pointDirecrionRight;
+
+        [SerializeField] private Transform _pointInterectionDown;
+        [SerializeField] private Transform _pointInterectionLeft;
+        [SerializeField] private Transform _pointInterectionRight;
+
+        private Vector3 _pointUp;
+
+        //private Vector3 _pointDown;
+        private Vector3 _pointLeft;
+        private Vector3 _pointRight;
 
         private bool _isCollide = false;
 
-        public event Action DisabledEnemy;
-
         private Vector3 _currentTarget;
+
+        public event Action DisabledEnemy;
 
         private void Start()
         {
@@ -30,26 +40,51 @@ namespace Enemy
             return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
         }
 
-        protected override void CollideShip(Collider2D collider, float speed)
+        protected override void InteractWithWorld(float speed)
         {
-            if (collider.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
+            _pointUp = Camera.WorldToScreenPoint(PointInterectionUp.position);
+            //_pointDown = Camera.WorldToScreenPoint(_pointInterectionDown.position);
+            _pointLeft = Camera.WorldToScreenPoint(_pointInterectionLeft.position);
+            _pointRight = Camera.WorldToScreenPoint(_pointInterectionRight.position);
+
+            if (_pointUp.y <= 0)
             {
-                switch (backgruondBorder.GetName())
-                {
-                    case _borderDown:
-                        speed = 0;
-                        gameObject.SetActive(false);
-                        _isCollide = true;
-                        break;
-                    case _borderRight:
-                        _currentTarget = _pointLeft.localPosition;
-                        break;
-                    case _borderLeft:
-                        _currentTarget = _pointRight.localPosition;
-                        break;
-                }
+                speed = 0;
+                gameObject.SetActive(false);
+                _isCollide = true;
+            }
+
+            if (_pointLeft.x <= 0)
+            {
+                _currentTarget = _pointDirecrionRight.localPosition;
+            }
+
+            if (_pointRight.x >= Canvas.pixelRect.size.x)
+            {
+                _currentTarget = _pointDirectionLeft.localPosition;
             }
         }
+
+        //protected override void CollideShip(Collider2D collider, float speed)
+        //{
+        //    if (collider.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
+        //    {
+        //        switch (backgruondBorder.GetName())
+        //        {
+        //            case _borderDown:
+        //                speed = 0;
+        //                gameObject.SetActive(false);
+        //                _isCollide = true;
+        //                break;
+        //            case _borderRight:
+        //                _currentTarget = _pointDirectionLeft.localPosition;
+        //                break;
+        //            case _borderLeft:
+        //                _currentTarget = _pointDirecrionRight.localPosition;
+        //                break;
+        //        }
+        //    }
+        //}
 
         private Vector3 GetRandomTarget()
         {
@@ -57,11 +92,11 @@ namespace Enemy
 
             if (random == 1)
             {
-                return _pointLeft.localPosition;
+                return _pointDirectionLeft.localPosition;
             }
             else
             {
-                return _pointRight.localPosition;
+                return _pointDirecrionRight.localPosition;
             }
         }
 

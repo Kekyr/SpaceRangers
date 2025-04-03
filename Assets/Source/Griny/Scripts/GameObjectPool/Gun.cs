@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using ShipBase;
 using UnityEngine;
 
 namespace Enemy
@@ -13,7 +14,7 @@ namespace Enemy
         private const float _delay = 0.5f;
 
         [SerializeField] private SFXSO _shootSFX;
-        [SerializeField] private Bullet _bulletPrefab;
+        [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private int _capacity;
 
@@ -21,6 +22,9 @@ namespace Enemy
         private List<Bullet> _pool = new List<Bullet>();
         private WaitForSeconds _wait = new WaitForSeconds(_delay);
         private SFX _sfx;
+
+        private Camera _camera;
+        private Canvas _canvas;
 
         private void Awake()
         {
@@ -61,17 +65,24 @@ namespace Enemy
             {
                 for (int i = 0; i < _capacity; i++)
                 {
-                    Bullet bullet = Instantiate(_bulletPrefab, spawnPoint.position, Quaternion.identity,
+                    GameObject instance = Instantiate(_bulletPrefab, spawnPoint.position, Quaternion.identity,
                         container.transform);
+
+                    EnemyBulletMovement enemyBulletMovement = instance.GetComponent<EnemyBulletMovement>();
+                    enemyBulletMovement.Init(_camera, _canvas);
+
+                    Bullet bullet = instance.GetComponent<Bullet>();
                     bullet.gameObject.SetActive(false);
                     _pool.Add(bullet);
                 }
             }
         }
 
-        public void Init(Transform parent)
+        public void Init(Transform parent, Camera camera, Canvas canvas)
         {
             _parent = parent;
+            _camera = camera;
+            _canvas = canvas;
             enabled = true;
         }
 

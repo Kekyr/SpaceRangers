@@ -20,6 +20,9 @@ namespace Enemy
         private List<Gun> _gans = new List<Gun>();
         private List<RocketLauncher> _rocketLaunchers = new List<RocketLauncher>();
 
+        private Camera _camera;
+        private Canvas _canvas;
+
         private void Start()
         {
             Initialize(_data.Prefabs, _spawnPoint);
@@ -51,13 +54,16 @@ namespace Enemy
             }
         }
 
-        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier, Transform enemyBulletsContainer, CoinPool coinPool, Score score)
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier,
+            Transform enemyBulletsContainer, CoinPool coinPool, Score score, Camera camera, Canvas canvas)
         {
             _data = data;
             _spriteModifier = spriteModifier;
             _enemyBulletsContainer = enemyBulletsContainer;
             _coinPool = coinPool;
             _score = score;
+            _camera = camera;
+            _canvas = canvas;
             enabled = true;
         }
 
@@ -78,10 +84,11 @@ namespace Enemy
 
                 foreach (Gun gun in _guns)
                 {
-                    gun.Init(_enemyBulletsContainer);
+                    gun.Init(_enemyBulletsContainer, _camera, _canvas);
                 }
 
                 EnemyMovement enemyMovement = instance.GetComponent<EnemyMovement>();
+                enemyMovement.Init(_camera, _canvas);
                 _rocketLaunchers.AddRange(instance.GetComponentsInChildren<RocketLauncher>());
 
                 foreach (RocketLauncher rocketLauncher in _rocketLaunchers)
