@@ -24,13 +24,16 @@ namespace ShipBase
         private SFX _sfx;
         private ShipHealth _health;
         private CinemachineImpulseSource _impulseSource;
+        private Camera _camera;
+        private Canvas _canvas;
+        private ScreenAdjuster _screenAdjuster;
 
         private Vector3 _impulseExplosionVelocity;
         private Vector3 _impulseDamageVelocity;
         private Coroutine _staying;
         private WaitForSeconds _waitInterval;
 
-        private void Awake()
+        private void Start()
         {
             if (_damageSFX == null)
             {
@@ -52,11 +55,13 @@ namespace ShipBase
             _waitInterval = new WaitForSeconds(_stayingDamageInterval);
 
             _health.Died += OnDead;
+            _screenAdjuster.ResolutionChanged += OnResolutionChanged;
         }
 
         private void OnDestroy()
         {
             _health.Died -= OnDead;
+            _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
@@ -93,9 +98,13 @@ namespace ShipBase
             }
         }
 
-        public void Init(Wallet wallet)
+        public void Init(Wallet wallet, Camera camera, Canvas canvas, ScreenAdjuster screenAdjuster)
         {
             _wallet = wallet;
+            _camera = camera;
+            _canvas = canvas;
+            _screenAdjuster = screenAdjuster;
+            enabled = true;
         }
 
         private IEnumerator StayingIn(Attacker attacker)
@@ -115,6 +124,20 @@ namespace ShipBase
         private void OnDestruct()
         {
             gameObject.SetActive(false);
+        }
+
+        private void OnResolutionChanged()
+        {
+            Debug.Log("Clamping!");
+            Vector3 screenPosition = _camera.WorldToScreenPoint(transform.position);
+            
+            Vector3 newScreenPosition = new Vector3(
+                Mathf.Clamp(screenPosition.x, _canvas.pixelRect.min.x, _canvas.pixelRect.max.x),
+                Mathf.Clamp(screenPosition.y, _canvas.pixelRect.min.y, _canvas.pixelRect.max.y));
+
+            Vector3 newWorldPosition = _camera.ScreenToWorldPoint(newScreenPosition);
+            newWorldPosition.z = 0f;
+            transform.position = newWorldPosition;
         }
     }
 }

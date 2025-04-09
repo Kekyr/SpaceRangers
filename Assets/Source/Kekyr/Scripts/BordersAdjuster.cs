@@ -75,8 +75,10 @@ public class BordersAdjuster : MonoBehaviour
     {
         Debug.Log("OnResolutionChanged!");
 
-        float sizeX = ((_canvas.pixelRect.width / 192) * 2) / 10;
-        float sizeY = (_canvas.pixelRect.height / 192) / 10;
+        RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
+        
+        float sizeX = ((rectTransform.rect.width / 192) * 2) / 10;
+        float sizeY = (rectTransform.rect.height / 192 + 2) / 10;
 
         _up.transform.position =
             _camera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.max.y));

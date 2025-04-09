@@ -721,6 +721,7 @@ MonoBehaviour:
   _levelData: {fileID: 11400000, guid: ea1f63c06399b794b83ae6b88acf7291, type: 2}
   _canvas: {fileID: 4161607546087638206}
   _bordersAdjuster: {fileID: 178083866}
+  _screenAdjuster: {fileID: 255298302}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0
@@ -4129,7 +4130,6 @@ GameObject:
   - component: {fileID: 4161607546087638206}
   - component: {fileID: 270368162666748354}
   - component: {fileID: 4161607546087638208}
-  - component: {fileID: 4161607546087638209}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4416,19 +4416,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &4161607546087638209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392259172814290674}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d0f2b1fc44f4d418ab32a73723fe95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 519420031}
 --- !u!4 &4692712743064781755
 Transform:
   m_ObjectHideFlags: 0

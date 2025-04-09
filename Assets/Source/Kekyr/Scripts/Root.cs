@@ -46,6 +46,7 @@ namespace ShipBase
 
         [SerializeField] private Canvas _canvas;
         [SerializeField] private BordersAdjuster _bordersAdjuster;
+        [SerializeField] private ScreenAdjuster _screenAdjuster;
 
         private void Validate()
         {
@@ -188,6 +189,11 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_bordersAdjuster));
             }
+            
+            if (_screenAdjuster == null)
+            {
+                throw new ArgumentNullException(nameof(_screenAdjuster));
+            }
         }
 
         private void Awake()
@@ -206,7 +212,7 @@ namespace ShipBase
             Shield shield = player.GetComponentInChildren<Shield>();
             RocketLauncher rocketLauncher = player.GetComponentInChildren<RocketLauncher>();
             BulletPool pool = player.GetComponentInChildren<BulletPool>();
-            
+
             _coinPool.Init(player.transform, health);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
@@ -214,12 +220,12 @@ namespace ShipBase
                 autoGuns.Init(_autoGunsZone);
             }
 
-            ship.Init(_wallet);
+            ship.Init(_wallet, _camera, _canvas, _screenAdjuster);
             damageHandler.Init(_spriteModifier);
 
             for (int i = 0; i < movements.Length; i++)
             {
-                movements[i].Init(_camera,_canvas);
+                movements[i].Init(_camera, _canvas);
             }
 
             rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel, _rewardedAd);
