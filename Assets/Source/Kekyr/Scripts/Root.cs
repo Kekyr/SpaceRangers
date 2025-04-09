@@ -45,6 +45,7 @@ namespace ShipBase
         [SerializeField] private LevelSO _levelData;
 
         [SerializeField] private Canvas _canvas;
+        [SerializeField] private BordersAdjuster _bordersAdjuster;
 
         private void Validate()
         {
@@ -182,6 +183,11 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_background));
             }
+
+            if (_bordersAdjuster == null)
+            {
+                throw new ArgumentNullException(nameof(_bordersAdjuster));
+            }
         }
 
         private void Awake()
@@ -195,7 +201,7 @@ namespace ShipBase
             PlayerInputRouter playerInputRouter = player.GetComponent<PlayerInputRouter>();
             Ship ship = player.GetComponent<Ship>();
             DamageHandler damageHandler = player.GetComponent<DamageHandler>();
-            TouchMovement touchMovement = player.GetComponent<TouchMovement>();
+            Movement[] movements = player.GetComponents<Movement>();
             ShipHealth health = player.GetComponent<ShipHealth>();
             Shield shield = player.GetComponentInChildren<Shield>();
             RocketLauncher rocketLauncher = player.GetComponentInChildren<RocketLauncher>();
@@ -210,7 +216,12 @@ namespace ShipBase
 
             ship.Init(_wallet);
             damageHandler.Init(_spriteModifier);
-            touchMovement.Init(_camera);
+
+            for (int i = 0; i < movements.Length; i++)
+            {
+                movements[i].Init(_camera,_canvas);
+            }
+
             rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel, _rewardedAd);
             pool.Init(_bulletData.CurrentLevel);
             shield.Init(_shieldData.CurrentLevel);
@@ -240,6 +251,8 @@ namespace ShipBase
                 _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool,
                     _score, _camera, _canvas);
             }
+
+            StartCoroutine(_bordersAdjuster.Initialization());
         }
     }
 }
