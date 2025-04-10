@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BordersAdjuster : MonoBehaviour
 {
+    private readonly float _initTime = 0.001f;
+    
     [SerializeField] private BoxCollider2D _up;
     [SerializeField] private BoxCollider2D _left;
     [SerializeField] private BoxCollider2D _down;
@@ -13,6 +15,8 @@ public class BordersAdjuster : MonoBehaviour
     [SerializeField] private ScreenAdjuster _screenAdjuster;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Camera _camera;
+
+    private WaitForSeconds _waitInit;
 
     private void Awake()
     {
@@ -55,7 +59,7 @@ public class BordersAdjuster : MonoBehaviour
         {
             throw new ArgumentNullException(nameof(_camera));
         }
-
+        
         _screenAdjuster.ResolutionChanged += OnResolutionChanged;
     }
 
@@ -66,7 +70,7 @@ public class BordersAdjuster : MonoBehaviour
 
     public IEnumerator Initialization()
     {
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(_initTime);
         OnResolutionChanged();
         _screenAdjuster.enabled = true;
     }
@@ -76,7 +80,7 @@ public class BordersAdjuster : MonoBehaviour
         Debug.Log("OnResolutionChanged!");
 
         RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
-        
+
         float sizeX = ((rectTransform.rect.width / 192) * 2) / 10;
         float sizeY = (rectTransform.rect.height / 192 + 2) / 10;
 

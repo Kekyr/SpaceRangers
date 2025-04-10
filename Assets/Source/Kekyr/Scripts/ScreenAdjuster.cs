@@ -3,36 +3,31 @@ using UnityEngine;
 
 public class ScreenAdjuster : MonoBehaviour
 {
-    [SerializeField] private Canvas _canvas;
+    private RectTransform _canvas;
 
-    private float _screenWidth;
-    private float _screenHeight;
+    private float _width;
+    private float _height;
 
     public Action ResolutionChanged;
 
     private void Start()
     {
-        if (_canvas == null)
-        {
-            throw new ArgumentNullException(nameof(_canvas));
-        }
-
-        _screenWidth = _canvas.pixelRect.width;
-        _screenHeight = _canvas.pixelRect.height;
+        _width = _canvas.rect.width;
+        _height = _canvas.rect.height;
     }
 
     private void FixedUpdate()
     {
-        if(_screenWidth != _canvas.pixelRect.width || _screenHeight != _canvas.pixelRect.height)
+        if (_width != _canvas.rect.width || _height != _canvas.rect.height)
         {
-            OnResolutionChanged();
+            _width = _canvas.rect.width;
+            _height = _canvas.rect.height;
+            ResolutionChanged?.Invoke();
         }
     }
 
-    private void OnResolutionChanged()
+    public void Init(RectTransform canvas)
     {
-        _screenWidth = _canvas.pixelRect.width;
-        _screenHeight = _canvas.pixelRect.height;
-        ResolutionChanged?.Invoke();
+        _canvas = canvas;
     }
 }

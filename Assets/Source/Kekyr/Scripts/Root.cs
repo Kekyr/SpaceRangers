@@ -189,7 +189,7 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_bordersAdjuster));
             }
-            
+
             if (_screenAdjuster == null)
             {
                 throw new ArgumentNullException(nameof(_screenAdjuster));
@@ -199,7 +199,7 @@ namespace ShipBase
         private void Awake()
         {
             Validate();
-
+            
             _background.texture = _backgroundData.CurrentTexture;
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
@@ -258,6 +258,7 @@ namespace ShipBase
                     _score, _camera, _canvas);
             }
 
+            _screenAdjuster.Init(_canvas.GetComponent<RectTransform>());
             StartCoroutine(_bordersAdjuster.Initialization());
         }
     }

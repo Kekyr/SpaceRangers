@@ -432,7 +432,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 178083865}
-  - component: {fileID: 178083866}
   m_Layer: 0
   m_Name: Borders
   m_TagString: Untagged
@@ -460,26 +459,6 @@ Transform:
   - {fileID: 805793421}
   m_Father: {fileID: 2053140771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &178083866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178083864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32bc379f5c21eb34ebeb1e71d7165400, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _up: {fileID: 1343464894}
-  _left: {fileID: 773893804}
-  _down: {fileID: 618243668}
-  _right: {fileID: 402800250}
-  _fighterDown: {fileID: 805793423}
-  _screenAdjuster: {fileID: 255298302}
-  _canvas: {fileID: 4161607546087638206}
-  _camera: {fileID: 519420031}
 --- !u!1 &198629653
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf545c1d513f6d47bcaf390ffd42319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 4161607546087638206}
 --- !u!1 &262695689
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +698,7 @@ MonoBehaviour:
   _backgroundData: {fileID: 11400000, guid: 8f1e85bf35a085449b88d37e729e65d1, type: 2}
   _levelData: {fileID: 11400000, guid: ea1f63c06399b794b83ae6b88acf7291, type: 2}
   _canvas: {fileID: 4161607546087638206}
-  _bordersAdjuster: {fileID: 178083866}
+  _bordersAdjuster: {fileID: 872122671}
   _screenAdjuster: {fileID: 255298302}
 --- !u!4 &316022408
 Transform:
@@ -1734,6 +1712,58 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2482402762075706759, guid: 310b788640152454a9f95c7d3acfda0e, type: 3}
   m_PrefabInstance: {fileID: 935525461}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &872122669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 872122670}
+  - component: {fileID: 872122671}
+  m_Layer: 0
+  m_Name: BordersAdjuster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &872122670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872122669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1052032603}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &872122671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872122669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bc379f5c21eb34ebeb1e71d7165400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _up: {fileID: 1343464894}
+  _left: {fileID: 773893804}
+  _down: {fileID: 618243668}
+  _right: {fileID: 402800250}
+  _fighterDown: {fileID: 805793423}
+  _screenAdjuster: {fileID: 255298302}
+  _canvas: {fileID: 4161607546087638206}
+  _camera: {fileID: 519420031}
 --- !u!1001 &935525461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1965,6 +1995,7 @@ Transform:
   - {fileID: 1494236566}
   - {fileID: 92778184}
   - {fileID: 255298301}
+  - {fileID: 872122670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1070718047
