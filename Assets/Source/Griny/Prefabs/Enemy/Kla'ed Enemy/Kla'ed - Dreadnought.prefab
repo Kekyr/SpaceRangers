@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
-  _bulletPrefab: {fileID: 3850602350457569866, guid: 4599bc2ec154c774ba83d9d4f6f2ffb8, type: 3}
+  _bulletPrefab: {fileID: 0}
   _spawnPoints:
   - {fileID: 2448117884884619926}
   - {fileID: 1723333871773793900}
@@ -875,6 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
+  _pointInterectionUp: {fileID: 0}
   _directionsMovement:
   - {fileID: 7402759552402031074}
   - {fileID: 157871208537767826}
@@ -885,7 +886,9 @@ MonoBehaviour:
   - {fileID: 1424868587069040707}
   - {fileID: 1178764493407416373}
   _pointStart: {fileID: 3221880804234331847}
-  enemyHealth: {fileID: 2018388285122438009}
+  _pointInterectionDown: {fileID: 0}
+  _pointInterectionLeft: {fileID: 0}
+  _pointInterectionRight: {fileID: 0}
 --- !u!1 &7702984784011224079
 GameObject:
   m_ObjectHideFlags: 0
