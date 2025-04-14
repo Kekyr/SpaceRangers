@@ -6,13 +6,15 @@ using UnityEngine.U2D;
 public class BordersAdjuster : MonoBehaviour
 {
     private readonly float _initTime = 0.001f;
+    private readonly float _enemyDownYOffset = 100f;
 
     [SerializeField] private BoxCollider2D _up;
     [SerializeField] private BoxCollider2D _left;
     [SerializeField] private BoxCollider2D _down;
     [SerializeField] private BoxCollider2D _right;
     [SerializeField] private BoxCollider2D _fighterDown;
-    
+    [SerializeField] private BoxCollider2D _enemyDown;
+
     private ScreenAdjuster _screenAdjuster;
     private Camera _mainCamera;
     private Canvas _canvas;
@@ -44,6 +46,11 @@ public class BordersAdjuster : MonoBehaviour
         if (_fighterDown == null)
         {
             throw new ArgumentNullException(nameof(_right));
+        }
+
+        if (_enemyDown == null)
+        {
+            throw new ArgumentNullException(nameof(_enemyDown));
         }
 
         _pixelsPerUnit = _mainCamera.GetComponent<PixelPerfectCamera>().assetsPPU;
@@ -89,6 +96,10 @@ public class BordersAdjuster : MonoBehaviour
         _down.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.min.y));
 
+        _enemyDown.transform.position =
+            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x,
+                _canvas.pixelRect.min.y - _enemyDownYOffset));
+
         _right.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.max.x, _canvas.pixelRect.center.y));
 
@@ -97,6 +108,8 @@ public class BordersAdjuster : MonoBehaviour
 
         _up.size = new Vector2(sizeX, _up.size.y);
         _down.size = new Vector2(sizeX, _down.size.y);
+        _enemyDown.size = new Vector2(sizeX, _down.size.y);
+
         _fighterDown.size = new Vector2(sizeX, _fighterDown.size.y);
 
         _left.size = new Vector2(_left.size.x, sizeY);
