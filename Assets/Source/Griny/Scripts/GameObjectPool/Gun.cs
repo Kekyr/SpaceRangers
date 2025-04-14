@@ -23,9 +23,6 @@ namespace Enemy
         private WaitForSeconds _wait = new WaitForSeconds(_delay);
         private SFX _sfx;
 
-        private Camera _camera;
-        private Canvas _canvas;
-
         private void Awake()
         {
             if (_shootSFX == null)
@@ -69,7 +66,6 @@ namespace Enemy
                         container.transform);
 
                     EnemyBulletMovement enemyBulletMovement = instance.GetComponent<EnemyBulletMovement>();
-                    enemyBulletMovement.Init(_camera, _canvas);
 
                     Bullet bullet = instance.GetComponent<Bullet>();
                     bullet.gameObject.SetActive(false);
@@ -78,11 +74,9 @@ namespace Enemy
             }
         }
 
-        public void Init(Transform parent, Camera camera, Canvas canvas)
+        public void Init(Transform parent)
         {
             _parent = parent;
-            _camera = camera;
-            _canvas = canvas;
             enabled = true;
         }
 

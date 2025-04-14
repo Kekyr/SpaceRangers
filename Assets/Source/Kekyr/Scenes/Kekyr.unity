@@ -432,7 +432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 178083865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 402800252}
   - component: {fileID: 402800250}
   - component: {fileID: 402800249}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BorderRight
   m_TagString: Boundary
   m_Icon: {fileID: 0}
@@ -1130,7 +1130,7 @@ GameObject:
   - component: {fileID: 618243667}
   - component: {fileID: 618243668}
   - component: {fileID: 618243665}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: BorderDown
   m_TagString: Boundary
   m_Icon: {fileID: 0}
@@ -1382,7 +1382,7 @@ GameObject:
   - component: {fileID: 773893806}
   - component: {fileID: 773893804}
   - component: {fileID: 773893807}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BorderLeft
   m_TagString: Boundary
   m_Icon: {fileID: 0}
@@ -1596,7 +1596,7 @@ GameObject:
   - component: {fileID: 805793421}
   - component: {fileID: 805793423}
   - component: {fileID: 805793422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BorderFighterDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,7 +1751,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872122669}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32bc379f5c21eb34ebeb1e71d7165400, type: 3}
   m_Name: 
@@ -1761,9 +1761,6 @@ MonoBehaviour:
   _down: {fileID: 618243668}
   _right: {fileID: 402800250}
   _fighterDown: {fileID: 805793423}
-  _screenAdjuster: {fileID: 255298302}
-  _canvas: {fileID: 4161607546087638206}
-  _camera: {fileID: 519420031}
 --- !u!1001 &935525461
 PrefabInstance:
   m_ObjectHideFlags: 0

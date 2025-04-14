@@ -20,6 +20,46 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f387346503c1954468e1469d27125f12, type: 3}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7613827
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7586312
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0028125644
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08820574
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.6666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566278355774292447, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.6666666
+      objectReference: {fileID: 0}
     - target: {fileID: 5006617922940183404, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: _startValue
       value: 5

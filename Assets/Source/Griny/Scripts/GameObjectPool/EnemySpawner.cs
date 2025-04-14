@@ -12,6 +12,7 @@ namespace Enemy
         private Transform _enemyBulletsContainer;
         private CoinPool _coinPool;
         private Score _score;
+        private ScreenAdjuster _screenAdjuster;
 
         private EnemySpawnerSO _data;
         private List<GameObject> _pool = new List<GameObject>();
@@ -19,9 +20,6 @@ namespace Enemy
         private List<Gun> _guns = new List<Gun>();
         private List<Gun> _gans = new List<Gun>();
         private List<RocketLauncher> _rocketLaunchers = new List<RocketLauncher>();
-
-        private Camera _camera;
-        private Canvas _canvas;
 
         private void Start()
         {
@@ -55,15 +53,14 @@ namespace Enemy
         }
 
         public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier,
-            Transform enemyBulletsContainer, CoinPool coinPool, Score score, Camera camera, Canvas canvas)
+            Transform enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster)
         {
             _data = data;
             _spriteModifier = spriteModifier;
             _enemyBulletsContainer = enemyBulletsContainer;
             _coinPool = coinPool;
             _score = score;
-            _camera = camera;
-            _canvas = canvas;
+            _screenAdjuster = screenAdjuster;
             enabled = true;
         }
 
@@ -75,7 +72,7 @@ namespace Enemy
                 instance.SetActive(false);
 
                 EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
-                enemyShip.Init(_spriteModifier);
+                enemyShip.Init(_spriteModifier, _screenAdjuster);
                 enemyShip.Destroyed += Spawn;
                 enemyShip.Annihilated += _coinPool.Spawn;
                 enemyShip.Annihilated += _score.Add;
@@ -84,11 +81,10 @@ namespace Enemy
 
                 foreach (Gun gun in _guns)
                 {
-                    gun.Init(_enemyBulletsContainer, _camera, _canvas);
+                    gun.Init(_enemyBulletsContainer);
                 }
 
                 EnemyMovement enemyMovement = instance.GetComponent<EnemyMovement>();
-                enemyMovement.Init(_camera, _canvas);
                 _rocketLaunchers.AddRange(instance.GetComponentsInChildren<RocketLauncher>());
 
                 foreach (RocketLauncher rocketLauncher in _rocketLaunchers)

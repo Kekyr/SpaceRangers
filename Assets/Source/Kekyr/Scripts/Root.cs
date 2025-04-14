@@ -199,8 +199,11 @@ namespace ShipBase
         private void Awake()
         {
             Validate();
-            
+
             _background.texture = _backgroundData.CurrentTexture;
+            
+            _screenAdjuster.Init(_canvas, _camera);
+            _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 
@@ -255,10 +258,9 @@ namespace ShipBase
             for (int i = 0; i < _enemySpawners.Count; i++)
             {
                 _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool,
-                    _score, _camera, _canvas);
+                    _score, _screenAdjuster);
             }
-
-            _screenAdjuster.Init(_canvas.GetComponent<RectTransform>());
+            
             StartCoroutine(_bordersAdjuster.Initialization());
         }
     }

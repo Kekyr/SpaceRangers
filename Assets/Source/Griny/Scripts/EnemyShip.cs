@@ -9,10 +9,8 @@ namespace Enemy
 {
     [RequireComponent(typeof(EnemyHealth))]
     [RequireComponent(typeof(EnemyShield))]
-    //[RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(SFX))]
     [RequireComponent(typeof(CinemachineImpulseSource))]
-    //[RequireComponent(typeof(SpriteRenderer))]
     public class EnemyShip : Attacker
     {
         private readonly string _destruction = "Destruction";
@@ -26,6 +24,7 @@ namespace Enemy
         [SerializeField] private SFXSO _explosionSFX;
 
         private SpriteModifier _spriteModifier;
+        private ScreenAdjuster _screenAdjuster;
         private Vector3 _impulseVelocity;
 
         private CinemachineImpulseSource _impulseSource;
@@ -41,18 +40,8 @@ namespace Enemy
 
         public EnemyDataSO Data => _data;
 
-        private void Awake()
+        private void Start()
         {
-            if (_impulseForce == 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_impulseForce));
-            }
-
-            if (_impulseDirection == Vector3.zero)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_impulseDirection));
-            }
-
             if (_shieldSpriteRenderer == null)
             {
                 throw new ArgumentNullException(nameof(_shieldSpriteRenderer));
@@ -83,11 +72,13 @@ namespace Enemy
             _impulseVelocity = _impulseDirection * _impulseForce;
 
             _enemyHealth.Died += OnDie;
+            _screenAdjuster.ResolutionChanged += OnResolutionChanged;
         }
 
         private void OnDestroy()
         {
             _enemyHealth.Died -= OnDie;
+            _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
         }
 
         private void OnDie()
@@ -95,9 +86,11 @@ namespace Enemy
             Deactivate();
         }
 
-        public void Init(SpriteModifier spriteModifier)
+        public void Init(SpriteModifier spriteModifier, ScreenAdjuster screenAdjuster)
         {
             _spriteModifier = spriteModifier;
+            _screenAdjuster = screenAdjuster;
+            enabled = true;
         }
 
         private void Deactivate()
@@ -129,6 +122,11 @@ namespace Enemy
             }
         }
 
+        private void OnResolutionChanged()
+        {
+            _screenAdjuster.Clamp(transform);
+        }
+
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out AutoGunsZone autoGunsZone))
@@ -141,7 +139,6 @@ namespace Enemy
         {
             _animator.SetBool(_destruction, false);
             gameObject.SetActive(false);
-            _animator.SetBool(_destruction, false);
             Destroyed?.Invoke();
             Annihilated?.Invoke(this);
         }

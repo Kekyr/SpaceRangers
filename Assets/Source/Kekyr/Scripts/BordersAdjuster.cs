@@ -1,24 +1,25 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class BordersAdjuster : MonoBehaviour
 {
     private readonly float _initTime = 0.001f;
-    
+
     [SerializeField] private BoxCollider2D _up;
     [SerializeField] private BoxCollider2D _left;
     [SerializeField] private BoxCollider2D _down;
     [SerializeField] private BoxCollider2D _right;
     [SerializeField] private BoxCollider2D _fighterDown;
+    
+    private ScreenAdjuster _screenAdjuster;
+    private Camera _mainCamera;
+    private Canvas _canvas;
 
-    [SerializeField] private ScreenAdjuster _screenAdjuster;
-    [SerializeField] private Canvas _canvas;
-    [SerializeField] private Camera _camera;
+    private int _pixelsPerUnit;
 
-    private WaitForSeconds _waitInit;
-
-    private void Awake()
+    private void Start()
     {
         if (_up == null)
         {
@@ -45,27 +46,22 @@ public class BordersAdjuster : MonoBehaviour
             throw new ArgumentNullException(nameof(_right));
         }
 
-        if (_screenAdjuster == null)
-        {
-            throw new ArgumentNullException(nameof(_screenAdjuster));
-        }
+        _pixelsPerUnit = _mainCamera.GetComponent<PixelPerfectCamera>().assetsPPU;
 
-        if (_canvas == null)
-        {
-            throw new ArgumentNullException(nameof(_canvas));
-        }
-
-        if (_camera == null)
-        {
-            throw new ArgumentNullException(nameof(_camera));
-        }
-        
         _screenAdjuster.ResolutionChanged += OnResolutionChanged;
     }
 
     private void OnDisable()
     {
         _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
+    }
+
+    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster)
+    {
+        _canvas = canvas;
+        _mainCamera = mainCamera;
+        _screenAdjuster = screenAdjuster;
+        enabled = true;
     }
 
     public IEnumerator Initialization()
@@ -77,27 +73,27 @@ public class BordersAdjuster : MonoBehaviour
 
     private void OnResolutionChanged()
     {
-        Debug.Log("OnResolutionChanged!");
+        int modifier = 2;
 
         RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
 
-        float sizeX = ((rectTransform.rect.width / 192) * 2) / 10;
-        float sizeY = (rectTransform.rect.height / 192 + 2) / 10;
+        float sizeX = ((rectTransform.rect.width / _pixelsPerUnit) * modifier) / 10;
+        float sizeY = (rectTransform.rect.height / _pixelsPerUnit + modifier) / 10;
 
         _up.transform.position =
-            _camera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.max.y));
+            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.max.y));
 
         _left.transform.position =
-            _camera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.min.x, _canvas.pixelRect.center.y));
+            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.min.x, _canvas.pixelRect.center.y));
 
         _down.transform.position =
-            _camera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.min.y));
+            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.min.y));
 
         _right.transform.position =
-            _camera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.max.x, _canvas.pixelRect.center.y));
+            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.max.x, _canvas.pixelRect.center.y));
 
         _fighterDown.transform.position =
-            _camera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
+            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
 
         _up.size = new Vector2(sizeX, _up.size.y);
         _down.size = new Vector2(sizeX, _down.size.y);

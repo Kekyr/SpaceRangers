@@ -128,16 +128,7 @@ namespace ShipBase
 
         private void OnResolutionChanged()
         {
-            Debug.Log("Clamping!");
-            Vector3 screenPosition = _camera.WorldToScreenPoint(transform.position);
-            
-            Vector3 newScreenPosition = new Vector3(
-                Mathf.Clamp(screenPosition.x, _canvas.pixelRect.min.x, _canvas.pixelRect.max.x),
-                Mathf.Clamp(screenPosition.y, _canvas.pixelRect.min.y, _canvas.pixelRect.max.y));
-
-            Vector3 newWorldPosition = _camera.ScreenToWorldPoint(newScreenPosition);
-            newWorldPosition.z = 0f;
-            transform.position = newWorldPosition;
+            _screenAdjuster.Clamp(transform);
         }
     }
 }

@@ -12,17 +12,9 @@ namespace Enemy
         private const string _borderRight = "right";
         private const string _borderUp = "up";
 
-        private const int _minHeightPercent = 50;
-        private const int _maxHeightPercent = 90;
-
         [SerializeField] private List<Transform> _directionsMovement;
-
         [SerializeField] private Transform _pointStart;
-
-        //[FormerlySerializedAs("_health")] [SerializeField] private EnemyHealth enemyHealth;
-        [SerializeField] private Transform _pointInterectionDown;
-        [SerializeField] private Transform _pointInterectionLeft;
-        [SerializeField] private Transform _pointInterectionRight;
+        [FormerlySerializedAs("_health")] [SerializeField] private EnemyHealth enemyHealth;
 
         private Vector3 _currentTarget;
         private int _randomNumber;
@@ -34,10 +26,12 @@ namespace Enemy
         private List<int> _lefts = new List<int> { 1, 2, 3 };
         private List<int> _rights = new List<int> { 5, 6, 7 };
 
-        private Vector3 _pointInterectUp;
-        private Vector3 _pointDown;
-        private Vector3 _pointLeft;
-        private Vector3 _pointRight;
+        private void Start()
+        {
+            GetStartTarget();
+            ReloadVariable();
+        }
+
 
         private void OnEnable()
         {
@@ -58,80 +52,32 @@ namespace Enemy
             }
         }
 
-        protected override void InteractWithWorld(float speed)
+        protected override void CollideShip(Collider2D collider, float speed)
         {
-            //Debug.Log(_currentTarget);
-
-            _pointInterectUp = Camera.WorldToScreenPoint(PointInterectionUp.position);
-            _pointDown = Camera.WorldToScreenPoint(_pointInterectionDown.position);
-            _pointLeft = Camera.WorldToScreenPoint(_pointInterectionLeft.position);
-            _pointRight = Camera.WorldToScreenPoint(_pointInterectionRight.position);
-
-            float oneYPercent = Canvas.pixelRect.size.y / 100;
-
-            if (_pointInterectUp.y <= Canvas.pixelRect.size.y)
+            if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
             {
-                _isInside = true;
-                //Debug.Log("����� ������!");
-            }
-
-            if (_isInside == false)
-                return;
-
-            if (_pointInterectUp.y >= oneYPercent * _maxHeightPercent)
-            {
-                if (_isInside == true)
+                switch (backgruondBorder.GetName())
                 {
-                    _currentTarget = GetTarget(_downs);
-                    //Debug.Log("����");
+                    case _borderUp:
+
+                        if(_isInside == true)
+                        {
+                            _currentTarget = GetTarget(_downs);
+                        }
+
+                        break;
+                    case _borderFighterDown:
+                        _currentTarget = GetTarget(_ups);
+                        break;
+                    case _borderRight:
+                        _currentTarget = GetTarget(_lefts);
+                        break;
+                    case _borderLeft:
+                        _currentTarget = GetTarget(_rights);
+                        break;
                 }
             }
-
-            if (_pointDown.y <= oneYPercent * _minHeightPercent)
-            {
-                _currentTarget = GetTarget(_ups);
-                //Debug.Log("�����");
-            }
-
-            if (_pointLeft.x <= 0)
-            {
-                _currentTarget = GetTarget(_rights);
-                //Debug.Log("������");
-            }
-
-            if (_pointRight.x >= Canvas.pixelRect.size.x)
-            {
-                _currentTarget = GetTarget(_lefts);
-                //Debug.Log("�����");
-            }
         }
-
-        //protected override void CollideShip(Collider2D collider, float speed)
-        //{
-        //    if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
-        //    {
-        //        switch (backgruondBorder.GetName())
-        //        {
-        //            case _borderUp:
-
-        //                if(_isInside == true)
-        //                {
-        //                    _currentTarget = GetTarget(_downs);
-        //                }
-
-        //                break;
-        //            case _borderFighterDown:
-        //                _currentTarget = GetTarget(_ups);
-        //                break;
-        //            case _borderRight:
-        //                _currentTarget = GetTarget(_lefts);
-        //                break;
-        //            case _borderLeft:
-        //                _currentTarget = GetTarget(_rights);
-        //                break;
-        //        }
-        //    }
-        //}
 
         private void GetStartTarget()
         {
