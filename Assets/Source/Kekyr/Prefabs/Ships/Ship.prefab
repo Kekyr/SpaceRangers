@@ -481,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageSFX: {fileID: 11400000, guid: 7b4d1053309857844b2c89c5829930b3, type: 2}
   _explosionSFX: {fileID: 11400000, guid: d50a5f411282fc14da9c5062981f701d, type: 2}
+  _shieldCollider: {fileID: 5333303029091593037}
 --- !u!114 &3270724344777876474
 MonoBehaviour:
   m_ObjectHideFlags: 0

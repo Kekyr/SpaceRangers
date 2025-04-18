@@ -6,7 +6,7 @@ using UnityEngine.U2D;
 public class BordersAdjuster : MonoBehaviour
 {
     private readonly float _initTime = 0.001f;
-    private readonly float _enemyDownYOffset = 100f;
+    private readonly float _enemyDownYOffset = 5f;
 
     [SerializeField] private BoxCollider2D _up;
     [SerializeField] private BoxCollider2D _left;

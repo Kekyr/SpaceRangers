@@ -201,7 +201,7 @@ namespace ShipBase
             Validate();
 
             _background.texture = _backgroundData.CurrentTexture;
-            
+
             _screenAdjuster.Init(_canvas, _camera);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
 
@@ -223,7 +223,7 @@ namespace ShipBase
                 autoGuns.Init(_autoGunsZone);
             }
 
-            ship.Init(_wallet, _camera, _canvas, _screenAdjuster);
+            ship.Init(_wallet, _screenAdjuster);
             damageHandler.Init(_spriteModifier);
 
             for (int i = 0; i < movements.Length; i++)
@@ -260,7 +260,7 @@ namespace ShipBase
                 _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool,
                     _score, _screenAdjuster);
             }
-            
+
             StartCoroutine(_bordersAdjuster.Initialization());
         }
     }

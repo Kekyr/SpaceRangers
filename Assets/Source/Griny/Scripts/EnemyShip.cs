@@ -33,6 +33,7 @@ namespace Enemy
         private EnemyShield _enemyShield;
         private Animator _animator;
         private SFX _sfx;
+        private Collider2D _collider;
 
         public event Action Destroyed;
         public event Action<EnemyShip> Annihilated;
@@ -68,6 +69,7 @@ namespace Enemy
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _sfx = GetComponent<SFX>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
+            _collider = GetComponent<Collider2D>();
 
             _impulseVelocity = _impulseDirection * _impulseForce;
 
@@ -124,7 +126,7 @@ namespace Enemy
 
         private void OnResolutionChanged()
         {
-            _screenAdjuster.Clamp(transform);
+            _screenAdjuster.Clamp(transform, _collider);
         }
 
         private void OnTriggerExit2D(Collider2D other)

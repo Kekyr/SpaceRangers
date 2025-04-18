@@ -16,7 +16,7 @@ public class ScreenAdjuster : MonoBehaviour
     private void Start()
     {
         _canvasRectTransform = _canvas.GetComponent<RectTransform>();
-        
+
         _width = _canvasRectTransform.rect.width;
         _height = _canvasRectTransform.rect.height;
     }
@@ -37,16 +37,39 @@ public class ScreenAdjuster : MonoBehaviour
         _mainCamera = mainCamera;
     }
 
-    public void Clamp(Transform gameObjectTransform)
+    public void Clamp(Transform gameObjectTransform, Collider2D gameObjectCollider)
     {
-        Vector3 screenPosition = _mainCamera.WorldToScreenPoint(gameObjectTransform.position);
-            
-        Vector3 newScreenPosition = new Vector3(
-            Mathf.Clamp(screenPosition.x, _canvas.pixelRect.min.x, _canvas.pixelRect.max.x),
-            Mathf.Clamp(screenPosition.y, _canvas.pixelRect.min.y, _canvas.pixelRect.max.y));
+        Check(gameObjectTransform, gameObjectCollider.bounds.min, false);
+        Check(gameObjectTransform, gameObjectCollider.bounds.max, true);
+    }
+
+    private void Check(Transform gameObjectTransform, Vector3 position, bool isMax)
+    {
+        Vector3 newScreenPosition;
+
+        Vector3 direction = gameObjectTransform.position - position;
+
+        Vector3 screenPosition = _mainCamera.WorldToScreenPoint(position);
+        
+        if (isMax == true)
+        {
+            newScreenPosition = new Vector3(
+                screenPosition.x <= _canvas.pixelRect.max.x ? screenPosition.x : _canvas.pixelRect.max.x,
+                screenPosition.y <= _canvas.pixelRect.max.y ? screenPosition.y : _canvas.pixelRect.max.y,
+                _mainCamera.nearClipPlane);
+        }
+        else
+        {
+            newScreenPosition = new Vector3(
+                screenPosition.x >= _canvas.pixelRect.min.x ? screenPosition.x : _canvas.pixelRect.min.x,
+                screenPosition.y >= _canvas.pixelRect.min.y ? screenPosition.y : _canvas.pixelRect.min.y,
+                _mainCamera.nearClipPlane);
+        }
 
         Vector3 newWorldPosition = _mainCamera.ScreenToWorldPoint(newScreenPosition);
         newWorldPosition.z = 0f;
-        gameObjectTransform.position = newWorldPosition;
+
+        Vector3 newGameObjectPosition = newWorldPosition + direction;
+        gameObjectTransform.position = newGameObjectPosition;
     }
 }

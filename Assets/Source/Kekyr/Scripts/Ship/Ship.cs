@@ -18,23 +18,29 @@ namespace ShipBase
 
         [SerializeField] private SFXSO _damageSFX;
         [SerializeField] private SFXSO _explosionSFX;
+        [SerializeField] private Collider2D _shieldCollider;
 
         private Wallet _wallet;
         private DamageHandler _damageHandler;
         private SFX _sfx;
         private ShipHealth _health;
         private CinemachineImpulseSource _impulseSource;
-        private Camera _camera;
-        private Canvas _canvas;
         private ScreenAdjuster _screenAdjuster;
+        private Collider2D _collider;
 
-        private Vector3 _impulseExplosionVelocity;
-        private Vector3 _impulseDamageVelocity;
         private Coroutine _staying;
         private WaitForSeconds _waitInterval;
 
+        private Vector3 _impulseExplosionVelocity;
+        private Vector3 _impulseDamageVelocity;
+
         private void Start()
         {
+            if (_shieldCollider == null)
+            {
+                throw new ArgumentNullException(nameof(_shieldCollider));
+            }
+            
             if (_damageSFX == null)
             {
                 throw new ArgumentNullException(nameof(_damageSFX));
@@ -49,6 +55,7 @@ namespace ShipBase
             _health = GetComponent<ShipHealth>();
             _damageHandler = GetComponent<DamageHandler>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
+            _collider = GetComponent<Collider2D>();
 
             _impulseExplosionVelocity = _impulseDirection * _impulseExplosionForce;
             _impulseDamageVelocity = _impulseDirection * _impulseDamageForce;
@@ -98,11 +105,9 @@ namespace ShipBase
             }
         }
 
-        public void Init(Wallet wallet, Camera camera, Canvas canvas, ScreenAdjuster screenAdjuster)
+        public void Init(Wallet wallet, ScreenAdjuster screenAdjuster)
         {
             _wallet = wallet;
-            _camera = camera;
-            _canvas = canvas;
             _screenAdjuster = screenAdjuster;
             enabled = true;
         }
@@ -128,7 +133,14 @@ namespace ShipBase
 
         private void OnResolutionChanged()
         {
-            _screenAdjuster.Clamp(transform);
+            if (_collider.enabled == true)
+            {
+                _screenAdjuster.Clamp(transform, _collider);
+            }
+            else
+            {
+                _screenAdjuster.Clamp(transform, _shieldCollider);
+            }
         }
     }
 }
