@@ -1,22 +1,22 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Audio;
 using Enemy;
 using LevelEnemy;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Users;
 using UnityEngine.UI;
 
 namespace ShipBase
 {
     public class Root : MonoBehaviour
     {
+        private readonly float _initTime = 0.001f;
+
         [SerializeField] private Camera _camera;
         [SerializeField] private AutoGunsZone _autoGunsZone;
         [SerializeField] private Button _addRocketButton;
-        [SerializeField] private List<EnemySpawner> _enemySpawners;
+        [SerializeField] private EnemySpawners _enemySpawners;
         [SerializeField] private SpriteModifier _spriteModifier;
         [SerializeField] private Score _score;
         [SerializeField] private Wallet _wallet;
@@ -35,7 +35,7 @@ namespace ShipBase
         [SerializeField] private RocketView _rocketView;
         [SerializeField] private ScoreView _scoreView;
         [SerializeField] private TimerView _timerView;
-        [SerializeField] private RawImage _background;
+        [SerializeField] private RawImage _backgroundImage;
 
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
         [SerializeField] private ImprovementsSO<GameObject> _shipData;
@@ -70,9 +70,9 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_addRocketButton));
             }
 
-            if (_enemySpawners.Count == 0)
+            if (_enemySpawners == null)
             {
-                throw new ArgumentOutOfRangeException(nameof(_enemySpawners));
+                throw new ArgumentNullException(nameof(_enemySpawners));
             }
 
             if (_spriteModifier == null)
@@ -180,9 +180,9 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_timerView));
             }
 
-            if (_background == null)
+            if (_backgroundImage == null)
             {
-                throw new ArgumentNullException(nameof(_background));
+                throw new ArgumentNullException(nameof(_backgroundImage));
             }
 
             if (_bordersAdjuster == null)
@@ -200,9 +200,9 @@ namespace ShipBase
         {
             Validate();
 
-            _background.texture = _backgroundData.CurrentTexture;
+            _backgroundImage.texture = _backgroundData.CurrentTexture;
 
-            _screenAdjuster.Init(_canvas, _camera);
+            _screenAdjuster.Init(_canvas, _camera, _backgroundImage);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
@@ -255,13 +255,20 @@ namespace ShipBase
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
-            for (int i = 0; i < _enemySpawners.Count; i++)
-            {
-                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool,
-                    _score, _screenAdjuster);
-            }
+            _enemySpawners.Init(_canvas, _camera, _screenAdjuster);
+            _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
+                _score);
+            
+            StartCoroutine(Initialization());
+        }
 
-            StartCoroutine(_bordersAdjuster.Initialization());
+        private IEnumerator Initialization()
+        {
+            yield return new WaitForSeconds(_initTime);
+            _bordersAdjuster.OnResolutionChanged();
+            _screenAdjuster.ChangeBackground();
+            _enemySpawners.OnResolutionChanged();
+            _screenAdjuster.enabled = true;
         }
     }
 }

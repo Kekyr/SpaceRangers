@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
+using Lean.Localization;
 using UnityEngine;
 using UnityEngine.U2D;
 
 public class BordersAdjuster : MonoBehaviour
 {
-    private readonly float _initTime = 0.001f;
     private readonly float _enemyDownYOffset = 5f;
 
     [SerializeField] private BoxCollider2D _up;
@@ -71,14 +70,7 @@ public class BordersAdjuster : MonoBehaviour
         enabled = true;
     }
 
-    public IEnumerator Initialization()
-    {
-        yield return new WaitForSeconds(_initTime);
-        OnResolutionChanged();
-        _screenAdjuster.enabled = true;
-    }
-
-    private void OnResolutionChanged()
+    public void OnResolutionChanged()
     {
         int modifier = 2;
 

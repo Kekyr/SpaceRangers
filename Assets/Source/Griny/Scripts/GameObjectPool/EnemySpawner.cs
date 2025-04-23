@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,29 +6,27 @@ namespace Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private GameObject _parentBullets;
-
         private SpriteModifier _spriteModifier;
-        private Transform _enemyBulletsContainer;
         private CoinPool _coinPool;
         private Score _score;
         private ScreenAdjuster _screenAdjuster;
+        private Transform _enemyBulletsContainer;
 
         private EnemySpawnerSO _data;
+
         private List<GameObject> _pool = new List<GameObject>();
-        private int _currentInstanceIndex = 0;
         private List<Gun> _guns = new List<Gun>();
-        private List<Gun> _gans = new List<Gun>();
         private List<RocketLauncher> _rocketLaunchers = new List<RocketLauncher>();
 
+        private int _currentInstanceIndex = 0;
+        
         private void Start()
         {
-            Initialize(_data.Prefabs, _spawnPoint);
+            Initialize(_data.Prefabs, transform);
             Spawn();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             foreach (GameObject instance in _pool)
             {
@@ -89,7 +88,7 @@ namespace Enemy
 
                 foreach (RocketLauncher rocketLauncher in _rocketLaunchers)
                 {
-                    rocketLauncher.Init(_parentBullets);
+                    rocketLauncher.Init(_enemyBulletsContainer.gameObject);
                 }
 
                 EnemyMovement movement = instance.GetComponent<EnemyMovement>();
@@ -130,7 +129,7 @@ namespace Enemy
             }
 
             enemy.gameObject.SetActive(true);
-            enemy.transform.position = _spawnPoint.position;
+            enemy.transform.position = transform.position;
             _currentInstanceIndex++;
 
             enemy.GetComponent<EnemyHealth>().ResetHealth();
