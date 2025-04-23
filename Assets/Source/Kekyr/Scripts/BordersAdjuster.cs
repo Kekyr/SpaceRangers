@@ -13,6 +13,7 @@ public class BordersAdjuster : MonoBehaviour
     [SerializeField] private BoxCollider2D _right;
     [SerializeField] private BoxCollider2D _fighterDown;
     [SerializeField] private BoxCollider2D _enemyDown;
+    [SerializeField] private BoxCollider2D _autoGunsZone;
 
     private ScreenAdjuster _screenAdjuster;
     private Camera _mainCamera;
@@ -52,6 +53,11 @@ public class BordersAdjuster : MonoBehaviour
             throw new ArgumentNullException(nameof(_enemyDown));
         }
 
+        if (_autoGunsZone == null)
+        {
+            throw new ArgumentNullException(nameof(_autoGunsZone));
+        }
+
         _pixelsPerUnit = _mainCamera.GetComponent<PixelPerfectCamera>().assetsPPU;
 
         _screenAdjuster.ResolutionChanged += OnResolutionChanged;
@@ -79,6 +85,9 @@ public class BordersAdjuster : MonoBehaviour
         float sizeX = ((rectTransform.rect.width / _pixelsPerUnit) * modifier) / 10;
         float sizeY = (rectTransform.rect.height / _pixelsPerUnit + modifier) / 10;
 
+        float autoGunsZoneSizeX = rectTransform.rect.width / _pixelsPerUnit;
+        float autoGunsZoneSizeY = rectTransform.rect.height / _pixelsPerUnit;
+
         _up.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.max.y));
 
@@ -98,6 +107,9 @@ public class BordersAdjuster : MonoBehaviour
         _fighterDown.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
 
+        _autoGunsZone.transform.position =
+            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
+
         _up.size = new Vector2(sizeX, _up.size.y);
         _down.size = new Vector2(sizeX, _down.size.y);
         _enemyDown.size = new Vector2(sizeX, _down.size.y);
@@ -106,5 +118,7 @@ public class BordersAdjuster : MonoBehaviour
 
         _left.size = new Vector2(_left.size.x, sizeY);
         _right.size = new Vector2(_right.size.x, sizeY);
+
+        _autoGunsZone.size = new Vector2(autoGunsZoneSizeX, autoGunsZoneSizeY);
     }
 }
