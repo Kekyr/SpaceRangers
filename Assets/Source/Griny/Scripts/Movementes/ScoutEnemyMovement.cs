@@ -6,72 +6,50 @@ namespace Enemy
 {
     public class ScoutEnemyMovement : EnemyMovement
     {
-        private const string _borderDown = "down";
-        private const string _borderRight = "right";
-        private const string _borderLeft = "left";
-
-        [SerializeField] private Transform _pointStart;
         [SerializeField] private Transform _pointLeft;
         [SerializeField] private Transform _pointRight;
 
-        private bool _isCollide = false;
-
-        public event Action DisabledEnemy;
-
-        private Vector3 _currentTarget;
-
-        private void Start()
+        private void OnEnable()
         {
-            _currentTarget = GetRandomTarget();
+            SetNewDirection(GetRandomDirection());
         }
 
-        protected override Vector2 GetVelocity(float speed)
+        protected override void OnTriggerEnter2D(Collider2D collider)
         {
-            return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
-        }
+            Vector3 newDirection;
 
-        protected override void CollideShip(Collider2D collider, float speed)
-        {
-            if (collider.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
+            switch (collider.gameObject.tag)
             {
-                switch (backgruondBorder.GetName())
-                {
-                    case _borderDown:
-                        speed = 0;
-                        gameObject.SetActive(false);
-                        _isCollide = true;
-                        break;
-                    case _borderRight:
-                        _currentTarget = _pointLeft.localPosition;
-                        break;
-                    case _borderLeft:
-                        _currentTarget = _pointRight.localPosition;
-                        break;
-                }
+                case "BorderRight":
+                    newDirection = (_pointLeft.transform.position - transform.position).normalized;
+                    SetNewDirection(newDirection);
+                    break;
+
+                case "BorderLeft":
+                    newDirection = (_pointRight.transform.position - transform.position).normalized;
+                    SetNewDirection(newDirection);
+                    break;
             }
+
+            base.OnTriggerEnter2D(collider);
         }
 
-        private Vector3 GetRandomTarget()
+        private Vector3 GetRandomDirection()
         {
+            Vector3 destination;
             int random = UnityEngine.Random.Range(1, 3);
 
             if (random == 1)
             {
-                return _pointLeft.localPosition;
+                destination = _pointLeft.position;
             }
             else
             {
-                return _pointRight.localPosition;
+                destination = _pointRight.position;
             }
-        }
 
-        protected override void InvokeActionOutSight()
-        {
-            if (_isCollide == true)
-            {
-                DisabledEnemy?.Invoke();
-                _isCollide = false;
-            }
+            Vector3 newDirection = (destination - transform.position).normalized;
+            return newDirection;
         }
     }
 }

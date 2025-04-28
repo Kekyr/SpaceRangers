@@ -9,25 +9,23 @@ namespace Enemy
         [SerializeField] private float _startValue;
 
         private float _value;
+        private EnemyShip _ship;
 
         public event Action Died;
 
         private void Start()
         {
-            ResetHealth();
+            _ship = GetComponent<EnemyShip>();
+            _ship.Reseted += OnReseted;
+            OnReseted();
         }
 
-        public float GetHealth()
+        private void OnDestroy()
         {
-            return _value;
+            _ship.Reseted -= OnReseted;
         }
 
-        public float GetStartValue()
-        {
-            return _startValue;
-        }
-
-        public void ResetHealth()
+        public void OnReseted()
         {
             _value = _startValue;
             GetActionChangedValue(_value, _startValue);

@@ -4,15 +4,20 @@ using UnityEngine;
 namespace Enemy
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class MovementRocket : MonoBehaviour
+    public class RocketMovement : MonoBehaviour
     {
         [SerializeField] private float _speed;
-        [SerializeField] private Rigidbody2D _rigidbody;
 
+        private Rigidbody2D _rigidbody;
         private Coroutine _coroutine;
 
         private float _directionSpeed;
 
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
+        
         private void Start()
         {
             _directionSpeed = _speed;
@@ -40,7 +45,6 @@ namespace Enemy
             while (_directionSpeed != 0)
             {
                 _rigidbody.velocity = Vector3.down * _speed * Time.fixedDeltaTime;
-
                 yield return null;
             }
         }

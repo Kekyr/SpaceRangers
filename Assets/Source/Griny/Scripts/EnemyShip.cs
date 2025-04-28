@@ -38,6 +38,7 @@ namespace Enemy
         public event Action Destroyed;
         public event Action<EnemyShip> Annihilated;
         public event Action<EnemyShip> Exited;
+        public event Action Reseted;
 
         public EnemyDataSO Data => _data;
 
@@ -83,25 +84,6 @@ namespace Enemy
             _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
         }
 
-        private void OnDie()
-        {
-            Deactivate();
-        }
-
-        public void Init(SpriteModifier spriteModifier, ScreenAdjuster screenAdjuster)
-        {
-            _spriteModifier = spriteModifier;
-            _screenAdjuster = screenAdjuster;
-            enabled = true;
-        }
-
-        private void Deactivate()
-        {
-            _sfx.Play(_explosionSFX);
-            _animator.SetBool(_destruction, true);
-            _impulseSource.GenerateImpulseWithVelocity(_impulseVelocity);
-        }
-
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.gameObject.CompareTag("PlayerProjectile"))
@@ -122,6 +104,29 @@ namespace Enemy
                     sequence.OnComplete(() => { _enemyShield.TakeDamage(attacker.Damage); });
                 }
             }
+        }
+        public void Init(SpriteModifier spriteModifier, ScreenAdjuster screenAdjuster)
+        {
+            _spriteModifier = spriteModifier;
+            _screenAdjuster = screenAdjuster;
+            enabled = true;
+        }
+
+        public void Reset()
+        {
+            Reseted?.Invoke();
+        }
+        
+        private void OnDie()
+        {
+            Deactivate();
+        }
+        
+        private void Deactivate()
+        {
+            _sfx.Play(_explosionSFX);
+            _animator.SetBool(_destruction, true);
+            _impulseSource.GenerateImpulseWithVelocity(_impulseVelocity);
         }
 
         private void OnResolutionChanged()

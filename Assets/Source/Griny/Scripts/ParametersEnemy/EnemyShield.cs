@@ -8,6 +8,7 @@ namespace Enemy
         [SerializeField] private float _startValue;
         [SerializeField] private GameObject _shield;
 
+        private EnemyShip _ship;
         private float _value;
 
         private void Start()
@@ -16,8 +17,15 @@ namespace Enemy
             {
                 throw new ArgumentNullException(nameof(_shield));
             }
-            
-            ReStartValue();
+
+            _ship = GetComponent<EnemyShip>();
+            _ship.Reseted += OnReseted;
+            OnReseted();
+        }
+
+        private void OnDestroy()
+        {
+            _ship.Reseted -= OnReseted;
         }
 
         public float GetValue()
@@ -25,12 +33,7 @@ namespace Enemy
             return _value;
         }
 
-        public float GetStartValue()
-        {
-            return _startValue;
-        }
-
-        public void ReStartValue()
+        public void OnReseted()
         {
             _value = _startValue;
             GetActionChangedValue(_value, _startValue);

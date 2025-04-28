@@ -1,18 +1,17 @@
 using System;
-using Lean.Localization;
 using UnityEngine;
 using UnityEngine.U2D;
 
 public class BordersAdjuster : MonoBehaviour
 {
-    private readonly float _enemyDownYOffset = 5f;
+    private readonly float _torpedoHeightInPercent = 80;
 
     [SerializeField] private BoxCollider2D _up;
     [SerializeField] private BoxCollider2D _left;
     [SerializeField] private BoxCollider2D _down;
     [SerializeField] private BoxCollider2D _right;
     [SerializeField] private BoxCollider2D _fighterDown;
-    [SerializeField] private BoxCollider2D _enemyDown;
+    [SerializeField] private BoxCollider2D _torpedo;
     [SerializeField] private BoxCollider2D _autoGunsZone;
 
     private ScreenAdjuster _screenAdjuster;
@@ -48,9 +47,9 @@ public class BordersAdjuster : MonoBehaviour
             throw new ArgumentNullException(nameof(_right));
         }
 
-        if (_enemyDown == null)
+        if (_torpedo == null)
         {
-            throw new ArgumentNullException(nameof(_enemyDown));
+            throw new ArgumentNullException(nameof(_torpedo));
         }
 
         if (_autoGunsZone == null)
@@ -87,6 +86,7 @@ public class BordersAdjuster : MonoBehaviour
 
         float autoGunsZoneSizeX = rectTransform.rect.width / _pixelsPerUnit;
         float autoGunsZoneSizeY = rectTransform.rect.height / _pixelsPerUnit;
+        float torpedoHeight = (_canvas.pixelRect.height / 100) * _torpedoHeightInPercent;
 
         _up.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.max.y));
@@ -97,24 +97,23 @@ public class BordersAdjuster : MonoBehaviour
         _down.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.min.y));
 
-        _enemyDown.transform.position =
-            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x,
-                _canvas.pixelRect.min.y - _enemyDownYOffset));
-
         _right.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.max.x, _canvas.pixelRect.center.y));
 
         _fighterDown.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
 
+        _torpedo.transform.position =
+            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, torpedoHeight));
+
         _autoGunsZone.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
 
         _up.size = new Vector2(sizeX, _up.size.y);
         _down.size = new Vector2(sizeX, _down.size.y);
-        _enemyDown.size = new Vector2(sizeX, _down.size.y);
 
         _fighterDown.size = new Vector2(sizeX, _fighterDown.size.y);
+        _torpedo.size = new Vector2(sizeX, _torpedo.size.y);
 
         _left.size = new Vector2(_left.size.x, sizeY);
         _right.size = new Vector2(_right.size.x, sizeY);

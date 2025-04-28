@@ -1,99 +1,67 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-using WordGame;
+using Random = UnityEngine.Random;
 
 namespace Enemy
 {
     public class FighterEnemyMovement : EnemyMovement
     {
-        private const string _borderFighterDown = "fighterDown";
-        private const string _borderLeft = "left";
-        private const string _borderRight = "right";
-        private const string _borderUp = "up";
+        [SerializeField] private List<Transform> _directions;
 
-        [SerializeField] private List<Transform> _directionsMovement;
-        [SerializeField] private Transform _pointStart;
-        [FormerlySerializedAs("_health")] [SerializeField] private EnemyHealth enemyHealth;
+        private List<int> _upDirectionsIndex = new List<int> { 0, 1, 7 };
+        private List<int> _downDirectionsIndex = new List<int> { 3, 4, 5 };
+        private List<int> _leftDirectionsIndex = new List<int> { 1, 2, 3 };
+        private List<int> _rightDirectionsIndex = new List<int> { 5, 6, 7 };
 
-        private Vector3 _currentTarget;
-        private int _randomNumber;
-        private int _numberDownwardDirection = 4;
-        private bool _isInside = false;
-
-        private List<int> _ups = new List<int> { 0, 1, 7 };
-        private List<int> _downs = new List<int> { 3, 4, 5 };
-        private List<int> _lefts = new List<int> { 1, 2, 3 };
-        private List<int> _rights = new List<int> { 5, 6, 7 };
-
-        private void Start()
-        {
-            GetStartTarget();
-            ReloadVariable();
-        }
-
+        private bool _isInside;
 
         private void OnEnable()
         {
-            GetStartTarget();
-            ReloadVariable();
+            _isInside = false;
+            SetNewDirection(Vector2.down);
         }
 
-        protected override Vector2 GetVelocity(float speed)
+        protected override void OnTriggerEnter2D(Collider2D collider)
         {
-            return Vector2.MoveTowards(_pointStart.localPosition, -_currentTarget, speed * Time.deltaTime);
+            switch (collider.gameObject.tag)
+            {
+                case "BorderUp":
+
+                    if (_isInside == true)
+                    {
+                        SetNewDirection(GetRandomDirection(_downDirectionsIndex));
+                    }
+
+                    break;
+
+                case "FighterDown":
+                    SetNewDirection(GetRandomDirection(_upDirectionsIndex));
+                    break;
+
+                case "BorderRight":
+                    SetNewDirection(GetRandomDirection(_leftDirectionsIndex));
+                    break;
+
+                case "BorderLeft":
+                    SetNewDirection(GetRandomDirection(_rightDirectionsIndex));
+                    break;
+            }
         }
 
         private void OnTriggerExit2D(Collider2D collider)
         {
-            if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
+            if (collider.gameObject.CompareTag("BorderUp"))
             {
                 _isInside = true;
             }
         }
 
-        protected override void CollideShip(Collider2D collider, float speed)
+        private Vector3 GetRandomDirection(List<int> directions)
         {
-            if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var backgruondBorder))
-            {
-                switch (backgruondBorder.GetName())
-                {
-                    case _borderUp:
-
-                        if(_isInside == true)
-                        {
-                            _currentTarget = GetTarget(_downs);
-                        }
-
-                        break;
-                    case _borderFighterDown:
-                        _currentTarget = GetTarget(_ups);
-                        break;
-                    case _borderRight:
-                        _currentTarget = GetTarget(_lefts);
-                        break;
-                    case _borderLeft:
-                        _currentTarget = GetTarget(_rights);
-                        break;
-                }
-            }
-        }
-
-        private void GetStartTarget()
-        {
-            _currentTarget = _directionsMovement[_numberDownwardDirection].localPosition;
-        }
-
-        private Vector3 GetTarget(List<int> directions)
-        {
-            _randomNumber = Random.Range(0, 3);
-
-            return _directionsMovement[directions[_randomNumber]].localPosition;
-        }
-
-        private void ReloadVariable()
-        {
-            _isInside = false;
+            int randomIndex = Random.Range(0, 3);
+            Vector3 destination = _directions[directions[randomIndex]].position;
+            Vector3 newDirection = (destination - transform.position).normalized;
+            return newDirection;
         }
     }
 }

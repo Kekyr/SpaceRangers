@@ -18,7 +18,7 @@ namespace Enemy
                 {
                     for(int i = 0; i < _setRockets.GetCountRocket(); i++)
                     {
-                        _setRockets.DisablSprite(_setRockets.GetNumber());
+                        _setRockets.DisableSprite(_setRockets.GetNumber());
                         _setRockets.FireRocket(_setRockets.GetNumber());
                         _setRockets.UpNumberShot();
                     }
@@ -33,7 +33,7 @@ namespace Enemy
         //{
         //    if (collision.gameObject.TryGetComponent<BackgroundBorder>(out var backgroundBorder))
         //    {
-        //        Debug.Log("заметил корабль");
+        //        Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         //        Debug.Log(number);
 
         //        if (backgroundBorder.GetName() == _torpedoBorder)

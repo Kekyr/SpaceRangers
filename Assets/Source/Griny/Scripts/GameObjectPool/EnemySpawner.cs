@@ -30,18 +30,16 @@ namespace Enemy
         {
             foreach (GameObject instance in _pool)
             {
-                instance.GetComponent<EnemyShip>().Destroyed -= Spawn;
+                EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
+                enemyShip.Destroyed -= Spawn;
+                enemyShip.Annihilated -= _coinPool.Spawn;
+                enemyShip.Annihilated -= _score.Add;
 
                 EnemyMovement enemyMovement = instance.GetComponent<EnemyMovement>();
 
                 switch (enemyMovement)
                 {
                     case FighterEnemyMovement:
-                        break;
-
-                    case ScoutEnemyMovement:
-                        ScoutEnemyMovement scoutEnemyMovement = (ScoutEnemyMovement)enemyMovement;
-                        scoutEnemyMovement.DisabledEnemy -= Spawn;
                         break;
 
                     case EnemyMovement:
@@ -98,11 +96,6 @@ namespace Enemy
                     case FighterEnemyMovement:
                         break;
 
-                    case ScoutEnemyMovement:
-                        ScoutEnemyMovement scoutEnemyMovement = (ScoutEnemyMovement)enemyMovement;
-                        scoutEnemyMovement.DisabledEnemy += Spawn;
-                        break;
-
                     case EnemyMovement:
                         enemyMovement.OutSight += Spawn;
                         break;
@@ -123,6 +116,8 @@ namespace Enemy
 
             enemy = _pool[_currentInstanceIndex];
 
+            EnemyShip enemyShip = enemy.GetComponent<EnemyShip>();
+
             if (enemy.GetComponent<FighterNairan>())
             {
                 enemy.GetComponent<FighterNairan>().RestsrtRockets();
@@ -131,18 +126,8 @@ namespace Enemy
             enemy.gameObject.SetActive(true);
             enemy.transform.position = transform.position;
             _currentInstanceIndex++;
-
-            enemy.GetComponent<EnemyHealth>().ResetHealth();
-
-            if (enemy.TryGetComponent(out EnemyShield shield))
-            {
-                shield.ReStartValue();
-            }
-
-            if (enemy.GetComponentInChildren<SetRockets>())
-            {
-                enemy.GetComponentInChildren<SetRockets>().RestartRockets();
-            }
+            
+            enemyShip.Reset();
         }
     }
 }

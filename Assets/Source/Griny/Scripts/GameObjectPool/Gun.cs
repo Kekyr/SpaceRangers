@@ -3,14 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
-using ShipBase;
 using UnityEngine;
 
 namespace Enemy
 {
     public class Gun : MonoBehaviour
     {
-        private const string _paretBullets = "ParentBullets";
         private const float _delay = 0.5f;
 
         [SerializeField] private SFXSO _shootSFX;

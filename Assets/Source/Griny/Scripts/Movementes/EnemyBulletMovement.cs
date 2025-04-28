@@ -1,6 +1,4 @@
-using ShipBase;
 using UnityEngine;
-using WordGame;
 
 namespace Enemy
 {
@@ -10,8 +8,6 @@ namespace Enemy
     public class EnemyBulletMovement : EnemyMovement
     {
         private readonly string _destructionTrigger = "Destruct";
-        private readonly string _leftBorder = "left";
-        private readonly string _rightBorder = "right";
 
         private Bullet _bullet;
         private Animator _animator;
@@ -28,26 +24,16 @@ namespace Enemy
 
         private void OnEnable()
         {
+            SetNewDirection(_bullet.Direction);
             _collider.enabled = true;
         }
-        
-        protected override Vector2 GetVelocity(float speed)
-        {
-            return _bullet.Direction * speed * Time.deltaTime;
-        }
 
-        protected override void CollideShip(Collider2D collider, float speed)
+        protected override void OnTriggerEnter2D(Collider2D collider)
         {
-            base.CollideShip(collider, speed);
-
-            if (collider.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
+            if (collider.gameObject.CompareTag("BorderLeft") || collider.gameObject.CompareTag("BorderRight") ||
+                collider.gameObject.CompareTag("BorderDown"))
             {
-                string borderName = backgruondBorder.GetName();
-
-                if (borderName == _leftBorder || borderName == _rightBorder)
-                {
-                    gameObject.SetActive(false);
-                }
+                gameObject.SetActive(false);
             }
 
             if (collider.gameObject.CompareTag("Player"))

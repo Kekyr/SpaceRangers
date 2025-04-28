@@ -1,80 +1,47 @@
 using System;
 using UnityEngine;
-using WordGame;
 
 namespace Enemy
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyMovement : MonoBehaviour
     {
-        private const string _borderDown = "down";
-
         [SerializeField] private float _speed;
-        
+
         private Rigidbody2D _rigidbody;
-        private bool _isCollideDown = false;
+        private Vector3 _direction;
 
         public event Action OutSight;
 
         protected virtual void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _direction = Vector2.down;
         }
-        
+
         private void FixedUpdate()
         {
-            Move();
+            _rigidbody.velocity = _direction * _speed * Time.deltaTime;
         }
 
-        private void OnTriggerEnter2D(Collider2D collider)
+        protected virtual void OnTriggerEnter2D(Collider2D collider)
         {
-            CollideShip(collider, _speed);
-            InvokeActionOutSight();
-        }
-
-        protected virtual Vector2 GetVelocity(float speed)
-        {
-            return Vector2.down * speed * Time.deltaTime;
-        }
-
-        protected virtual void CollideShip(Collider2D collider, float speed)
-        {
-            if (collider.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
+            if (collider.gameObject.CompareTag("BorderDown"))
             {
-                if (backgruondBorder.GetName() == _borderDown)
-                {
-                    speed = 0;
-                    gameObject.SetActive(false);
-                    _isCollideDown = true;
-                }
-            }
-
-            if (collider.gameObject.CompareTag("Player"))
-            {
-                speed = 0;
                 gameObject.SetActive(false);
-                _isCollideDown = true;
+                OutSight?.Invoke();
             }
         }
 
-        private void Move()
+        protected void SetNewDirection(Vector3 newDirection)
         {
-            _rigidbody.velocity = GetVelocity(_speed);
+            _direction = newDirection;
         }
 
         protected void Stop()
         {
             enabled = false;
             _rigidbody.velocity = Vector3.zero;
-        }
-
-        protected virtual void InvokeActionOutSight()
-        {
-            if(_isCollideDown == true)
-            {
-                OutSight?.Invoke();
-                _isCollideDown = false;
-            }
         }
     }
 }

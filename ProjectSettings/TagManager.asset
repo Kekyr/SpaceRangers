@@ -10,6 +10,12 @@ TagManager:
   - PlayerProjectile
   - Enemy
   - EnemyBullet
+  - Torpedo
+  - BorderDown
+  - BorderUp
+  - BorderLeft
+  - BorderRight
+  - FighterDown
   layers:
   - Default
   - TransparentFX

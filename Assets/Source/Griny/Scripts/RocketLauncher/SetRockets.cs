@@ -10,14 +10,14 @@ namespace Enemy
 
         private int _number = 0;
 
-        public void DisablSprite(int number)
+        public void DisableSprite(int number)
         {
             _spritsRockets[number].gameObject.SetActive(false);
         }
 
         public void FireRocket(int number)
         {
-            _rocketLaunchers[number].SetRocket();
+            //_rocketLaunchers[number].SetRocket();
         }
 
         public List<RocketLauncher> GetListRocket()
@@ -43,7 +43,7 @@ namespace Enemy
 
         public void RestartRockets()
         {
-            Debug.Log("рестарт");
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             foreach (SpriteRenderer spriteRenderer in _spritsRockets)
             {
                 spriteRenderer.gameObject.SetActive(true);
