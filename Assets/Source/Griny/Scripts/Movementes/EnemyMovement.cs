@@ -6,17 +6,28 @@ namespace Enemy
     [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyMovement : MonoBehaviour
     {
+        [SerializeField] private DirectionChanger _directionChanger;
         [SerializeField] private float _speed;
 
         private Rigidbody2D _rigidbody;
         private Vector3 _direction;
 
-        public event Action OutSight;
-
-        protected virtual void Awake()
+        private void Awake()
         {
+            if (_directionChanger == null)
+            {
+                throw new ArgumentNullException(nameof(_directionChanger));
+            }
+
             _rigidbody = GetComponent<Rigidbody2D>();
             _direction = Vector2.down;
+
+            _directionChanger.DirectionChanged += OnDirectionChanged;
+        }
+
+        private void OnDestroy()
+        {
+            _directionChanger.DirectionChanged -= OnDirectionChanged;
         }
 
         private void FixedUpdate()
@@ -24,24 +35,9 @@ namespace Enemy
             _rigidbody.velocity = _direction * _speed * Time.deltaTime;
         }
 
-        protected virtual void OnTriggerEnter2D(Collider2D collider)
-        {
-            if (collider.gameObject.CompareTag("BorderDown"))
-            {
-                gameObject.SetActive(false);
-                OutSight?.Invoke();
-            }
-        }
-
-        protected void SetNewDirection(Vector3 newDirection)
+        private void OnDirectionChanged(Vector3 newDirection)
         {
             _direction = newDirection;
-        }
-
-        protected void Stop()
-        {
-            enabled = false;
-            _rigidbody.velocity = Vector3.zero;
         }
     }
 }

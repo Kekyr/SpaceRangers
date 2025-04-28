@@ -10,7 +10,7 @@ public class EnemySpawners : MonoBehaviour
     private EnemySpawner[] _spawners;
     private List<EnemySpawnerSO> _spawnersData;
     private SpriteModifier _spriteModifier;
-    private Transform _bulletsContainer;
+    private GameObject _bulletsContainer;
     private CoinPool _coinPool;
     private Score _score;
 
@@ -31,7 +31,7 @@ public class EnemySpawners : MonoBehaviour
         _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
     }
 
-    public void Init(List<EnemySpawnerSO> spawnersData, SpriteModifier spriteModifier, Transform bulletsContainer,
+    public void Init(List<EnemySpawnerSO> spawnersData, SpriteModifier spriteModifier, GameObject bulletsContainer,
         CoinPool coinPool, Score score)
     {
         _spawnersData = spawnersData;

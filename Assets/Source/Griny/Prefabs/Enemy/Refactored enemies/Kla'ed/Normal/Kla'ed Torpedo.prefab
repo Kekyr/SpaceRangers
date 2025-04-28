@@ -779,6 +779,14 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7153523529975676526, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5324999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153523529975676526, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.005620539
+      objectReference: {fileID: 0}
     - target: {fileID: 7227421694489138000, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: m_Controller
       value: 

@@ -23,7 +23,7 @@ namespace ShipBase
         [SerializeField] private Music _music;
         [SerializeField] private Timer _timer;
 
-        [SerializeField] private Transform _enemyBulletsContainer;
+        [SerializeField] private GameObject _enemyBulletsContainer;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private CoinPool _coinPool;
 

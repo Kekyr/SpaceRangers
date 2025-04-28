@@ -3,23 +3,21 @@ using UnityEngine;
 
 public class DirectionChanger : MonoBehaviour
 {
-    private Vector2 _current;
+    public event Action<Vector3> DirectionChanged;
 
     public event Action OutSight;
-    public event Action<Vector2> DirectionChanged;
-
-    private void Start()
-    {
-        _current = Vector2.down;
-        DirectionChanged?.Invoke(_current);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
+    
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("BorderDown"))
         {
-            gameObject.SetActive(false);
+            transform.parent.gameObject.SetActive(false);
             OutSight?.Invoke();
         }
+    }
+
+    protected void InvokeDirectionChanged(Vector3 newDirection)
+    {
+        DirectionChanged?.Invoke(newDirection);
     }
 }
