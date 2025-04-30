@@ -73,7 +73,7 @@ namespace ShipBase
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("EnemyBullet") || collider.gameObject.CompareTag("Enemy"))
+            if (collider.gameObject.CompareTag("EnemyProjectile") || collider.gameObject.CompareTag("Enemy"))
             {
                 Attacker attacker = collider.gameObject.GetComponent<Attacker>();
                 _damageHandler.TakeDamage(attacker);

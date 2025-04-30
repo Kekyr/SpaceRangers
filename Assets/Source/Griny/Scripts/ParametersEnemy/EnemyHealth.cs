@@ -10,6 +10,7 @@ namespace Enemy
 
         private float _value;
         private EnemyShip _ship;
+        private bool _isDead;
 
         public event Action Died;
 
@@ -28,19 +29,21 @@ namespace Enemy
         public void OnReseted()
         {
             _value = _startValue;
-            GetActionChangedValue(_value, _startValue);
+            _isDead = false;
+            InvokeChangedValue(_value, _startValue);
         }
 
         public void TakeDamage(float damage)
         {
             _value = Mathf.Clamp(_value - damage, 0, _startValue);
 
-            if (_value == 0)
+            if (_value == 0 && _isDead==false)
             {
+                _isDead = true;
                 Died?.Invoke();
             }
 
-            GetActionChangedValue(_value, _startValue);
+            InvokeChangedValue(_value, _startValue);
         }
     }
 }

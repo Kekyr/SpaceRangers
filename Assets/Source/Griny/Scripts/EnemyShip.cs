@@ -125,7 +125,7 @@ namespace Enemy
         private void Deactivate()
         {
             _sfx.Play(_explosionSFX);
-            _animator.SetBool(_destruction, true);
+            _animator.SetTrigger(_destruction);
             _impulseSource.GenerateImpulseWithVelocity(_impulseVelocity);
         }
 
@@ -144,10 +144,9 @@ namespace Enemy
 
         private void OnDestruct()
         {
-            _animator.SetBool(_destruction, false);
+            Annihilated?.Invoke(this);
             gameObject.SetActive(false);
             Destroyed?.Invoke();
-            Annihilated?.Invoke(this);
         }
     }
 }

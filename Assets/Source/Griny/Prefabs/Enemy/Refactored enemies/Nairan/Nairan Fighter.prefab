@@ -435,6 +435,7 @@ MonoBehaviour:
   _triggerTag: Player
   _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
   _prefab: {fileID: 5844862090612895207, guid: fef5e13d34880dc498b9d4a398375198, type: 3}
+  _isAllAtOnce: 0
 --- !u!1 &6898518309481130028
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7620058634271823618, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8476281416062757092, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y

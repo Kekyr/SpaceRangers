@@ -17,7 +17,7 @@ namespace Enemy
         private List<GameObject> _pool = new List<GameObject>();
 
         private int _currentInstanceIndex = 0;
-        
+
         private void Start()
         {
             Initialize(_data.Prefabs, transform);
@@ -56,13 +56,17 @@ namespace Enemy
             {
                 GameObject instance = Instantiate(prefab, spawnPoint);
                 instance.SetActive(false);
-                
-                if (instance.TryGetComponent<Gun>(out Gun gun))
+
+                Gun gun = instance.GetComponentInChildren<Gun>();
+
+                if (gun != null)
                 {
                     gun.Init(_enemyBulletsContainer.transform);
                 }
 
-                if (instance.TryGetComponent<RocketLauncher>(out RocketLauncher rocketLauncher))
+                RocketLauncher rocketLauncher = instance.GetComponentInChildren<RocketLauncher>();
+
+                if (rocketLauncher != null)
                 {
                     rocketLauncher.Init(_enemyBulletsContainer);
                 }
@@ -72,10 +76,10 @@ namespace Enemy
                 enemyShip.Destroyed += Spawn;
                 enemyShip.Annihilated += _coinPool.Spawn;
                 enemyShip.Annihilated += _score.Add;
-                
+
                 DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
                 directionChanger.OutSight += Spawn;
-                
+
                 _pool.Add(instance);
             }
         }
@@ -90,7 +94,7 @@ namespace Enemy
             }
 
             enemy = _pool[_currentInstanceIndex];
-            
+
             if (enemy.GetComponent<FighterNairan>())
             {
                 enemy.GetComponent<FighterNairan>().RestsrtRockets();
@@ -99,7 +103,7 @@ namespace Enemy
             enemy.gameObject.SetActive(true);
             enemy.transform.position = transform.position;
             _currentInstanceIndex++;
-            
+
             EnemyShip enemyShip = enemy.GetComponent<EnemyShip>();
             enemyShip.Reset();
         }

@@ -23,22 +23,22 @@ namespace Enemy
             _directionSpeed = _speed;
         }
 
-        public void RunRocket()
+        public void Launch()
         {
             if(_coroutine != null)
             {
                 StopCoroutine(_coroutine);
             }
 
-            _coroutine = StartCoroutine(MoveRocket());
+            _coroutine = StartCoroutine(Move());
         }
 
-        public void StopRocket()
+        public void Stop()
         {
             _directionSpeed = 0;
         }
 
-        private IEnumerator MoveRocket()
+        private IEnumerator Move()
         {
             _directionSpeed = _speed;
 

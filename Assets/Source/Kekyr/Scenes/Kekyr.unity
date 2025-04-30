@@ -667,7 +667,7 @@ MonoBehaviour:
   _wallet: {fileID: 1123679530}
   _music: {fileID: 1762355676}
   _timer: {fileID: 1262214877}
-  _enemyBulletsContainer: {fileID: 4692712743064781755}
+  _enemyBulletsContainer: {fileID: 1317755002027140843}
   _playerSpawnPoint: {fileID: 812616276}
   _coinPool: {fileID: 773866381}
   _rewardedAd: {fileID: 92778186}
@@ -4582,6 +4582,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2662688822905656674, guid: 00d1c556ae2fad142a6d35801b4b8f1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6432224356375125290, guid: 00d1c556ae2fad142a6d35801b4b8f1d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080665124351209186, guid: 00d1c556ae2fad142a6d35801b4b8f1d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

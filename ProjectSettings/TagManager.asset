@@ -9,13 +9,13 @@ TagManager:
   - Coin
   - PlayerProjectile
   - Enemy
-  - EnemyBullet
   - Torpedo
   - BorderDown
   - BorderUp
   - BorderLeft
   - BorderRight
   - FighterDown
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

@@ -36,7 +36,7 @@ namespace Enemy
         public void OnReseted()
         {
             _value = _startValue;
-            GetActionChangedValue(_value, _startValue);
+            InvokeChangedValue(_value, _startValue);
             _shield.gameObject.SetActive(true);
         }
 
@@ -49,7 +49,7 @@ namespace Enemy
                 _shield.gameObject.SetActive(false);
             }
 
-            GetActionChangedValue(_value, _startValue);
+            InvokeChangedValue(_value, _startValue);
         }
     }
 }

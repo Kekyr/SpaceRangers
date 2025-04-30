@@ -11,12 +11,15 @@ namespace Enemy
         [SerializeField] private string _triggerTag;
         [SerializeField] private SFXSO _shootSFX;
         [SerializeField] private RocketMovement _prefab;
+        [SerializeField] private bool _isAllAtOnce;
 
         private EnemyShip _ship;
         private Transform[] _spawnPoints;
-        private Transform _parent;
+        private Transform _storage;
         private List<RocketMovement> _pool = new List<RocketMovement>();
         private SFX _sfx;
+
+        private int _currentIndex;
 
         private void Awake()
         {
@@ -33,6 +36,8 @@ namespace Enemy
             _ship = GetComponentInParent<EnemyShip>();
             _spawnPoints = GetComponentsInChildren<Transform>();
             _sfx = GetComponentInParent<SFX>();
+
+            _currentIndex = 1;
 
             _ship.Reseted += OnReseted;
         }
@@ -51,18 +56,28 @@ namespace Enemy
         {
             if (collider.gameObject.CompareTag(_triggerTag))
             {
-                Fire();
+                if (_isAllAtOnce == true)
+                {
+                    FireAll();
+                }
+                else
+                {
+                    Fire();
+                }
             }
         }
 
         private void Initialize()
         {
-            GameObject container = new GameObject(_prefab.name);
-            container.transform.parent = _parent;
+            int multiplier = 3;
+            int instanceCount = _spawnPoints.Length * multiplier;
 
-            for (int i = 1; i < _spawnPoints.Length; i++)
+            GameObject container = new GameObject(_prefab.name);
+            container.transform.parent = _storage;
+
+            for (int i = 1; i < instanceCount; i++)
             {
-                RocketMovement rocket = Instantiate(_prefab, _spawnPoints[i].position, Quaternion.identity,
+                RocketMovement rocket = Instantiate(_prefab, container.transform.position, Quaternion.identity,
                     container.transform);
                 rocket.gameObject.SetActive(false);
                 _pool.Add(rocket);
@@ -71,7 +86,7 @@ namespace Enemy
 
         public void Init(GameObject gameObject)
         {
-            _parent = gameObject.transform;
+            _storage = gameObject.transform;
             enabled = true;
         }
 
@@ -81,7 +96,7 @@ namespace Enemy
             rocket.transform.rotation = spawnPoint.rotation;
             _sfx.Play(_shootSFX);
             rocket.gameObject.SetActive(true);
-            rocket.RunRocket();
+            rocket.Launch();
         }
 
         private bool TryGetInstance(out RocketMovement result)
@@ -90,21 +105,39 @@ namespace Enemy
             return result != null;
         }
 
-        private void Fire()
+        private void FireAll()
         {
             for (int i = 1; i < _spawnPoints.Length; i++)
             {
-                _spawnPoints[i].gameObject.SetActive(false);
+                Launch(i);
+            }
+        }
 
-                if (TryGetInstance(out RocketMovement result))
-                {
-                    SetInstance(result, _spawnPoints[i]);
-                }
+        private void Fire()
+        {
+            if (_currentIndex == _spawnPoints.Length)
+            {
+                return;
+            }
+            
+            Launch(_currentIndex);
+            _currentIndex++;
+        }
+
+        private void Launch(int index)
+        {
+            _spawnPoints[index].gameObject.SetActive(false);
+
+            if (TryGetInstance(out RocketMovement result))
+            {
+                SetInstance(result, _spawnPoints[index]);
             }
         }
 
         private void OnReseted()
         {
+            _currentIndex = 1;
+            
             for (int i = 1; i < _spawnPoints.Length; i++)
             {
                 _spawnPoints[i].gameObject.SetActive(true);

@@ -16,7 +16,7 @@ public class EnemySpawners : MonoBehaviour
 
     private void Start()
     {
-        _spawners = GetComponentsInChildren<EnemySpawner>();
+        _spawners = GetComponentsInChildren<EnemySpawner>(true);
 
         for (int i = 0; i < _spawnersData.Count; i++)
         {
@@ -54,11 +54,11 @@ public class EnemySpawners : MonoBehaviour
         RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
         float quarter = (_canvas.pixelRect.width / 100) * 25;
 
-        ChangePosition(_spawners[0].transform, _canvas.pixelRect.center);
-
         Vector3 leftPosition = new Vector3(_canvas.pixelRect.min.x + quarter, _canvas.pixelRect.min.y,
             _mainCamera.nearClipPlane);
-        ChangePosition(_spawners[1].transform, leftPosition);
+        ChangePosition(_spawners[0].transform, leftPosition);
+        
+        ChangePosition(_spawners[1].transform, _canvas.pixelRect.center);
 
         Vector3 rightPosition = new Vector3(_canvas.pixelRect.max.x - quarter, _canvas.pixelRect.max.y,
             _mainCamera.nearClipPlane);
