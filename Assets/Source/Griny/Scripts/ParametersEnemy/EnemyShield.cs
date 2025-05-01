@@ -11,6 +11,8 @@ namespace Enemy
         private EnemyShip _ship;
         private float _value;
 
+        public event Action Emptied;
+
         private void Start()
         {
             if (_shield == null)
@@ -47,6 +49,7 @@ namespace Enemy
             if (_value == 0)
             {
                 _shield.gameObject.SetActive(false);
+                Emptied?.Invoke();
             }
 
             InvokeChangedValue(_value, _startValue);

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78bc5409a3f20c04a950fe23bf815aaa, type: 3}
-  m_Name: 2
+  m_Script: {fileID: 11500000, guid: b9e9b92030e03864ea3d0e9dd254e47d, type: 3}
+  m_Name: Battlecruiser
   m_EditorClassIdentifier: 
-  _prefabs:
-  - {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
+  _pointsCount: 800
+  _coinsCount: 0500000002000000
