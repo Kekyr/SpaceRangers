@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     
     private int _duration;
     
-    public event Action<int> Changed;
+    public event Action<int,int> Changed;
     public event Action Ends;
     public event Action Ended;
 
@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
         _sfx = GetComponent<SFX>();
         _wait = new WaitForSeconds(_interval);
         
-        Changed?.Invoke(_duration);
+        Change();
         StartCoroutine(Count());
     }
 
@@ -48,8 +48,8 @@ public class Timer : MonoBehaviour
         {
             yield return _wait;
             _duration--;
-
-            Changed?.Invoke(_duration);
+            
+            Change();
             
             if (_duration <= _endTime)
             {
@@ -59,5 +59,15 @@ public class Timer : MonoBehaviour
         
         Ended?.Invoke();
         _sfx.Play(_winSFX);
+    }
+
+    private void Change()
+    {
+        int oneMinute = 60;
+
+        int minutes = (_duration / oneMinute);
+        int seconds = (_duration % oneMinute);
+        
+        Changed?.Invoke(minutes,seconds);
     }
 }

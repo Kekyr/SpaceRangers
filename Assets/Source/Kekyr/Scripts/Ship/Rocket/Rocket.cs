@@ -72,7 +72,7 @@ namespace ShipBase
                 StartCoroutine(Explode());
             }
 
-            if (collider.gameObject.CompareTag("Boundary") && _collider.enabled == true)
+            if (collider.gameObject.CompareTag("BorderUp") && _collider.enabled == true)
             {
                 Destroyed?.Invoke(this);
                 Destroy(gameObject);

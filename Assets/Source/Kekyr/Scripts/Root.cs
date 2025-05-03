@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Audio;
-using Enemy;
 using LevelEnemy;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +14,6 @@ namespace ShipBase
 
         [SerializeField] private Camera _camera;
         [SerializeField] private AutoGunsZone _autoGunsZone;
-        [SerializeField] private Button _addRocketButton;
         [SerializeField] private EnemySpawners _enemySpawners;
         [SerializeField] private SpriteModifier _spriteModifier;
         [SerializeField] private Score _score;
@@ -32,9 +30,12 @@ namespace ShipBase
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
         [SerializeField] private WalletView _walletView;
-        [SerializeField] private RocketView _rocketView;
         [SerializeField] private ScoreView _scoreView;
         [SerializeField] private TimerView _timerView;
+
+        [SerializeField] private RocketView _rocketView;
+        [SerializeField] private Button _addRocketButton;
+
         [SerializeField] private RawImage _backgroundImage;
 
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
@@ -235,6 +236,7 @@ namespace ShipBase
             pool.Init(_bulletData.CurrentLevel);
             shield.Init(_shieldData.CurrentLevel);
 
+            _timerView.Init(_timer);
             _timer.Init(_levelData.Duration);
             _music.Init(_timer);
 
@@ -242,8 +244,9 @@ namespace ShipBase
             _shieldView.Init(shield);
             _walletView.Init(_wallet);
             _scoreView.Init(_score);
-            _timerView.Init(_timer);
 
+            AddRocketButton addRocketButton = _addRocketButton.GetComponent<AddRocketButton>();
+            addRocketButton.Init(_rewardedAd);
             _rocketView.Init(rocketLauncher);
 
             if (_rocketData.CurrentLevel == 0)
@@ -258,7 +261,7 @@ namespace ShipBase
             _enemySpawners.Init(_canvas, _camera, _screenAdjuster);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
                 _score);
-            
+
             StartCoroutine(Initialization());
         }
 

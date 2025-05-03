@@ -4,7 +4,7 @@ using UnityEngine;
 public class TimerView : MonoBehaviour
 {
     private readonly Color _endColor = Color.green;
-    
+
     private TextMeshProUGUI _textMeshPro;
     private Timer _timer;
 
@@ -27,9 +27,14 @@ public class TimerView : MonoBehaviour
         enabled = true;
     }
 
-    private void OnChanged(int newValue)
+    private void OnChanged(int minutes, int seconds)
     {
-        _textMeshPro.text = newValue.ToString();
+        string newTime = "0";
+        int minSeconds = 10;
+        
+        newTime = seconds >= minSeconds ? newTime + minutes + ":" + seconds : newTime + minutes + ":" + "0" + seconds;
+
+        _textMeshPro.text = newTime;
     }
 
     private void OnEnds()
