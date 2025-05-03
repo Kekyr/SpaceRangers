@@ -3219,7 +3219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &158955207
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34993,7 +34993,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 817580862}
   _autoGunsZone: {fileID: 447971925}
-  _addRocketButton: {fileID: 0}
   _enemySpawners: {fileID: 0}
   _spriteModifier: {fileID: 1467833797}
   _score: {fileID: 1481087431}
@@ -35007,9 +35006,10 @@ MonoBehaviour:
   _healthView: {fileID: 0}
   _shieldView: {fileID: 0}
   _walletView: {fileID: 0}
-  _rocketView: {fileID: 0}
   _scoreView: {fileID: 0}
   _timerView: {fileID: 0}
+  _rocketView: {fileID: 0}
+  _addRocketButton: {fileID: 0}
   _backgroundImage: {fileID: 0}
   _bulletData: {fileID: 11400000, guid: 28f7a87b90372364c9b283bf3a995244, type: 2}
   _shipData: {fileID: 11400000, guid: 8640b2e8cb57c7740ac6f6955ac998e0, type: 2}
