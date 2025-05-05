@@ -14,14 +14,18 @@ namespace Enemy
 
         public event Action Died;
 
-        private void Start()
+        private void Awake()
         {
             _ship = GetComponent<EnemyShip>();
-            _ship.Reseted += OnReseted;
             OnReseted();
         }
 
-        private void OnDestroy()
+        private void OnEnable()
+        {
+            _ship.Reseted += OnReseted;
+        }
+
+        private void OnDisable()
         {
             _ship.Reseted -= OnReseted;
         }
@@ -37,7 +41,7 @@ namespace Enemy
         {
             _value = Mathf.Clamp(_value - damage, 0, _startValue);
 
-            if (_value == 0 && _isDead==false)
+            if (_value == 0 && _isDead == false)
             {
                 _isDead = true;
                 Died?.Invoke();

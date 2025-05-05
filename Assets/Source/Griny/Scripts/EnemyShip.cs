@@ -42,7 +42,7 @@ namespace Enemy
 
         public EnemyDataSO Data => _data;
 
-        private void Start()
+        private void Awake()
         {
             if (_shieldSpriteRenderer == null)
             {
@@ -63,7 +63,7 @@ namespace Enemy
             {
                 throw new ArgumentNullException(nameof(_explosionSFX));
             }
-
+            
             _enemyHealth = GetComponent<EnemyHealth>();
             _enemyShield = GetComponent<EnemyShield>();
             _animator = GetComponent<Animator>();
@@ -71,14 +71,17 @@ namespace Enemy
             _sfx = GetComponent<SFX>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
             _collider = GetComponent<Collider2D>();
-
+            
             _impulseVelocity = _impulseDirection * _impulseForce;
+        }
 
+        private void OnEnable()
+        {
             _enemyHealth.Died += OnDie;
             _screenAdjuster.ResolutionChanged += OnResolutionChanged;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             _enemyHealth.Died -= OnDie;
             _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
@@ -105,6 +108,7 @@ namespace Enemy
                 }
             }
         }
+
         public void Init(SpriteModifier spriteModifier, ScreenAdjuster screenAdjuster)
         {
             _spriteModifier = spriteModifier;
@@ -116,12 +120,12 @@ namespace Enemy
         {
             Reseted?.Invoke();
         }
-        
+
         private void OnDie()
         {
             Deactivate();
         }
-        
+
         private void Deactivate()
         {
             _sfx.Play(_explosionSFX);

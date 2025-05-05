@@ -18,6 +18,8 @@ namespace ShipBase
 
         public event Action<float> ValueChanged;
         public event Action Damaged;
+        public event Action Dying;
+
         public event Action Died;
 
         public bool IsDead => _current <= 0;
@@ -45,7 +47,7 @@ namespace ShipBase
 
             if (IsDead)
             {
-                Died?.Invoke();
+                Dying?.Invoke();
                 _animator.SetTrigger(_deadTrigger);
             }
         }
@@ -62,6 +64,12 @@ namespace ShipBase
                 _animator.SetTrigger(_damagedTrigger);
                 _currentPart++;
             }
+        }
+
+        private void OnDestruct()
+        {
+            gameObject.SetActive(false);
+            Died?.Invoke();
         }
     }
 }

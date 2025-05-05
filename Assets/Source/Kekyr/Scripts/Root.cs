@@ -36,6 +36,9 @@ namespace ShipBase
         [SerializeField] private RocketView _rocketView;
         [SerializeField] private Button _addRocketButton;
 
+        [SerializeField] private LosePopup _losePopup;
+        [SerializeField] private WinPopup _winPopup;
+
         [SerializeField] private RawImage _backgroundImage;
 
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
@@ -181,6 +184,16 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_timerView));
             }
 
+            if (_losePopup == null)
+            {
+                throw new ArgumentNullException(nameof(_losePopup));
+            }
+
+            if (_winPopup == null)
+            {
+                throw new ArgumentNullException(nameof(_winPopup));
+            }
+
             if (_backgroundImage == null)
             {
                 throw new ArgumentNullException(nameof(_backgroundImage));
@@ -219,6 +232,9 @@ namespace ShipBase
 
             _coinPool.Init(player.transform, health);
 
+            _losePopup.Init(health);
+            _winPopup.Init(_timer);
+
             if (player.TryGetComponent(out AutoGuns autoGuns))
             {
                 autoGuns.Init(_autoGunsZone);
@@ -237,7 +253,7 @@ namespace ShipBase
             shield.Init(_shieldData.CurrentLevel);
 
             _timerView.Init(_timer);
-            _timer.Init(_levelData.Duration);
+            _timer.Init(_levelData);
             _music.Init(_timer);
 
             _healthView.Init(health);
@@ -258,9 +274,9 @@ namespace ShipBase
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
-            _enemySpawners.Init(_canvas, _camera, _screenAdjuster);
+            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winPopup);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
-                _score);
+                _score, _timer, _levelData);
 
             StartCoroutine(Initialization());
         }

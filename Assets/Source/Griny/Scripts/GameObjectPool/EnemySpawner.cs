@@ -14,19 +14,25 @@ namespace Enemy
 
         private EnemySpawnerSO _data;
 
-        private List<GameObject> _pool = new List<GameObject>();
+        private List<GameObject> _instances = new List<GameObject>();
 
         private int _currentInstanceIndex = 0;
 
+        public event Action Ended;
+
         private void Start()
         {
-            Initialize(_data.Prefabs, transform);
+            foreach (GameObject prefab in _data.Prefabs)
+            {
+                Initialize(prefab, transform);
+            }
+
             Spawn();
         }
 
         private void OnDestroy()
         {
-            foreach (GameObject instance in _pool)
+            foreach (GameObject instance in _instances)
             {
                 EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
                 enemyShip.Destroyed -= Spawn;
@@ -50,62 +56,57 @@ namespace Enemy
             enabled = true;
         }
 
-        private void Initialize(List<GameObject> prefabs, Transform spawnPoint)
+        public EnemyShip Initialize(GameObject prefab, Transform spawnPoint)
         {
-            foreach (GameObject prefab in prefabs)
+            GameObject instance = Instantiate(prefab, spawnPoint);
+            instance.SetActive(false);
+
+            Gun gun = instance.GetComponentInChildren<Gun>();
+
+            if (gun != null)
             {
-                GameObject instance = Instantiate(prefab, spawnPoint);
-                instance.SetActive(false);
-
-                Gun gun = instance.GetComponentInChildren<Gun>();
-
-                if (gun != null)
-                {
-                    gun.Init(_enemyBulletsContainer.transform);
-                }
-
-                RocketLauncher rocketLauncher = instance.GetComponentInChildren<RocketLauncher>();
-
-                if (rocketLauncher != null)
-                {
-                    rocketLauncher.Init(_enemyBulletsContainer);
-                }
-
-                EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
-                enemyShip.Init(_spriteModifier, _screenAdjuster);
-                enemyShip.Destroyed += Spawn;
-                enemyShip.Annihilated += _coinPool.Spawn;
-                enemyShip.Annihilated += _score.Add;
-
-                DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
-                directionChanger.OutSight += Spawn;
-
-                _pool.Add(instance);
+                gun.Init(_enemyBulletsContainer.transform);
             }
+
+            RocketLauncher rocketLauncher = instance.GetComponentInChildren<RocketLauncher>();
+
+            if (rocketLauncher != null)
+            {
+                rocketLauncher.Init(_enemyBulletsContainer);
+            }
+
+            EnemyShip ship = instance.GetComponent<EnemyShip>();
+            ship.Init(_spriteModifier, _screenAdjuster);
+            ship.Destroyed += Spawn;
+            ship.Annihilated += _coinPool.Spawn;
+            ship.Annihilated += _score.Add;
+
+            DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
+            directionChanger.OutSight += Spawn;
+
+            _instances.Add(instance);
+
+            return ship;
         }
 
-        private void Spawn()
+        public void Spawn()
         {
             GameObject enemy;
 
-            if (_currentInstanceIndex >= _pool.Count)
+            if (_currentInstanceIndex >= _instances.Count)
             {
-                _currentInstanceIndex = 0;
+                Ended?.Invoke();
+                return;
             }
 
-            enemy = _pool[_currentInstanceIndex];
-
-            if (enemy.GetComponent<FighterNairan>())
-            {
-                enemy.GetComponent<FighterNairan>().RestsrtRockets();
-            }
-
-            enemy.gameObject.SetActive(true);
-            enemy.transform.position = transform.position;
-            _currentInstanceIndex++;
+            enemy = _instances[_currentInstanceIndex];
 
             EnemyShip enemyShip = enemy.GetComponent<EnemyShip>();
             enemyShip.Reset();
+
+            enemy.transform.position = transform.position;
+            enemy.gameObject.SetActive(true);
+            _currentInstanceIndex++;
         }
     }
 }

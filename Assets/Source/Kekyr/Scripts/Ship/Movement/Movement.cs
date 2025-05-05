@@ -42,13 +42,13 @@ namespace ShipBase
             _rigidbody = GetComponent<Rigidbody2D>();
             _health = GetComponent<ShipHealth>();
 
-            _health.Died += OnDead;
+            _health.Dying += OnDead;
             _inputRouter.Move.performed += OnMovePerformed;
         }
 
         protected virtual void OnDisable()
         {
-            _health.Died -= OnDead;
+            _health.Dying -= OnDead;
             _inputRouter.Move.performed -= OnMovePerformed;
         }
 

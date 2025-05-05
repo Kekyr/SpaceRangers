@@ -56,7 +56,7 @@ namespace ShipBase
             }
 
             _playerInputRouter.Rocket.performed += OnRocketPerformed;
-            _health.Died += OnDead;
+            _health.Dying += OnDead;
             _rewardedAd.Rewarded += OnRewarded;
             _rewardedAd.Closed += OnClosed;
 
@@ -80,7 +80,7 @@ namespace ShipBase
         private void OnDisable()
         {
             _playerInputRouter.Rocket.performed -= OnRocketPerformed;
-            _health.Died -= OnDead;
+            _health.Dying -= OnDead;
             _rewardedAd.Rewarded -= OnRewarded;
             _rewardedAd.Closed -= OnClosed;
 

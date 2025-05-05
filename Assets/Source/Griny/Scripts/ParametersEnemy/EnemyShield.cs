@@ -13,19 +13,28 @@ namespace Enemy
 
         public event Action Emptied;
 
-        private void Start()
+        private void Awake()
         {
+            if (_startValue == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_startValue));
+            }
+
             if (_shield == null)
             {
                 throw new ArgumentNullException(nameof(_shield));
             }
 
             _ship = GetComponent<EnemyShip>();
-            _ship.Reseted += OnReseted;
             OnReseted();
         }
 
-        private void OnDestroy()
+        private void OnEnable()
+        {
+            _ship.Reseted += OnReseted;
+        }
+
+        private void OnDisable()
         {
             _ship.Reseted -= OnReseted;
         }

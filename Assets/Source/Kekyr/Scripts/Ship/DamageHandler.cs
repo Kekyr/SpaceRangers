@@ -52,8 +52,8 @@ namespace ShipBase
             _shield.Emptied += OnEmptied;
             _shield.Remained += _health.TakeDamage;
             _health.Damaged += _shield.OnDamage;
-            _health.Died += _shield.OnDead;
-            _health.Died += OnDead;
+            _health.Dying += _shield.OnDead;
+            _health.Dying += OnDead;
         }
 
         private void OnDestroy()
@@ -62,8 +62,8 @@ namespace ShipBase
             _shield.Emptied -= OnEmptied;
             _shield.Remained -= _health.TakeDamage;
             _health.Damaged -= _shield.OnDamage;
-            _health.Died -= _shield.OnDead;
-            _health.Died -= OnDead;
+            _health.Dying -= _shield.OnDead;
+            _health.Dying -= OnDead;
         }
 
         public void Init(SpriteModifier spriteModifier)

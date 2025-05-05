@@ -61,13 +61,13 @@ namespace ShipBase
             _impulseDamageVelocity = _impulseDirection * _impulseDamageForce;
             _waitInterval = new WaitForSeconds(_stayingDamageInterval);
 
-            _health.Died += OnDead;
+            _health.Dying += OnDead;
             _screenAdjuster.ResolutionChanged += OnResolutionChanged;
         }
 
         private void OnDestroy()
         {
-            _health.Died -= OnDead;
+            _health.Dying -= OnDead;
             _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
         }
 
@@ -124,11 +124,6 @@ namespace ShipBase
         {
             _sfx.Play(_explosionSFX);
             _impulseSource.GenerateImpulseWithVelocity(_impulseExplosionVelocity);
-        }
-
-        private void OnDestruct()
-        {
-            gameObject.SetActive(false);
         }
 
         private void OnResolutionChanged()
