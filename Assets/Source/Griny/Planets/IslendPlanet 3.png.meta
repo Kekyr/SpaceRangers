@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f8bf5f74650ede47b9a8eb0f2b9e977
+guid: 073e09d23bc9e8341bacc57aebcb0e94
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Star_0
+      name: IslendPlanet 3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22c3213a0272df642841753e568f5ba8
-      internalID: -745312907
+      spriteID: 0696f96552ad6f547b1cb9237328b271
+      internalID: -2007184759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_1
+      name: IslendPlanet 3_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d533ebc26359848b767af1fc616a9d
+      internalID: 1980512891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_2
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +179,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e4e2556bdb2e44bb19a6e249522ef0
-      internalID: 241672555
+      spriteID: 8ad4ab93f6250114c9c6a59c4493a220
+      internalID: -99398977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_2
+      name: IslendPlanet 3_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd6a1b4c9fe8494ea5cf75d4fc99894
+      internalID: -518888453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_4
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +221,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f690c066f8e06f64eb886adb42ffe06a
-      internalID: -1346643138
+      spriteID: 52912ea4b2d7a244fb52635e1d87b29c
+      internalID: 4732168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_3
+      name: IslendPlanet 3_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477aa08525a64c549b8840ed593fb706
+      internalID: -1258722098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_6
       rect:
         serializedVersion: 2
         x: 1152
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +263,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10b71da74ff525e40b9a01a3d162394d
-      internalID: 941718924
+      spriteID: 938aa62650eb52c4299cbcace8808cf5
+      internalID: -1171869884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_4
+      name: IslendPlanet 3_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb9b54d00e5b28428b4b21eaab936ba
+      internalID: 1323884987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_8
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +305,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 211f216353199be4baf3c1ba358601de
-      internalID: -99655861
+      spriteID: b04a421075cb57041b8fed4f2766dac2
+      internalID: 1279938247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_5
+      name: IslendPlanet 3_9
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5324f23138093184d838566e54448644
+      internalID: -1117332450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_10
       rect:
         serializedVersion: 2
         x: 1920
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +347,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a5467be32c33e0408f1baebcb60bd11
-      internalID: 1512460186
+      spriteID: b42300a444daeeb479c4284a3eb1e57d
+      internalID: -955218853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_6
+      name: IslendPlanet 3_11
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d59b9ee1fffba4b9cd7f596d28b05b
+      internalID: -607730690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_12
       rect:
         serializedVersion: 2
         x: 2304
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +389,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf158107595bf8246b361fb17dcde4fe
-      internalID: 2085183699
+      spriteID: 3e60e2259be964c49b6375e9a8897a63
+      internalID: 1529464985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_7
+      name: IslendPlanet 3_13
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd469aa2af85ea4448939b3213283e20
+      internalID: 444517740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_14
       rect:
         serializedVersion: 2
         x: 2688
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +431,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44ee7cf869dcac04fae53c635ac291df
-      internalID: -1012128524
+      spriteID: bc33b6ade88987246aae87112c5bff2f
+      internalID: 1188546861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_8
+      name: IslendPlanet 3_15
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb3f44a8ebf79d4aa8e31f1a6d22ff8
+      internalID: 366293048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_16
       rect:
         serializedVersion: 2
         x: 3072
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +473,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b05251ec52cabd4d98740be2a5ebc75
-      internalID: -671540593
+      spriteID: 9631cd7a9c1e4c1488abb4f95a547a05
+      internalID: 984695601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_9
+      name: IslendPlanet 3_17
+      rect:
+        serializedVersion: 2
+        x: 3264
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3213dcddbf5011d4291d62c840ad9aa2
+      internalID: 782845058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_18
       rect:
         serializedVersion: 2
         x: 3456
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +515,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a3fc25af00bc664087c8567a5de6940
-      internalID: 1021806813
+      spriteID: 6fbe545ed3ebd0740a80a12aa756dee4
+      internalID: -592128415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_10
+      name: IslendPlanet 3_19
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5058fef6f61c73348a35a7f7320e3d87
+      internalID: 232390725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_20
       rect:
         serializedVersion: 2
         x: 3840
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +557,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cb76209244bba94d8f6e18312a2d5ca
-      internalID: 233863619
+      spriteID: 7e4a611e8c9887e4284108e5000e008c
+      internalID: 1949106897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_11
+      name: IslendPlanet 3_21
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1e72974daf0f0498dfcf9794a26eec
+      internalID: 2006728753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_22
       rect:
         serializedVersion: 2
         x: 4224
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +599,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4288bb4de25fdcc4b911c1b4c2250562
-      internalID: 1953198521
+      spriteID: b1e5773d5504f9c469d3941206591324
+      internalID: 710708452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_12
+      name: IslendPlanet 3_23
+      rect:
+        serializedVersion: 2
+        x: 4416
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1651ab7ff40699b408975a735700ef5b
+      internalID: -908388473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_24
       rect:
         serializedVersion: 2
         x: 4608
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +641,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb13ade970d0bfd498a2bd0bc08152f1
-      internalID: 1049805016
+      spriteID: 90c41f82246eb064bb9138d74c8bc80c
+      internalID: 869822580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_13
+      name: IslendPlanet 3_25
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d0b052414e7fd4aac1f41a0abe3557
+      internalID: 371488807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_26
       rect:
         serializedVersion: 2
         x: 4992
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +683,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68400ea0cf893054ea57db625f52e5a2
-      internalID: -1066690271
+      spriteID: 723583e2e020c4f4c9d7a1c4680c4751
+      internalID: 1737257487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_14
+      name: IslendPlanet 3_27
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0d424813ebf9045b691b7329497288
+      internalID: 609797389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_28
       rect:
         serializedVersion: 2
         x: 5376
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +725,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4076948b8c3029e4ca58a8fbf2d3a768
-      internalID: 1717274831
+      spriteID: d4223e6da21a8e043806f8df29b3e0e2
+      internalID: 1099185542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_15
+      name: IslendPlanet 3_29
+      rect:
+        serializedVersion: 2
+        x: 5568
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24020a2608bf55e4f96c3a7e385f6a8c
+      internalID: -522054102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_30
       rect:
         serializedVersion: 2
         x: 5760
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +767,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00407574e0d0f4438536403e0929869
-      internalID: -90414862
+      spriteID: a254c8254c1cc544cbb75c3c70c0a699
+      internalID: 1377847277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_16
+      name: IslendPlanet 3_31
+      rect:
+        serializedVersion: 2
+        x: 5952
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320591691df0bc34d9b8e005fdea9ffc
+      internalID: -303887240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_32
       rect:
         serializedVersion: 2
         x: 6144
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,20 +809,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3d19ee8d8250d4ba8fd06d574f69fe
-      internalID: 1274279308
+      spriteID: a850d96cf9f5d434bb07adbcf06c9cc2
+      internalID: 823516629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_17
+      name: IslendPlanet 3_33
+      rect:
+        serializedVersion: 2
+        x: 6336
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d972a12fb83e1444db09bb476ad05d4f
+      internalID: -1733139795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_34
       rect:
         serializedVersion: 2
         x: 6528
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,20 +851,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d4709a732e99343ae07d8a2a26a6b3
-      internalID: 2106754069
+      spriteID: c342c86303e2cae429f94d863a8f4ee6
+      internalID: 1530618021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_18
+      name: IslendPlanet 3_35
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f16b6329b9294a4085c190d70c0b812
+      internalID: -1377921669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_36
       rect:
         serializedVersion: 2
         x: 6912
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,20 +893,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9ffbfe46e5f714ab833b63f8058692
-      internalID: -2105870382
+      spriteID: 5cddca25418fe2144a8341377e2b2341
+      internalID: -651829418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_19
+      name: IslendPlanet 3_37
+      rect:
+        serializedVersion: 2
+        x: 7104
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c42e04de1f3d04aa2ef525636be065
+      internalID: 1816194752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_38
       rect:
         serializedVersion: 2
         x: 7296
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,20 +935,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28261e8da606e40489725606bbe10d87
-      internalID: -1201377741
+      spriteID: 4db9a272486c2424eb6758a411dc66e0
+      internalID: 338049783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_20
+      name: IslendPlanet 3_39
+      rect:
+        serializedVersion: 2
+        x: 7488
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81bb06abc87cc04f92bf13bfe80ec9e
+      internalID: -200079647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_40
       rect:
         serializedVersion: 2
         x: 7680
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -557,20 +977,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759bc1011639d424fb97c7aad5c7c6e8
-      internalID: -1500009404
+      spriteID: 93ca5355ae6d692408ccfb71721e53db
+      internalID: 1717225408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_21
+      name: IslendPlanet 3_41
+      rect:
+        serializedVersion: 2
+        x: 7872
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 606289a97385e944eb2b3f1e579b7859
+      internalID: -1803920214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_42
       rect:
         serializedVersion: 2
         x: 8064
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,20 +1019,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e0533aaba29b6449ae0cba61e2cb10d
-      internalID: -1906574897
+      spriteID: 84614c46a861189459959278c6d7ac8e
+      internalID: -1391855729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_22
+      name: IslendPlanet 3_43
+      rect:
+        serializedVersion: 2
+        x: 8256
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8e821a82ece5c4a9ab93ecfde4a71a
+      internalID: -1137807006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_44
       rect:
         serializedVersion: 2
         x: 8448
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -599,20 +1061,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d65b4ff167fc1140876aa3699773dcd
-      internalID: -1209709056
+      spriteID: cf0dbcb56e6d48a4e8a06e279fbb4ea9
+      internalID: -1655856571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_23
+      name: IslendPlanet 3_45
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97d8140c17053b45a336ba1696c739d
+      internalID: 1840627916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_46
       rect:
         serializedVersion: 2
         x: 8832
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -620,20 +1103,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6af14a00f354a6468a350f964f323fd
-      internalID: 821650580
+      spriteID: c1dbd906bd0236242b45f5bdb361c148
+      internalID: -444765026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_24
+      name: IslendPlanet 3_47
+      rect:
+        serializedVersion: 2
+        x: 9024
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66014d4babc41ac44b0505c5c21280ea
+      internalID: -11113380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IslendPlanet 3_48
       rect:
         serializedVersion: 2
         x: 9216
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -641,20 +1145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d5fa9de0a4f65488b55aefbdf4810d
-      internalID: 1900363550
+      spriteID: 77a2cb8f62d462a49873ee99cb899a83
+      internalID: -1769164420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_25
+      name: IslendPlanet 3_49
       rect:
         serializedVersion: 2
-        x: 9600
+        x: 9408
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -662,344 +1166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fc18ca166658d942a1a003c537229da
-      internalID: 1938081088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_26
-      rect:
-        serializedVersion: 2
-        x: 9984
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b254d63390d327442910a1f470f6f177
-      internalID: -1122444341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_27
-      rect:
-        serializedVersion: 2
-        x: 10368
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16c6f14a4bd01734c845cff472a56512
-      internalID: 474874578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_28
-      rect:
-        serializedVersion: 2
-        x: 10752
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4191b6bd3926c94ea9cf6c09560aacb
-      internalID: -1873078338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_29
-      rect:
-        serializedVersion: 2
-        x: 11136
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 911d45acb9aa3c745870dc981ce6cf94
-      internalID: -852346330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_30
-      rect:
-        serializedVersion: 2
-        x: 11520
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 151bc027fa3fcf9458836b5be5d74fee
-      internalID: -200854499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_31
-      rect:
-        serializedVersion: 2
-        x: 11904
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94aa1259ab74b294ab9e2e305ec510bf
-      internalID: 1856290624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_32
-      rect:
-        serializedVersion: 2
-        x: 12288
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f67a6090843ca0c4f926ad688a238be9
-      internalID: 1317830168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_33
-      rect:
-        serializedVersion: 2
-        x: 12672
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 342b38e72bacfcc4cae30aad5ac3a594
-      internalID: -230133380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_34
-      rect:
-        serializedVersion: 2
-        x: 13056
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77d21891bc2221145bd385be833f8619
-      internalID: -1779968567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_35
-      rect:
-        serializedVersion: 2
-        x: 13440
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc40b794ec8673a4eb1567f72f950c0f
-      internalID: -2099344155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_36
-      rect:
-        serializedVersion: 2
-        x: 13824
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2db09ad2a0017304fb82932b61320b29
-      internalID: 161565061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_37
-      rect:
-        serializedVersion: 2
-        x: 14208
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91e9b4d63d40a6b47a32a00075e50cd8
-      internalID: -2133504590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_38
-      rect:
-        serializedVersion: 2
-        x: 14592
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d32ac2c0a9493dd429e54724f03d38c3
-      internalID: -1497896130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_39
-      rect:
-        serializedVersion: 2
-        x: 14976
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58f2be6013dff594bbf2c1eb297d92d7
-      internalID: 1231267997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_40
-      rect:
-        serializedVersion: 2
-        x: 15360
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cc5cdc93ee3ee24398540b4daca86ff
-      internalID: -496635476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_41
-      rect:
-        serializedVersion: 2
-        x: 15744
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9555120e40691ed4abdce08bf06997ac
-      internalID: -312850876
+      spriteID: e09f43efced90004d8da48d861037870
+      internalID: -63639803
       vertices: []
       indices: 
       edges: []
@@ -1015,48 +1183,56 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Star_0: -745312907
-      Star_1: 241672555
-      Star_10: 233863619
-      Star_11: 1953198521
-      Star_12: 1049805016
-      Star_13: -1066690271
-      Star_14: 1717274831
-      Star_15: -90414862
-      Star_16: 1274279308
-      Star_17: 2106754069
-      Star_18: -2105870382
-      Star_19: -1201377741
-      Star_2: -1346643138
-      Star_20: -1500009404
-      Star_21: -1906574897
-      Star_22: -1209709056
-      Star_23: 821650580
-      Star_24: 1900363550
-      Star_25: 1938081088
-      Star_26: -1122444341
-      Star_27: 474874578
-      Star_28: -1873078338
-      Star_29: -852346330
-      Star_3: 941718924
-      Star_30: -200854499
-      Star_31: 1856290624
-      Star_32: 1317830168
-      Star_33: -230133380
-      Star_34: -1779968567
-      Star_35: -2099344155
-      Star_36: 161565061
-      Star_37: -2133504590
-      Star_38: -1497896130
-      Star_39: 1231267997
-      Star_4: -99655861
-      Star_40: -496635476
-      Star_41: -312850876
-      Star_5: 1512460186
-      Star_6: 2085183699
-      Star_7: -1012128524
-      Star_8: -671540593
-      Star_9: 1021806813
+      IslendPlanet 3_0: -2007184759
+      IslendPlanet 3_1: 1980512891
+      IslendPlanet 3_10: -955218853
+      IslendPlanet 3_11: -607730690
+      IslendPlanet 3_12: 1529464985
+      IslendPlanet 3_13: 444517740
+      IslendPlanet 3_14: 1188546861
+      IslendPlanet 3_15: 366293048
+      IslendPlanet 3_16: 984695601
+      IslendPlanet 3_17: 782845058
+      IslendPlanet 3_18: -592128415
+      IslendPlanet 3_19: 232390725
+      IslendPlanet 3_2: -99398977
+      IslendPlanet 3_20: 1949106897
+      IslendPlanet 3_21: 2006728753
+      IslendPlanet 3_22: 710708452
+      IslendPlanet 3_23: -908388473
+      IslendPlanet 3_24: 869822580
+      IslendPlanet 3_25: 371488807
+      IslendPlanet 3_26: 1737257487
+      IslendPlanet 3_27: 609797389
+      IslendPlanet 3_28: 1099185542
+      IslendPlanet 3_29: -522054102
+      IslendPlanet 3_3: -518888453
+      IslendPlanet 3_30: 1377847277
+      IslendPlanet 3_31: -303887240
+      IslendPlanet 3_32: 823516629
+      IslendPlanet 3_33: -1733139795
+      IslendPlanet 3_34: 1530618021
+      IslendPlanet 3_35: -1377921669
+      IslendPlanet 3_36: -651829418
+      IslendPlanet 3_37: 1816194752
+      IslendPlanet 3_38: 338049783
+      IslendPlanet 3_39: -200079647
+      IslendPlanet 3_4: 4732168
+      IslendPlanet 3_40: 1717225408
+      IslendPlanet 3_41: -1803920214
+      IslendPlanet 3_42: -1391855729
+      IslendPlanet 3_43: -1137807006
+      IslendPlanet 3_44: -1655856571
+      IslendPlanet 3_45: 1840627916
+      IslendPlanet 3_46: -444765026
+      IslendPlanet 3_47: -11113380
+      IslendPlanet 3_48: -1769164420
+      IslendPlanet 3_49: -63639803
+      IslendPlanet 3_5: -1258722098
+      IslendPlanet 3_6: -1171869884
+      IslendPlanet 3_7: 1323884987
+      IslendPlanet 3_8: 1279938247
+      IslendPlanet 3_9: -1117332450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

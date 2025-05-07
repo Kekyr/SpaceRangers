@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f8bf5f74650ede47b9a8eb0f2b9e977
+guid: c82cde27bfd699f478f668d555893b2b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Star_0
+      name: DryPlanet 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22c3213a0272df642841753e568f5ba8
-      internalID: -745312907
+      spriteID: 5f0e9915e426f4d4ab56031f1c4781ad
+      internalID: -1662490444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_1
+      name: DryPlanet 1_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd24421313edcd4a8cc8f6a30f1801e
+      internalID: 1771262596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_2
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +179,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e4e2556bdb2e44bb19a6e249522ef0
-      internalID: 241672555
+      spriteID: 10fb6cd44dc4bf24ea00c923d6c89402
+      internalID: -1981362366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_2
+      name: DryPlanet 1_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff346865578f2d4fa215d1208f8c239
+      internalID: 2137322161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_4
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +221,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f690c066f8e06f64eb886adb42ffe06a
-      internalID: -1346643138
+      spriteID: 638b2c7cc206cb44e979fceab673d142
+      internalID: 975200015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_3
+      name: DryPlanet 1_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fbe2ba4f29b6949aed001505ecfd27
+      internalID: -762506585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_6
       rect:
         serializedVersion: 2
         x: 1152
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +263,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10b71da74ff525e40b9a01a3d162394d
-      internalID: 941718924
+      spriteID: ef33901dd421a6744a01c563775b2c37
+      internalID: -1499739144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_4
+      name: DryPlanet 1_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38754252f5aa764ca842c05cc9c314b
+      internalID: 54468484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_8
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +305,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 211f216353199be4baf3c1ba358601de
-      internalID: -99655861
+      spriteID: 4135aab394241d649ac36b6e64c93d08
+      internalID: 811882630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_5
+      name: DryPlanet 1_9
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da376d766749984ca54f0c0c6ba9492
+      internalID: 248416710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_10
       rect:
         serializedVersion: 2
         x: 1920
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +347,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a5467be32c33e0408f1baebcb60bd11
-      internalID: 1512460186
+      spriteID: d5a0dbde4d42add45a0ef8e81d47a326
+      internalID: -700491283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_6
+      name: DryPlanet 1_11
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86de9815b1258644ebe5239b18ff42e2
+      internalID: 821355636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_12
       rect:
         serializedVersion: 2
         x: 2304
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +389,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf158107595bf8246b361fb17dcde4fe
-      internalID: 2085183699
+      spriteID: 47010cf79393c3745af866cb4bc227b5
+      internalID: -1339004200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_7
+      name: DryPlanet 1_13
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826deb864d4bce549ba3485fd0cf1577
+      internalID: 469491228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_14
       rect:
         serializedVersion: 2
         x: 2688
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +431,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44ee7cf869dcac04fae53c635ac291df
-      internalID: -1012128524
+      spriteID: 816efef522c62a842866cb37c34dec0b
+      internalID: 1423839148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_8
+      name: DryPlanet 1_15
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844b6539cb2c9504791445e5daccf9fc
+      internalID: 1468919898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_16
       rect:
         serializedVersion: 2
         x: 3072
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +473,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b05251ec52cabd4d98740be2a5ebc75
-      internalID: -671540593
+      spriteID: 5a8f52ed055c6ee46ad1f485d7786814
+      internalID: 418711522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_9
+      name: DryPlanet 1_17
+      rect:
+        serializedVersion: 2
+        x: 3264
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8532ea4c824f247b6ecdf4a01d8d93
+      internalID: 661504946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_18
       rect:
         serializedVersion: 2
         x: 3456
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +515,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a3fc25af00bc664087c8567a5de6940
-      internalID: 1021806813
+      spriteID: 7bff1ab66f91ab947a4f487b1dc67939
+      internalID: 675567095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_10
+      name: DryPlanet 1_19
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d185ba25f1de14d83fd6a1150731e3
+      internalID: -1394586792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_20
       rect:
         serializedVersion: 2
         x: 3840
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +557,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cb76209244bba94d8f6e18312a2d5ca
-      internalID: 233863619
+      spriteID: 88c606617be2f03479f852f351424d55
+      internalID: 604823521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_11
+      name: DryPlanet 1_21
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae00836551ec8d141863727f15a100ce
+      internalID: -762122925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_22
       rect:
         serializedVersion: 2
         x: 4224
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +599,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4288bb4de25fdcc4b911c1b4c2250562
-      internalID: 1953198521
+      spriteID: 49e99e3b490a1874ab80ad3c57442a8b
+      internalID: -682392809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_12
+      name: DryPlanet 1_23
+      rect:
+        serializedVersion: 2
+        x: 4416
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f82bc96320ae94490523e534f68f9c
+      internalID: -261045339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_24
       rect:
         serializedVersion: 2
         x: 4608
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +641,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb13ade970d0bfd498a2bd0bc08152f1
-      internalID: 1049805016
+      spriteID: 8cec35d9bf6bedc4dacaf796d8062921
+      internalID: 1026719583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_13
+      name: DryPlanet 1_25
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0ba2af76d2f774094d9380b6681ee3
+      internalID: -1297419099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_26
       rect:
         serializedVersion: 2
         x: 4992
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +683,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68400ea0cf893054ea57db625f52e5a2
-      internalID: -1066690271
+      spriteID: 9b9634058d34d334595000fd969b4db1
+      internalID: -764094219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_14
+      name: DryPlanet 1_27
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6ab8ba644dd8d4498202124644b42f
+      internalID: -1343649410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_28
       rect:
         serializedVersion: 2
         x: 5376
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +725,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4076948b8c3029e4ca58a8fbf2d3a768
-      internalID: 1717274831
+      spriteID: f4a97a80ab893814cae99b98b9399b79
+      internalID: 293356078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_15
+      name: DryPlanet 1_29
+      rect:
+        serializedVersion: 2
+        x: 5568
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207774a27d1616644b98a6b3cae003f3
+      internalID: 1937664917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_30
       rect:
         serializedVersion: 2
         x: 5760
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +767,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00407574e0d0f4438536403e0929869
-      internalID: -90414862
+      spriteID: 885bc37bc3d817142b4b874c70ae6c94
+      internalID: -1561619719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_16
+      name: DryPlanet 1_31
+      rect:
+        serializedVersion: 2
+        x: 5952
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 539cdb69fb8e82f4e88174cef807b803
+      internalID: -2089244457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_32
       rect:
         serializedVersion: 2
         x: 6144
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,20 +809,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3d19ee8d8250d4ba8fd06d574f69fe
-      internalID: 1274279308
+      spriteID: da6f225066fb77448ad5673d2df19cdd
+      internalID: 188110749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_17
+      name: DryPlanet 1_33
+      rect:
+        serializedVersion: 2
+        x: 6336
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf0bafce666e6b4897ae506a2cf5e15
+      internalID: 1558380076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_34
       rect:
         serializedVersion: 2
         x: 6528
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,20 +851,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d4709a732e99343ae07d8a2a26a6b3
-      internalID: 2106754069
+      spriteID: 3073b59ebeedbcf4c918164f545f523f
+      internalID: 2006806277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_18
+      name: DryPlanet 1_35
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29a69083cc86f74eac866b18171c68d
+      internalID: 603549739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_36
       rect:
         serializedVersion: 2
         x: 6912
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,20 +893,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9ffbfe46e5f714ab833b63f8058692
-      internalID: -2105870382
+      spriteID: e75618a52d6b04d4eadb252cbb3ae2bc
+      internalID: -975339079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_19
+      name: DryPlanet 1_37
+      rect:
+        serializedVersion: 2
+        x: 7104
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1766dd3fa560e4db65989ce62f544a
+      internalID: -1670573140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_38
       rect:
         serializedVersion: 2
         x: 7296
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,20 +935,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28261e8da606e40489725606bbe10d87
-      internalID: -1201377741
+      spriteID: ce75de42dc502454fa849716ef3db86b
+      internalID: 854132948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_20
+      name: DryPlanet 1_39
+      rect:
+        serializedVersion: 2
+        x: 7488
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c6491657c53d746b15d021ba557bf0
+      internalID: 101726583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_40
       rect:
         serializedVersion: 2
         x: 7680
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -557,20 +977,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759bc1011639d424fb97c7aad5c7c6e8
-      internalID: -1500009404
+      spriteID: 2b5f8474beba7eb42b5531dfce0b7221
+      internalID: -1485439297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_21
+      name: DryPlanet 1_41
+      rect:
+        serializedVersion: 2
+        x: 7872
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3dfee156078d54ea05f8652e578b78
+      internalID: -602312349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_42
       rect:
         serializedVersion: 2
         x: 8064
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,20 +1019,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e0533aaba29b6449ae0cba61e2cb10d
-      internalID: -1906574897
+      spriteID: 16d23322ff36f2b43aceb69a03554f85
+      internalID: -149683067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_22
+      name: DryPlanet 1_43
+      rect:
+        serializedVersion: 2
+        x: 8256
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6457b9360a89f4cbc7c6d525fd41b2
+      internalID: 1925323340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_44
       rect:
         serializedVersion: 2
         x: 8448
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -599,20 +1061,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d65b4ff167fc1140876aa3699773dcd
-      internalID: -1209709056
+      spriteID: 5aecfdcb08a3f4045a83f14c198949ab
+      internalID: -140969031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_23
+      name: DryPlanet 1_45
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe79f985962ced499c9fc1c93615b3c
+      internalID: -1745786801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_46
       rect:
         serializedVersion: 2
         x: 8832
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -620,20 +1103,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6af14a00f354a6468a350f964f323fd
-      internalID: 821650580
+      spriteID: d60c6fca158a4294ab12e5fea74f77b1
+      internalID: 1966564512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_24
+      name: DryPlanet 1_47
+      rect:
+        serializedVersion: 2
+        x: 9024
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b625048fafbb3947962148131255b15
+      internalID: -2055255599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DryPlanet 1_48
       rect:
         serializedVersion: 2
         x: 9216
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -641,20 +1145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d5fa9de0a4f65488b55aefbdf4810d
-      internalID: 1900363550
+      spriteID: 364960eb12afd2e478a8d51dd9c9688f
+      internalID: 2078161864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_25
+      name: DryPlanet 1_49
       rect:
         serializedVersion: 2
-        x: 9600
+        x: 9408
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -662,344 +1166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fc18ca166658d942a1a003c537229da
-      internalID: 1938081088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_26
-      rect:
-        serializedVersion: 2
-        x: 9984
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b254d63390d327442910a1f470f6f177
-      internalID: -1122444341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_27
-      rect:
-        serializedVersion: 2
-        x: 10368
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16c6f14a4bd01734c845cff472a56512
-      internalID: 474874578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_28
-      rect:
-        serializedVersion: 2
-        x: 10752
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4191b6bd3926c94ea9cf6c09560aacb
-      internalID: -1873078338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_29
-      rect:
-        serializedVersion: 2
-        x: 11136
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 911d45acb9aa3c745870dc981ce6cf94
-      internalID: -852346330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_30
-      rect:
-        serializedVersion: 2
-        x: 11520
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 151bc027fa3fcf9458836b5be5d74fee
-      internalID: -200854499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_31
-      rect:
-        serializedVersion: 2
-        x: 11904
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94aa1259ab74b294ab9e2e305ec510bf
-      internalID: 1856290624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_32
-      rect:
-        serializedVersion: 2
-        x: 12288
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f67a6090843ca0c4f926ad688a238be9
-      internalID: 1317830168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_33
-      rect:
-        serializedVersion: 2
-        x: 12672
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 342b38e72bacfcc4cae30aad5ac3a594
-      internalID: -230133380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_34
-      rect:
-        serializedVersion: 2
-        x: 13056
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77d21891bc2221145bd385be833f8619
-      internalID: -1779968567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_35
-      rect:
-        serializedVersion: 2
-        x: 13440
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc40b794ec8673a4eb1567f72f950c0f
-      internalID: -2099344155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_36
-      rect:
-        serializedVersion: 2
-        x: 13824
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2db09ad2a0017304fb82932b61320b29
-      internalID: 161565061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_37
-      rect:
-        serializedVersion: 2
-        x: 14208
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91e9b4d63d40a6b47a32a00075e50cd8
-      internalID: -2133504590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_38
-      rect:
-        serializedVersion: 2
-        x: 14592
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d32ac2c0a9493dd429e54724f03d38c3
-      internalID: -1497896130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_39
-      rect:
-        serializedVersion: 2
-        x: 14976
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58f2be6013dff594bbf2c1eb297d92d7
-      internalID: 1231267997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_40
-      rect:
-        serializedVersion: 2
-        x: 15360
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cc5cdc93ee3ee24398540b4daca86ff
-      internalID: -496635476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_41
-      rect:
-        serializedVersion: 2
-        x: 15744
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9555120e40691ed4abdce08bf06997ac
-      internalID: -312850876
+      spriteID: a5415b9cef8580d44a23d1f994d13f71
+      internalID: 128119729
       vertices: []
       indices: 
       edges: []
@@ -1015,48 +1183,56 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Star_0: -745312907
-      Star_1: 241672555
-      Star_10: 233863619
-      Star_11: 1953198521
-      Star_12: 1049805016
-      Star_13: -1066690271
-      Star_14: 1717274831
-      Star_15: -90414862
-      Star_16: 1274279308
-      Star_17: 2106754069
-      Star_18: -2105870382
-      Star_19: -1201377741
-      Star_2: -1346643138
-      Star_20: -1500009404
-      Star_21: -1906574897
-      Star_22: -1209709056
-      Star_23: 821650580
-      Star_24: 1900363550
-      Star_25: 1938081088
-      Star_26: -1122444341
-      Star_27: 474874578
-      Star_28: -1873078338
-      Star_29: -852346330
-      Star_3: 941718924
-      Star_30: -200854499
-      Star_31: 1856290624
-      Star_32: 1317830168
-      Star_33: -230133380
-      Star_34: -1779968567
-      Star_35: -2099344155
-      Star_36: 161565061
-      Star_37: -2133504590
-      Star_38: -1497896130
-      Star_39: 1231267997
-      Star_4: -99655861
-      Star_40: -496635476
-      Star_41: -312850876
-      Star_5: 1512460186
-      Star_6: 2085183699
-      Star_7: -1012128524
-      Star_8: -671540593
-      Star_9: 1021806813
+      DryPlanet 1_0: -1662490444
+      DryPlanet 1_1: 1771262596
+      DryPlanet 1_10: -700491283
+      DryPlanet 1_11: 821355636
+      DryPlanet 1_12: -1339004200
+      DryPlanet 1_13: 469491228
+      DryPlanet 1_14: 1423839148
+      DryPlanet 1_15: 1468919898
+      DryPlanet 1_16: 418711522
+      DryPlanet 1_17: 661504946
+      DryPlanet 1_18: 675567095
+      DryPlanet 1_19: -1394586792
+      DryPlanet 1_2: -1981362366
+      DryPlanet 1_20: 604823521
+      DryPlanet 1_21: -762122925
+      DryPlanet 1_22: -682392809
+      DryPlanet 1_23: -261045339
+      DryPlanet 1_24: 1026719583
+      DryPlanet 1_25: -1297419099
+      DryPlanet 1_26: -764094219
+      DryPlanet 1_27: -1343649410
+      DryPlanet 1_28: 293356078
+      DryPlanet 1_29: 1937664917
+      DryPlanet 1_3: 2137322161
+      DryPlanet 1_30: -1561619719
+      DryPlanet 1_31: -2089244457
+      DryPlanet 1_32: 188110749
+      DryPlanet 1_33: 1558380076
+      DryPlanet 1_34: 2006806277
+      DryPlanet 1_35: 603549739
+      DryPlanet 1_36: -975339079
+      DryPlanet 1_37: -1670573140
+      DryPlanet 1_38: 854132948
+      DryPlanet 1_39: 101726583
+      DryPlanet 1_4: 975200015
+      DryPlanet 1_40: -1485439297
+      DryPlanet 1_41: -602312349
+      DryPlanet 1_42: -149683067
+      DryPlanet 1_43: 1925323340
+      DryPlanet 1_44: -140969031
+      DryPlanet 1_45: -1745786801
+      DryPlanet 1_46: 1966564512
+      DryPlanet 1_47: -2055255599
+      DryPlanet 1_48: 2078161864
+      DryPlanet 1_49: 128119729
+      DryPlanet 1_5: -762506585
+      DryPlanet 1_6: -1499739144
+      DryPlanet 1_7: 54468484
+      DryPlanet 1_8: 811882630
+      DryPlanet 1_9: 248416710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

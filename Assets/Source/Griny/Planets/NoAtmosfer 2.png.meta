@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f8bf5f74650ede47b9a8eb0f2b9e977
+guid: 983251c7a02726a4e87fb2727a45c0f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Star_0
+      name: NoAtmosfer 2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22c3213a0272df642841753e568f5ba8
-      internalID: -745312907
+      spriteID: 081d42af9e60c194ca60c3413eac7202
+      internalID: -79235514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_1
+      name: NoAtmosfer 2_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7894e8d48537e478f5f0c41ebbe38c
+      internalID: 407057976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_2
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +179,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e4e2556bdb2e44bb19a6e249522ef0
-      internalID: 241672555
+      spriteID: 5742502dd7d4cf245ac2194a8b850b4e
+      internalID: -1332665635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_2
+      name: NoAtmosfer 2_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1225eb61f1c5204dba5ee65c912fff5
+      internalID: 707083783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_4
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +221,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f690c066f8e06f64eb886adb42ffe06a
-      internalID: -1346643138
+      spriteID: 9484208769802f9439ef917e3e71bb73
+      internalID: -560043353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_3
+      name: NoAtmosfer 2_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f934e5f89436e749a51303bc23288e4
+      internalID: -658055283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_6
       rect:
         serializedVersion: 2
         x: 1152
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +263,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10b71da74ff525e40b9a01a3d162394d
-      internalID: 941718924
+      spriteID: 01f44b63d8be1da40a1902b63886d27c
+      internalID: 2072994502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_4
+      name: NoAtmosfer 2_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c4d144cf92d6946b61d69c44e6a7ed
+      internalID: 1211576967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_8
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +305,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 211f216353199be4baf3c1ba358601de
-      internalID: -99655861
+      spriteID: e8762b0fb86cb8245bb373382c856f38
+      internalID: -1902545026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_5
+      name: NoAtmosfer 2_9
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c3cf7d8a94dddc4e92b2575bb8f8463
+      internalID: 1637633277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_10
       rect:
         serializedVersion: 2
         x: 1920
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +347,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a5467be32c33e0408f1baebcb60bd11
-      internalID: 1512460186
+      spriteID: cab6ec2a8afc09a4795f3ca94ef1b2ed
+      internalID: -1613630445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_6
+      name: NoAtmosfer 2_11
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b535b66c67e71224cb580150edb4ac61
+      internalID: 1520415755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_12
       rect:
         serializedVersion: 2
         x: 2304
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +389,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf158107595bf8246b361fb17dcde4fe
-      internalID: 2085183699
+      spriteID: 7c5708860051fe945ad2273cab883bbf
+      internalID: 895542280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_7
+      name: NoAtmosfer 2_13
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef971ed87c3dd04c97f9314a03a94ab
+      internalID: -1692392568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_14
       rect:
         serializedVersion: 2
         x: 2688
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +431,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44ee7cf869dcac04fae53c635ac291df
-      internalID: -1012128524
+      spriteID: 7241364a4d3f2fb42be2dfce4aa338b5
+      internalID: -1488185671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_8
+      name: NoAtmosfer 2_15
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6757ffbefc47c438f10adfeaf53bdc
+      internalID: 9251634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_16
       rect:
         serializedVersion: 2
         x: 3072
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +473,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b05251ec52cabd4d98740be2a5ebc75
-      internalID: -671540593
+      spriteID: 0afe7dcf6573501428d7474b3e50a8b2
+      internalID: -657193297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_9
+      name: NoAtmosfer 2_17
+      rect:
+        serializedVersion: 2
+        x: 3264
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3feddd4e60d0ead4db01d8107518acde
+      internalID: 936658551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_18
       rect:
         serializedVersion: 2
         x: 3456
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +515,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a3fc25af00bc664087c8567a5de6940
-      internalID: 1021806813
+      spriteID: e07113e9eb9f83046aa479ece71c6415
+      internalID: 158433032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_10
+      name: NoAtmosfer 2_19
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef15fec14e1d2741831513c6d675ad8
+      internalID: 140242875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_20
       rect:
         serializedVersion: 2
         x: 3840
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +557,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cb76209244bba94d8f6e18312a2d5ca
-      internalID: 233863619
+      spriteID: 21558e032f67f954ca32e368246ac32a
+      internalID: -329707578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_11
+      name: NoAtmosfer 2_21
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ef1699b3d1e8d4abf3887464cc4ba1
+      internalID: 1259895587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_22
       rect:
         serializedVersion: 2
         x: 4224
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +599,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4288bb4de25fdcc4b911c1b4c2250562
-      internalID: 1953198521
+      spriteID: 1c7ba31a2e17a7041b26bfbd9b38bdd1
+      internalID: -810734061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_12
+      name: NoAtmosfer 2_23
+      rect:
+        serializedVersion: 2
+        x: 4416
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965594b5bcbeb514cac199b137769dae
+      internalID: -1449749423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_24
       rect:
         serializedVersion: 2
         x: 4608
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +641,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb13ade970d0bfd498a2bd0bc08152f1
-      internalID: 1049805016
+      spriteID: f2e3b311dd45dd74ba8cefb13fb46456
+      internalID: -1162352806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_13
+      name: NoAtmosfer 2_25
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9766822d21363a54e9143ccd7b64c3d8
+      internalID: -1148032666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_26
       rect:
         serializedVersion: 2
         x: 4992
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +683,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68400ea0cf893054ea57db625f52e5a2
-      internalID: -1066690271
+      spriteID: 94067db765b6f3d48b49814a7409a5c8
+      internalID: -493099788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_14
+      name: NoAtmosfer 2_27
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe4a7b0b9e0df24db6e3afd37cb5cba
+      internalID: -809475546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_28
       rect:
         serializedVersion: 2
         x: 5376
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +725,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4076948b8c3029e4ca58a8fbf2d3a768
-      internalID: 1717274831
+      spriteID: 30f80fbfe1318c247a9bffe00b5a360e
+      internalID: 417145066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_15
+      name: NoAtmosfer 2_29
+      rect:
+        serializedVersion: 2
+        x: 5568
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3089248832cc014a8387a071848f767
+      internalID: 21693504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_30
       rect:
         serializedVersion: 2
         x: 5760
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +767,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00407574e0d0f4438536403e0929869
-      internalID: -90414862
+      spriteID: aad30da46b3f66c4e990a901f353cfbf
+      internalID: -763235091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_16
+      name: NoAtmosfer 2_31
+      rect:
+        serializedVersion: 2
+        x: 5952
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142e4c127ff49174b96d523965a6b52b
+      internalID: -2068420477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_32
       rect:
         serializedVersion: 2
         x: 6144
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,20 +809,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3d19ee8d8250d4ba8fd06d574f69fe
-      internalID: 1274279308
+      spriteID: 0564c3dee9db682429bba2ee43647b7c
+      internalID: 1908026464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_17
+      name: NoAtmosfer 2_33
+      rect:
+        serializedVersion: 2
+        x: 6336
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a910b2d723d5f43bcead0fa9216611
+      internalID: 1996384043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_34
       rect:
         serializedVersion: 2
         x: 6528
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,20 +851,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d4709a732e99343ae07d8a2a26a6b3
-      internalID: 2106754069
+      spriteID: b00c5b059ad2cf14c9114157828ef72a
+      internalID: -155432094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_18
+      name: NoAtmosfer 2_35
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5826e3b36ca5fd46a0e8117046fb26b
+      internalID: -108157025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_36
       rect:
         serializedVersion: 2
         x: 6912
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,20 +893,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9ffbfe46e5f714ab833b63f8058692
-      internalID: -2105870382
+      spriteID: fe36e491fe5f30e43962cabd1acacc24
+      internalID: -972068574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_19
+      name: NoAtmosfer 2_37
+      rect:
+        serializedVersion: 2
+        x: 7104
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e605a814bab63164e915d429f3306063
+      internalID: 860303332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_38
       rect:
         serializedVersion: 2
         x: 7296
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,20 +935,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28261e8da606e40489725606bbe10d87
-      internalID: -1201377741
+      spriteID: 9d35257d40759d0408250a8d108f9f3a
+      internalID: -1731844952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_20
+      name: NoAtmosfer 2_39
+      rect:
+        serializedVersion: 2
+        x: 7488
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62692a50eddd0094cbef8aa80f408c56
+      internalID: -367580756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_40
       rect:
         serializedVersion: 2
         x: 7680
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -557,20 +977,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759bc1011639d424fb97c7aad5c7c6e8
-      internalID: -1500009404
+      spriteID: 0be0ca7b17a1c75458f0dece1ea5445d
+      internalID: 516967177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_21
+      name: NoAtmosfer 2_41
+      rect:
+        serializedVersion: 2
+        x: 7872
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c0a366031edbb94b80f413b49957d16
+      internalID: -2005645218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_42
       rect:
         serializedVersion: 2
         x: 8064
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,20 +1019,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e0533aaba29b6449ae0cba61e2cb10d
-      internalID: -1906574897
+      spriteID: 1639cc6b0f76c5b4398a725ec08040a3
+      internalID: 603409390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_22
+      name: NoAtmosfer 2_43
+      rect:
+        serializedVersion: 2
+        x: 8256
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7de77e990ec7884b9435aa9da4d68fa
+      internalID: -2075121076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_44
       rect:
         serializedVersion: 2
         x: 8448
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -599,20 +1061,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d65b4ff167fc1140876aa3699773dcd
-      internalID: -1209709056
+      spriteID: 6608c3cc32a99a64b88a860646d2c99b
+      internalID: 1085273694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_23
+      name: NoAtmosfer 2_45
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c10701178c859d4ca63391f239c97d8
+      internalID: -284960841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_46
       rect:
         serializedVersion: 2
         x: 8832
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -620,20 +1103,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6af14a00f354a6468a350f964f323fd
-      internalID: 821650580
+      spriteID: bba86f61573d2af4bb587b3041e52b14
+      internalID: 1000676337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_24
+      name: NoAtmosfer 2_47
+      rect:
+        serializedVersion: 2
+        x: 9024
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d003c0156a536f49ad88e83e7026369
+      internalID: 489347843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoAtmosfer 2_48
       rect:
         serializedVersion: 2
         x: 9216
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -641,20 +1145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d5fa9de0a4f65488b55aefbdf4810d
-      internalID: 1900363550
+      spriteID: f6cc080bce7ce3748821ce6476639de4
+      internalID: 236848104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_25
+      name: NoAtmosfer 2_49
       rect:
         serializedVersion: 2
-        x: 9600
+        x: 9408
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -662,344 +1166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fc18ca166658d942a1a003c537229da
-      internalID: 1938081088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_26
-      rect:
-        serializedVersion: 2
-        x: 9984
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b254d63390d327442910a1f470f6f177
-      internalID: -1122444341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_27
-      rect:
-        serializedVersion: 2
-        x: 10368
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16c6f14a4bd01734c845cff472a56512
-      internalID: 474874578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_28
-      rect:
-        serializedVersion: 2
-        x: 10752
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4191b6bd3926c94ea9cf6c09560aacb
-      internalID: -1873078338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_29
-      rect:
-        serializedVersion: 2
-        x: 11136
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 911d45acb9aa3c745870dc981ce6cf94
-      internalID: -852346330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_30
-      rect:
-        serializedVersion: 2
-        x: 11520
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 151bc027fa3fcf9458836b5be5d74fee
-      internalID: -200854499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_31
-      rect:
-        serializedVersion: 2
-        x: 11904
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94aa1259ab74b294ab9e2e305ec510bf
-      internalID: 1856290624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_32
-      rect:
-        serializedVersion: 2
-        x: 12288
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f67a6090843ca0c4f926ad688a238be9
-      internalID: 1317830168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_33
-      rect:
-        serializedVersion: 2
-        x: 12672
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 342b38e72bacfcc4cae30aad5ac3a594
-      internalID: -230133380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_34
-      rect:
-        serializedVersion: 2
-        x: 13056
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77d21891bc2221145bd385be833f8619
-      internalID: -1779968567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_35
-      rect:
-        serializedVersion: 2
-        x: 13440
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc40b794ec8673a4eb1567f72f950c0f
-      internalID: -2099344155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_36
-      rect:
-        serializedVersion: 2
-        x: 13824
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2db09ad2a0017304fb82932b61320b29
-      internalID: 161565061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_37
-      rect:
-        serializedVersion: 2
-        x: 14208
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91e9b4d63d40a6b47a32a00075e50cd8
-      internalID: -2133504590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_38
-      rect:
-        serializedVersion: 2
-        x: 14592
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d32ac2c0a9493dd429e54724f03d38c3
-      internalID: -1497896130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_39
-      rect:
-        serializedVersion: 2
-        x: 14976
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58f2be6013dff594bbf2c1eb297d92d7
-      internalID: 1231267997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_40
-      rect:
-        serializedVersion: 2
-        x: 15360
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cc5cdc93ee3ee24398540b4daca86ff
-      internalID: -496635476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_41
-      rect:
-        serializedVersion: 2
-        x: 15744
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9555120e40691ed4abdce08bf06997ac
-      internalID: -312850876
+      spriteID: 9dc40f97ba91ecd468d099d0f181de86
+      internalID: 1639033743
       vertices: []
       indices: 
       edges: []
@@ -1015,48 +1183,56 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Star_0: -745312907
-      Star_1: 241672555
-      Star_10: 233863619
-      Star_11: 1953198521
-      Star_12: 1049805016
-      Star_13: -1066690271
-      Star_14: 1717274831
-      Star_15: -90414862
-      Star_16: 1274279308
-      Star_17: 2106754069
-      Star_18: -2105870382
-      Star_19: -1201377741
-      Star_2: -1346643138
-      Star_20: -1500009404
-      Star_21: -1906574897
-      Star_22: -1209709056
-      Star_23: 821650580
-      Star_24: 1900363550
-      Star_25: 1938081088
-      Star_26: -1122444341
-      Star_27: 474874578
-      Star_28: -1873078338
-      Star_29: -852346330
-      Star_3: 941718924
-      Star_30: -200854499
-      Star_31: 1856290624
-      Star_32: 1317830168
-      Star_33: -230133380
-      Star_34: -1779968567
-      Star_35: -2099344155
-      Star_36: 161565061
-      Star_37: -2133504590
-      Star_38: -1497896130
-      Star_39: 1231267997
-      Star_4: -99655861
-      Star_40: -496635476
-      Star_41: -312850876
-      Star_5: 1512460186
-      Star_6: 2085183699
-      Star_7: -1012128524
-      Star_8: -671540593
-      Star_9: 1021806813
+      NoAtmosfer 2_0: -79235514
+      NoAtmosfer 2_1: 407057976
+      NoAtmosfer 2_10: -1613630445
+      NoAtmosfer 2_11: 1520415755
+      NoAtmosfer 2_12: 895542280
+      NoAtmosfer 2_13: -1692392568
+      NoAtmosfer 2_14: -1488185671
+      NoAtmosfer 2_15: 9251634
+      NoAtmosfer 2_16: -657193297
+      NoAtmosfer 2_17: 936658551
+      NoAtmosfer 2_18: 158433032
+      NoAtmosfer 2_19: 140242875
+      NoAtmosfer 2_2: -1332665635
+      NoAtmosfer 2_20: -329707578
+      NoAtmosfer 2_21: 1259895587
+      NoAtmosfer 2_22: -810734061
+      NoAtmosfer 2_23: -1449749423
+      NoAtmosfer 2_24: -1162352806
+      NoAtmosfer 2_25: -1148032666
+      NoAtmosfer 2_26: -493099788
+      NoAtmosfer 2_27: -809475546
+      NoAtmosfer 2_28: 417145066
+      NoAtmosfer 2_29: 21693504
+      NoAtmosfer 2_3: 707083783
+      NoAtmosfer 2_30: -763235091
+      NoAtmosfer 2_31: -2068420477
+      NoAtmosfer 2_32: 1908026464
+      NoAtmosfer 2_33: 1996384043
+      NoAtmosfer 2_34: -155432094
+      NoAtmosfer 2_35: -108157025
+      NoAtmosfer 2_36: -972068574
+      NoAtmosfer 2_37: 860303332
+      NoAtmosfer 2_38: -1731844952
+      NoAtmosfer 2_39: -367580756
+      NoAtmosfer 2_4: -560043353
+      NoAtmosfer 2_40: 516967177
+      NoAtmosfer 2_41: -2005645218
+      NoAtmosfer 2_42: 603409390
+      NoAtmosfer 2_43: -2075121076
+      NoAtmosfer 2_44: 1085273694
+      NoAtmosfer 2_45: -284960841
+      NoAtmosfer 2_46: 1000676337
+      NoAtmosfer 2_47: 489347843
+      NoAtmosfer 2_48: 236848104
+      NoAtmosfer 2_49: 1639033743
+      NoAtmosfer 2_5: -658055283
+      NoAtmosfer 2_6: 2072994502
+      NoAtmosfer 2_7: 1211576967
+      NoAtmosfer 2_8: -1902545026
+      NoAtmosfer 2_9: 1637633277
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

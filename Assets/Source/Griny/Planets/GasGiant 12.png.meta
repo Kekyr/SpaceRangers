@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f8bf5f74650ede47b9a8eb0f2b9e977
+guid: 6a9d6b85f3aa2db4d9d22f83699dfa59
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Star_0
+      name: GasGiant 12_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22c3213a0272df642841753e568f5ba8
-      internalID: -745312907
+      spriteID: 386360acf93f7c945807955efbe80828
+      internalID: -1322154234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_1
+      name: GasGiant 12_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f2985a765a3844d90156179f43d3b1
+      internalID: -1197382592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_2
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +179,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e4e2556bdb2e44bb19a6e249522ef0
-      internalID: 241672555
+      spriteID: 7ea2382fa26a0984eb30dd419db77808
+      internalID: -155726626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_2
+      name: GasGiant 12_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2cedab6fe6ae194d8c952bd3f5e06af
+      internalID: 1193770727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_4
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +221,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f690c066f8e06f64eb886adb42ffe06a
-      internalID: -1346643138
+      spriteID: 2dffeeb03f9b0d546bfa47968334515f
+      internalID: -228381009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_3
+      name: GasGiant 12_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd89e22d73feb8d42bbf475c947d251c
+      internalID: 741160891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_6
       rect:
         serializedVersion: 2
         x: 1152
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +263,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10b71da74ff525e40b9a01a3d162394d
-      internalID: 941718924
+      spriteID: ea1ef13ae62f0ab4ab344353d3d54866
+      internalID: 1707946311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_4
+      name: GasGiant 12_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d249e0a6d31de4c94abf82ffe21357
+      internalID: -314534857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_8
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +305,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 211f216353199be4baf3c1ba358601de
-      internalID: -99655861
+      spriteID: c1f4c8b2c83724c45aa5e0b9cbd2d4ee
+      internalID: 321456701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_5
+      name: GasGiant 12_9
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 494f236870a5cba42af938777f705cf3
+      internalID: -1626177354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_10
       rect:
         serializedVersion: 2
         x: 1920
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +347,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a5467be32c33e0408f1baebcb60bd11
-      internalID: 1512460186
+      spriteID: 83d6f1b02a9344b40881f0ff1d18a03e
+      internalID: -925603109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_6
+      name: GasGiant 12_11
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d042bfd50e10b5e40bc7cf79ce20d6cc
+      internalID: 1847211309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_12
       rect:
         serializedVersion: 2
         x: 2304
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +389,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf158107595bf8246b361fb17dcde4fe
-      internalID: 2085183699
+      spriteID: a5d77b3ac989c6f43939eee668abc312
+      internalID: -115951129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_7
+      name: GasGiant 12_13
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9669b502fd35c894e8b6f6f788c18c8b
+      internalID: 2027783956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_14
       rect:
         serializedVersion: 2
         x: 2688
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +431,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44ee7cf869dcac04fae53c635ac291df
-      internalID: -1012128524
+      spriteID: 536f7dfd4596f16449110b5c4b5abe6a
+      internalID: 1935280005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_8
+      name: GasGiant 12_15
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 240fad6ed6547f34e8474e74d4f97c05
+      internalID: -1348053300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_16
       rect:
         serializedVersion: 2
         x: 3072
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +473,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b05251ec52cabd4d98740be2a5ebc75
-      internalID: -671540593
+      spriteID: 952a70755f2cdfa4895431d18aa54fee
+      internalID: -780139232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_9
+      name: GasGiant 12_17
+      rect:
+        serializedVersion: 2
+        x: 3264
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf68c491c69ff12479aeab3d342f8a81
+      internalID: -84166520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_18
       rect:
         serializedVersion: 2
         x: 3456
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +515,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a3fc25af00bc664087c8567a5de6940
-      internalID: 1021806813
+      spriteID: b8179f85b66e82741852ba96ef6896df
+      internalID: 1885851759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_10
+      name: GasGiant 12_19
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e34911dfb9f68c448f350389af7f1d0
+      internalID: 781646975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_20
       rect:
         serializedVersion: 2
         x: 3840
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +557,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cb76209244bba94d8f6e18312a2d5ca
-      internalID: 233863619
+      spriteID: 8ca4a79d79f74ee4a865eac39ecea0b6
+      internalID: -1925020916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_11
+      name: GasGiant 12_21
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae0e422e1735aa47a6e88efb7c79f04
+      internalID: 413937410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_22
       rect:
         serializedVersion: 2
         x: 4224
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +599,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4288bb4de25fdcc4b911c1b4c2250562
-      internalID: 1953198521
+      spriteID: 21648a78b2e85c745923ed8f986c5379
+      internalID: 961483889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_12
+      name: GasGiant 12_23
+      rect:
+        serializedVersion: 2
+        x: 4416
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26fe707f9e4a1a48874644a73f625a1
+      internalID: -1533737810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_24
       rect:
         serializedVersion: 2
         x: 4608
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +641,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb13ade970d0bfd498a2bd0bc08152f1
-      internalID: 1049805016
+      spriteID: 12ade86da8b6da64fa2a76bacf050d57
+      internalID: -802528072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_13
+      name: GasGiant 12_25
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd4a9fc923618a4bbd459a5886999be
+      internalID: -104599974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_26
       rect:
         serializedVersion: 2
         x: 4992
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +683,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68400ea0cf893054ea57db625f52e5a2
-      internalID: -1066690271
+      spriteID: 6967b5ce79b3d074badc9ed9c84ce327
+      internalID: 1682138186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_14
+      name: GasGiant 12_27
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58feb0cc6396c4a488a803f7021313aa
+      internalID: 803014535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_28
       rect:
         serializedVersion: 2
         x: 5376
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +725,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4076948b8c3029e4ca58a8fbf2d3a768
-      internalID: 1717274831
+      spriteID: c3a1d3b1367ee6a48aed2e53745b6d0d
+      internalID: 2131061960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_15
+      name: GasGiant 12_29
+      rect:
+        serializedVersion: 2
+        x: 5568
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f2688c26bc4064584c7cbd6ee6839c
+      internalID: 293948823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_30
       rect:
         serializedVersion: 2
         x: 5760
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +767,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00407574e0d0f4438536403e0929869
-      internalID: -90414862
+      spriteID: 26e9f613243c43647ac98b4215eb28d4
+      internalID: -2042183646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_16
+      name: GasGiant 12_31
+      rect:
+        serializedVersion: 2
+        x: 5952
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07f81c79960c0c41a7ac394405b79b4
+      internalID: -453248926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_32
       rect:
         serializedVersion: 2
         x: 6144
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,20 +809,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3d19ee8d8250d4ba8fd06d574f69fe
-      internalID: 1274279308
+      spriteID: 543a3ec30ff0e244aabb88e35e97dc91
+      internalID: -1051218610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_17
+      name: GasGiant 12_33
+      rect:
+        serializedVersion: 2
+        x: 6336
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f6f5458bb7f7c4fb281f38e82f82f4
+      internalID: -1987327799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_34
       rect:
         serializedVersion: 2
         x: 6528
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,20 +851,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d4709a732e99343ae07d8a2a26a6b3
-      internalID: 2106754069
+      spriteID: 488fb6229979e9c49b83c92d25896d1d
+      internalID: -1552344606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_18
+      name: GasGiant 12_35
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69ea3cc8d89cbe4da9e6195b0eafb9e
+      internalID: 858768344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_36
       rect:
         serializedVersion: 2
         x: 6912
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,20 +893,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9ffbfe46e5f714ab833b63f8058692
-      internalID: -2105870382
+      spriteID: 988c1ed5e1a43b2448a2f4e98e939b05
+      internalID: -853515513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_19
+      name: GasGiant 12_37
+      rect:
+        serializedVersion: 2
+        x: 7104
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f81ae768b7bb745a06814ab84386cc
+      internalID: -1568148169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_38
       rect:
         serializedVersion: 2
         x: 7296
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,20 +935,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28261e8da606e40489725606bbe10d87
-      internalID: -1201377741
+      spriteID: d494d9b7157af8e41b8a52cdfce724d6
+      internalID: 1647047962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_20
+      name: GasGiant 12_39
+      rect:
+        serializedVersion: 2
+        x: 7488
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284cbf80d026618449dbda3bf977c4b3
+      internalID: -10002516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_40
       rect:
         serializedVersion: 2
         x: 7680
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -557,20 +977,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759bc1011639d424fb97c7aad5c7c6e8
-      internalID: -1500009404
+      spriteID: 810db2a71367a1d4f99fc5ae0a6b5098
+      internalID: 103676866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_21
+      name: GasGiant 12_41
+      rect:
+        serializedVersion: 2
+        x: 7872
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b42c97d51dfc5c4d9b39a3b59509b71
+      internalID: 1359798815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_42
       rect:
         serializedVersion: 2
         x: 8064
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,20 +1019,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e0533aaba29b6449ae0cba61e2cb10d
-      internalID: -1906574897
+      spriteID: 0bba40844f5198c4299935adde929ed1
+      internalID: -1534109821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_22
+      name: GasGiant 12_43
+      rect:
+        serializedVersion: 2
+        x: 8256
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44feca08b96a3a42b77e9c87fb8ae43
+      internalID: 1022993539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_44
       rect:
         serializedVersion: 2
         x: 8448
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -599,20 +1061,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d65b4ff167fc1140876aa3699773dcd
-      internalID: -1209709056
+      spriteID: 02b5f688453ed564599edf3d2e05e425
+      internalID: 351624543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_23
+      name: GasGiant 12_45
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64fcd70e1698ae428496718368120c4
+      internalID: 911824336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_46
       rect:
         serializedVersion: 2
         x: 8832
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -620,20 +1103,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6af14a00f354a6468a350f964f323fd
-      internalID: 821650580
+      spriteID: b35232124796a8f4b92ebfd7fe0fc326
+      internalID: 825136491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_24
+      name: GasGiant 12_47
+      rect:
+        serializedVersion: 2
+        x: 9024
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335609ec98c47ba45b2eb60330520e8c
+      internalID: -750601836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasGiant 12_48
       rect:
         serializedVersion: 2
         x: 9216
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -641,20 +1145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d5fa9de0a4f65488b55aefbdf4810d
-      internalID: 1900363550
+      spriteID: 5c4e40e8500f852419f2919b091ceaf5
+      internalID: -1949555983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_25
+      name: GasGiant 12_49
       rect:
         serializedVersion: 2
-        x: 9600
+        x: 9408
         y: 0
-        width: 384
-        height: 384
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -662,344 +1166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fc18ca166658d942a1a003c537229da
-      internalID: 1938081088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_26
-      rect:
-        serializedVersion: 2
-        x: 9984
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b254d63390d327442910a1f470f6f177
-      internalID: -1122444341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_27
-      rect:
-        serializedVersion: 2
-        x: 10368
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16c6f14a4bd01734c845cff472a56512
-      internalID: 474874578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_28
-      rect:
-        serializedVersion: 2
-        x: 10752
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4191b6bd3926c94ea9cf6c09560aacb
-      internalID: -1873078338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_29
-      rect:
-        serializedVersion: 2
-        x: 11136
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 911d45acb9aa3c745870dc981ce6cf94
-      internalID: -852346330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_30
-      rect:
-        serializedVersion: 2
-        x: 11520
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 151bc027fa3fcf9458836b5be5d74fee
-      internalID: -200854499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_31
-      rect:
-        serializedVersion: 2
-        x: 11904
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94aa1259ab74b294ab9e2e305ec510bf
-      internalID: 1856290624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_32
-      rect:
-        serializedVersion: 2
-        x: 12288
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f67a6090843ca0c4f926ad688a238be9
-      internalID: 1317830168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_33
-      rect:
-        serializedVersion: 2
-        x: 12672
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 342b38e72bacfcc4cae30aad5ac3a594
-      internalID: -230133380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_34
-      rect:
-        serializedVersion: 2
-        x: 13056
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77d21891bc2221145bd385be833f8619
-      internalID: -1779968567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_35
-      rect:
-        serializedVersion: 2
-        x: 13440
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc40b794ec8673a4eb1567f72f950c0f
-      internalID: -2099344155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_36
-      rect:
-        serializedVersion: 2
-        x: 13824
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2db09ad2a0017304fb82932b61320b29
-      internalID: 161565061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_37
-      rect:
-        serializedVersion: 2
-        x: 14208
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91e9b4d63d40a6b47a32a00075e50cd8
-      internalID: -2133504590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_38
-      rect:
-        serializedVersion: 2
-        x: 14592
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d32ac2c0a9493dd429e54724f03d38c3
-      internalID: -1497896130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_39
-      rect:
-        serializedVersion: 2
-        x: 14976
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58f2be6013dff594bbf2c1eb297d92d7
-      internalID: 1231267997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_40
-      rect:
-        serializedVersion: 2
-        x: 15360
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cc5cdc93ee3ee24398540b4daca86ff
-      internalID: -496635476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_41
-      rect:
-        serializedVersion: 2
-        x: 15744
-        y: 0
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9555120e40691ed4abdce08bf06997ac
-      internalID: -312850876
+      spriteID: eb061c3b0a4f72540a56e35f6275d3e8
+      internalID: -1491371984
       vertices: []
       indices: 
       edges: []
@@ -1015,48 +1183,56 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Star_0: -745312907
-      Star_1: 241672555
-      Star_10: 233863619
-      Star_11: 1953198521
-      Star_12: 1049805016
-      Star_13: -1066690271
-      Star_14: 1717274831
-      Star_15: -90414862
-      Star_16: 1274279308
-      Star_17: 2106754069
-      Star_18: -2105870382
-      Star_19: -1201377741
-      Star_2: -1346643138
-      Star_20: -1500009404
-      Star_21: -1906574897
-      Star_22: -1209709056
-      Star_23: 821650580
-      Star_24: 1900363550
-      Star_25: 1938081088
-      Star_26: -1122444341
-      Star_27: 474874578
-      Star_28: -1873078338
-      Star_29: -852346330
-      Star_3: 941718924
-      Star_30: -200854499
-      Star_31: 1856290624
-      Star_32: 1317830168
-      Star_33: -230133380
-      Star_34: -1779968567
-      Star_35: -2099344155
-      Star_36: 161565061
-      Star_37: -2133504590
-      Star_38: -1497896130
-      Star_39: 1231267997
-      Star_4: -99655861
-      Star_40: -496635476
-      Star_41: -312850876
-      Star_5: 1512460186
-      Star_6: 2085183699
-      Star_7: -1012128524
-      Star_8: -671540593
-      Star_9: 1021806813
+      GasGiant 12_0: -1322154234
+      GasGiant 12_1: -1197382592
+      GasGiant 12_10: -925603109
+      GasGiant 12_11: 1847211309
+      GasGiant 12_12: -115951129
+      GasGiant 12_13: 2027783956
+      GasGiant 12_14: 1935280005
+      GasGiant 12_15: -1348053300
+      GasGiant 12_16: -780139232
+      GasGiant 12_17: -84166520
+      GasGiant 12_18: 1885851759
+      GasGiant 12_19: 781646975
+      GasGiant 12_2: -155726626
+      GasGiant 12_20: -1925020916
+      GasGiant 12_21: 413937410
+      GasGiant 12_22: 961483889
+      GasGiant 12_23: -1533737810
+      GasGiant 12_24: -802528072
+      GasGiant 12_25: -104599974
+      GasGiant 12_26: 1682138186
+      GasGiant 12_27: 803014535
+      GasGiant 12_28: 2131061960
+      GasGiant 12_29: 293948823
+      GasGiant 12_3: 1193770727
+      GasGiant 12_30: -2042183646
+      GasGiant 12_31: -453248926
+      GasGiant 12_32: -1051218610
+      GasGiant 12_33: -1987327799
+      GasGiant 12_34: -1552344606
+      GasGiant 12_35: 858768344
+      GasGiant 12_36: -853515513
+      GasGiant 12_37: -1568148169
+      GasGiant 12_38: 1647047962
+      GasGiant 12_39: -10002516
+      GasGiant 12_4: -228381009
+      GasGiant 12_40: 103676866
+      GasGiant 12_41: 1359798815
+      GasGiant 12_42: -1534109821
+      GasGiant 12_43: 1022993539
+      GasGiant 12_44: 351624543
+      GasGiant 12_45: 911824336
+      GasGiant 12_46: 825136491
+      GasGiant 12_47: -750601836
+      GasGiant 12_48: -1949555983
+      GasGiant 12_49: -1491371984
+      GasGiant 12_5: 741160891
+      GasGiant 12_6: 1707946311
+      GasGiant 12_7: -314534857
+      GasGiant 12_8: 321456701
+      GasGiant 12_9: -1626177354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
