@@ -9,10 +9,8 @@ namespace Enemy
 {
     [RequireComponent(typeof(EnemyHealth))]
     [RequireComponent(typeof(EnemyShield))]
-    [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(SFX))]
     [RequireComponent(typeof(CinemachineImpulseSource))]
-    [RequireComponent(typeof(SpriteRenderer))]
     public class EnemyShip : Attacker
     {
         private readonly string _destruction = "Destruction";
@@ -26,6 +24,7 @@ namespace Enemy
         [SerializeField] private SFXSO _explosionSFX;
 
         private SpriteModifier _spriteModifier;
+        private ScreenAdjuster _screenAdjuster;
         private Vector3 _impulseVelocity;
 
         private CinemachineImpulseSource _impulseSource;
@@ -34,25 +33,17 @@ namespace Enemy
         private EnemyShield _enemyShield;
         private Animator _animator;
         private SFX _sfx;
+        private Collider2D _collider;
 
         public event Action Destroyed;
         public event Action<EnemyShip> Annihilated;
         public event Action<EnemyShip> Exited;
+        public event Action Reseted;
 
         public EnemyDataSO Data => _data;
 
         private void Awake()
         {
-            if (_impulseForce == 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_impulseForce));
-            }
-
-            if (_impulseDirection == Vector3.zero)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_impulseDirection));
-            }
-
             if (_shieldSpriteRenderer == null)
             {
                 throw new ArgumentNullException(nameof(_shieldSpriteRenderer));
@@ -72,39 +63,28 @@ namespace Enemy
             {
                 throw new ArgumentNullException(nameof(_explosionSFX));
             }
-
+            
             _enemyHealth = GetComponent<EnemyHealth>();
             _enemyShield = GetComponent<EnemyShield>();
             _animator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _sfx = GetComponent<SFX>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
-
+            _collider = GetComponent<Collider2D>();
+            
             _impulseVelocity = _impulseDirection * _impulseForce;
-
-            _enemyHealth.Died += OnDie;
         }
 
-        private void OnDestroy()
+        private void OnEnable()
+        {
+            _enemyHealth.Died += OnDie;
+            _screenAdjuster.ResolutionChanged += OnResolutionChanged;
+        }
+
+        private void OnDisable()
         {
             _enemyHealth.Died -= OnDie;
-        }
-
-        private void OnDie()
-        {
-            Deactivate();
-        }
-
-        public void Init(SpriteModifier spriteModifier)
-        {
-            _spriteModifier = spriteModifier;
-        }
-
-        private void Deactivate()
-        {
-            _sfx.Play(_explosionSFX);
-            _animator.SetBool(_destruction, true);
-            _impulseSource.GenerateImpulseWithVelocity(_impulseVelocity);
+            _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
@@ -129,6 +109,35 @@ namespace Enemy
             }
         }
 
+        public void Init(SpriteModifier spriteModifier, ScreenAdjuster screenAdjuster)
+        {
+            _spriteModifier = spriteModifier;
+            _screenAdjuster = screenAdjuster;
+            enabled = true;
+        }
+
+        public void Reset()
+        {
+            Reseted?.Invoke();
+        }
+
+        private void OnDie()
+        {
+            Deactivate();
+        }
+
+        private void Deactivate()
+        {
+            _sfx.Play(_explosionSFX);
+            _animator.SetTrigger(_destruction);
+            _impulseSource.GenerateImpulseWithVelocity(_impulseVelocity);
+        }
+
+        private void OnResolutionChanged()
+        {
+            _screenAdjuster.Clamp(transform, _collider);
+        }
+
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out AutoGunsZone autoGunsZone))
@@ -139,11 +148,9 @@ namespace Enemy
 
         private void OnDestruct()
         {
-            _animator.SetBool(_destruction, false);
-            gameObject.SetActive(false);
-            _animator.SetBool(_destruction, false);
-            Destroyed?.Invoke();
             Annihilated?.Invoke(this);
+            gameObject.SetActive(false);
+            Destroyed?.Invoke();
         }
     }
 }

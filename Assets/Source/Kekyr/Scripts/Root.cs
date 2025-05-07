@@ -1,9 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Audio;
-using Enemy;
 using LevelEnemy;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,17 +10,18 @@ namespace ShipBase
 {
     public class Root : MonoBehaviour
     {
+        private readonly float _initTime = 0.001f;
+
         [SerializeField] private Camera _camera;
         [SerializeField] private AutoGunsZone _autoGunsZone;
-        [SerializeField] private Button _addRocketButton;
-        [SerializeField] private List<EnemySpawner> _enemySpawners;
+        [SerializeField] private EnemySpawners _enemySpawners;
         [SerializeField] private SpriteModifier _spriteModifier;
         [SerializeField] private Score _score;
         [SerializeField] private Wallet _wallet;
         [SerializeField] private Music _music;
         [SerializeField] private Timer _timer;
 
-        [SerializeField] private Transform _enemyBulletsContainer;
+        [SerializeField] private GameObject _enemyBulletsContainer;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private CoinPool _coinPool;
 
@@ -30,10 +30,16 @@ namespace ShipBase
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
         [SerializeField] private WalletView _walletView;
-        [SerializeField] private RocketView _rocketView;
         [SerializeField] private ScoreView _scoreView;
         [SerializeField] private TimerView _timerView;
-        [SerializeField] private RawImage _background;
+
+        [SerializeField] private RocketView _rocketView;
+        [SerializeField] private Button _addRocketButton;
+
+        [SerializeField] private LosePopup _losePopup;
+        [SerializeField] private WinPopup _winPopup;
+
+        [SerializeField] private RawImage _backgroundImage;
 
         [SerializeField] private ImprovementsSO<GameObject> _bulletData;
         [SerializeField] private ImprovementsSO<GameObject> _shipData;
@@ -43,6 +49,8 @@ namespace ShipBase
         [SerializeField] private LevelSO _levelData;
 
         [SerializeField] private Canvas _canvas;
+        [SerializeField] private BordersAdjuster _bordersAdjuster;
+        [SerializeField] private ScreenAdjuster _screenAdjuster;
 
         private void Validate()
         {
@@ -66,9 +74,9 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_addRocketButton));
             }
 
-            if (_enemySpawners.Count == 0)
+            if (_enemySpawners == null)
             {
-                throw new ArgumentOutOfRangeException(nameof(_enemySpawners));
+                throw new ArgumentNullException(nameof(_enemySpawners));
             }
 
             if (_spriteModifier == null)
@@ -176,9 +184,29 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_timerView));
             }
 
-            if (_background == null)
+            if (_losePopup == null)
             {
-                throw new ArgumentNullException(nameof(_background));
+                throw new ArgumentNullException(nameof(_losePopup));
+            }
+
+            if (_winPopup == null)
+            {
+                throw new ArgumentNullException(nameof(_winPopup));
+            }
+
+            if (_backgroundImage == null)
+            {
+                throw new ArgumentNullException(nameof(_backgroundImage));
+            }
+
+            if (_bordersAdjuster == null)
+            {
+                throw new ArgumentNullException(nameof(_bordersAdjuster));
+            }
+
+            if (_screenAdjuster == null)
+            {
+                throw new ArgumentNullException(nameof(_screenAdjuster));
             }
         }
 
@@ -186,13 +214,17 @@ namespace ShipBase
         {
             Validate();
 
-            _background.texture = _backgroundData.CurrentTexture;
+            _backgroundImage.texture = _backgroundData.CurrentTexture;
+
+            _screenAdjuster.Init(_canvas, _camera, _backgroundImage);
+            _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 
+            PlayerInputRouter playerInputRouter = player.GetComponent<PlayerInputRouter>();
             Ship ship = player.GetComponent<Ship>();
             DamageHandler damageHandler = player.GetComponent<DamageHandler>();
-            Movement movement = player.GetComponent<Movement>();
+            Movement[] movements = player.GetComponents<Movement>();
             ShipHealth health = player.GetComponent<ShipHealth>();
             Shield shield = player.GetComponentInChildren<Shield>();
             RocketLauncher rocketLauncher = player.GetComponentInChildren<RocketLauncher>();
@@ -200,27 +232,37 @@ namespace ShipBase
 
             _coinPool.Init(player.transform, health);
 
+            _losePopup.Init(health);
+            _winPopup.Init(_timer);
+
             if (player.TryGetComponent(out AutoGuns autoGuns))
             {
                 autoGuns.Init(_autoGunsZone);
             }
 
-            ship.Init(_wallet);
+            ship.Init(_wallet, _screenAdjuster);
             damageHandler.Init(_spriteModifier);
-            movement.Init(_camera);
+
+            for (int i = 0; i < movements.Length; i++)
+            {
+                movements[i].Init(_camera, _canvas);
+            }
+
             rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel, _rewardedAd);
             pool.Init(_bulletData.CurrentLevel);
             shield.Init(_shieldData.CurrentLevel);
 
-            _timer.Init(_levelData.Duration);
+            _timerView.Init(_timer);
+            _timer.Init(_levelData);
             _music.Init(_timer);
 
             _healthView.Init(health);
             _shieldView.Init(shield);
             _walletView.Init(_wallet);
             _scoreView.Init(_score);
-            _timerView.Init(_timer);
 
+            AddRocketButton addRocketButton = _addRocketButton.GetComponent<AddRocketButton>();
+            addRocketButton.Init(_rewardedAd);
             _rocketView.Init(rocketLauncher);
 
             if (_rocketData.CurrentLevel == 0)
@@ -232,11 +274,20 @@ namespace ShipBase
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
-            for (int i = 0; i < _enemySpawners.Count; i++)
-            {
-                _enemySpawners[i].Init(enemySpawnersData[i], _spriteModifier, _enemyBulletsContainer, _coinPool,
-                    _score, _camera, _canvas);
-            }
+            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winPopup);
+            _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
+                _score, _timer, _levelData);
+
+            StartCoroutine(Initialization());
+        }
+
+        private IEnumerator Initialization()
+        {
+            yield return new WaitForSeconds(_initTime);
+            _bordersAdjuster.OnResolutionChanged();
+            _screenAdjuster.ChangeBackground();
+            _enemySpawners.OnResolutionChanged();
+            _screenAdjuster.enabled = true;
         }
     }
 }

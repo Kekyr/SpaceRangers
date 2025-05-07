@@ -44,14 +44,14 @@ namespace ShipBase
             }
 
             _health = GetComponent<ShipHealth>();
-            _health.Died += OnDead;
+            _health.Dying += OnDead;
 
             StartCoroutine(Spawn());
         }
 
         private void OnDisable()
         {
-            _health.Died -= OnDead;
+            _health.Dying -= OnDead;
         }
 
         private IEnumerator Spawn()

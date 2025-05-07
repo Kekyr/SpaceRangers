@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8163783931233371029}
   - component: {fileID: 5517523574363414388}
   - component: {fileID: 2022658540640693381}
-  - component: {fileID: 3850602350457569866}
-  - component: {fileID: 2712725669481439722}
+  - component: {fileID: 5791029696535018171}
+  - component: {fileID: 7529197807120151000}
   m_Layer: 0
   m_Name: NautolanRocketTorpedo
   m_TagString: EnemyBullet
@@ -81,9 +81,9 @@ SpriteRenderer:
   m_Sprite: {fileID: -1124792117, guid: ca1405f9cbb1ead46ad482df126ca5fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
-  m_Size: {x: 0.125, y: 0.25}
+  m_Size: {x: 1.6666666, y: 1.6666666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -147,7 +147,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.41666666, y: 0.8333333}
-    newSize: {x: 0.125, y: 0.25}
+    newSize: {x: 1.6666666, y: 1.6666666}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4833151124058977201}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -182,7 +182,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3850602350457569866
+--- !u!114 &5791029696535018171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,11 +191,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4833151124058977201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da19fa62b07621b47924699b9e491394, type: 3}
+  m_Script: {fileID: 11500000, guid: f56bc1a647725e84682a33565707efdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
---- !u!114 &2712725669481439722
+--- !u!114 &7529197807120151000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,9 +203,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4833151124058977201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6449a12890df34495aaa6546a33616, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b340f6a67fa50a4cb52077405e10640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 200
-  _rigidbody: {fileID: 2022658540640693381}
-  _bullet: {fileID: 3850602350457569866}

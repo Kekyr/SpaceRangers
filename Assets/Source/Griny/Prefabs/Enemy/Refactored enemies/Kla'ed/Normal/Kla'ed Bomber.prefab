@@ -15,10 +15,18 @@ PrefabInstance:
     - target: {fileID: 148222024313390331, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: _pointInterectionUp
       value: 
-      objectReference: {fileID: 3255848746479261828}
+      objectReference: {fileID: 0}
     - target: {fileID: 1376950376579086410, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: m_FlipY
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376950376579086410, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376950376579086410, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6666666
       objectReference: {fileID: 0}
     - target: {fileID: 1376950376579086410, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: m_Sprite
@@ -113,6 +121,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6441620280635153546, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.6666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441620280635153546, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.6666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441620280635153546, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.6666666
       objectReference: {fileID: 0}
@@ -189,8 +205,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
---- !u!4 &3255848746479261828 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2317911870861927539, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
-  m_PrefabInstance: {fileID: 938430698714234103}
-  m_PrefabAsset: {fileID: 0}

@@ -24,7 +24,7 @@ public class BulletPool : MonoBehaviour
             throw new ArgumentNullException(nameof(_health));
         }
 
-        _health.Died += OnDead;
+        _health.Dying += OnDead;
 
         for (int i = 0; i < _count; i++)
         {
@@ -36,7 +36,7 @@ public class BulletPool : MonoBehaviour
 
     private void OnDisable()
     {
-        _health.Died -= OnDead;
+        _health.Dying -= OnDead;
     }
 
     public void Init(GameObject prefab)

@@ -9,40 +9,45 @@ namespace Enemy
         [SerializeField] private float _startValue;
 
         private float _value;
+        private EnemyShip _ship;
+        private bool _isDead;
 
         public event Action Died;
 
-        private void Start()
+        private void Awake()
         {
-            ResetHealth();
+            _ship = GetComponent<EnemyShip>();
+            OnReseted();
         }
 
-        public float GetHealth()
+        private void OnEnable()
         {
-            return _value;
+            _ship.Reseted += OnReseted;
         }
 
-        public float GetStartValue()
+        private void OnDisable()
         {
-            return _startValue;
+            _ship.Reseted -= OnReseted;
         }
 
-        public void ResetHealth()
+        public void OnReseted()
         {
             _value = _startValue;
-            GetActionChangedValue(_value, _startValue);
+            _isDead = false;
+            InvokeChangedValue(_value, _startValue);
         }
 
         public void TakeDamage(float damage)
         {
             _value = Mathf.Clamp(_value - damage, 0, _startValue);
 
-            if (_value == 0)
+            if (_value == 0 && _isDead == false)
             {
+                _isDead = true;
                 Died?.Invoke();
             }
 
-            GetActionChangedValue(_value, _startValue);
+            InvokeChangedValue(_value, _startValue);
         }
     }
 }

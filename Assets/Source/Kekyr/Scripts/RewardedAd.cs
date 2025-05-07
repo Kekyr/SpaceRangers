@@ -54,7 +54,6 @@ public class RewardedAd : MonoBehaviour
 
     private void OnRewardCallback(int id)
     {
-        Debug.Log("RewardCallback");
         Rewarded?.Invoke();
         _sfx.Play(_success);
     }

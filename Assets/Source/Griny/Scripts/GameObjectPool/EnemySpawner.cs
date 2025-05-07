@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,149 +6,107 @@ namespace Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private GameObject _parentBullets;
-
         private SpriteModifier _spriteModifier;
-        private Transform _enemyBulletsContainer;
         private CoinPool _coinPool;
         private Score _score;
+        private ScreenAdjuster _screenAdjuster;
+        private GameObject _enemyBulletsContainer;
 
         private EnemySpawnerSO _data;
-        private List<GameObject> _pool = new List<GameObject>();
-        private int _currentInstanceIndex = 0;
-        private List<Gun> _guns = new List<Gun>();
-        private List<Gun> _gans = new List<Gun>();
-        private List<RocketLauncher> _rocketLaunchers = new List<RocketLauncher>();
 
-        private Camera _camera;
-        private Canvas _canvas;
+        private List<GameObject> _instances = new List<GameObject>();
+
+        private int _currentInstanceIndex = 0;
+
+        public event Action Ended;
 
         private void Start()
         {
-            Initialize(_data.Prefabs, _spawnPoint);
+            foreach (GameObject prefab in _data.Prefabs)
+            {
+                Initialize(prefab, transform);
+            }
+
             Spawn();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
-            foreach (GameObject instance in _pool)
+            foreach (GameObject instance in _instances)
             {
-                instance.GetComponent<EnemyShip>().Destroyed -= Spawn;
+                EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
+                enemyShip.Destroyed -= Spawn;
+                enemyShip.Annihilated -= _coinPool.Spawn;
+                enemyShip.Annihilated -= _score.Add;
 
-                EnemyMovement enemyMovement = instance.GetComponent<EnemyMovement>();
-
-                switch (enemyMovement)
-                {
-                    case FighterEnemyMovement:
-                        break;
-
-                    case ScoutEnemyMovement:
-                        ScoutEnemyMovement scoutEnemyMovement = (ScoutEnemyMovement)enemyMovement;
-                        scoutEnemyMovement.DisabledEnemy -= Spawn;
-                        break;
-
-                    case EnemyMovement:
-                        enemyMovement.OutSight -= Spawn;
-                        break;
-                }
+                DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
+                directionChanger.OutSight -= Spawn;
             }
         }
 
         public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier,
-            Transform enemyBulletsContainer, CoinPool coinPool, Score score, Camera camera, Canvas canvas)
+            GameObject enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster)
         {
             _data = data;
             _spriteModifier = spriteModifier;
             _enemyBulletsContainer = enemyBulletsContainer;
             _coinPool = coinPool;
             _score = score;
-            _camera = camera;
-            _canvas = canvas;
+            _screenAdjuster = screenAdjuster;
             enabled = true;
         }
 
-        private void Initialize(List<GameObject> prefabs, Transform spawnPoint)
+        public EnemyShip Initialize(GameObject prefab, Transform spawnPoint)
         {
-            foreach (GameObject prefab in prefabs)
+            GameObject instance = Instantiate(prefab, spawnPoint);
+            instance.SetActive(false);
+
+            Gun gun = instance.GetComponentInChildren<Gun>();
+
+            if (gun != null)
             {
-                GameObject instance = Instantiate(prefab, spawnPoint);
-                instance.SetActive(false);
-
-                EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
-                enemyShip.Init(_spriteModifier);
-                enemyShip.Destroyed += Spawn;
-                enemyShip.Annihilated += _coinPool.Spawn;
-                enemyShip.Annihilated += _score.Add;
-
-                _guns.AddRange(instance.GetComponentsInChildren<Gun>());
-
-                foreach (Gun gun in _guns)
-                {
-                    gun.Init(_enemyBulletsContainer, _camera, _canvas);
-                }
-
-                EnemyMovement enemyMovement = instance.GetComponent<EnemyMovement>();
-                enemyMovement.Init(_camera, _canvas);
-                _rocketLaunchers.AddRange(instance.GetComponentsInChildren<RocketLauncher>());
-
-                foreach (RocketLauncher rocketLauncher in _rocketLaunchers)
-                {
-                    rocketLauncher.Init(_parentBullets);
-                }
-
-                EnemyMovement movement = instance.GetComponent<EnemyMovement>();
-
-                switch (enemyMovement)
-                {
-                    case FighterEnemyMovement:
-                        break;
-
-                    case ScoutEnemyMovement:
-                        ScoutEnemyMovement scoutEnemyMovement = (ScoutEnemyMovement)enemyMovement;
-                        scoutEnemyMovement.DisabledEnemy += Spawn;
-                        break;
-
-                    case EnemyMovement:
-                        enemyMovement.OutSight += Spawn;
-                        break;
-                }
-
-                _pool.Add(instance);
+                gun.Init(_enemyBulletsContainer.transform);
             }
+
+            RocketLauncher rocketLauncher = instance.GetComponentInChildren<RocketLauncher>();
+
+            if (rocketLauncher != null)
+            {
+                rocketLauncher.Init(_enemyBulletsContainer);
+            }
+
+            EnemyShip ship = instance.GetComponent<EnemyShip>();
+            ship.Init(_spriteModifier, _screenAdjuster);
+            ship.Destroyed += Spawn;
+            ship.Annihilated += _coinPool.Spawn;
+            ship.Annihilated += _score.Add;
+
+            DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
+            directionChanger.OutSight += Spawn;
+
+            _instances.Add(instance);
+
+            return ship;
         }
 
-        private void Spawn()
+        public void Spawn()
         {
             GameObject enemy;
 
-            if (_currentInstanceIndex >= _pool.Count)
+            if (_currentInstanceIndex >= _instances.Count)
             {
-                _currentInstanceIndex = 0;
+                Ended?.Invoke();
+                return;
             }
 
-            enemy = _pool[_currentInstanceIndex];
+            enemy = _instances[_currentInstanceIndex];
 
-            if (enemy.GetComponent<FighterNairan>())
-            {
-                enemy.GetComponent<FighterNairan>().RestsrtRockets();
-            }
+            EnemyShip enemyShip = enemy.GetComponent<EnemyShip>();
+            enemyShip.Reset();
 
+            enemy.transform.position = transform.position;
             enemy.gameObject.SetActive(true);
-            enemy.transform.position = _spawnPoint.position;
             _currentInstanceIndex++;
-
-            enemy.GetComponent<EnemyHealth>().ResetHealth();
-
-            if (enemy.TryGetComponent(out EnemyShield shield))
-            {
-                shield.ReStartValue();
-            }
-
-            if (enemy.GetComponentInChildren<SetRockets>())
-            {
-                enemy.GetComponentInChildren<SetRockets>().RestartRockets();
-            }
         }
     }
 }

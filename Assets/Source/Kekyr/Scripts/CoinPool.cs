@@ -49,12 +49,12 @@ public class CoinPool : MonoBehaviour
             }
         }
 
-        _shipHealth.Died += OnDead;
+        _shipHealth.Dying += OnDead;
     }
 
     private void OnDisable()
     {
-        _shipHealth.Died -= OnDead;
+        _shipHealth.Dying -= OnDead;
     }
 
     public void Init(Transform destination, ShipHealth shipHealth)

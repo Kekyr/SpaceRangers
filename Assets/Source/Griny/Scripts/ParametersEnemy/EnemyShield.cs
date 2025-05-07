@@ -8,16 +8,35 @@ namespace Enemy
         [SerializeField] private float _startValue;
         [SerializeField] private GameObject _shield;
 
+        private EnemyShip _ship;
         private float _value;
 
-        private void Start()
+        public event Action Emptied;
+
+        private void Awake()
         {
+            if (_startValue == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_startValue));
+            }
+
             if (_shield == null)
             {
                 throw new ArgumentNullException(nameof(_shield));
             }
-            
-            ReStartValue();
+
+            _ship = GetComponent<EnemyShip>();
+            OnReseted();
+        }
+
+        private void OnEnable()
+        {
+            _ship.Reseted += OnReseted;
+        }
+
+        private void OnDisable()
+        {
+            _ship.Reseted -= OnReseted;
         }
 
         public float GetValue()
@@ -25,15 +44,10 @@ namespace Enemy
             return _value;
         }
 
-        public float GetStartValue()
-        {
-            return _startValue;
-        }
-
-        public void ReStartValue()
+        public void OnReseted()
         {
             _value = _startValue;
-            GetActionChangedValue(_value, _startValue);
+            InvokeChangedValue(_value, _startValue);
             _shield.gameObject.SetActive(true);
         }
 
@@ -44,9 +58,10 @@ namespace Enemy
             if (_value == 0)
             {
                 _shield.gameObject.SetActive(false);
+                Emptied?.Invoke();
             }
 
-            GetActionChangedValue(_value, _startValue);
+            InvokeChangedValue(_value, _startValue);
         }
     }
 }

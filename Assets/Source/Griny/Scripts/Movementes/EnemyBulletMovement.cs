@@ -1,90 +1,55 @@
-using ShipBase;
 using UnityEngine;
-using WordGame;
 
 namespace Enemy
 {
     [RequireComponent(typeof(Bullet))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Collider2D))]
-    public class EnemyBulletMovement : EnemyMovement
+    public class EnemyBulletMovement : MonoBehaviour
     {
         private readonly string _destructionTrigger = "Destruct";
-        //private readonly string _leftBorder = "left";
-        //private readonly string _rightBorder = "right";
 
-        private Vector3 _pointInterection;
+        [SerializeField] private float _speed;
 
+        private Rigidbody2D _rigidbody;
         private Bullet _bullet;
         private Animator _animator;
         private Collider2D _collider;
 
-        /*private Camera _camera;
-        private Canvas _canvas;*/
+        private Vector3 _direction;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
+            _rigidbody = GetComponent<Rigidbody2D>();
             _bullet = GetComponent<Bullet>();
             _animator = GetComponent<Animator>();
             _collider = GetComponent<Collider2D>();
         }
 
-        private void Start()
-        {
-            //Debug.Log(Camera);
-        }
-
         private void OnEnable()
         {
+            _direction = _bullet.Direction;
             _collider.enabled = true;
         }
 
-        /*public new void Init(Camera camera, Canvas canvas)
+        private void FixedUpdate()
         {
-            _camera = camera;
-            _canvas = canvas;
-        }*/
+            _rigidbody.velocity = _direction * _speed * Time.deltaTime;
+        }
 
-
-        protected override void InteractWithWorld(float speed)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            //Debug.Log(Camera);
-
-            _pointInterection = Camera.WorldToScreenPoint(PointInterectionUp.position);
-
-            if(_pointInterection.y <= 0 || _pointInterection.x >= Canvas.pixelRect.size.x || _pointInterection.x <= 0)
+            if (collider.gameObject.CompareTag("BorderLeft") || collider.gameObject.CompareTag("BorderRight") ||
+                collider.gameObject.CompareTag("BorderDown"))
             {
-                speed = 0;
                 gameObject.SetActive(false);
             }
-        }
-
-
-        protected override Vector2 GetVelocity(float speed)
-        {
-            return _bullet.Direction * speed * Time.deltaTime;
-        }
-
-        protected override void CollideShip(Collider2D collider, float speed)
-        {
-            //base.CollideShip(collider, speed);
-
-            //if (collider.gameObject.TryGetComponent(out BackgroundBorder backgruondBorder))
-            //{
-            //    string borderName = backgruondBorder.GetName();
-
-            //    if (borderName == _leftBorder || borderName == _rightBorder)
-            //    {
-            //        gameObject.SetActive(false);
-            //    }
-            //}
 
             if (collider.gameObject.CompareTag("Player"))
             {
                 _collider.enabled = false;
-                Stop();
+                enabled = false;
+                _rigidbody.velocity = Vector3.zero;
                 _animator.SetTrigger(_destructionTrigger);
             }
         }

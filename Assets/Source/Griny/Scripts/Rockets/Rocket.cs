@@ -1,34 +1,38 @@
 using UnityEngine;
-using WordGame;
 
 namespace Enemy
 {
-    public class Rocket : MonoBehaviour
+    public class Rocket : Attacker
     {
-        private readonly string _player = "Player";
-        private readonly string _downBorder = "down";
         private readonly string _destructionTrigger = "Destruct";
 
-        [SerializeField] private MovementRocket _movementRocket;
-        [SerializeField] private Animator _animator;
+        private RocketMovement _rocketMovement;
+        private Animator _animator;
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void Awake()
         {
-            if(collision.gameObject.TryGetComponent(out BackgroundBorder backgroundBorder))
+            _rocketMovement = GetComponent<RocketMovement>();
+            _animator = GetComponent<Animator>();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.gameObject.CompareTag("BorderDown"))
             {
-                if(backgroundBorder.GetName() == _downBorder)
-                {
-                    gameObject.SetActive(false);
-                    _movementRocket.StopRocket();
-                }
+                gameObject.SetActive(false);
+                _rocketMovement.Stop();
             }
 
-            if (collision.gameObject.CompareTag(_player))
+            if (collider.gameObject.CompareTag("Player"))
             {
-                _movementRocket.StopRocket();
+                _rocketMovement.Stop();
                 _animator.SetTrigger(_destructionTrigger);
-                gameObject.SetActive(false);
             }
+        }
+
+        private void OnDestruction()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

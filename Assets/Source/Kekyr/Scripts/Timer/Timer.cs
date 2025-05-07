@@ -1,44 +1,39 @@
 using System;
 using System.Collections;
-using Audio;
+using LevelEnemy;
 using UnityEngine;
 
-[RequireComponent(typeof(SFX))]
 public class Timer : MonoBehaviour
 {
     private readonly int _endTime = 10;
     private readonly int _interval = 1;
-
-    [SerializeField] private SFXSO _winSFX;
     
     private WaitForSeconds _wait;
-    private SFX _sfx;
+    private LevelSO _levelData;
     
     private int _duration;
     
-    public event Action<int> Changed;
+    public event Action<int,int> Changed;
     public event Action Ends;
     public event Action Ended;
+    public event Action Won;
 
     public int EndTime => _endTime;
+    public int Duration => _duration;
 
-    private void OnEnable()
+    private void Start()
     {
-        if (_winSFX == null)
-        {
-            throw new ArgumentNullException(nameof(_winSFX));
-        }
-
-        _sfx = GetComponent<SFX>();
+        _duration = _levelData.Duration;
+        
         _wait = new WaitForSeconds(_interval);
         
-        Changed?.Invoke(_duration);
+        Change();
         StartCoroutine(Count());
     }
 
-    public void Init(int duration)
+    public void Init(LevelSO levelData)
     {
-        _duration = duration;
+        _levelData = levelData;
         enabled = true;
     }
 
@@ -48,8 +43,8 @@ public class Timer : MonoBehaviour
         {
             yield return _wait;
             _duration--;
-
-            Changed?.Invoke(_duration);
+            
+            Change();
             
             if (_duration <= _endTime)
             {
@@ -58,6 +53,20 @@ public class Timer : MonoBehaviour
         }
         
         Ended?.Invoke();
-        _sfx.Play(_winSFX);
+
+        if (_levelData.HasBoss == false)
+        {
+            Won?.Invoke();
+        }
+    }
+
+    private void Change()
+    {
+        int oneMinute = 60;
+
+        int minutes = (_duration / oneMinute);
+        int seconds = (_duration % oneMinute);
+        
+        Changed?.Invoke(minutes,seconds);
     }
 }

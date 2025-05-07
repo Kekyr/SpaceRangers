@@ -182,7 +182,8 @@ GameObject:
   - component: {fileID: 4944977920878906159}
   - component: {fileID: 6269437227611966999}
   - component: {fileID: 3270724344777876474}
-  - component: {fileID: 4986557118121901558}
+  - component: {fileID: 7732489064893350541}
+  - component: {fileID: 8412860025636355259}
   - component: {fileID: 6889173142970826883}
   - component: {fileID: 8683533884103963677}
   - component: {fileID: 579760332143537150}
@@ -473,14 +474,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2757126576815746414}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: deffef4b588043442ab8b08027697c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wallet: {fileID: 0}
   _damageSFX: {fileID: 11400000, guid: 7b4d1053309857844b2c89c5829930b3, type: 2}
   _explosionSFX: {fileID: 11400000, guid: d50a5f411282fc14da9c5062981f701d, type: 2}
+  _shieldCollider: {fileID: 5333303029091593037}
 --- !u!114 &3270724344777876474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +494,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63017b14a35762a428db6bde888cd231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4986557118121901558
+--- !u!114 &7732489064893350541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757126576815746414}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035a07a37d2952542b093c8c38b79a5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _engineAnimator: {fileID: 1651400367860709072}
+--- !u!114 &8412860025636355259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
