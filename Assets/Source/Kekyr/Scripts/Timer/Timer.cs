@@ -16,7 +16,6 @@ public class Timer : MonoBehaviour
     public event Action<int,int> Changed;
     public event Action Ends;
     public event Action Ended;
-    public event Action Won;
 
     public int EndTime => _endTime;
     public int Duration => _duration;
@@ -53,11 +52,6 @@ public class Timer : MonoBehaviour
         }
         
         Ended?.Invoke();
-
-        if (_levelData.HasBoss == false)
-        {
-            Won?.Invoke();
-        }
     }
 
     private void Change()

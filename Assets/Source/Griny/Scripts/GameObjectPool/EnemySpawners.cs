@@ -17,6 +17,7 @@ public class EnemySpawners : MonoBehaviour
     private Score _score;
     private Timer _timer;
     private LevelSO _levelData;
+    private WinHandler _winHandler;
     private WinPopup _winPopup;
 
     private int _endedCount;
@@ -33,7 +34,7 @@ public class EnemySpawners : MonoBehaviour
         }
 
         _screenAdjuster.ResolutionChanged += OnResolutionChanged;
-        _timer.Won += OnWon;
+        _winHandler.Won += OnWon;
     }
 
     private void OnDestroy()
@@ -44,7 +45,7 @@ public class EnemySpawners : MonoBehaviour
         }
 
         _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
-        _timer.Won -= OnWon;
+        _winHandler.Won -= OnWon;
     }
 
     private void FixedUpdate()
@@ -68,12 +69,13 @@ public class EnemySpawners : MonoBehaviour
         enabled = true;
     }
 
-    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, WinPopup winPopup)
+    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, WinPopup winPopup, WinHandler winHandler)
     {
         _canvas = canvas;
         _mainCamera = mainCamera;
         _screenAdjuster = screenAdjuster;
         _winPopup = winPopup;
+        _winHandler = winHandler;
     }
 
     public void OnResolutionChanged()
@@ -100,7 +102,7 @@ public class EnemySpawners : MonoBehaviour
         }
 
         EnemyShip boss = _spawners[1].Initialize(_levelData.BossPrefab, _spawners[1].transform);
-        _winPopup.Init(boss);
+        _winHandler.Init(boss);
         _spawners[1].Spawn();
 
         _isBossSpawned = true;
