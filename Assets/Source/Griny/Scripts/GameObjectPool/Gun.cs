@@ -9,7 +9,7 @@ namespace Enemy
 {
     public class Gun : MonoBehaviour
     {
-        private const float _delay = 0.5f;
+        [SerializeField] private float _delay;
 
         [SerializeField] private SFXSO _shootSFX;
         [SerializeField] private GameObject _bulletPrefab;
@@ -18,7 +18,7 @@ namespace Enemy
 
         private Transform _parent;
         private List<Bullet> _pool = new List<Bullet>();
-        private WaitForSeconds _wait = new WaitForSeconds(_delay);
+        private WaitForSeconds _wait;
         private SFX _sfx;
 
         private void Awake()
@@ -39,6 +39,8 @@ namespace Enemy
             }
 
             _sfx = GetComponentInParent<SFX>();
+
+            _wait = new WaitForSeconds(_delay);
         }
 
         private void OnEnable()

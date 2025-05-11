@@ -507,6 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _engineAnimator: {fileID: 1651400367860709072}
+  _speed: 6
 --- !u!114 &8412860025636355259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,8 +537,8 @@ MonoBehaviour:
   - {fileID: 3227741456313661365}
   _bulletPool: {fileID: 2489687055537609100}
   _spriteRenderer: {fileID: 8040039740172115804}
-  _interval: 0.2
-  _bulletSpeed: 10
+  _interval: 0.25
+  _bulletSpeed: 8
 --- !u!114 &8683533884103963677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7644624411376280392}
-  _max: 100
+  _max: 13
 --- !u!114 &579760332143537150
 MonoBehaviour:
   m_ObjectHideFlags: 0
