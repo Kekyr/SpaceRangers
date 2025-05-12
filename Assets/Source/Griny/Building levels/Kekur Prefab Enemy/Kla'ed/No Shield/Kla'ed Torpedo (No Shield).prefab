@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5187128657161511078, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: _startValue
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5479920236301989395, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_LocalPosition.x

@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1344219272628227493, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _delay
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1357240606359721877, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Enabled
@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7620058634271823618, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _startValue
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8217646473543131595, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Enabled
