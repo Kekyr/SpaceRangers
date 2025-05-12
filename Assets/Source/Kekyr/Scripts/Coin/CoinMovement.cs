@@ -50,6 +50,5 @@ public class CoinMovement : MonoBehaviour
     public void Init(Transform destination)
     {
         _destination = destination;
-        enabled = true;
     }
 }

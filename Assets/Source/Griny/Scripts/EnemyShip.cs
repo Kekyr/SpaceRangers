@@ -4,6 +4,7 @@ using Cinemachine;
 using DG.Tweening;
 using ShipBase;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
@@ -18,7 +19,8 @@ namespace Enemy
         private readonly float _impulseForce = 0.025f;
         private readonly Vector3 _impulseDirection = new Vector3(1, 1, 1);
 
-        [SerializeField] private SpriteRenderer _shieldSpriteRenderer;
+        [SerializeField] private SpriteRenderer _shield;
+        [SerializeField] private GameObject _engine;
         [SerializeField] private EnemyDataSO _data;
         [SerializeField] private SFXSO _damageSFX;
         [SerializeField] private SFXSO _explosionSFX;
@@ -44,9 +46,14 @@ namespace Enemy
 
         private void Awake()
         {
-            if (_shieldSpriteRenderer == null)
+            if (_shield == null)
             {
-                throw new ArgumentNullException(nameof(_shieldSpriteRenderer));
+                throw new ArgumentNullException(nameof(_shield));
+            }
+
+            if (_engine == null)
+            {
+                throw new ArgumentNullException(nameof(_engine));
             }
 
             if (_data == null)
@@ -63,7 +70,7 @@ namespace Enemy
             {
                 throw new ArgumentNullException(nameof(_explosionSFX));
             }
-            
+
             _enemyHealth = GetComponent<EnemyHealth>();
             _enemyShield = GetComponent<EnemyShield>();
             _animator = GetComponent<Animator>();
@@ -71,7 +78,7 @@ namespace Enemy
             _sfx = GetComponent<SFX>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
             _collider = GetComponent<Collider2D>();
-            
+
             _impulseVelocity = _impulseDirection * _impulseForce;
         }
 
@@ -102,7 +109,7 @@ namespace Enemy
                 }
                 else
                 {
-                    Sequence sequence = _spriteModifier.ChangeColor(_shieldSpriteRenderer, attacker.DamageColor,
+                    Sequence sequence = _spriteModifier.ChangeColor(_shield, attacker.DamageColor,
                         _changeColorDuration);
                     sequence.OnComplete(() => { _enemyShield.TakeDamage(attacker.Damage); });
                 }
@@ -118,6 +125,7 @@ namespace Enemy
 
         public void Reset()
         {
+            _engine.SetActive(true);
             Reseted?.Invoke();
         }
 
@@ -129,6 +137,7 @@ namespace Enemy
         private void Deactivate()
         {
             _sfx.Play(_explosionSFX);
+            _engine.SetActive(false);
             _animator.SetTrigger(_destruction);
             _impulseSource.GenerateImpulseWithVelocity(_impulseVelocity);
         }
@@ -148,8 +157,8 @@ namespace Enemy
 
         private void OnDestruct()
         {
-            Annihilated?.Invoke(this);
             gameObject.SetActive(false);
+            Annihilated?.Invoke(this);
             Destroyed?.Invoke();
         }
     }
