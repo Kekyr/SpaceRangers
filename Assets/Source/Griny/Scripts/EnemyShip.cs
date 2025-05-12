@@ -157,8 +157,8 @@ namespace Enemy
 
         private void OnDestruct()
         {
-            gameObject.SetActive(false);
             Annihilated?.Invoke(this);
+            gameObject.SetActive(false);
             Destroyed?.Invoke();
         }
     }

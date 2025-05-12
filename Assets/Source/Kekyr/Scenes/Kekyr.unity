@@ -12594,6 +12594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5450903276927295853, guid: 9674bfbd8d9a3a3489b21eb8e2e7a217, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5491689205657341920, guid: 9674bfbd8d9a3a3489b21eb8e2e7a217, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

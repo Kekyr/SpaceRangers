@@ -46,11 +46,6 @@ namespace Enemy
             StartCoroutine(ShootBullet());
         }
 
-        private void Start()
-        {
-            Initialize();
-        }
-
         private void Initialize()
         {
             GameObject container = new GameObject(_bulletPrefab.name);
@@ -75,6 +70,7 @@ namespace Enemy
         public void Init(Transform parent)
         {
             _parent = parent;
+            Initialize();
             enabled = true;
         }
 
