@@ -388,7 +388,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbe347f49d2f8a04d913547329b97143, type: 3}
   m_Name: 
@@ -397,8 +397,8 @@ MonoBehaviour:
   whiteNoiseFrequency: 0
   whiteNoiseLength: 0.1
   screenJumpFrequency: 0
-  screenJumpLength: 0.2
-  screenJumpMinLevel: 0.1
+  screenJumpLength: 0
+  screenJumpMinLevel: 0
   screenJumpMaxLevel: 0.9
   flickeringStrength: 0
   flickeringCycle: 111
@@ -408,7 +408,7 @@ MonoBehaviour:
   slippageInterval: 1
   slippageScrollSpeed: 33
   slippageSize: 11
-  chromaticAberrationStrength: 0.001
+  chromaticAberrationStrength: 0.0013
   isChromaticAberration: 1
   isMultipleGhost: 0
   multipleGhostStrength: 0.002
