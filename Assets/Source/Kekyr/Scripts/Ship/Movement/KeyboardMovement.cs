@@ -5,7 +5,7 @@ namespace ShipBase
 {
     public class KeyboardMovement : Movement
     {
-        private readonly float _speed = 5f;
+        [SerializeField] private float _speed = 5f;
 
         private Vector3 _direction;
 

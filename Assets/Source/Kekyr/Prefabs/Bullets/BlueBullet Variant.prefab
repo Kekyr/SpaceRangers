@@ -13,6 +13,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: d74051cbbd8009149bc755642c39d8fc, type: 2}
     - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
+      propertyPath: _damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293311126362801025, guid: 7d8ab60d9d137af4391d62ed1c5cabb1, type: 3}
       propertyPath: _damageColor.a
       value: 1
       objectReference: {fileID: 0}
