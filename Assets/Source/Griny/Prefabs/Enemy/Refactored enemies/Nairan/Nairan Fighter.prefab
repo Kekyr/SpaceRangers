@@ -434,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerTag: Player
   _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
-  _prefab: {fileID: 5844862090612895207, guid: fef5e13d34880dc498b9d4a398375198, type: 3}
+  _prefab: {fileID: 4636761262486926464, guid: c772e00ec20b2da4096d074cdd1a8f1a, type: 3}
   _isAllAtOnce: 0
 --- !u!1 &6898518309481130028
 GameObject:
@@ -612,6 +612,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1344219272628227493, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: _delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344219272628227493, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 6696388284473748161, guid: c1b117b44d87b4141a0d7aae52193045, type: 3}
     - target: {fileID: 1357240606359721877, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Controller
       value: 
