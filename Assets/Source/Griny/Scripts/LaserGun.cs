@@ -11,6 +11,7 @@ namespace Enemy
         private Animator _animator;
         private EnemyShield _shield;
         private EnemyShip _ship;
+        private EnemyHealth _health;
         private SpriteRenderer _spriteRenderer;
 
         protected virtual void Awake()
@@ -28,17 +29,18 @@ namespace Enemy
             _animator = GetComponent<Animator>();
             _shield = GetComponent<EnemyShield>();
             _ship = GetComponent<EnemyShip>();
+            _health = GetComponent<EnemyHealth>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
 
             _ship.Reseted += OnReseted;
-            _ship.Destroyed += OnDestroyed;
+            _health.Died += OnDied;
             _shield.Emptied += OnEmptied;
         }
 
         private void OnDestroy()
         {
             _ship.Reseted -= OnReseted;
-            _ship.Destroyed -= OnDestroyed;
+            _health.Died -= OnDied;
             _shield.Emptied -= OnEmptied;
         }
 
@@ -62,7 +64,7 @@ namespace Enemy
             _spriteRenderer.sprite = _idle;
         }
 
-        protected virtual void OnDestroyed()
+        protected virtual void OnDied()
         {
             Disable();
         }

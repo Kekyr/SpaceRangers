@@ -20,6 +20,8 @@ namespace Enemy
         private List<Bullet> _pool = new List<Bullet>();
         private WaitForSeconds _wait;
         private SFX _sfx;
+        private Coroutine _shoot;
+        private EnemyHealth _health;
 
         private void Awake()
         {
@@ -39,13 +41,21 @@ namespace Enemy
             }
 
             _sfx = GetComponentInParent<SFX>();
-
+            _health = GetComponentInParent<EnemyHealth>();
+            
             _wait = new WaitForSeconds(_delay);
+
+            _health.Died += OnDied;
         }
 
         private void OnEnable()
         {
-            StartCoroutine(ShootBullet());
+            _shoot = StartCoroutine(ShootBullet());
+        }
+
+        private void OnDisable()
+        {
+            _health.Died -= OnDied;
         }
 
         private void Initialize()
@@ -105,6 +115,11 @@ namespace Enemy
         {
             result = _pool.FirstOrDefault(instance => instance.gameObject.activeSelf == false);
             return result != null;
+        }
+
+        private void OnDied()
+        {
+            StopCoroutine(_shoot);
         }
     }
 }
