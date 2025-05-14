@@ -631,7 +631,7 @@ MonoBehaviour:
   _rocketData: {fileID: 11400000, guid: 200b4483b04ebd248b41263d02a8797c, type: 2}
   _shieldData: {fileID: 11400000, guid: 45c322b3ddc0ba343b645cade04b1485, type: 2}
   _backgroundData: {fileID: 11400000, guid: 8f1e85bf35a085449b88d37e729e65d1, type: 2}
-  _levelData: {fileID: 11400000, guid: d2dc53991d3131a4a835c1477dab11a2, type: 2}
+  _levelData: {fileID: 11400000, guid: 1f91f97a6e010f24f8080a497dbdf781, type: 2}
   _canvas: {fileID: 1271413705937820844}
   _bordersAdjuster: {fileID: 8153436478404749842}
   _screenAdjuster: {fileID: 1139554323305955032}

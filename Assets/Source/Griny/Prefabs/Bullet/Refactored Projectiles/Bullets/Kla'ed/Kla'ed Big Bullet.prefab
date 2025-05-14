@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8142771815962422214, guid: 80dc51c038868774fa7eb0a92ec62c9a, type: 3}
       propertyPath: _damage
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8372674254128275162, guid: 80dc51c038868774fa7eb0a92ec62c9a, type: 3}
       propertyPath: m_LocalPosition.x
