@@ -92,7 +92,7 @@ namespace Enemy
         public void Spawn()
         {
             GameObject enemy;
-
+            
             if (_currentInstanceIndex >= _instances.Count)
             {
                 Ended?.Invoke();

@@ -128,7 +128,7 @@ namespace ShipBase
                     ""name"": ""Direction (Arrows)"",
                     ""id"": ""91fd1db3-ff7e-4faa-93f2-9421cd4f52f0"",
                     ""path"": ""2DVector"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",

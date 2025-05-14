@@ -20,6 +20,7 @@ namespace ShipBase
         [SerializeField] private Wallet _wallet;
         [SerializeField] private Music _music;
         [SerializeField] private Timer _timer;
+        [SerializeField] private WinHandler _winHandler;
 
         [SerializeField] private GameObject _enemyBulletsContainer;
         [SerializeField] private Transform _playerSpawnPoint;
@@ -102,6 +103,11 @@ namespace ShipBase
             if (_timer == null)
             {
                 throw new ArgumentNullException(nameof(_timer));
+            }
+
+            if (_winHandler == null)
+            {
+                throw new ArgumentNullException(nameof(_winHandler));
             }
 
             if (_enemyBulletsContainer == null)
@@ -231,9 +237,10 @@ namespace ShipBase
             BulletPool pool = player.GetComponentInChildren<BulletPool>();
 
             _coinPool.Init(player.transform, health);
+            _winHandler.Init(_timer, _levelData);
 
             _losePopup.Init(health);
-            _winPopup.Init(_timer);
+            _winPopup.Init(_winHandler, _wallet, _score);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
             {
@@ -258,8 +265,8 @@ namespace ShipBase
 
             _healthView.Init(health);
             _shieldView.Init(shield);
-            _walletView.Init(_wallet);
-            _scoreView.Init(_score);
+            _walletView.Init(_wallet, _winHandler);
+            _scoreView.Init(_score, _winHandler);
 
             AddRocketButton addRocketButton = _addRocketButton.GetComponent<AddRocketButton>();
             addRocketButton.Init(_rewardedAd);
@@ -274,7 +281,7 @@ namespace ShipBase
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
-            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winPopup);
+            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winPopup, _winHandler);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
                 _score, _timer, _levelData);
 

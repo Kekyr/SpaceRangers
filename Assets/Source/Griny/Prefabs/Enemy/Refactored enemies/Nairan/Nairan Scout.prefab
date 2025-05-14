@@ -164,9 +164,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: f51468f9f06f5194c981afe6fe2025f9, type: 2}
     - target: {fileID: 6654218760522164670, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654218760522164670, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _bulletPrefab
       value: 
-      objectReference: {fileID: 8261683271524208002, guid: c1b117b44d87b4141a0d7aae52193045, type: 3}
+      objectReference: {fileID: 6696388284473748161, guid: c1b117b44d87b4141a0d7aae52193045, type: 3}
     - target: {fileID: 6654218760522164670, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 2
