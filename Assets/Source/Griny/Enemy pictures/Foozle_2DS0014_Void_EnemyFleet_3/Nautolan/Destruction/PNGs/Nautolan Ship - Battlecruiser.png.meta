@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 192
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -128,8 +128,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 640
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 1280
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 1920
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 2560
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 3200
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_6
       rect:
         serializedVersion: 2
-        x: 768
+        x: 3840
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_7
       rect:
         serializedVersion: 2
-        x: 896
+        x: 4480
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_8
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 5120
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_9
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 5760
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_10
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 6400
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: Nautolan Ship - Battlecruiser_11
       rect:
         serializedVersion: 2
-        x: 1408
+        x: 7040
         y: 0
-        width: 128
-        height: 128
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

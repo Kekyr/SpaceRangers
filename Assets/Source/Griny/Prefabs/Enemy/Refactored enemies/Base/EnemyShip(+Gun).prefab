@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _delay: 1
   _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
   _bulletPrefab: {fileID: 0}
   _spawnPoints: []
