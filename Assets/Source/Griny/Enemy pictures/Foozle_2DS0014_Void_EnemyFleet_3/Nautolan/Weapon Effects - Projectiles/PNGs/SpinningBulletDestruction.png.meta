@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6363890345ea60d4a922efcf15098f6a
+guid: 61e998a9b0ddf664d8181a670e54cbf0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kla'ed - Bullet_0
+      name: SpinningBulletDestruction_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 12
-        height: 48
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb0d48aeef95e2d44986636a264b2064
-      internalID: 364556219
+      spriteID: f7559a694757f0c418f7e837538901ed
+      internalID: 1347342375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kla'ed - Bullet_1
+      name: SpinningBulletDestruction_1
       rect:
         serializedVersion: 2
-        x: 12
+        x: 40
         y: 0
-        width: 12
-        height: 48
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e850178668411640a565bda0f740bf4
-      internalID: 1775151118
+      spriteID: 494289f418a0f3f4db1428290ecd272e
+      internalID: -1419882580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kla'ed - Bullet_2
+      name: SpinningBulletDestruction_2
       rect:
         serializedVersion: 2
-        x: 24
+        x: 80
         y: 0
-        width: 12
-        height: 48
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5352542019768fc4582d50b3a564108f
-      internalID: -879176773
+      spriteID: 0f86eabc6b1223d4d9393b1ec531d3b9
+      internalID: 1479019755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kla'ed - Bullet_3
+      name: SpinningBulletDestruction_3
       rect:
         serializedVersion: 2
-        x: 36
+        x: 120
         y: 0
-        width: 12
-        height: 48
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 075e042915ecd7043b60778a8752084f
-      internalID: -864287042
+      spriteID: ea738bf60d5751c47bfabb8ecabe0f0c
+      internalID: 717664393
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Kla'ed - Bullet_0: 364556219
-      Kla'ed - Bullet_1: 1775151118
-      Kla'ed - Bullet_2: -879176773
-      Kla'ed - Bullet_3: -864287042
+      SpinningBulletDestruction_0: 1347342375
+      SpinningBulletDestruction_1: -1419882580
+      SpinningBulletDestruction_2: 1479019755
+      SpinningBulletDestruction_3: 717664393
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

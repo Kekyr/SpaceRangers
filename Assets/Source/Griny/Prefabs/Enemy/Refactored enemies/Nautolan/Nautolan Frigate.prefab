@@ -45,6 +45,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2644256261204264250, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 9139319353414258553, guid: 11167bab1178ed442a3105816dd4b1b4, type: 3}
+    - target: {fileID: 2644256261204264250, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 2
       objectReference: {fileID: 0}

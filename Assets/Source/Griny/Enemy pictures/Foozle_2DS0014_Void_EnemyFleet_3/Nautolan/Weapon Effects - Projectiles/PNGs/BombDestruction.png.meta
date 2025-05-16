@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6363890345ea60d4a922efcf15098f6a
+guid: 453c87c1cfa6891438928a62b733d1d1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kla'ed - Bullet_0
+      name: BombDestruction_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 12
-        height: 48
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb0d48aeef95e2d44986636a264b2064
-      internalID: 364556219
+      spriteID: d5dc1edd41e02974285f953a2f11b276
+      internalID: 721863869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kla'ed - Bullet_1
+      name: BombDestruction_1
       rect:
         serializedVersion: 2
-        x: 12
+        x: 80
         y: 0
-        width: 12
-        height: 48
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e850178668411640a565bda0f740bf4
-      internalID: 1775151118
+      spriteID: d07845a4f7ae31f4d8d61f934d2b4e54
+      internalID: 1685570787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kla'ed - Bullet_2
+      name: BombDestruction_2
       rect:
         serializedVersion: 2
-        x: 24
+        x: 160
         y: 0
-        width: 12
-        height: 48
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5352542019768fc4582d50b3a564108f
-      internalID: -879176773
+      spriteID: 19d192b5ecedb9544b96808a5f8998c4
+      internalID: 338989970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kla'ed - Bullet_3
+      name: BombDestruction_3
       rect:
         serializedVersion: 2
-        x: 36
+        x: 240
         y: 0
-        width: 12
-        height: 48
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 075e042915ecd7043b60778a8752084f
-      internalID: -864287042
+      spriteID: b5e049c33094ace4cae0924c63c05378
+      internalID: -997262090
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Kla'ed - Bullet_0: 364556219
-      Kla'ed - Bullet_1: 1775151118
-      Kla'ed - Bullet_2: -879176773
-      Kla'ed - Bullet_3: -864287042
+      BombDestruction_0: 721863869
+      BombDestruction_1: 1685570787
+      BombDestruction_2: 338989970
+      BombDestruction_3: -997262090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
