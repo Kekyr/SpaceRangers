@@ -7,8 +7,9 @@ using UnityEngine.Rendering.PostProcessing;
 public sealed class CRT : PostProcessEffectSettings
 {
     [Range(0f, 1f), Tooltip("CRT effect intensity.")]
-    public FloatParameter blend = new FloatParameter { value = 0.5f };
+    public FloatParameter blend = new FloatParameter { value = 0.0013f };
 }
+
 public sealed class CRTRenderer : PostProcessEffectRenderer<CRT>
 {
     public override void Render(PostProcessRenderContext context)
