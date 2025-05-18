@@ -52,6 +52,7 @@ namespace ShipBase
         [SerializeField] private Canvas _canvas;
         [SerializeField] private BordersAdjuster _bordersAdjuster;
         [SerializeField] private ScreenAdjuster _screenAdjuster;
+       // [SerializeField] private CRTPostEffecter _crtPostEffector;
 
         private void Validate()
         {
@@ -214,6 +215,11 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_screenAdjuster));
             }
+
+            /*if (_crtPostEffector == null)
+            {
+                throw new ArgumentNullException(nameof(_crtPostEffector));
+            }*/
         }
 
         private void Awake()
@@ -224,6 +230,7 @@ namespace ShipBase
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
+            //_crtPostEffector.Init(_screenAdjuster);
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 

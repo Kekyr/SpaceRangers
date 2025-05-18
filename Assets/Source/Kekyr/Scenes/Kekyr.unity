@@ -245,7 +245,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -289,9 +288,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -1.1582181
     width: 1
-    height: 1
+    height: 3.3179724
   near clip plane: 9
   far clip plane: 1000
   field of view: 60
@@ -305,7 +304,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 0
-  m_HDR: 1
+  m_HDR: 0
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -381,50 +380,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe347f49d2f8a04d913547329b97143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1daa5a834babeca49aad070cc502314b, type: 2}
-  whiteNoiseFrequency: 0
-  whiteNoiseLength: 0.1
-  screenJumpFrequency: 0
-  screenJumpLength: 0
-  screenJumpMinLevel: 0
-  screenJumpMaxLevel: 0.9
-  flickeringStrength: 0
-  flickeringCycle: 111
-  isSlippage: 0
-  isSlippageNoise: 0
-  slippageStrength: 0.005
-  slippageInterval: 1
-  slippageScrollSpeed: 33
-  slippageSize: 11
-  chromaticAberrationStrength: 0.003
-  isChromaticAberration: 1
-  isMultipleGhost: 0
-  multipleGhostStrength: 0.002
-  isScanline: 0
-  isMonochrome: 0
-  isLetterBox: 0
-  isLetterBoxEdgeBlur: 0
-  letterBoxType: 0
-  isFilmDirt: 0
-  filmDirtTex: {fileID: 0}
-  isDecalTex: 0
-  decalTex: {fileID: 0}
-  decalTexPos: {x: 0, y: 0}
-  decalTexScale: {x: 0, y: 0}
-  isLowResolution: 0
-  resolutions: {x: 0, y: 0}
 --- !u!1 &1172271628
 GameObject:
   m_ObjectHideFlags: 0
@@ -12426,7 +12381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5688079470786867616
 GameObject:
   m_ObjectHideFlags: 0
@@ -16223,7 +16178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7472341117302489334
 RectTransform:
   m_ObjectHideFlags: 0
