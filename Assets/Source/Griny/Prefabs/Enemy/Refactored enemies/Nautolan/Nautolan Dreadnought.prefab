@@ -255,14 +255,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
       insertIndex: 11
-      addedObject: {fileID: 2220405665666264502}
+      addedObject: {fileID: 728283145713380780}
   m_SourcePrefab: {fileID: 100100000, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
 --- !u!1 &583177230773150397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
   m_PrefabInstance: {fileID: 3305721000068672185}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2220405665666264502
+--- !u!114 &728283145713380780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,12 +271,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 583177230773150397}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d646965e9f036f40ae56d1a5b0a2f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _delay: 1
   _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
-  _bulletPrefab: {fileID: 9139319353414258553, guid: 11167bab1178ed442a3105816dd4b1b4, type: 3}
+  _bulletPrefab: {fileID: 3718697815996697677, guid: d0815ab43b0c78b4fbf286a0c11a60f5, type: 3}
   _spawnPoints:
   - {fileID: 6043818597162399368}
   - {fileID: 8411156114404772256}
