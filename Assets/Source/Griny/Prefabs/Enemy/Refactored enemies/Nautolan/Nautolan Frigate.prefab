@@ -27,7 +27,15 @@ PrefabInstance:
     - target: {fileID: 705647727963931835, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1339945555, guid: bbc05a4f73d378948a9811fcc8fecd05, type: 3}
+      objectReference: {fileID: -1119902674, guid: 257c93f0b4d896d4d8e93dd63f9a91fc, type: 3}
+    - target: {fileID: 1562212214082394950, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 9139319353414258553, guid: 11167bab1178ed442a3105816dd4b1b4, type: 3}
+    - target: {fileID: 1562212214082394950, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: _spawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2131397469087761620, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.1

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1201909088407569138}
-  - component: {fileID: 6860146649681235338}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -32,23 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 25379199657120404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6860146649681235338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7598572357648118141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _delay: 1
-  _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
-  _bulletPrefab: {fileID: 0}
-  _spawnPoints: []
-  _capacity: 40
 --- !u!1001 &7014204461773288513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,10 +105,36 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6993351301875361493, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1201909088407569138}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7375172456202232003, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+      insertIndex: 10
+      addedObject: {fileID: 7937732590139642870}
   m_SourcePrefab: {fileID: 100100000, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
 --- !u!4 &25379199657120404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6993351301875361493, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
   m_PrefabInstance: {fileID: 7014204461773288513}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &508508242991191170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7375172456202232003, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
+  m_PrefabInstance: {fileID: 7014204461773288513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7937732590139642870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508508242991191170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 1
+  _animator: {fileID: 0}
+  _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
+  _bulletPrefab: {fileID: 0}
+  _spawnPoints: []
+  _capacity: 40

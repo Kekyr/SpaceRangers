@@ -1,125 +1,36 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Audio;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class Gun : MonoBehaviour
+    [RequireComponent(typeof(Animator))]
+    public class Gun : AutoGun
     {
-        [SerializeField] private float _delay;
+        private readonly string _shootTrigger = "Shoot";
 
-        [SerializeField] private SFXSO _shootSFX;
-        [SerializeField] private GameObject _bulletPrefab;
-        [SerializeField] private Transform[] _spawnPoints;
-        [SerializeField] private int _capacity;
+        private Animator _animator;
 
-        private Transform _parent;
-        private List<Bullet> _pool = new List<Bullet>();
-        private WaitForSeconds _wait;
-        private SFX _sfx;
-        private Coroutine _shoot;
-        private EnemyHealth _health;
-
-        private void Awake()
+        protected override void Awake()
         {
-            if (_shootSFX == null)
-            {
-                throw new ArgumentNullException(nameof(_shootSFX));
-            }
-
-            if (_bulletPrefab == null)
-            {
-                throw new ArgumentNullException(nameof(_bulletPrefab));
-            }
-
-            if (_spawnPoints.Length == 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_spawnPoints));
-            }
-
-            _sfx = GetComponentInParent<SFX>();
-            _health = GetComponentInParent<EnemyHealth>();
-            
-            _wait = new WaitForSeconds(_delay);
-
-            _health.Died += OnDied;
+            _animator = GetComponent<Animator>();
+            base.Awake();
         }
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
-            _shoot = StartCoroutine(ShootBullet());
+            _animator.SetTrigger(_shootTrigger);
         }
 
-        private void OnDisable()
+        protected override void ShootBullet()
         {
-            _health.Died -= OnDied;
+            base.ShootBullet();
+            StartCoroutine(Prepare());
         }
 
-        private void Initialize()
+        protected override IEnumerator Prepare()
         {
-            GameObject container = new GameObject(_bulletPrefab.name);
-            container.transform.parent = _parent;
-
-            foreach (Transform spawnPoint in _spawnPoints)
-            {
-                for (int i = 0; i < _capacity; i++)
-                {
-                    GameObject instance = Instantiate(_bulletPrefab, spawnPoint.position, Quaternion.identity,
-                        container.transform);
-
-                    EnemyBulletMovement enemyBulletMovement = instance.GetComponent<EnemyBulletMovement>();
-
-                    Bullet bullet = instance.GetComponent<Bullet>();
-                    bullet.gameObject.SetActive(false);
-                    _pool.Add(bullet);
-                }
-            }
-        }
-
-        public void Init(Transform parent)
-        {
-            _parent = parent;
-            Initialize();
-            enabled = true;
-        }
-
-        private IEnumerator ShootBullet()
-        {
-            while (gameObject.activeSelf == true)
-            {
-                foreach (Transform spawnPoint in _spawnPoints)
-                {
-                    if (TryGetInstance(out Bullet instance))
-                    {
-                        SetInstance(instance, spawnPoint);
-                    }
-                }
-
-                yield return _wait;
-            }
-        }
-
-        private void SetInstance(Bullet bullet, Transform spawnPoint)
-        {
-            bullet.SetVector(spawnPoint.transform.up);
-            bullet.transform.position = spawnPoint.position;
-            bullet.transform.rotation = spawnPoint.transform.rotation;
-            _sfx.Play(_shootSFX);
-            bullet.gameObject.SetActive(true);
-        }
-
-        private bool TryGetInstance(out Bullet result)
-        {
-            result = _pool.FirstOrDefault(instance => instance.gameObject.activeSelf == false);
-            return result != null;
-        }
-
-        private void OnDied()
-        {
-            StopCoroutine(_shoot);
+            yield return Wait;
+            _animator.SetTrigger(_shootTrigger);
         }
     }
 }

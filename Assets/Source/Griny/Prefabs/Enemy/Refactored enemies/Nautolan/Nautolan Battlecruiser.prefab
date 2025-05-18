@@ -212,6 +212,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1151142528, guid: c8fedbb25dd1c7f44bf7c34046d060a8, type: 3}
+    - target: {fileID: 9001784176185231394, guid: 90c3056a8d334c34884ac2e1a4da37f6, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 7430361498602767529, guid: f3645158d7e11294da4f3591e3665e6f, type: 3}
+    - target: {fileID: 9001784176185231394, guid: 90c3056a8d334c34884ac2e1a4da37f6, type: 3}
+      propertyPath: _spawnPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1505571211690462119, guid: 90c3056a8d334c34884ac2e1a4da37f6, type: 3}

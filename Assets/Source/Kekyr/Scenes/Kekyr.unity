@@ -288,9 +288,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: -1.1582181
+    y: 0
     width: 1
-    height: 3.3179724
+    height: 1
   near clip plane: 9
   far clip plane: 1000
   field of view: 60
@@ -12381,7 +12381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &5688079470786867616
 GameObject:
   m_ObjectHideFlags: 0
@@ -12523,7 +12523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3800979337263065986, guid: 9674bfbd8d9a3a3489b21eb8e2e7a217, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.0004883
+      value: -3.0003662
       objectReference: {fileID: 0}
     - target: {fileID: 3800979337263065986, guid: 9674bfbd8d9a3a3489b21eb8e2e7a217, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16178,7 +16178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7472341117302489334
 RectTransform:
   m_ObjectHideFlags: 0

@@ -61,11 +61,11 @@ namespace Enemy
             GameObject instance = Instantiate(prefab, spawnPoint);
             instance.SetActive(false);
 
-            Gun gun = instance.GetComponentInChildren<Gun>();
+            AutoGun autoGun = instance.GetComponentInChildren<AutoGun>();
 
-            if (gun != null)
+            if (autoGun != null)
             {
-                gun.Init(_enemyBulletsContainer.transform);
+                autoGun.Init(_enemyBulletsContainer.transform);
             }
 
             RocketLauncher rocketLauncher = instance.GetComponentInChildren<RocketLauncher>();
