@@ -456,7 +456,7 @@ PrefabInstance:
     - target: {fileID: 2689773187057747089, guid: b5c85f33814810e41bea14eb1cd74c53, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b1b7b74b478e75d4fac71bcf4b9925bf, type: 3}
+      objectReference: {fileID: -1837410270, guid: fcaccaf55cd5f3942ac9dd6c875cf584, type: 3}
     - target: {fileID: 3391014200927106978, guid: b5c85f33814810e41bea14eb1cd74c53, type: 3}
       propertyPath: m_Name
       value: SpawnPoint 9
