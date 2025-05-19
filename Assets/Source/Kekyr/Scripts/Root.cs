@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Audio;
 using LevelEnemy;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 namespace ShipBase
@@ -52,7 +53,8 @@ namespace ShipBase
         [SerializeField] private Canvas _canvas;
         [SerializeField] private BordersAdjuster _bordersAdjuster;
         [SerializeField] private ScreenAdjuster _screenAdjuster;
-       // [SerializeField] private CRTPostEffecter _crtPostEffector;
+
+        [SerializeField] private PostProcessProfile _postProcessProfile;
 
         private void Validate()
         {
@@ -216,10 +218,10 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_screenAdjuster));
             }
 
-            /*if (_crtPostEffector == null)
+            if (_postProcessProfile == null)
             {
-                throw new ArgumentNullException(nameof(_crtPostEffector));
-            }*/
+                throw new ArgumentNullException(nameof(_postProcessProfile));
+            }
         }
 
         private void Awake()
@@ -228,9 +230,8 @@ namespace ShipBase
 
             _backgroundImage.texture = _backgroundData.CurrentTexture;
 
-            _screenAdjuster.Init(_canvas, _camera, _backgroundImage);
+            _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
-            //_crtPostEffector.Init(_screenAdjuster);
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 
@@ -300,6 +301,7 @@ namespace ShipBase
             yield return new WaitForSeconds(_initTime);
             _bordersAdjuster.OnResolutionChanged();
             _screenAdjuster.ChangeBackground();
+            _screenAdjuster.ChangeEffect();
             _enemySpawners.OnResolutionChanged();
             _screenAdjuster.enabled = true;
         }

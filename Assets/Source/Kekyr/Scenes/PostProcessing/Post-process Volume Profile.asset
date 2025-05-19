@@ -30,6 +30,6 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
-  blend:
+  intensity:
     overrideState: 1
-    value: 0.0013
+    value: 0.002251852

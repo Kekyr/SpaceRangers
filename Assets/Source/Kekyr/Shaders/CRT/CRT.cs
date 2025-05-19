@@ -7,7 +7,7 @@ using UnityEngine.Rendering.PostProcessing;
 public sealed class CRT : PostProcessEffectSettings
 {
     [Range(0f, 1f), Tooltip("CRT effect intensity.")]
-    public FloatParameter blend = new FloatParameter { value = 0.0013f };
+    public FloatParameter intensity = new FloatParameter { value = 0.0013f };
 }
 
 public sealed class CRTRenderer : PostProcessEffectRenderer<CRT>
@@ -15,7 +15,7 @@ public sealed class CRTRenderer : PostProcessEffectRenderer<CRT>
     public override void Render(PostProcessRenderContext context)
     {
         var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/CRT"));
-        sheet.properties.SetFloat("_Blend", settings.blend);
+        sheet.properties.SetFloat("_Intensity", settings.intensity);
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
     }
 }

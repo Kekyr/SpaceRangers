@@ -217,6 +217,7 @@ MonoBehaviour:
   _canvas: {fileID: 1271413705937820844}
   _bordersAdjuster: {fileID: 8153436478404749842}
   _screenAdjuster: {fileID: 1139554323305955032}
+  _postProcessProfile: {fileID: 11400000, guid: 16a6c3e74a22ecb4690c6ce7e06aaf69, type: 2}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0
@@ -289,14 +290,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: -1.3773913
+    y: 0
     width: 1
-    height: 3.7565217
+    height: 1
   near clip plane: 9
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 9.443614
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -12462,7 +12463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5688079470786867616
 GameObject:
   m_ObjectHideFlags: 0
@@ -16259,7 +16260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7472341117302489334
 RectTransform:
   m_ObjectHideFlags: 0
