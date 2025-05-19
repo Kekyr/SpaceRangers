@@ -275,6 +275,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9a01acbadd4cfcb408c5197d11ae3376, type: 2}
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
+      propertyPath: _delay
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _bulletPrefab
       value: 
       objectReference: {fileID: 3088733854409555954, guid: ece0c9026bac581488b99bf63dc52a6c, type: 3}

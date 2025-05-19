@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: afff295b8e40e51458234de6acd9d19c, type: 2}
+    - target: {fileID: 3371614648083771541, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: _speed
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 4602432114318216228, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -34,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661331434239601847, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6776372342168281959, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_AnchorMax.x
@@ -90,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7620058634271823618, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8476281416062757092, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y

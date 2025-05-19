@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611e818d2c3f0c142b5903f56bf43a50, type: 3}
   m_Name: Level 10
   m_EditorClassIdentifier: 
-  _duration: 60
+  _duration: 30
   _spawnersData:
   - {fileID: 11400000, guid: 2049b63bae1c52a418ffbca71e43fc11, type: 2}
   - {fileID: 11400000, guid: 9b09a2f5e5dbf044d8a1ea0f272bc6ce, type: 2}
   - {fileID: 11400000, guid: 30219034bd0d2b047a6cd898c19f277d, type: 2}
   _hasBoss: 1
-  _bossPrefab: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
+  _bossPrefab: {fileID: 2735825886949410820, guid: a4d2d8506a0a2b649804291022552fe0, type: 3}
