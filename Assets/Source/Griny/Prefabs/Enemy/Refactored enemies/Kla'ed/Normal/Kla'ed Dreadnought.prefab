@@ -238,7 +238,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7154374641707919394}
-  - component: {fileID: 5141589812742544215}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -265,26 +264,6 @@ Transform:
   - {fileID: 7497590168050837596}
   m_Father: {fileID: 2495878840024698386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5141589812742544215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6163994478540850707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca787a992c98ffb44a579615ae5b0e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
-  _bulletPrefab: {fileID: 4081993042110115070, guid: beb3835cb94bb464297f2134754be576, type: 3}
-  _spawnPoints:
-  - {fileID: 9097186869256903729}
-  - {fileID: 6438505173967430425}
-  - {fileID: 4841352652263333057}
-  - {fileID: 7497590168050837596}
-  _capacity: 20
 --- !u!1 &7250165087117982669
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5729314514462476800, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Size.y
-      value: 2.5719688
+      value: 3.2630706
       objectReference: {fileID: 0}
     - target: {fileID: 5729314514462476800, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Offset.x
@@ -449,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5729314514462476800, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Offset.y
-      value: -0.031504035
+      value: 0.31404692
       objectReference: {fileID: 0}
     - target: {fileID: 6551381110556279768, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_SizeDelta.x
@@ -559,7 +538,8 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 3.3333333
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2574931963433178073, guid: 32adc371a0891134d855937d02919041, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2657139218775322962, guid: 32adc371a0891134d855937d02919041, type: 3}
     m_AddedGameObjects:
@@ -573,6 +553,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5376478595322631341, guid: 32adc371a0891134d855937d02919041, type: 3}
       insertIndex: 10
       addedObject: {fileID: 3464719537015292229}
+    - targetCorrespondingSourceObject: {fileID: 5376478595322631341, guid: 32adc371a0891134d855937d02919041, type: 3}
+      insertIndex: 11
+      addedObject: {fileID: 860711793523191464}
   m_SourcePrefab: {fileID: 100100000, guid: 32adc371a0891134d855937d02919041, type: 3}
 --- !u!4 &2495878840024698386 stripped
 Transform:
@@ -598,3 +581,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _laser: {fileID: 102445179259909071}
   _idle: {fileID: 21300000, guid: 1193defcd23cc464bb61b9e8c5bb9b4c, type: 3}
+--- !u!114 &860711793523191464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2735825886949410820}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d646965e9f036f40ae56d1a5b0a2f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 1
+  _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
+  _bulletPrefab: {fileID: 4081993042110115070, guid: beb3835cb94bb464297f2134754be576, type: 3}
+  _spawnPoints:
+  - {fileID: 9097186869256903729}
+  - {fileID: 6438505173967430425}
+  - {fileID: 4841352652263333057}
+  - {fileID: 7497590168050837596}
+  _capacity: 40

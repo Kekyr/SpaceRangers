@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [ExecuteInEditMode, ImageEffectAllowedInSceneView]
 public class CRTPostEffecter : MonoBehaviour
@@ -81,6 +83,13 @@ public class CRTPostEffecter : MonoBehaviour
     private int _FilmDirtTex;
     #endregion
 
+    private ScreenAdjuster _screenAdjuster;
+
+    private void OnEnable()
+    {
+        _screenAdjuster.ResolutionChanged += OnResolutionChanged;
+    }
+    
     private void Start()
     {
         _WhiteNoiseOnOff = Shader.PropertyToID("_WhiteNoiseOnOff");
@@ -107,6 +116,11 @@ public class CRTPostEffecter : MonoBehaviour
         _DecalTexScale = Shader.PropertyToID("_DecalTexScale");
         _FilmDirtOnOff = Shader.PropertyToID("_FilmDirtOnOff");
         _FilmDirtTex = Shader.PropertyToID("_FilmDirtTex");
+    }
+
+    private void OnDisable()
+    {
+        _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
     }
 
     private void OnRenderImage(RenderTexture src, RenderTexture dest)
@@ -188,6 +202,17 @@ public class CRTPostEffecter : MonoBehaviour
             Graphics.Blit(src, dest, material);
         }
         //////
+    }
 
+    public void Init(ScreenAdjuster screenAdjuster)
+    {
+        _screenAdjuster = screenAdjuster;
+        enabled = true;
+    }
+
+    private void OnResolutionChanged()
+    {
+        enabled = false;
+        enabled = true;
     }
 }
