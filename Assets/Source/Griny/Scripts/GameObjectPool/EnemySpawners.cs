@@ -18,19 +18,28 @@ public class EnemySpawners : MonoBehaviour
     private Timer _timer;
     private LevelSO _levelData;
     private WinHandler _winHandler;
-    private WinPopup _winPopup;
 
     private int _endedCount;
     private bool _isBossSpawned;
+    private GameObject _boss;
 
     private void Start()
     {
         _spawners = GetComponentsInChildren<EnemySpawner>(true);
-
+        
         for (int i = 0; i < _spawnersData.Count; i++)
         {
             _spawners[i].Init(_spawnersData[i], _spriteModifier, _bulletsContainer, _coinPool, _score, _screenAdjuster);
             _spawners[i].Ended += OnEnded;
+        }
+
+        if (_levelData.HasBoss == true)
+        {
+            GameObject boss = _spawners[1].Prepare(_levelData.BossPrefab, _spawners[1].transform);
+            boss.transform.position = _spawners[1].transform.position;
+            EnemyShip ship = boss.GetComponent<EnemyShip>();
+            _winHandler.Init(ship);
+            _boss = boss;
         }
 
         _screenAdjuster.ResolutionChanged += OnResolutionChanged;
@@ -69,12 +78,11 @@ public class EnemySpawners : MonoBehaviour
         enabled = true;
     }
 
-    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, WinPopup winPopup, WinHandler winHandler)
+    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, WinHandler winHandler)
     {
         _canvas = canvas;
         _mainCamera = mainCamera;
         _screenAdjuster = screenAdjuster;
-        _winPopup = winPopup;
         _winHandler = winHandler;
     }
 
@@ -100,15 +108,11 @@ public class EnemySpawners : MonoBehaviour
         {
             return;
         }
-
-        EnemyShip boss = _spawners[1].Initialize(_levelData.BossPrefab, _spawners[1].transform);
-        _winHandler.Init(boss);
-        _spawners[1].Spawn();
-
+        
+        _boss.gameObject.SetActive(true);
         _isBossSpawned = true;
     }
-
-
+    
     private void ChangePosition(Transform spawner, Vector3 newScreenPosition)
     {
         Vector3 newWorldPosition = _mainCamera.ScreenToWorldPoint(newScreenPosition);

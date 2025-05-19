@@ -289,7 +289,7 @@ namespace ShipBase
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
-            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winPopup, _winHandler);
+            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winHandler);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
                 _score, _timer, _levelData);
 

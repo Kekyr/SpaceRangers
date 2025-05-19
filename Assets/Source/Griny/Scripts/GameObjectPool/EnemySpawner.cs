@@ -56,7 +56,13 @@ namespace Enemy
             enabled = true;
         }
 
-        public EnemyShip Initialize(GameObject prefab, Transform spawnPoint)
+        public void Initialize(GameObject prefab, Transform spawnPoint)
+        {
+            GameObject instance = Prepare(prefab, spawnPoint);
+            _instances.Add(instance);
+        }
+
+        public GameObject Prepare(GameObject prefab, Transform spawnPoint)
         {
             GameObject instance = Instantiate(prefab, spawnPoint);
             instance.SetActive(false);
@@ -84,15 +90,13 @@ namespace Enemy
             DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
             directionChanger.OutSight += Spawn;
 
-            _instances.Add(instance);
-
-            return ship;
+            return instance;
         }
 
         public void Spawn()
         {
             GameObject enemy;
-            
+
             if (_currentInstanceIndex >= _instances.Count)
             {
                 Ended?.Invoke();
