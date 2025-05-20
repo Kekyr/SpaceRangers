@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using Enemy;
 using LevelEnemy;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class EnemySpawners : MonoBehaviour
     private Timer _timer;
     private LevelSO _levelData;
     private WinHandler _winHandler;
+    private AudioSettingSO _sfxSetting;
 
     private int _endedCount;
     private bool _isBossSpawned;
@@ -29,7 +31,7 @@ public class EnemySpawners : MonoBehaviour
         
         for (int i = 0; i < _spawnersData.Count; i++)
         {
-            _spawners[i].Init(_spawnersData[i], _spriteModifier, _bulletsContainer, _coinPool, _score, _screenAdjuster);
+            _spawners[i].Init(_spawnersData[i], _spriteModifier, _bulletsContainer, _coinPool, _score, _screenAdjuster,_sfxSetting);
             _spawners[i].Ended += OnEnded;
         }
 
@@ -78,12 +80,13 @@ public class EnemySpawners : MonoBehaviour
         enabled = true;
     }
 
-    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, WinHandler winHandler)
+    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, WinHandler winHandler, AudioSettingSO sfxSetting)
     {
         _canvas = canvas;
         _mainCamera = mainCamera;
         _screenAdjuster = screenAdjuster;
         _winHandler = winHandler;
+        _sfxSetting = sfxSetting;
     }
 
     public void OnResolutionChanged()

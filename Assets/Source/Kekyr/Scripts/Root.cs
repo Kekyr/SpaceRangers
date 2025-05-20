@@ -40,6 +40,7 @@ namespace ShipBase
 
         [SerializeField] private LosePopup _losePopup;
         [SerializeField] private WinPopup _winPopup;
+        [SerializeField] private PausePopup _pausePopup;
 
         [SerializeField] private RawImage _backgroundImage;
 
@@ -55,6 +56,12 @@ namespace ShipBase
         [SerializeField] private ScreenAdjuster _screenAdjuster;
 
         [SerializeField] private PostProcessProfile _postProcessProfile;
+
+        [SerializeField] private AudioButton _musicButton;
+        [SerializeField] private AudioSettingSO _musicSetting;
+
+        [SerializeField] private AudioButton _sfxButton;
+        [SerializeField] private AudioSettingSO _sfxSetting;
 
         private void Validate()
         {
@@ -203,6 +210,11 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_winPopup));
             }
 
+            if (_pausePopup == null)
+            {
+                throw new ArgumentNullException(nameof(_pausePopup));
+            }
+
             if (_backgroundImage == null)
             {
                 throw new ArgumentNullException(nameof(_backgroundImage));
@@ -222,6 +234,26 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_postProcessProfile));
             }
+
+            if (_musicButton == null)
+            {
+                throw new ArgumentNullException(nameof(_musicButton));
+            }
+
+            if (_musicSetting == null)
+            {
+                throw new ArgumentNullException(nameof(_musicSetting));
+            }
+
+            if (_sfxButton == null)
+            {
+                throw new ArgumentNullException(nameof(_sfxButton));
+            }
+
+            if (_sfxSetting == null)
+            {
+                throw new ArgumentNullException(nameof(_sfxSetting));
+            }
         }
 
         private void Awake()
@@ -232,6 +264,9 @@ namespace ShipBase
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
+
+            _musicButton.Init(_musicSetting);
+            _sfxButton.Init(_sfxSetting);
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 
@@ -246,16 +281,18 @@ namespace ShipBase
 
             _coinPool.Init(player.transform, health);
             _winHandler.Init(_timer, _levelData);
+            _wallet.Init(_sfxSetting);
 
             _losePopup.Init(health);
-            _winPopup.Init(_winHandler, _wallet, _score);
+            _winPopup.Init(_winHandler, _wallet, _score, _sfxSetting);
+            _pausePopup.Init(_music);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
             {
                 autoGuns.Init(_autoGunsZone);
             }
 
-            ship.Init(_wallet, _screenAdjuster);
+            ship.Init(_wallet, _screenAdjuster, _sfxSetting);
             damageHandler.Init(_spriteModifier);
 
             for (int i = 0; i < movements.Length; i++)
@@ -263,13 +300,13 @@ namespace ShipBase
                 movements[i].Init(_camera, _canvas);
             }
 
-            rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel, _rewardedAd);
+            rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel, _rewardedAd, _sfxSetting);
             pool.Init(_bulletData.CurrentLevel);
             shield.Init(_shieldData.CurrentLevel);
 
             _timerView.Init(_timer);
             _timer.Init(_levelData);
-            _music.Init(_timer);
+            _music.Init(_timer, _musicSetting, _musicButton);
 
             _healthView.Init(health);
             _shieldView.Init(shield);
@@ -285,11 +322,11 @@ namespace ShipBase
                 _rocketView.gameObject.SetActive(false);
             }
 
-            _rewardedAd.Init(_music);
+            _rewardedAd.Init(_music, _sfxSetting);
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
-            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winHandler);
+            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winHandler, _sfxSetting);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
                 _score, _timer, _levelData);
 

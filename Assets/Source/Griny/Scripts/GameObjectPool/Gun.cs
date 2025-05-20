@@ -16,7 +16,7 @@ namespace Enemy
             base.Awake();
         }
 
-        protected override void OnEnable()
+        protected override void Start()
         {
             _animator.SetTrigger(_shootTrigger);
         }

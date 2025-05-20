@@ -49,7 +49,7 @@ namespace Enemy
             _health.Died += OnDied;
         }
 
-        protected virtual void OnEnable()
+        protected virtual void Start()
         {
             StartCoroutine(Prepare());
         }

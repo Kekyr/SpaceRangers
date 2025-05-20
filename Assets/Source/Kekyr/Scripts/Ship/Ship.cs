@@ -27,6 +27,7 @@ namespace ShipBase
         private CinemachineImpulseSource _impulseSource;
         private ScreenAdjuster _screenAdjuster;
         private Collider2D _collider;
+        private AudioSettingSO _sfxSetting;
 
         private Coroutine _staying;
         private WaitForSeconds _waitInterval;
@@ -51,11 +52,13 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_explosionSFX));
             }
 
-            _sfx = GetComponent<SFX>();
             _health = GetComponent<ShipHealth>();
             _damageHandler = GetComponent<DamageHandler>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
             _collider = GetComponent<Collider2D>();
+            
+            _sfx = GetComponent<SFX>();
+            _sfx.Init(_sfxSetting);
 
             _impulseExplosionVelocity = _impulseDirection * _impulseExplosionForce;
             _impulseDamageVelocity = _impulseDirection * _impulseDamageForce;
@@ -105,10 +108,11 @@ namespace ShipBase
             }
         }
 
-        public void Init(Wallet wallet, ScreenAdjuster screenAdjuster)
+        public void Init(Wallet wallet, ScreenAdjuster screenAdjuster, AudioSettingSO sfxSetting)
         {
             _wallet = wallet;
             _screenAdjuster = screenAdjuster;
+            _sfxSetting = sfxSetting;
             enabled = true;
         }
 

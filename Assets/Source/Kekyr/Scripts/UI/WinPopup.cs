@@ -17,6 +17,7 @@ public class WinPopup : MonoBehaviour
     private Score _score;
     private EnemyShip _boss;
     private SFX _sfx;
+    private AudioSettingSO _sfxSetting;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class WinPopup : MonoBehaviour
         }
 
         _sfx = GetComponent<SFX>();
+        _sfx.Init(_sfxSetting);
     }
 
     private void OnDisable()
@@ -45,11 +47,12 @@ public class WinPopup : MonoBehaviour
         _score.Changed -= OnScoreChanged;
     }
 
-    public void Init(WinHandler winHandler, Wallet wallet, Score score)
+    public void Init(WinHandler winHandler, Wallet wallet, Score score, AudioSettingSO sfxSetting)
     {
         _winHandler = winHandler;
         _wallet = wallet;
         _score = score;
+        _sfxSetting = sfxSetting;
 
         _winHandler.Won += OnWon;
         _wallet.Changed += OnWalletChanged;

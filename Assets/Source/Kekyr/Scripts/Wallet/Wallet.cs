@@ -11,10 +11,11 @@ namespace ShipBase
         
         private SFX _sfx;
         private int _money;
+        private AudioSettingSO _sfxSetting;
 
         public Action<int> Changed;
 
-        private void Awake()
+        private void Start()
         {
             if (_addSFX == null)
             {
@@ -22,6 +23,13 @@ namespace ShipBase
             }
             
             _sfx = GetComponent<SFX>();
+            _sfx.Init(_sfxSetting);
+        }
+
+        public void Init(AudioSettingSO sfxSetting)
+        {
+            _sfxSetting = sfxSetting;
+            enabled = true;
         }
         
         public void Add(int amount)

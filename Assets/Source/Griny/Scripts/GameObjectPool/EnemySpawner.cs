@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 namespace Enemy
@@ -13,6 +14,7 @@ namespace Enemy
         private GameObject _enemyBulletsContainer;
 
         private EnemySpawnerSO _data;
+        private AudioSettingSO _sfxSetting;
 
         private List<GameObject> _instances = new List<GameObject>();
 
@@ -45,7 +47,7 @@ namespace Enemy
         }
 
         public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier,
-            GameObject enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster)
+            GameObject enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster, AudioSettingSO sfxSetting)
         {
             _data = data;
             _spriteModifier = spriteModifier;
@@ -53,6 +55,7 @@ namespace Enemy
             _coinPool = coinPool;
             _score = score;
             _screenAdjuster = screenAdjuster;
+            _sfxSetting = sfxSetting;
             enabled = true;
         }
 
@@ -66,6 +69,9 @@ namespace Enemy
         {
             GameObject instance = Instantiate(prefab, spawnPoint);
             instance.SetActive(false);
+
+            SFX sfx = instance.GetComponent<SFX>();
+            sfx.Init(_sfxSetting);
 
             AutoGun autoGun = instance.GetComponentInChildren<AutoGun>();
 

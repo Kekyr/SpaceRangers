@@ -10,6 +10,7 @@ public class RewardedAd : MonoBehaviour
 
     private SFX _sfx;
     private Music _music;
+    private AudioSettingSO _sfxSetting;
 
     public event Action Rewarded;
     public event Action Closed;
@@ -22,6 +23,7 @@ public class RewardedAd : MonoBehaviour
         }
 
         _sfx = GetComponent<SFX>();
+        _sfx.Init(_sfxSetting);
 
         YandexGame.OpenVideoEvent += OnOpenCallback;
         YandexGame.RewardVideoEvent += OnRewardCallback;
@@ -35,9 +37,10 @@ public class RewardedAd : MonoBehaviour
         YandexGame.CloseVideoEvent -= OnCloseCallback;
     }
 
-    public void Init(Music music)
+    public void Init(Music music, AudioSettingSO sfxSetting)
     {
         _music = music;
+        _sfxSetting = sfxSetting;
         enabled = true;
     }
 

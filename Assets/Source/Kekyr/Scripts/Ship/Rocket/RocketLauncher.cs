@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,6 +23,7 @@ namespace ShipBase
         private Button _button;
         private Camera _camera;
         private RewardedAd _rewardedAd;
+        private AudioSettingSO _sfxSetting;
 
         private Animator[] _slotsAnimator;
         private Rocket[] _rockets;
@@ -105,18 +107,20 @@ namespace ShipBase
             }
         }
 
-        public void Init(Camera camera, Button button, int rocketCount, RewardedAd rewardedAd)
+        public void Init(Camera camera, Button button, int rocketCount, RewardedAd rewardedAd, AudioSettingSO sfxSetting)
         {
             _camera = camera;
             _button = button;
             _rewardedAd = rewardedAd;
             _maxRocketCount = rocketCount;
+            _sfxSetting = sfxSetting;
             enabled = true;
         }
 
         private void Spawn(int index)
         {
             Rocket rocket = Instantiate(_prefab, _slots[index].transform).GetComponent<Rocket>();
+            rocket.Init(_sfxSetting);
             rocket.Destroyed += OnRocketDestroyed;
             _rockets[index] = rocket;
         }
