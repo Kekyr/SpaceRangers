@@ -612,6 +612,7 @@ MonoBehaviour:
   _wallet: {fileID: 3002139784727130965}
   _music: {fileID: 8427888185971947560}
   _timer: {fileID: 5649033606552574390}
+  _winHandler: {fileID: 0}
   _enemyBulletsContainer: {fileID: 5996339181092712425}
   _playerSpawnPoint: {fileID: 2360921632211812933}
   _coinPool: {fileID: 8009268209071412065}
@@ -635,6 +636,7 @@ MonoBehaviour:
   _canvas: {fileID: 1271413705937820844}
   _bordersAdjuster: {fileID: 8153436478404749842}
   _screenAdjuster: {fileID: 1139554323305955032}
+  _postProcessProfile: {fileID: 0}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0
@@ -3512,7 +3514,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 2160}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0.7
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -4148,6 +4150,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2286781622249117991}
     m_Modifications:
+    - target: {fileID: 2698142144408463301, guid: 5177d01c809ecb84cbbc528c37a90056, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3725018143750151003, guid: 5177d01c809ecb84cbbc528c37a90056, type: 3}
       propertyPath: m_Name
       value: Popups
