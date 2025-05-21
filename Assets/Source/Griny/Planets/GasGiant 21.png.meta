@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -127,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1728
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,9 +148,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 576
-        y: 0
+        y: 1728
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,9 +169,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1152
-        y: 0
+        y: 1728
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: GasGiant 21_3
       rect:
         serializedVersion: 2
-        x: 1728
-        y: 0
+        x: 0
+        y: 1536
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: GasGiant 21_4
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 0
+        x: 576
+        y: 1536
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: GasGiant 21_5
       rect:
         serializedVersion: 2
-        x: 2880
-        y: 0
+        x: 1152
+        y: 1536
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: GasGiant 21_6
       rect:
         serializedVersion: 2
-        x: 3456
-        y: 0
+        x: 0
+        y: 1344
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: GasGiant 21_7
       rect:
         serializedVersion: 2
-        x: 4032
-        y: 0
+        x: 576
+        y: 1344
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: GasGiant 21_8
       rect:
         serializedVersion: 2
-        x: 4608
-        y: 0
+        x: 1152
+        y: 1344
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: GasGiant 21_9
       rect:
         serializedVersion: 2
-        x: 5184
-        y: 0
+        x: 0
+        y: 1152
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: GasGiant 21_10
       rect:
         serializedVersion: 2
-        x: 5760
-        y: 0
+        x: 576
+        y: 1152
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: GasGiant 21_11
       rect:
         serializedVersion: 2
-        x: 6336
-        y: 0
+        x: 1152
+        y: 1152
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +378,10 @@ TextureImporter:
       name: GasGiant 21_12
       rect:
         serializedVersion: 2
-        x: 6912
-        y: 0
+        x: 0
+        y: 960
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -399,10 +399,10 @@ TextureImporter:
       name: GasGiant 21_13
       rect:
         serializedVersion: 2
-        x: 7488
-        y: 0
+        x: 576
+        y: 960
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,10 +420,10 @@ TextureImporter:
       name: GasGiant 21_14
       rect:
         serializedVersion: 2
-        x: 8064
-        y: 0
+        x: 1152
+        y: 960
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,10 +441,10 @@ TextureImporter:
       name: GasGiant 21_15
       rect:
         serializedVersion: 2
-        x: 8640
-        y: 0
+        x: 0
+        y: 768
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,10 +462,10 @@ TextureImporter:
       name: GasGiant 21_16
       rect:
         serializedVersion: 2
-        x: 9216
-        y: 0
+        x: 576
+        y: 768
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +483,10 @@ TextureImporter:
       name: GasGiant 21_17
       rect:
         serializedVersion: 2
-        x: 9792
-        y: 0
+        x: 1152
+        y: 768
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,10 +504,10 @@ TextureImporter:
       name: GasGiant 21_18
       rect:
         serializedVersion: 2
-        x: 10368
-        y: 0
+        x: 0
+        y: 576
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,10 +525,10 @@ TextureImporter:
       name: GasGiant 21_19
       rect:
         serializedVersion: 2
-        x: 10944
-        y: 0
+        x: 576
+        y: 576
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,10 +546,10 @@ TextureImporter:
       name: GasGiant 21_20
       rect:
         serializedVersion: 2
-        x: 11520
-        y: 0
+        x: 1152
+        y: 576
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -567,10 +567,10 @@ TextureImporter:
       name: GasGiant 21_21
       rect:
         serializedVersion: 2
-        x: 12096
-        y: 0
+        x: 0
+        y: 384
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -588,10 +588,10 @@ TextureImporter:
       name: GasGiant 21_22
       rect:
         serializedVersion: 2
-        x: 12672
-        y: 0
+        x: 576
+        y: 384
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -609,10 +609,10 @@ TextureImporter:
       name: GasGiant 21_23
       rect:
         serializedVersion: 2
-        x: 13248
-        y: 0
+        x: 1152
+        y: 384
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -630,10 +630,10 @@ TextureImporter:
       name: GasGiant 21_24
       rect:
         serializedVersion: 2
-        x: 13824
-        y: 0
+        x: 0
+        y: 192
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -651,10 +651,10 @@ TextureImporter:
       name: GasGiant 21_25
       rect:
         serializedVersion: 2
-        x: 14400
-        y: 0
+        x: 576
+        y: 192
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -672,10 +672,10 @@ TextureImporter:
       name: GasGiant 21_26
       rect:
         serializedVersion: 2
-        x: 14976
-        y: 0
+        x: 1152
+        y: 192
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -693,10 +693,10 @@ TextureImporter:
       name: GasGiant 21_27
       rect:
         serializedVersion: 2
-        x: 15552
+        x: 0
         y: 0
         width: 576
-        height: 576
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

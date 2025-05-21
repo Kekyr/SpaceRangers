@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -127,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1536
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,9 +148,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 0
+        y: 1536
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,9 +169,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 0
+        y: 1536
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,9 +190,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1152
-        y: 0
+        y: 1536
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,9 +211,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 0
+        y: 1536
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: BlackHole_5
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
+        x: 0
+        y: 1344
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: BlackHole_6
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 0
+        x: 384
+        y: 1344
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: BlackHole_7
       rect:
         serializedVersion: 2
-        x: 2688
-        y: 0
+        x: 768
+        y: 1344
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: BlackHole_8
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 0
+        x: 1152
+        y: 1344
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: BlackHole_9
       rect:
         serializedVersion: 2
-        x: 3456
-        y: 0
+        x: 1536
+        y: 1344
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: BlackHole_10
       rect:
         serializedVersion: 2
-        x: 3840
-        y: 0
+        x: 0
+        y: 1152
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: BlackHole_11
       rect:
         serializedVersion: 2
-        x: 4224
-        y: 0
+        x: 384
+        y: 1152
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +378,10 @@ TextureImporter:
       name: BlackHole_12
       rect:
         serializedVersion: 2
-        x: 4608
-        y: 0
+        x: 768
+        y: 1152
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -399,10 +399,10 @@ TextureImporter:
       name: BlackHole_13
       rect:
         serializedVersion: 2
-        x: 4992
-        y: 0
+        x: 1152
+        y: 1152
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,10 +420,10 @@ TextureImporter:
       name: BlackHole_14
       rect:
         serializedVersion: 2
-        x: 5376
-        y: 0
+        x: 1536
+        y: 1152
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,10 +441,10 @@ TextureImporter:
       name: BlackHole_15
       rect:
         serializedVersion: 2
-        x: 5760
-        y: 0
+        x: 0
+        y: 960
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,10 +462,10 @@ TextureImporter:
       name: BlackHole_16
       rect:
         serializedVersion: 2
-        x: 6144
-        y: 0
+        x: 384
+        y: 960
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +483,10 @@ TextureImporter:
       name: BlackHole_17
       rect:
         serializedVersion: 2
-        x: 6528
-        y: 0
+        x: 768
+        y: 960
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,10 +504,10 @@ TextureImporter:
       name: BlackHole_18
       rect:
         serializedVersion: 2
-        x: 6912
-        y: 0
+        x: 1152
+        y: 960
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,10 +525,10 @@ TextureImporter:
       name: BlackHole_19
       rect:
         serializedVersion: 2
-        x: 7296
-        y: 0
+        x: 1536
+        y: 960
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,10 +546,10 @@ TextureImporter:
       name: BlackHole_20
       rect:
         serializedVersion: 2
-        x: 7680
-        y: 0
+        x: 0
+        y: 768
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -567,10 +567,10 @@ TextureImporter:
       name: BlackHole_21
       rect:
         serializedVersion: 2
-        x: 8064
-        y: 0
+        x: 384
+        y: 768
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -588,10 +588,10 @@ TextureImporter:
       name: BlackHole_22
       rect:
         serializedVersion: 2
-        x: 8448
-        y: 0
+        x: 768
+        y: 768
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -609,10 +609,10 @@ TextureImporter:
       name: BlackHole_23
       rect:
         serializedVersion: 2
-        x: 8832
-        y: 0
+        x: 1152
+        y: 768
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -630,10 +630,10 @@ TextureImporter:
       name: BlackHole_24
       rect:
         serializedVersion: 2
-        x: 9216
-        y: 0
+        x: 1536
+        y: 768
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -651,10 +651,10 @@ TextureImporter:
       name: BlackHole_25
       rect:
         serializedVersion: 2
-        x: 9600
-        y: 0
+        x: 0
+        y: 576
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -672,10 +672,10 @@ TextureImporter:
       name: BlackHole_26
       rect:
         serializedVersion: 2
-        x: 9984
-        y: 0
+        x: 384
+        y: 576
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -693,10 +693,10 @@ TextureImporter:
       name: BlackHole_27
       rect:
         serializedVersion: 2
-        x: 10368
-        y: 0
+        x: 768
+        y: 576
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -714,10 +714,10 @@ TextureImporter:
       name: BlackHole_28
       rect:
         serializedVersion: 2
-        x: 10752
-        y: 0
+        x: 1152
+        y: 576
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -735,10 +735,10 @@ TextureImporter:
       name: BlackHole_29
       rect:
         serializedVersion: 2
-        x: 11136
-        y: 0
+        x: 1536
+        y: 576
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -756,10 +756,10 @@ TextureImporter:
       name: BlackHole_30
       rect:
         serializedVersion: 2
-        x: 11520
-        y: 0
+        x: 0
+        y: 384
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -777,10 +777,10 @@ TextureImporter:
       name: BlackHole_31
       rect:
         serializedVersion: 2
-        x: 11904
-        y: 0
+        x: 384
+        y: 384
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -798,10 +798,10 @@ TextureImporter:
       name: BlackHole_32
       rect:
         serializedVersion: 2
-        x: 12288
-        y: 0
+        x: 768
+        y: 384
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -819,10 +819,10 @@ TextureImporter:
       name: BlackHole_33
       rect:
         serializedVersion: 2
-        x: 12672
-        y: 0
+        x: 1152
+        y: 384
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -840,10 +840,10 @@ TextureImporter:
       name: BlackHole_34
       rect:
         serializedVersion: 2
-        x: 13056
-        y: 0
+        x: 1536
+        y: 384
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -861,10 +861,10 @@ TextureImporter:
       name: BlackHole_35
       rect:
         serializedVersion: 2
-        x: 13440
-        y: 0
+        x: 0
+        y: 192
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -882,10 +882,10 @@ TextureImporter:
       name: BlackHole_36
       rect:
         serializedVersion: 2
-        x: 13824
-        y: 0
+        x: 384
+        y: 192
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -903,10 +903,10 @@ TextureImporter:
       name: BlackHole_37
       rect:
         serializedVersion: 2
-        x: 14208
-        y: 0
+        x: 768
+        y: 192
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -924,10 +924,10 @@ TextureImporter:
       name: BlackHole_38
       rect:
         serializedVersion: 2
-        x: 14592
-        y: 0
+        x: 1152
+        y: 192
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -945,10 +945,10 @@ TextureImporter:
       name: BlackHole_39
       rect:
         serializedVersion: 2
-        x: 14976
-        y: 0
+        x: 1536
+        y: 192
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -966,10 +966,10 @@ TextureImporter:
       name: BlackHole_40
       rect:
         serializedVersion: 2
-        x: 15360
+        x: 0
         y: 0
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -987,10 +987,10 @@ TextureImporter:
       name: BlackHole_41
       rect:
         serializedVersion: 2
-        x: 15744
+        x: 384
         y: 0
         width: 384
-        height: 384
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
