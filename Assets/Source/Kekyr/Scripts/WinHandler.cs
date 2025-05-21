@@ -8,6 +8,7 @@ public class WinHandler : MonoBehaviour
     private Timer _timer;
     private EnemyShip _boss;
     private LevelSO _levelData;
+    private LevelsSO _levelsData;
 
     public event Action Won;
 
@@ -26,10 +27,11 @@ public class WinHandler : MonoBehaviour
         }
     }
 
-    public void Init(Timer timer, LevelSO levelData)
+    public void Init(Timer timer, LevelSO levelData, LevelsSO levelsData)
     {
         _timer = timer;
         _levelData = levelData;
+        _levelsData = levelsData;
         enabled = true;
     }
 
@@ -43,12 +45,19 @@ public class WinHandler : MonoBehaviour
     {
         if (_levelData.HasBoss == false)
         {
-            Won?.Invoke();
+            OnWon();
         }
     }
 
     private void OnDestroyed()
     {
+        OnWon();
+    }
+
+    private void OnWon()
+    {
         Won?.Invoke();
+        _levelData.Completed();
+        _levelsData.Next.Opened();
     }
 }

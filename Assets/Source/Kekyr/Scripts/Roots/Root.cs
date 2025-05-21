@@ -5,6 +5,7 @@ using Audio;
 using LevelEnemy;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ShipBase
@@ -49,7 +50,7 @@ namespace ShipBase
         [SerializeField] private ImprovementsSO<int> _rocketData;
         [SerializeField] private ShieldImprovementsSO _shieldData;
         [SerializeField] private BackgroundSO _backgroundData;
-        [SerializeField] private LevelSO _levelData;
+        [SerializeField] private LevelsSO _levelsData;
 
         [SerializeField] private Canvas _canvas;
         [SerializeField] private BordersAdjuster _bordersAdjuster;
@@ -165,9 +166,9 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_backgroundData));
             }
 
-            if (_levelData == null)
+            if (_levelsData == null)
             {
-                throw new ArgumentOutOfRangeException(nameof(_levelData));
+                throw new ArgumentNullException(nameof(_levelsData));
             }
 
             if (_healthView == null)
@@ -260,6 +261,8 @@ namespace ShipBase
         {
             Validate();
 
+            LevelSO levelData = _levelsData.Current;
+
             _backgroundImage.texture = _backgroundData.CurrentTexture;
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
@@ -280,12 +283,12 @@ namespace ShipBase
             BulletPool pool = player.GetComponentInChildren<BulletPool>();
 
             _coinPool.Init(player.transform, health);
-            _winHandler.Init(_timer, _levelData);
+            _winHandler.Init(_timer, levelData, _levelsData);
             _wallet.Init(_sfxSetting);
 
             _losePopup.Init(health);
             _winPopup.Init(_winHandler, _wallet, _score, _sfxSetting);
-            _pausePopup.Init(_music);
+            _pausePopup.Init(_music, _levelsData);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
             {
@@ -305,7 +308,7 @@ namespace ShipBase
             shield.Init(_shieldData.CurrentLevel);
 
             _timerView.Init(_timer);
-            _timer.Init(_levelData);
+            _timer.Init(levelData);
             _music.Init(_timer, _musicSetting, _musicButton);
 
             _healthView.Init(health);
@@ -324,11 +327,11 @@ namespace ShipBase
 
             _rewardedAd.Init(_music, _sfxSetting);
 
-            List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
+            List<EnemySpawnerSO> enemySpawnersData = levelData.SpawnersData;
 
             _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winHandler, _sfxSetting);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
-                _score, _timer, _levelData);
+                _score, _timer, levelData);
 
             StartCoroutine(Initialization());
         }
