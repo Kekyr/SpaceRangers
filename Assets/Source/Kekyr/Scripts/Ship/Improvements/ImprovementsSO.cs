@@ -23,6 +23,16 @@ namespace ShipBase
             List<ImprovementSO<T>> list = _levels.ToList();
             ImprovementSO<T> fullData = (ImprovementSO<T>)data;
             _currentLevelIndex = list.IndexOf(fullData);
+            data.Buy();
+            data.Choose();
+            int nextLevelIndex = _currentLevelIndex + 1;
+
+            if (nextLevelIndex >= _levels.Length)
+            {
+                return;
+            }
+            
+            list[nextLevelIndex].Open();
         }
     }
 }

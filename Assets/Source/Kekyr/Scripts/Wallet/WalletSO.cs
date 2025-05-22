@@ -11,4 +11,9 @@ public class WalletSO : ScriptableObject
     {
         _money += count;
     }
+
+    public void Decrease(int count)
+    {
+        _money -= count;
+    }
 }

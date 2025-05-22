@@ -6,6 +6,7 @@ public class ImprovementsView : MonoBehaviour
     [SerializeField] private ImprovementView[] _views;
     
     private ImprovementDataSO[] _data;
+    private HangarPopup _hangarPopup;
 
     public event Action<ImprovementDataSO> Clicked;
 
@@ -16,6 +17,8 @@ public class ImprovementsView : MonoBehaviour
             throw new ArgumentOutOfRangeException(nameof(_views));
         }
 
+        _hangarPopup.Bought += OnBought;
+
         for (int i = 0; i < _views.Length; i++)
         {
             _views[i].Init(_data[i+1]);
@@ -23,14 +26,28 @@ public class ImprovementsView : MonoBehaviour
         }
     }
 
-    public void Init(ImprovementDataSO[] data)
+    private void OnDestroy()
+    {
+        _hangarPopup.Bought -= OnBought;
+    }
+
+    public void Init(ImprovementDataSO[] data, HangarPopup hangarPopup)
     {
         _data = data;
+        _hangarPopup = hangarPopup;
         enabled = true;
     }
 
     private void OnClicked(ImprovementDataSO data)
     {
         Clicked?.Invoke(data);
+    }
+
+    private void OnBought()
+    {
+        for (int i = 0; i < _views.Length; i++)
+        {
+            _views[i].CheckState();
+        }
     }
 }

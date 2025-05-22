@@ -22,6 +22,8 @@ public class HangarPopup : MonoBehaviour
 
     private WalletSO _walletData;
 
+    public event Action Bought;
+
     private void Start()
     {
         if (_coinsCount == null)
@@ -58,11 +60,11 @@ public class HangarPopup : MonoBehaviour
         {
             throw new ArgumentOutOfRangeException(nameof(_shipsView));
         }
-        
-        _bulletsView.Init(_bulletImprovementsData.Levels);
-        _shieldsView.Init(_shieldImprovementsData.Levels);
-        _shipsView.Init(_shipImprovementsData.Levels);
-        _rocketsView.Init(_rocketImprovementsData.Levels);
+
+        _bulletsView.Init(_bulletImprovementsData.Levels,this);
+        _shieldsView.Init(_shieldImprovementsData.Levels,this);
+        _shipsView.Init(_shipImprovementsData.Levels,this);
+        _rocketsView.Init(_rocketImprovementsData.Levels,this);
 
         _coinsCount.text = _walletData.Money.ToString();
         _closeButton.onClick.AddListener(OnClose);
@@ -76,15 +78,15 @@ public class HangarPopup : MonoBehaviour
     private void OnDestroy()
     {
         _closeButton.onClick.RemoveListener(OnClose);
-        
+
         _bulletsView.Clicked -= OnBulletClicked;
         _shieldsView.Clicked -= OnShieldClicked;
         _shipsView.Clicked -= OnShipClicked;
         _rocketsView.Clicked -= OnRocketClicked;
     }
 
-    public void Init(WalletSO walletData,ImprovementsSO<GameObject> bulletImprovementsData,
-        ImprovementsSO<ShieldDataSO> shieldImprovementsData,ImprovementsSO<GameObject> shipImprovementsData,
+    public void Init(WalletSO walletData, ImprovementsSO<GameObject> bulletImprovementsData,
+        ImprovementsSO<ShieldDataSO> shieldImprovementsData, ImprovementsSO<GameObject> shipImprovementsData,
         ImprovementsSO<int> rocketImprovementsData)
     {
         _bulletImprovementsData = bulletImprovementsData;
@@ -109,21 +111,57 @@ public class HangarPopup : MonoBehaviour
 
     private void OnBulletClicked(ImprovementDataSO data)
     {
-        _bulletImprovementsData.SetCurrent(data);
+        if (TryBuy(data.Price) == true)
+        {
+            Buy(data.Price);
+            _bulletImprovementsData.SetCurrent(data);
+            Bought?.Invoke();
+        }
     }
-    
+
     private void OnShieldClicked(ImprovementDataSO data)
     {
-        _shieldImprovementsData.SetCurrent(data);
+        if (TryBuy(data.Price) == true)
+        {
+            Buy(data.Price);
+            _shieldImprovementsData.SetCurrent(data);
+            Bought?.Invoke();
+        }
     }
-    
+
     private void OnShipClicked(ImprovementDataSO data)
     {
-        _shipImprovementsData.SetCurrent(data);
+        if (TryBuy(data.Price) == true)
+        {
+            Buy(data.Price);
+            _shipImprovementsData.SetCurrent(data);
+            Bought?.Invoke();
+        }
     }
-    
+
     private void OnRocketClicked(ImprovementDataSO data)
     {
-        _rocketImprovementsData.SetCurrent(data);
+        if (TryBuy(data.Price) == true)
+        {
+            Buy(data.Price);
+            _rocketImprovementsData.SetCurrent(data);
+            Bought?.Invoke();
+        }
+    }
+
+    private void Buy(int price)
+    {
+        _walletData.Decrease(price);
+        _coinsCount.text = _walletData.Money.ToString();
+    }
+
+    private bool TryBuy(int price)
+    {
+        if (price < 0)
+        {
+            return false;
+        }
+
+        return _walletData.Money - price >= 0;
     }
 }

@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class ImprovementView : MonoBehaviour
 {
-    [SerializeField] private Image _skill;
+    private readonly Color _current = new Color(0.490566f, 0.4681433f, 0.3309007f, 0.6588235f);
+
+    [SerializeField] private Image _image;
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _price;
 
@@ -15,9 +17,9 @@ public class ImprovementView : MonoBehaviour
 
     private void Start()
     {
-        if (_skill == null)
+        if (_image == null)
         {
-            throw new ArgumentNullException(nameof(_skill));
+            throw new ArgumentNullException(nameof(_image));
         }
 
         if (_button == null)
@@ -47,21 +49,30 @@ public class ImprovementView : MonoBehaviour
         enabled = true;
     }
 
-    private void CheckState()
+    public void CheckState()
     {
         if (_data.isOpened == false)
         {
             return;
         }
 
-        ChangeColor(_skill, Color.white);
-        
         _button.interactable = true;
 
         if (_data.isBought == false)
         {
             return;
         }
+
+        _image.gameObject.SetActive(false);
+        _button.interactable = false;
+
+        if (_data.isCurrent == false)
+        {
+            return;
+        }
+
+        ChangeColor(_image, _current);
+        _image.gameObject.SetActive(true);
     }
 
     private void ChangeColor(Image image, Color color)
@@ -72,5 +83,6 @@ public class ImprovementView : MonoBehaviour
     private void OnClick()
     {
         Clicked?.Invoke(_data);
+        CheckState();
     }
 }

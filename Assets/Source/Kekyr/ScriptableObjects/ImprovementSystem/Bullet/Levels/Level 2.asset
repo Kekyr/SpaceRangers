@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe4d96e518ca904ab306a60d42ac47d, type: 3}
-  m_Name: Level 3
+  m_Script: {fileID: 11500000, guid: 8391f30c6dd5e7c47915b2d45277968d, type: 3}
+  m_Name: Level 2
   m_EditorClassIdentifier: 
-  _value: {fileID: 11400000, guid: 717e38ed36d9fd84bb747d73e2d81b5a, type: 2}
+  _price: 50
   _isBought: 0
-  _isOpened: 0
+  _isOpened: 1
   _isCurrent: 0
+  _value: {fileID: 1205919163400505641, guid: b28a36241d174864896a538cfee4391f, type: 3}

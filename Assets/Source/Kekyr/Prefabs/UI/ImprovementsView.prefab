@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0618611e63904d64f9f2adf785a8ac65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skill: {fileID: 6729269550476159326}
+  _image: {fileID: 6905781203566687445}
   _button: {fileID: 2112390497896778267}
   _price: {fileID: 82085435467783907}
 --- !u!1 &1385370120433567909
@@ -173,7 +173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9041249580361539773
@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &906874555233963107
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0618611e63904d64f9f2adf785a8ac65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skill: {fileID: 3644005447274342426}
+  _image: {fileID: 3532150310908155384}
   _button: {fileID: 5179594481714996022}
   _price: {fileID: 761053729921762570}
 --- !u!1 &2230855823578401075
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 657852958479868097}
   - component: {fileID: 3532150310908155384}
   m_Layer: 5
-  m_Name: Coloring
+  m_Name: Backlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -644,7 +644,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
   m_sharedMaterial: {fileID: 8584857642691098040, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
@@ -909,7 +911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 300
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
   m_sharedMaterial: {fileID: 8584857642691098040, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
@@ -1114,7 +1116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0618611e63904d64f9f2adf785a8ac65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skill: {fileID: 5785276493840805302}
+  _image: {fileID: 7749866693661148654}
   _button: {fileID: 1103993672840106365}
   _price: {fileID: 1187946166318313170}
 --- !u!1 &7178885101786816885
@@ -1205,7 +1207,7 @@ GameObject:
   - component: {fileID: 3333087999718005474}
   - component: {fileID: 6905781203566687445}
   m_Layer: 5
-  m_Name: Coloring
+  m_Name: Backlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1356,7 +1358,7 @@ GameObject:
   - component: {fileID: 5537643578163510290}
   - component: {fileID: 7749866693661148654}
   m_Layer: 5
-  m_Name: Coloring
+  m_Name: Backlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1453,7 +1455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6714811100968577153
@@ -1559,7 +1561,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 150
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
   m_sharedMaterial: {fileID: 8584857642691098040, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
