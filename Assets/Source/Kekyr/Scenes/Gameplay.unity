@@ -266,6 +266,7 @@ MonoBehaviour:
   _spriteModifier: {fileID: 2557745229014845438}
   _score: {fileID: 8924620640646227850}
   _wallet: {fileID: 3002139784727130965}
+  _walletData: {fileID: 11400000, guid: a5b094cafb9ac7b4bb144d565d3da89f, type: 2}
   _music: {fileID: 8427888185971947560}
   _timer: {fileID: 5649033606552574390}
   _winHandler: {fileID: 1851346101}

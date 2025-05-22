@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ship
   m_EditorClassIdentifier: 
   _levels:
-  - {fileID: 2757126576815746414, guid: be261544c5dcf3241b620faf26126c87, type: 3}
-  - {fileID: 4260949858531963761, guid: 270e47eeb6a621f43b4751a649f5ad03, type: 3}
-  - {fileID: 1345201888461150766, guid: 9ecd3d6bf6ac8dc4e88d138e2d1d39b4, type: 3}
-  - {fileID: 3350654658272848556, guid: d1296f7c5fb694c41b8d3e563a29c4c5, type: 3}
+  - {fileID: 11400000, guid: af555f0146ca77841a75a9fbdb5c71c9, type: 2}
+  - {fileID: 11400000, guid: 1da0b6c4096a1344c976d04ab57abadb, type: 2}
+  - {fileID: 11400000, guid: 52311c02be3f1c545844af513c48887b, type: 2}
+  - {fileID: 11400000, guid: 816809f44f6dc4d4785517fef405bf8e, type: 2}
   _currentLevelIndex: 0

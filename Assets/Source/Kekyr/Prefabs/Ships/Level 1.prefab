@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 1970098109006422710}
   - component: {fileID: 563247494625002921}
   m_Layer: 6
-  m_Name: Ship
+  m_Name: Level 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

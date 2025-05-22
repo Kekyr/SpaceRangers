@@ -20,6 +20,7 @@ namespace ShipBase
         [SerializeField] private SpriteModifier _spriteModifier;
         [SerializeField] private Score _score;
         [SerializeField] private Wallet _wallet;
+        [SerializeField] private WalletSO _walletData;
         [SerializeField] private Music _music;
         [SerializeField] private Timer _timer;
         [SerializeField] private WinHandler _winHandler;
@@ -104,6 +105,11 @@ namespace ShipBase
             if (_wallet == null)
             {
                 throw new ArgumentNullException(nameof(_wallet));
+            }
+
+            if (_walletData == null)
+            {
+                throw new ArgumentNullException(nameof(_walletData));
             }
 
             if (_music == null)
@@ -284,7 +290,7 @@ namespace ShipBase
 
             _coinPool.Init(player.transform, health);
             _winHandler.Init(_timer, levelData, _levelsData);
-            _wallet.Init(_sfxSetting);
+            _wallet.Init(_sfxSetting, _walletData, _winHandler);
 
             _losePopup.Init(health);
             _winPopup.Init(_winHandler, _wallet, _score, _sfxSetting);
