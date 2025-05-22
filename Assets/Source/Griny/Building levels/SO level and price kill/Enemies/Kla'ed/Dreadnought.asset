@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e9b92030e03864ea3d0e9dd254e47d, type: 3}
   m_Name: Dreadnought
   m_EditorClassIdentifier: 
-  _pointsCount: 1000
-  _coinsCount: 0700000004000000
+  _pointsCount: 200
+  _coinsCount: 0700000006000000

@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2489687055537609100, guid: be261544c5dcf3241b620faf26126c87, type: 3}
+      propertyPath: _count
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2757126576815746414, guid: be261544c5dcf3241b620faf26126c87, type: 3}
       propertyPath: m_Name
       value: Improved Ship 2 Variant

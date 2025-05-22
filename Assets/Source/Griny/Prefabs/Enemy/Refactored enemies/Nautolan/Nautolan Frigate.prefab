@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: _spawnPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1792301713569019914, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: _speed
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2131397469087761620, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.108
@@ -72,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: cb90e021b7b9c614d8a0347d3bb1fc42, type: 2}
+    - target: {fileID: 2694337907444553640, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 39cc2fb3ea66b8b4db312f6b92eb9fb3, type: 2}
     - target: {fileID: 4878564191658172539, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.6699218
@@ -122,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893335052776120221, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7502834247949577208, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_AnchorMax.x
@@ -134,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7666293028737066024, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8154889630979128733, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_AnchorMax.x

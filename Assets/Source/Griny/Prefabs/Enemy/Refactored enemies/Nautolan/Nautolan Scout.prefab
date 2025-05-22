@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337258331792345260, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _startValue
-      value: 20
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2828482731980043033, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _startValue
@@ -122,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813505545526208490, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _speed
-      value: 130
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6641344731422536590, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_Controller
@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: _bulletPrefab
       value: 
       objectReference: {fileID: 4037262342396197654, guid: 4f56dc87dee6d85499d29336ee293275, type: 3}
+    - target: {fileID: 6741598059594857260, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 5221a2dfa7af5f04cbb07cc6b3b898bc, type: 2}
     - target: {fileID: 7873653348781488066, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _bulletPrefab
       value: 

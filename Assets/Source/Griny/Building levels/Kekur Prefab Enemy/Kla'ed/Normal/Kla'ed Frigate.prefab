@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1288679180658404504, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1412162124512469832, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_AnchorMax.x
@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2606565701657351981, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3422858535440801515, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Controller
@@ -310,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: c1414b8de392e66499f70919a88d6a1b, type: 2}
     - target: {fileID: 7159002598251573434, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _speed
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7159002598251573434, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _pointInterectionUp

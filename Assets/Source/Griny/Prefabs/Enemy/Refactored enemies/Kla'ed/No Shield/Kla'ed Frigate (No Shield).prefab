@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1792301713569019914, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: _speed
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 1951345314165685636, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -64,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6893335052776120221, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: _startValue
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7502834247949577208, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -86,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8973703229156219954, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_Name
-      value: Kla'ed Frigate (No Shield) Variant
+      value: Kla'ed Frigate (No Shield)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

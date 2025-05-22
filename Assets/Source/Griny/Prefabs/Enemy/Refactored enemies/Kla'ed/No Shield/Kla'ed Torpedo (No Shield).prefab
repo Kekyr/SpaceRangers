@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5187128657161511078, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
+      propertyPath: _startValue
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5479920236301989395, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.68
@@ -66,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7268412017923695369, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_Name
-      value: Kla'ed Torpedo (No Shield) Variant
+      value: Kla'ed Torpedo (No Shield)
       objectReference: {fileID: 0}
     - target: {fileID: 7601395964164866726, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_AnchorMax.x

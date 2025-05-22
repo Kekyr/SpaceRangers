@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1288679180658404504, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1412162124512469832, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_AnchorMax.x
@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2606565701657351981, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3422858535440801515, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Controller
@@ -273,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 6837128384458448664, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _data
       value: 
-      objectReference: {fileID: 11400000, guid: 9a01acbadd4cfcb408c5197d11ae3376, type: 2}
+      objectReference: {fileID: 11400000, guid: 78372c0e76fcc0e43b987ac799de8a5d, type: 2}
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _bulletPrefab
       value: 
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _directionChanger: {fileID: 4011173506931634731}
-  _speed: 100
+  _speed: 140
 --- !u!4 &1423878895293638342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1201909088407569138, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}

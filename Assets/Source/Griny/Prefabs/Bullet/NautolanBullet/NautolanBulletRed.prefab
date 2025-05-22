@@ -194,7 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da19fa62b07621b47924699b9e491394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
+  _damageColor: {r: 0, g: 0, b: 0, a: 0}
+  _damage: 3
 --- !u!114 &2712725669481439722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,5 +209,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 200
-  _rigidbody: {fileID: 2022658540640693381}
-  _bullet: {fileID: 3850602350457569866}
