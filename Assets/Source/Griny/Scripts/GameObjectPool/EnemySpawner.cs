@@ -15,10 +15,12 @@ namespace Enemy
 
         private EnemySpawnerSO _data;
         private AudioSettingSO _sfxSetting;
+        private Timer _timer;
 
         private List<GameObject> _instances = new List<GameObject>();
 
         private int _currentInstanceIndex = 0;
+        private bool _canSpawn = true;
 
         public event Action Ended;
 
@@ -29,6 +31,7 @@ namespace Enemy
                 Initialize(prefab, transform);
             }
 
+            _timer.Ended += OnEnded;
             Spawn();
         }
 
@@ -44,10 +47,13 @@ namespace Enemy
                 DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
                 directionChanger.OutSight -= Spawn;
             }
+
+            _timer.Ended -= OnEnded;
         }
 
         public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier,
-            GameObject enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster, AudioSettingSO sfxSetting)
+            GameObject enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster,
+            AudioSettingSO sfxSetting, Timer timer)
         {
             _data = data;
             _spriteModifier = spriteModifier;
@@ -56,6 +62,7 @@ namespace Enemy
             _score = score;
             _screenAdjuster = screenAdjuster;
             _sfxSetting = sfxSetting;
+            _timer = timer;
             enabled = true;
         }
 
@@ -103,7 +110,7 @@ namespace Enemy
         {
             GameObject enemy;
 
-            if (_currentInstanceIndex >= _instances.Count)
+            if (_canSpawn == false || _currentInstanceIndex >= _instances.Count)
             {
                 Ended?.Invoke();
                 return;
@@ -117,6 +124,11 @@ namespace Enemy
             enemy.transform.position = transform.position;
             enemy.gameObject.SetActive(true);
             _currentInstanceIndex++;
+        }
+
+        private void OnEnded()
+        {
+            _canSpawn = false;
         }
     }
 }

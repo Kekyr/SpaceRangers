@@ -19,7 +19,6 @@ namespace ShipBase
         public event Action<float> ValueChanged;
         public event Action Damaged;
         public event Action Dying;
-
         public event Action Died;
 
         public bool IsDead => _current <= 0;

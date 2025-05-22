@@ -28,10 +28,11 @@ public class EnemySpawners : MonoBehaviour
     private void Start()
     {
         _spawners = GetComponentsInChildren<EnemySpawner>(true);
-        
+
         for (int i = 0; i < _spawnersData.Count; i++)
         {
-            _spawners[i].Init(_spawnersData[i], _spriteModifier, _bulletsContainer, _coinPool, _score, _screenAdjuster,_sfxSetting);
+            _spawners[i].Init(_spawnersData[i], _spriteModifier, _bulletsContainer, _coinPool, _score, _screenAdjuster,
+                _sfxSetting, _timer);
             _spawners[i].Ended += OnEnded;
         }
 
@@ -80,7 +81,8 @@ public class EnemySpawners : MonoBehaviour
         enabled = true;
     }
 
-    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, WinHandler winHandler, AudioSettingSO sfxSetting)
+    public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, WinHandler winHandler,
+        AudioSettingSO sfxSetting)
     {
         _canvas = canvas;
         _mainCamera = mainCamera;
@@ -111,11 +113,11 @@ public class EnemySpawners : MonoBehaviour
         {
             return;
         }
-        
+
         _boss.gameObject.SetActive(true);
         _isBossSpawned = true;
     }
-    
+
     private void ChangePosition(Transform spawner, Vector3 newScreenPosition)
     {
         Vector3 newWorldPosition = _mainCamera.ScreenToWorldPoint(newScreenPosition);
@@ -135,7 +137,7 @@ public class EnemySpawners : MonoBehaviour
         {
             _spawners[i].gameObject.SetActive(false);
         }
-        
+
         _bulletsContainer.SetActive(false);
     }
 }
