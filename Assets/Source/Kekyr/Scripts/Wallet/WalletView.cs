@@ -7,25 +7,25 @@ namespace ShipBase
     {
         private TextMeshProUGUI _textMeshPro;
         private Wallet _wallet;
-        private WinHandler _winHandler;
+        private GameEndHandler _gameEndHandler;
 
         private void OnEnable()
         {
             _textMeshPro = GetComponentInChildren<TextMeshProUGUI>();
             _wallet.Changed += OnChanged;
-            _winHandler.Won += OnWon;
+            _gameEndHandler.Won += OnWon;
         }
 
         private void OnDisable()
         {
             _wallet.Changed -= OnChanged;
-            _winHandler.Won -= OnWon;
+            _gameEndHandler.Won -= OnWon;
         }
 
-        public void Init(Wallet wallet, WinHandler winHandler)
+        public void Init(Wallet wallet, GameEndHandler gameEndHandler)
         {
             _wallet = wallet;
-            _winHandler = winHandler;
+            _gameEndHandler = gameEndHandler;
             enabled = true;
         }
 

@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 525615122707643898, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 525615122707643898, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1344219272628227493, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _delay
@@ -23,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 1357240606359721877, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918084750714850080, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 2927315544130807432, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_IsActive
@@ -36,6 +40,10 @@ PrefabInstance:
       propertyPath: _speed
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 3672020187133973561, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5133564438830740738, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -47,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 5376478595322631341, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Name
       value: Kla'ed Fighter (No Shield)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729314514462476800, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: m_Size.y
+      value: 0.96454644
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729314514462476800, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.023668945
       objectReference: {fileID: 0}
     - target: {fileID: 6661331434239601847, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _startValue

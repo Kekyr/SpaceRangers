@@ -7,7 +7,7 @@ public class ScoreView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textMeshPro;
 
     private Score _score;
-    private WinHandler _winHandler;
+    private GameEndHandler _gameEndHandler;
 
     private void OnEnable()
     {
@@ -17,19 +17,19 @@ public class ScoreView : MonoBehaviour
         }
 
         _score.Changed += OnChanged;
-        _winHandler.Won += OnWon;
+        _gameEndHandler.Won += OnWon;
     }
 
     private void OnDisable()
     {
         _score.Changed -= OnChanged;
-        _winHandler.Won -= OnWon;
+        _gameEndHandler.Won -= OnWon;
     }
 
-    public void Init(Score score, WinHandler winHandler)
+    public void Init(Score score, GameEndHandler gameEndHandler)
     {
         _score = score;
-        _winHandler = winHandler;
+        _gameEndHandler = gameEndHandler;
         enabled = true;
     }
 

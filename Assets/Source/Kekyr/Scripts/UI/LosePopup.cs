@@ -1,15 +1,15 @@
 using System;
-using ShipBase;
+using Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LosePopup : MonoBehaviour
 {
     [SerializeField] private Image _blackout;
-    
-    private ShipHealth _health;
 
-    private void Awake()
+    private GameEndHandler _gameEndHandler;
+
+    private void Start()
     {
         if (_blackout == null)
         {
@@ -19,16 +19,16 @@ public class LosePopup : MonoBehaviour
 
     private void OnDestroy()
     {
-        _health.Died -= OnDead;
+        _gameEndHandler.Lose -= OnLose;
     }
 
-    public void Init(ShipHealth health)
+    public void Init(GameEndHandler gameEndHandler)
     {
-        _health = health;
-        _health.Died += OnDead;
+        _gameEndHandler = gameEndHandler;
+        _gameEndHandler.Lose += OnLose;
     }
 
-    private void OnDead()
+    private void OnLose()
     {
         _blackout.gameObject.SetActive(true);
         gameObject.SetActive(true);

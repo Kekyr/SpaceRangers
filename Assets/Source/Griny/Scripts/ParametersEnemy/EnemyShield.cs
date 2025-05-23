@@ -15,11 +15,6 @@ namespace Enemy
 
         private void Awake()
         {
-            if (_startValue == 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_startValue));
-            }
-
             if (_shield == null)
             {
                 throw new ArgumentNullException(nameof(_shield));

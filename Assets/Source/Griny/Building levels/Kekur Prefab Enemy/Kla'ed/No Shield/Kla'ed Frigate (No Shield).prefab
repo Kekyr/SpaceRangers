@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 351363949741776038, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1792301713569019914, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: _speed
       value: 70
@@ -27,6 +31,18 @@ PrefabInstance:
     - target: {fileID: 2648128000236527370, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209816020938146751, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -116
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557480224295515493, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557480224295515493, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4908669250103945556, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_Enabled
@@ -99,6 +115,14 @@ PrefabInstance:
     - target: {fileID: 8973703229156219954, guid: 47a0416126f004f479295c9a40152310, type: 3}
       propertyPath: m_Name
       value: Kla'ed Frigate (No Shield)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115909888073330434, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115909888073330434, guid: 47a0416126f004f479295c9a40152310, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6699218
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

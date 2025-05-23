@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2068878548773954461, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956855979342826078, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956855979342826078, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4365786635698790449, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -71,6 +83,14 @@ PrefabInstance:
     - target: {fileID: 7268412017923695369, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_Name
       value: Kla'ed Torpedo (No Shield)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409650692818767929, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409650692818767929, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6682943
       objectReference: {fileID: 0}
     - target: {fileID: 7601395964164866726, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_AnchorMax.x

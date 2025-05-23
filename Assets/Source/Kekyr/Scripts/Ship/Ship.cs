@@ -28,7 +28,7 @@ namespace ShipBase
         private ScreenAdjuster _screenAdjuster;
         private Collider2D _collider;
         private AudioSettingSO _sfxSetting;
-        private WinHandler _winHandler;
+        private GameEndHandler _gameEndHandler;
 
         private Coroutine _staying;
         private WaitForSeconds _waitInterval;
@@ -65,14 +65,14 @@ namespace ShipBase
             _impulseDamageVelocity = _impulseDirection * _impulseDamageForce;
             _waitInterval = new WaitForSeconds(_stayingDamageInterval);
 
-            _winHandler.Won += OnWon;
+            _gameEndHandler.Won += OnWon;
             _health.Dying += OnDead;
             _screenAdjuster.ResolutionChanged += OnResolutionChanged;
         }
 
         private void OnDestroy()
         {
-            _winHandler.Won -= OnWon;
+            _gameEndHandler.Won -= OnWon;
             _health.Dying -= OnDead;
             _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
         }
@@ -111,12 +111,12 @@ namespace ShipBase
             }
         }
 
-        public void Init(Wallet wallet, ScreenAdjuster screenAdjuster, AudioSettingSO sfxSetting, WinHandler winHandler)
+        public void Init(Wallet wallet, ScreenAdjuster screenAdjuster, AudioSettingSO sfxSetting, GameEndHandler gameEndHandler)
         {
             _wallet = wallet;
             _screenAdjuster = screenAdjuster;
             _sfxSetting = sfxSetting;
-            _winHandler = winHandler;
+            _gameEndHandler = gameEndHandler;
             enabled = true;
         }
 

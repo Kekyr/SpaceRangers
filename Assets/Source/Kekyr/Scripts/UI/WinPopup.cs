@@ -7,31 +7,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(SFX))]
 public class WinPopup : MonoBehaviour
 {
-    [SerializeField] private SFXSO _winSfx;
     [SerializeField] private TextMeshProUGUI _walletView;
     [SerializeField] private TextMeshProUGUI _scoreView;
     [SerializeField] private Button _exitButton;
     [SerializeField] private Image _blackout;
 
-    private WinHandler _winHandler;
+    private GameEndHandler _gameEndHandler;
     private Wallet _wallet;
     private Score _score;
     private EnemyShip _boss;
-    private SFX _sfx;
-    private AudioSettingSO _sfxSetting;
 
     public event Action Exited;
 
     private void Awake()
     {
-        if (_winSfx == null)
-        {
-            throw new ArgumentNullException(nameof(_winSfx));
-        }
-
         if (_wallet == null)
         {
             throw new ArgumentNullException(nameof(_wallet));
@@ -53,28 +44,24 @@ public class WinPopup : MonoBehaviour
         }
         
         _exitButton.onClick.AddListener(OnExit);
-
-        _sfx = GetComponent<SFX>();
-        _sfx.Init(_sfxSetting);
     }
 
     private void OnDisable()
     {
         _exitButton.onClick.RemoveListener(OnExit);
         
-        _winHandler.Won -= OnWon;
+        _gameEndHandler.Won -= OnWon;
         _wallet.Changed -= OnWalletChanged;
         _score.Changed -= OnScoreChanged;
     }
 
-    public void Init(WinHandler winHandler, Wallet wallet, Score score, AudioSettingSO sfxSetting)
+    public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score)
     {
-        _winHandler = winHandler;
+        _gameEndHandler = gameEndHandler;
         _wallet = wallet;
         _score = score;
-        _sfxSetting = sfxSetting;
 
-        _winHandler.Won += OnWon;
+        _gameEndHandler.Won += OnWon;
         _wallet.Changed += OnWalletChanged;
         _score.Changed += OnScoreChanged;
     }
@@ -83,11 +70,6 @@ public class WinPopup : MonoBehaviour
     {
         _blackout.gameObject.SetActive(true);
         gameObject.SetActive(true);
-    }
-
-    private void OnAnimationStarted()
-    {
-        _sfx.Play(_winSfx);
     }
 
     private void OnWalletChanged(int newValue)

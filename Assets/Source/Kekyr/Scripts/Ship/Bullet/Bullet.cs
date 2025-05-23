@@ -9,7 +9,7 @@ namespace ShipBase
     public class Bullet : Attacker
     {
         private readonly string DestructionTrigger = "Destruct";
-        
+
         private Animator _animator;
         private BoxCollider2D _collider;
         private BulletMovement _bulletMovement;
@@ -29,12 +29,9 @@ namespace ShipBase
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var border) == true)
+            if (collider.gameObject.CompareTag("Boundary"))
             {
-                if(border.GetName() != "fighterDown")
-                {
-                    gameObject.SetActive(false);
-                }
+                gameObject.SetActive(false);
             }
 
             if (collider.gameObject.CompareTag("Enemy"))

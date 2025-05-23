@@ -15,7 +15,7 @@ namespace Audio
         private float _defaultVolume;
         private float _defaultPitch;
 
-        private void Start()
+        private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
             _defaultVolume = _audioSource.volume;
@@ -25,7 +25,6 @@ namespace Audio
         public void Init(AudioSettingSO setting)
         {
             _setting = setting;
-            enabled = true;
         }
 
         public void Play(SFXSO sfx)

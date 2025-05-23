@@ -23,7 +23,7 @@ namespace ShipBase
         [SerializeField] private WalletSO _walletData;
         [SerializeField] private Music _music;
         [SerializeField] private Timer _timer;
-        [SerializeField] private WinHandler _winHandler;
+        [SerializeField] private GameEndHandler _gameEndHandler;
 
         [SerializeField] private GameObject _enemyBulletsContainer;
         [SerializeField] private Transform _playerSpawnPoint;
@@ -122,9 +122,9 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_timer));
             }
 
-            if (_winHandler == null)
+            if (_gameEndHandler == null)
             {
-                throw new ArgumentNullException(nameof(_winHandler));
+                throw new ArgumentNullException(nameof(_gameEndHandler));
             }
 
             if (_enemyBulletsContainer == null)
@@ -289,11 +289,11 @@ namespace ShipBase
             BulletPool pool = player.GetComponentInChildren<BulletPool>();
 
             _coinPool.Init(player.transform, health);
-            _winHandler.Init(_timer, levelData, _levelsData);
+            _gameEndHandler.Init(_timer, health, _sfxSetting, levelData, _levelsData);
             _wallet.Init(_sfxSetting, _walletData, _winPopup);
 
-            _losePopup.Init(health);
-            _winPopup.Init(_winHandler, _wallet, _score, _sfxSetting);
+            _losePopup.Init(_gameEndHandler);
+            _winPopup.Init(_gameEndHandler, _wallet, _score);
             _pausePopup.Init(_music, _levelsData);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
@@ -301,7 +301,7 @@ namespace ShipBase
                 autoGuns.Init(_autoGunsZone);
             }
 
-            ship.Init(_wallet, _screenAdjuster, _sfxSetting, _winHandler);
+            ship.Init(_wallet, _screenAdjuster, _sfxSetting, _gameEndHandler);
             damageHandler.Init(_spriteModifier);
 
             for (int i = 0; i < movements.Length; i++)
@@ -319,8 +319,8 @@ namespace ShipBase
 
             _healthView.Init(health);
             _shieldView.Init(shield);
-            _walletView.Init(_wallet, _winHandler);
-            _scoreView.Init(_score, _winHandler);
+            _walletView.Init(_wallet, _gameEndHandler);
+            _scoreView.Init(_score, _gameEndHandler);
 
             AddRocketButton addRocketButton = _addRocketButton.GetComponent<AddRocketButton>();
             addRocketButton.Init(_rewardedAd);
@@ -335,7 +335,7 @@ namespace ShipBase
 
             List<EnemySpawnerSO> enemySpawnersData = levelData.SpawnersData;
 
-            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _winHandler, _sfxSetting);
+            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _gameEndHandler, _sfxSetting);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
                 _score, _timer, levelData);
 

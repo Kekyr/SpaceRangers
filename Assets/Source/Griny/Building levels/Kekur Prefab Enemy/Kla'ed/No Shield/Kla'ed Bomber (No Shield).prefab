@@ -20,9 +20,25 @@ PrefabInstance:
       propertyPath: _speed
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 1383922119282154656, guid: 1f101000678706247a3cb0d774648c65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777123487993476451, guid: 1f101000678706247a3cb0d774648c65, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777123487993476451, guid: 1f101000678706247a3cb0d774648c65, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3680826355819208460, guid: 1f101000678706247a3cb0d774648c65, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278253454218134457, guid: 1f101000678706247a3cb0d774648c65, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 4867856465735944494, guid: 1f101000678706247a3cb0d774648c65, type: 3}
       propertyPath: m_LocalPosition.x

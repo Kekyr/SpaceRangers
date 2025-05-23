@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kla'ed Scout (No Shield)
       objectReference: {fileID: 0}
+    - target: {fileID: 461889462965879686, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 461889462965879686, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6682943
+      objectReference: {fileID: 0}
     - target: {fileID: 702910447757676825, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -82,15 +90,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5310998297918003681, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5310998297918003681, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5813505545526208490, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _speed
       value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080227903757840187, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -118
       objectReference: {fileID: 0}
     - target: {fileID: 6641344731422536590, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_Enabled
@@ -105,6 +117,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7377108400258269843, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938108267053953058, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
