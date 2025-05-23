@@ -12573,6 +12573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _background: {fileID: 226346525}
+  _backgroundData: {fileID: 11400000, guid: 8f1e85bf35a085449b88d37e729e65d1, type: 2}
   _screenAdjuster: {fileID: 2134554992}
   _canvas: {fileID: 1522021750}
   _camera: {fileID: 1770486590}

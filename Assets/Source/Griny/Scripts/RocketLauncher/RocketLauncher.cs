@@ -47,11 +47,6 @@ namespace Enemy
             _ship.Reseted -= OnReseted;
         }
 
-        private void Start()
-        {
-            Initialize();
-        }
-
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.gameObject.CompareTag(_triggerTag))
@@ -87,6 +82,7 @@ namespace Enemy
         public void Init(GameObject gameObject)
         {
             _storage = gameObject.transform;
+            Initialize();
             enabled = true;
         }
 

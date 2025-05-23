@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe4d96e518ca904ab306a60d42ac47d, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  _value: {fileID: 11400000, guid: e740d181e53783944a062ee41d16eee8, type: 2}
+  _price: 0
   _isBought: 1
   _isOpened: 1
   _isCurrent: 1
+  _value: {fileID: 11400000, guid: e740d181e53783944a062ee41d16eee8, type: 2}

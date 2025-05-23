@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: Music
   m_EditorClassIdentifier: 
   _tracks:
-  - {fileID: 11400000, guid: 61baf3b6457e1db45b0bde1a7924e201, type: 2}
+  - {fileID: 11400000, guid: aaee78e0e27b8df40b1508f8e8755444, type: 2}
+  - {fileID: 11400000, guid: 980cc62d66a051a4783dd4a49214b42e, type: 2}
+  - {fileID: 11400000, guid: 5c057fe8d2737914c8dadb9eb5aaf927, type: 2}
+  - {fileID: 11400000, guid: 2dc94d83d4652a741be90bd83ec6c5c7, type: 2}
+  - {fileID: 11400000, guid: 73ea6f54f554b4241b598dfb73fdd622, type: 2}
+  - {fileID: 11400000, guid: 6b2bf1d48ed68fa42b8010e5c1c923c7, type: 2}
+  - {fileID: 11400000, guid: 9a7bf1a266d6e0d44af1e977b8c8b0d7, type: 2}

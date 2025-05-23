@@ -5,6 +5,8 @@ using UnityEngine.U2D;
 public class BordersAdjuster : MonoBehaviour
 {
     private readonly float _torpedoHeightInPercent = 80;
+    private readonly float _autoGunsSizeYOffset = 1.5f;
+    private readonly float _autoGunsYOffset = 0.7f;
 
     [SerializeField] private BoxCollider2D _up;
     [SerializeField] private BoxCollider2D _left;
@@ -85,7 +87,8 @@ public class BordersAdjuster : MonoBehaviour
         float sizeY = (rectTransform.rect.height / _pixelsPerUnit + modifier) / 10;
 
         float autoGunsZoneSizeX = rectTransform.rect.width / _pixelsPerUnit;
-        float autoGunsZoneSizeY = rectTransform.rect.height / _pixelsPerUnit;
+        float autoGunsZoneSizeY = rectTransform.rect.height / _pixelsPerUnit - _autoGunsSizeYOffset;
+
         float torpedoHeight = (_canvas.pixelRect.height / 100) * _torpedoHeightInPercent;
 
         _up.transform.position =
@@ -106,8 +109,11 @@ public class BordersAdjuster : MonoBehaviour
         _torpedo.transform.position =
             _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, torpedoHeight));
 
-        _autoGunsZone.transform.position =
-            _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
+        _autoGunsZone.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x,
+            _canvas.pixelRect.center.y));
+
+        _autoGunsZone.transform.position = new Vector3(_autoGunsZone.transform.position.x,
+            _autoGunsZone.transform.position.y + _autoGunsYOffset);
 
         _up.size = new Vector2(sizeX, _up.size.y);
         _down.size = new Vector2(sizeX, _down.size.y);

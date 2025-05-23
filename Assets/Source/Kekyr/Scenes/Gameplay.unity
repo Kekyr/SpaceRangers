@@ -3052,7 +3052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000
+  m_text: 0000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
   m_sharedMaterial: {fileID: 8584857642691098040, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
@@ -4124,8 +4124,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -63.6, y: 0}
-  m_SizeDelta: {x: 130, y: 100}
+  m_AnchoredPosition: {x: -33.190002, y: 0}
+  m_SizeDelta: {x: 190.83, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1255517748579586872
 RectTransform:
@@ -7785,7 +7785,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6099392153745838818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0e53386b6ebe9946ac7b3bb094d9af7, type: 3}
   m_Name: 
@@ -7962,7 +7962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000
+  m_text: 0000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
   m_sharedMaterial: {fileID: 8584857642691098040, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
@@ -8313,8 +8313,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -63.6, y: 0}
-  m_SizeDelta: {x: 130, y: 100}
+  m_AnchoredPosition: {x: -34.03, y: 0}
+  m_SizeDelta: {x: 189.14, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3204626145441753778
 GameObject:
@@ -19182,12 +19182,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4113615988824567697}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870ef80fe2b6479478b15b31d832eabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 52446eaad7a80a145bae843c4f1475e1, type: 2}
+  _bossData: {fileID: 11400000, guid: 8d1c6720b6e3e214cab0569819473e74, type: 2}
 --- !u!224 &8428852666509289317
 RectTransform:
   m_ObjectHideFlags: 0

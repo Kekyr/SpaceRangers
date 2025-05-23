@@ -133,8 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _delay: 1
-  _animator: {fileID: 0}
   _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
   _bulletPrefab: {fileID: 0}
   _spawnPoints: []
-  _capacity: 40
+  _capacity: 10

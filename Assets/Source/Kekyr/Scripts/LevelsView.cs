@@ -8,6 +8,7 @@ public class LevelsView : MonoBehaviour
     [SerializeField] private LevelView[] _views;
     
     private LevelsSO _levelsData;
+    private BackgroundSO _backgroundData;
 
     private void Start()
     {
@@ -31,9 +32,10 @@ public class LevelsView : MonoBehaviour
         }
     }
 
-    public void Init(LevelsSO data)
+    public void Init(LevelsSO data, BackgroundSO backgroundData)
     {
         _levelsData = data;
+        _backgroundData = backgroundData;
         enabled = true;
     }
 
@@ -42,6 +44,8 @@ public class LevelsView : MonoBehaviour
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         
         _levelsData.SetCurrent(data);
+        _backgroundData.SetCurrent(_levelsData.CurrentIndex);
+        
         SceneManager.LoadScene(nextSceneIndex);
     }
 }

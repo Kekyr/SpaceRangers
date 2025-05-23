@@ -11,6 +11,7 @@ public class LevelsRoot : MonoBehaviour
     private readonly float _initTime = 0.001f;
 
     [SerializeField] private RawImage _background;
+    [SerializeField] private BackgroundSO _backgroundData;
     [SerializeField] private ScreenAdjuster _screenAdjuster;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Camera _camera;
@@ -30,6 +31,11 @@ public class LevelsRoot : MonoBehaviour
         if (_background == null)
         {
             throw new ArgumentNullException(nameof(_background));
+        }
+
+        if (_backgroundData == null)
+        {
+            throw new ArgumentNullException(nameof(_backgroundData));
         }
 
         if (_screenAdjuster == null)
@@ -71,22 +77,22 @@ public class LevelsRoot : MonoBehaviour
         {
             throw new ArgumentNullException(nameof(_walletData));
         }
-        
+
         if (_bulletImprovementsData == null)
         {
             throw new ArgumentNullException(nameof(_bulletImprovementsData));
         }
-        
+
         if (_shieldImprovementsData == null)
         {
             throw new ArgumentNullException(nameof(_shieldImprovementsData));
         }
-        
+
         if (_shipImprovementsData == null)
         {
             throw new ArgumentNullException(nameof(_shipImprovementsData));
         }
-        
+
         if (_rocketImprovementsData == null)
         {
             throw new ArgumentNullException(nameof(_rocketImprovementsData));
@@ -102,10 +108,11 @@ public class LevelsRoot : MonoBehaviour
     {
         Validate();
         Reset();
-        
+
         _screenAdjuster.Init(_canvas, _camera, _background, _postProcessProfile);
-        _levelsView.Init(_levelsData);
-        _hangarPopup.Init(_walletData,_bulletImprovementsData,_shieldImprovementsData,_shipImprovementsData,_rocketImprovementsData);
+        _levelsView.Init(_levelsData, _backgroundData);
+        _hangarPopup.Init(_walletData, _bulletImprovementsData, _shieldImprovementsData, _shipImprovementsData,
+            _rocketImprovementsData);
 
         StartCoroutine(Initialization());
     }

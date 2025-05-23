@@ -315,7 +315,7 @@ namespace ShipBase
 
             _timerView.Init(_timer);
             _timer.Init(levelData);
-            _music.Init(_timer, _musicSetting, _musicButton);
+            _music.Init(_timer, _musicSetting, _musicButton, levelData);
 
             _healthView.Init(health);
             _shieldView.Init(shield);
@@ -335,7 +335,7 @@ namespace ShipBase
 
             List<EnemySpawnerSO> enemySpawnersData = levelData.SpawnersData;
 
-            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _gameEndHandler, _sfxSetting);
+            _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _gameEndHandler, _sfxSetting, _music);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
                 _score, _timer, levelData);
 
@@ -345,6 +345,7 @@ namespace ShipBase
         private IEnumerator Initialization()
         {
             yield return new WaitForSeconds(_initTime);
+
             _bordersAdjuster.OnResolutionChanged();
             _screenAdjuster.ChangeBackground();
             _screenAdjuster.ChangeEffect();

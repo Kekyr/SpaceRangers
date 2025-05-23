@@ -19,6 +19,7 @@ public class EnemySpawners : MonoBehaviour
     private Timer _timer;
     private LevelSO _levelData;
     private GameEndHandler _gameEndHandler;
+    private Music _music;
     private AudioSettingSO _sfxSetting;
 
     private int _endedCount;
@@ -42,6 +43,7 @@ public class EnemySpawners : MonoBehaviour
             boss.transform.position = _spawners[1].transform.position;
             EnemyShip ship = boss.GetComponent<EnemyShip>();
             _gameEndHandler.Init(ship);
+            _music.Init(ship);
             _boss = boss;
         }
 
@@ -82,19 +84,20 @@ public class EnemySpawners : MonoBehaviour
     }
 
     public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, GameEndHandler gameEndHandler,
-        AudioSettingSO sfxSetting)
+        AudioSettingSO sfxSetting, Music music)
     {
         _canvas = canvas;
         _mainCamera = mainCamera;
         _screenAdjuster = screenAdjuster;
         _gameEndHandler = gameEndHandler;
+        _music = music;
         _sfxSetting = sfxSetting;
     }
 
     public void OnResolutionChanged()
     {
         RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
-        float quarter = (_canvas.pixelRect.width / 100) * 20;
+        float quarter = (_canvas.pixelRect.width / 100) * 25;
 
         Vector3 leftPosition = new Vector3(_canvas.pixelRect.min.x + quarter, _canvas.pixelRect.min.y,
             _mainCamera.nearClipPlane);

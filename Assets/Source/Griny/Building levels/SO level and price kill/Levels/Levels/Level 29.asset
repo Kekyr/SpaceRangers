@@ -19,3 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 80be819301e3fc843981bf0cd48e65ee, type: 2}
   _hasBoss: 0
   _bossPrefab: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
+  _isOpened: 0
+  _isCompleted: 0
+  _isCurrent: 0

@@ -614,7 +614,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 148222024313390331, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: _speed
-      value: 100
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 148222024313390331, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: _pointInterectionUp
@@ -690,7 +690,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d2b4325ab02014d46ab384b94d12b215, type: 2}
     - target: {fileID: 5006617922940183404, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5659863740655957465, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -822,7 +822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8121462548523456729, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8272677331830003465, guid: 985e605dc44e43541b52251e6d8f1aba, type: 3}
       propertyPath: m_AnchorMax.x

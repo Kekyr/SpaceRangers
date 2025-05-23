@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 38809853367322417, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: _speed
-      value: 110
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 101115189243940153, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_Sprite
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8228724504777022227, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: _startValue
-      value: 150
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 9205412979033501985, guid: 282468a6b65b88f4291d8d575d8836a6, type: 3}
       propertyPath: m_LocalPosition.x

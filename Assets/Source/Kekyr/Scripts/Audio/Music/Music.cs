@@ -1,5 +1,7 @@
 using System;
 using DG.Tweening;
+using Enemy;
+using LevelEnemy;
 using UnityEngine;
 
 namespace Audio
@@ -10,25 +12,32 @@ namespace Audio
         private readonly float _endPitch = 1.5f;
 
         [SerializeField] private MusicSO _data;
+        [SerializeField] private MusicSO _bossData;
 
         private AudioSource _audioSource;
         private Timer _timer;
         private AudioSettingSO _setting;
         private AudioButton _button;
+        private LevelSO _levelData;
 
         private float _volume;
 
-        private void Awake()
+        private void Start()
         {
             if (_data == null)
             {
                 throw new ArgumentNullException(nameof(_data));
             }
 
+            if (_bossData == null)
+            {
+                throw new ArgumentNullException(nameof(_bossData));
+            }
+
             _timer.Ends += OnEnds;
-            _timer.Ended += Pause;
+            _timer.Ended += OnEnded;
             _button.Switched += OnSwitched;
-            
+
             _audioSource = GetComponent<AudioSource>();
             Play(_data.GetRandomClip());
         }
@@ -36,16 +45,22 @@ namespace Audio
         private void OnDestroy()
         {
             _timer.Ends -= OnEnds;
-            _timer.Ended += Pause;
+            _timer.Ended += OnEnded;
             _button.Switched -= OnSwitched;
         }
 
-        public void Init(Timer timer, AudioSettingSO setting, AudioButton button)
+        public void Init(Timer timer, AudioSettingSO setting, AudioButton button, LevelSO levelData)
         {
             _timer = timer;
             _setting = setting;
             _button = button;
+            _levelData = levelData;
             enabled = true;
+        }
+
+        public void Init(EnemyShip boss)
+        {
+            boss.Destroyed += OnDestroyed;
         }
 
         public void Pause()
@@ -59,7 +74,7 @@ namespace Audio
             {
                 return;
             }
-            
+
             _audioSource.volume = _volume;
         }
 
@@ -69,7 +84,7 @@ namespace Audio
             {
                 return;
             }
-            
+
             if (audio == null)
             {
                 return;
@@ -85,11 +100,21 @@ namespace Audio
         {
             _audioSource.DOPitch(_endPitch, _timer.EndTime);
         }
-        
+
         private void OnSwitched()
         {
             _audioSource.Stop();
             Play(_data.GetRandomClip());
+        }
+
+        private void OnEnded()
+        {
+            _audioSource.Stop();
+        }
+
+        private void OnDestroyed()
+        {
+            _audioSource.Stop();
         }
     }
 }
