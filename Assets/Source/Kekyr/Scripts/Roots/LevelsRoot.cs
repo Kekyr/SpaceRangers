@@ -23,6 +23,7 @@ public class LevelsRoot : MonoBehaviour
     [SerializeField] private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
     [SerializeField] private ImprovementsSO<GameObject> _shipImprovementsData;
     [SerializeField] private ImprovementsSO<int> _rocketImprovementsData;
+    [SerializeField] private ResetSO _resetData;
 
     private void Validate()
     {
@@ -90,12 +91,18 @@ public class LevelsRoot : MonoBehaviour
         {
             throw new ArgumentNullException(nameof(_rocketImprovementsData));
         }
+
+        if (_resetData == null)
+        {
+            throw new ArgumentNullException(nameof(_resetData));
+        }
     }
 
     private void Awake()
     {
         Validate();
-
+        Reset();
+        
         _screenAdjuster.Init(_canvas, _camera, _background, _postProcessProfile);
         _levelsView.Init(_levelsData);
         _hangarPopup.Init(_walletData,_bulletImprovementsData,_shieldImprovementsData,_shipImprovementsData,_rocketImprovementsData);
@@ -109,5 +116,19 @@ public class LevelsRoot : MonoBehaviour
         _screenAdjuster.ChangeBackground();
         _screenAdjuster.ChangeEffect();
         _screenAdjuster.enabled = true;
+    }
+
+    private void Reset()
+    {
+        if (_resetData.IsReseted == false)
+        {
+            _walletData.Reset();
+            _levelsData.Reset();
+            _bulletImprovementsData.Reset();
+            _shipImprovementsData.Reset();
+            _shieldImprovementsData.Reset();
+            _rocketImprovementsData.Reset();
+            _resetData.Reseted();
+        }
     }
 }

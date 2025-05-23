@@ -290,7 +290,7 @@ namespace ShipBase
 
             _coinPool.Init(player.transform, health);
             _winHandler.Init(_timer, levelData, _levelsData);
-            _wallet.Init(_sfxSetting, _walletData, _winHandler);
+            _wallet.Init(_sfxSetting, _walletData, _winPopup);
 
             _losePopup.Init(health);
             _winPopup.Init(_winHandler, _wallet, _score, _sfxSetting);
@@ -301,7 +301,7 @@ namespace ShipBase
                 autoGuns.Init(_autoGunsZone);
             }
 
-            ship.Init(_wallet, _screenAdjuster, _sfxSetting);
+            ship.Init(_wallet, _screenAdjuster, _sfxSetting, _winHandler);
             damageHandler.Init(_spriteModifier);
 
             for (int i = 0; i < movements.Length; i++)

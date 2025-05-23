@@ -1,19 +1,26 @@
 using System;
+using System.Collections;
 using Enemy;
 using LevelEnemy;
 using UnityEngine;
 
 public class WinHandler : MonoBehaviour
 {
+    private readonly float _delay = 2f;
+    
     private Timer _timer;
     private EnemyShip _boss;
     private LevelSO _levelData;
     private LevelsSO _levelsData;
 
+    private WaitForSeconds _wait;
+
     public event Action Won;
 
     private void OnEnable()
     {
+        _wait = new WaitForSeconds(_delay);
+        
         _timer.Ended += OnEnded;
     }
 
@@ -45,19 +52,21 @@ public class WinHandler : MonoBehaviour
     {
         if (_levelData.HasBoss == false)
         {
-            OnWon();
+            StartCoroutine(OnWon());
         }
     }
 
     private void OnDestroyed()
     {
-        OnWon();
+        StartCoroutine(OnWon());
     }
 
-    private void OnWon()
+    private IEnumerator OnWon()
     {
-        Won?.Invoke();
+        yield return _wait;
+
         _levelData.Completed();
         _levelsData.Next.Opened();
+        Won?.Invoke();
     }
 }

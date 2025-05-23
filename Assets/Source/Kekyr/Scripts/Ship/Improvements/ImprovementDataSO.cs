@@ -33,4 +33,11 @@ public abstract class ImprovementDataSO : ScriptableObject
     {
         _isCurrent = false;
     }
+
+    public void Reset()
+    {
+        _isBought = false;
+        _isOpened = false;
+        _isCurrent = false;
+    }
 }

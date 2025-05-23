@@ -18,9 +18,9 @@ namespace LevelEnemy
         {
             get
             {
-                int nextIndex=_currentIndex + 1;
-                
-                if(nextIndex < _data.Count)
+                int nextIndex = _currentIndex + 1;
+
+                if (nextIndex < _data.Count)
                 {
                     return _data[_currentIndex + 1];
                 }
@@ -31,7 +31,20 @@ namespace LevelEnemy
 
         public void SetCurrent(LevelSO levelData)
         {
+            _data[_currentIndex].UnChoose();
             _currentIndex = _data.IndexOf(levelData);
+            _data[_currentIndex].Choose();
+        }
+
+        public void Reset()
+        {
+            for (int i = 0; i < _data.Count; i++)
+            {
+                _data[i].Reset();
+            }
+            
+            _data[0].Opened();
+            _data[0].Choose();
         }
     }
 }

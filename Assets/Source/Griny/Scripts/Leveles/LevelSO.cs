@@ -12,6 +12,7 @@ namespace LevelEnemy
         [SerializeField] private GameObject _bossPrefab;
         [SerializeField] private bool _isOpened;
         [SerializeField] private bool _isCompleted;
+        [SerializeField] private bool _isCurrent;
 
         public int Duration => _duration;
         public List<EnemySpawnerSO> SpawnersData => _spawnersData;
@@ -19,6 +20,7 @@ namespace LevelEnemy
         public GameObject BossPrefab => _bossPrefab;
         public bool IsOpened => _isOpened;
         public bool IsCompleted => _isCompleted;
+        public bool IsCurrent => _isCurrent;
 
         public void Opened()
         {
@@ -28,6 +30,23 @@ namespace LevelEnemy
         public void Completed()
         {
             _isCompleted = true;
+        }
+
+        public void Choose()
+        {
+            _isCurrent = true;
+        }
+
+        public void UnChoose()
+        {
+            _isCurrent = false;
+        }
+
+        public void Reset()
+        {
+            _isOpened = false;
+            _isCompleted = false;
+            _isCurrent = false;
         }
     }
 }

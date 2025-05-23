@@ -16,4 +16,9 @@ public class WalletSO : ScriptableObject
     {
         _money -= count;
     }
+
+    public void Reset()
+    {
+        _money = 0;
+    }
 }

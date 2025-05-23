@@ -4727,8 +4727,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6, y: 0}
-  m_SizeDelta: {x: 19.48, y: 18.68}
+  m_AnchoredPosition: {x: -0.1, y: -0.75}
+  m_SizeDelta: {x: 22.2, y: 20.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &842113054
 MonoBehaviour:
@@ -12585,6 +12585,7 @@ MonoBehaviour:
   _shieldImprovementsData: {fileID: 11400000, guid: 1a103f3b12fbc9f459ad7be3b40c1a36, type: 2}
   _shipImprovementsData: {fileID: 11400000, guid: 8640b2e8cb57c7740ac6f6955ac998e0, type: 2}
   _rocketImprovementsData: {fileID: 11400000, guid: 50574b0a226cc174b9663743d53ac972, type: 2}
+  _resetData: {fileID: 11400000, guid: 909b6d9bc381fe14a945fe9292bb64a2, type: 2}
 --- !u!1 &1977127099
 GameObject:
   m_ObjectHideFlags: 0
@@ -13399,8 +13400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6, y: 0}
-  m_SizeDelta: {x: 19.48, y: 18.68}
+  m_AnchoredPosition: {x: -0.04, y: -0.76}
+  m_SizeDelta: {x: 21.77, y: 20.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2075008711
 MonoBehaviour:

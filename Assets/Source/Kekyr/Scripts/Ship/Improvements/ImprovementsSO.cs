@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -33,6 +34,18 @@ namespace ShipBase
             }
             
             list[nextLevelIndex].Open();
+        }
+
+        public void Reset()
+        {
+            Levels[0].Choose();
+
+            for (int i = 1; i < _levels.Length; i++)
+            {
+                Levels[i].Reset();
+            }
+            
+            Levels[1].Open();
         }
     }
 }

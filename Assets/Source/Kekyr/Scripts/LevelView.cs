@@ -8,6 +8,7 @@ public class LevelView : MonoBehaviour
     private readonly Color _planetOpened = new Color(0.8773585f, 0.8773585f, 0.8773585f);
     private readonly Color _starsOpened = new Color(0.2745098f, 0.1215686f, 0.1529412f);
     private readonly Color _starsCompleted = new Color(255, 225, 0);
+    private readonly Color _planetSelected = new Color(0.3813552f, 0.745283f, 0.2425685f, 0.6588235f);
 
     [SerializeField] private Image _planet;
     [SerializeField] private Image[] _stars;
@@ -52,28 +53,29 @@ public class LevelView : MonoBehaviour
 
     private void CheckState()
     {
-        if (_data.IsOpened == false)
+        if (_data.IsOpened == true)
         {
-            return;
+            ChangeColor(_planet, _planetOpened);
+
+            for (int i = 0; i < _stars.Length; i++)
+            {
+                ChangeColor(_stars[i], _starsOpened);
+            }
+        
+            _button.interactable = true;
         }
 
-        ChangeColor(_planet, _planetOpened);
-
-        for (int i = 0; i < _stars.Length; i++)
+        if (_data.IsCurrent == true)
         {
-            ChangeColor(_stars[i], _starsOpened);
+            ChangeColor(_planet, _planetSelected);
         }
         
-        _button.interactable = true;
-
-        if (_data.IsCompleted == false)
+        if (_data.IsCompleted == true)
         {
-            return;
-        }
-
-        for (int i = 0; i < _stars.Length; i++)
-        {
-            ChangeColor(_stars[i], _starsCompleted);
+            for (int i = 0; i < _stars.Length; i++)
+            {
+                ChangeColor(_stars[i], _starsCompleted);
+            }
         }
     }
 

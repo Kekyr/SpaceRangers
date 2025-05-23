@@ -9289,7 +9289,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 75ca2dd2e7044e441b9dc7b18cbcfcc3, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -12148,6 +12148,8 @@ MonoBehaviour:
   _winSfx: {fileID: 11400000, guid: 728931204b72e9d458c8c8412b8265ec, type: 2}
   _walletView: {fileID: 2498160237010592777}
   _scoreView: {fileID: 2251222770129880184}
+  _exitButton: {fileID: 2249817290222114565}
+  _blackout: {fileID: 216053157}
 --- !u!222 &5214606146827023020
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16930,7 +16932,6 @@ GameObject:
   - component: {fileID: 2011536281349422298}
   - component: {fileID: 1115554167646962650}
   - component: {fileID: 2249817290222114565}
-  - component: {fileID: 7340190301587470229}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -16938,18 +16939,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7340190301587470229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7340190301587470228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f001c8b9a008a149b6536fe53783000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7342060533730433724
 GameObject:
   m_ObjectHideFlags: 0
@@ -18938,7 +18927,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a66442552d189ba4d84fe15f86b1b014, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -19610,7 +19599,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 023c45a1d614ff84a8e799e979789b1e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -20520,6 +20509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6d9035f7971404583300d24217dac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blackout: {fileID: 216053157}
 --- !u!224 &8992639624543100584
 RectTransform:
   m_ObjectHideFlags: 0

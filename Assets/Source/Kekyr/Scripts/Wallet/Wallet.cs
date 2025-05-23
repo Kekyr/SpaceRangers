@@ -13,7 +13,7 @@ namespace ShipBase
         private int _money;
         private AudioSettingSO _sfxSetting;
         private WalletSO _data;
-        private WinHandler _winHandler;
+        private WinPopup _winPopup;
 
         public Action<int> Changed;
 
@@ -27,19 +27,19 @@ namespace ShipBase
             _sfx = GetComponent<SFX>();
             _sfx.Init(_sfxSetting);
 
-            _winHandler.Won += OnWon;
+            _winPopup.Exited += OnExit;
         }
 
         private void OnDestroy()
         {
-            _winHandler.Won -= OnWon;
+            _winPopup.Exited -= OnExit;
         }
 
-        public void Init(AudioSettingSO sfxSetting, WalletSO data, WinHandler winHandler)
+        public void Init(AudioSettingSO sfxSetting, WalletSO data, WinPopup winPopup)
         {
             _sfxSetting = sfxSetting;
             _data = data;
-            _winHandler = winHandler;
+            _winPopup = winPopup;
             enabled = true;
         }
         
@@ -55,7 +55,7 @@ namespace ShipBase
             Changed?.Invoke(_money);
         }
 
-        private void OnWon()
+        private void OnExit()
         {
             _data.Add(_money);
         }
