@@ -624,6 +624,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 06d4d349827245948bbf7435ed1ce45b, type: 2}
+    - target: {fileID: 3371614648083771541, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: _speed
+      value: 170
+      objectReference: {fileID: 0}
     - target: {fileID: 4602432114318216228, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -646,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661331434239601847, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6776372342168281959, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_AnchorMax.x
@@ -702,7 +706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7620058634271823618, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: _startValue
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8476281416062757092, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -742,7 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d646965e9f036f40ae56d1a5b0a2f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delay: 1
+  _delay: 0.8
   _shootSFX: {fileID: 11400000, guid: 40a2d028620911645ab9bf1b12e06fa9, type: 2}
   _bulletPrefab: {fileID: 6696388284473748161, guid: c1b117b44d87b4141a0d7aae52193045, type: 3}
   _spawnPoints:

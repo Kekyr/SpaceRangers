@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cef2077df79a6e4b9430edc79fa749b, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _maxHealth: 20
   _delay: 5
   _restoreRate: 0.2

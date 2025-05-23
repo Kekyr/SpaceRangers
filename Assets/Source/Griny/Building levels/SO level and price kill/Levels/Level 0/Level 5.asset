@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611e818d2c3f0c142b5903f56bf43a50, type: 3}
   m_Name: Level 5
   m_EditorClassIdentifier: 
-  _duration: 60
+  _duration: 40
   _spawnersData:
   - {fileID: 11400000, guid: 7c3500eefa50d264ea0add42e2eb5620, type: 2}
   - {fileID: 11400000, guid: da3a7f4bed57ab847a1ce5cf7a7c22f2, type: 2}

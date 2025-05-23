@@ -407,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1288679180658404504, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1412162124512469832, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_AnchorMax.x
@@ -427,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2606565701657351981, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _startValue
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3422858535440801515, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: m_Controller
@@ -544,7 +544,7 @@ PrefabInstance:
     - target: {fileID: 6837128384458448664, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _data
       value: 
-      objectReference: {fileID: 11400000, guid: 03f133e0a069e5f40b13140db3c87ade, type: 2}
+      objectReference: {fileID: 11400000, guid: b27c92f82d5670648b1eb60a51145a0e, type: 2}
     - target: {fileID: 6860146649681235338, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _delay
       value: 1
@@ -575,7 +575,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 88cf171cb01f15c4182a3112e0705608, type: 2}
     - target: {fileID: 7159002598251573434, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _speed
-      value: 100
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 7159002598251573434, guid: 9d111220f9f667c458a8d4c3376996ee, type: 3}
       propertyPath: _directionChanger

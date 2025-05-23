@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337258331792345260, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _startValue
-      value: 5
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 2716847029331246695, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2828482731980043033, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _startValue
-      value: 40
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3220142329312732588, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.6699218
       objectReference: {fileID: 0}
+    - target: {fileID: 5813505545526208490, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _speed
+      value: 160
+      objectReference: {fileID: 0}
     - target: {fileID: 6641344731422536590, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_Controller
       value: 
@@ -179,6 +183,10 @@ PrefabInstance:
       propertyPath: _spawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 8925754505021633658}
+    - target: {fileID: 7873653348781488066, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _delay
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7873653348781488066, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _bulletPrefab
       value: 

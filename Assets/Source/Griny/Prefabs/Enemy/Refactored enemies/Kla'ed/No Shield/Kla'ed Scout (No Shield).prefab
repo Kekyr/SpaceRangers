@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 315883301949075638, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_Name
-      value: Kla'ed Scout (No Shield) Variant
+      value: Kla'ed Scout (No Shield)
       objectReference: {fileID: 0}
     - target: {fileID: 702910447757676825, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -31,6 +31,10 @@ PrefabInstance:
     - target: {fileID: 1337258331792345260, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: _startValue
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828482731980043033, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _startValue
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3220142329312732588, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75,6 +79,10 @@ PrefabInstance:
     - target: {fileID: 4392655703082468816, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813505545526208490, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
+      propertyPath: _speed
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 6641344731422536590, guid: 88ad1a30cf1c8fe4e92109c9fbb5981c, type: 3}
       propertyPath: m_Enabled

@@ -1,4 +1,5 @@
 using UnityEngine;
+using WordGame;
 
 namespace ShipBase
 {
@@ -28,9 +29,12 @@ namespace ShipBase
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("Boundary"))
+            if (collider.gameObject.TryGetComponent<BackgroundBorder>(out var border) == true)
             {
-                gameObject.SetActive(false);
+                if(border.GetName() != "fighterDown")
+                {
+                    gameObject.SetActive(false);
+                }
             }
 
             if (collider.gameObject.CompareTag("Enemy"))

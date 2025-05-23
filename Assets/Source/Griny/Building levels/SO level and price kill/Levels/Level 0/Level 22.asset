@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611e818d2c3f0c142b5903f56bf43a50, type: 3}
+  m_Name: Level 22
+  m_EditorClassIdentifier: 
+  _duration: 60
+  _spawnersData:
+  - {fileID: 11400000, guid: 91b822a8a64a18a4382bb94fc339b0d4, type: 2}
+  - {fileID: 11400000, guid: cdc851b1fc422ec4eadbcb4aeaf4c8b6, type: 2}
+  - {fileID: 11400000, guid: 07e1bc8e08b6ca2439348fa77f2a8e6d, type: 2}
+  _hasBoss: 0
+  _bossPrefab: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
