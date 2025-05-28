@@ -8,10 +8,12 @@ namespace LevelEnemy
     {
         [SerializeField] private List<LevelSO> _data;
         [SerializeField] private int _currentIndex;
+        private bool _isFirstTime = true;
 
         public List<LevelSO> Data => _data;
 
         public int CurrentIndex => _currentIndex;
+        public bool IsFirstTime => _isFirstTime;
         public LevelSO Current => _data[_currentIndex];
 
         public LevelSO Next
@@ -42,9 +44,14 @@ namespace LevelEnemy
             {
                 _data[i].Reset();
             }
-            
+
             _data[0].Opened();
             _data[0].Choose();
+        }
+
+        public void Played()
+        {
+            _isFirstTime = false;
         }
     }
 }

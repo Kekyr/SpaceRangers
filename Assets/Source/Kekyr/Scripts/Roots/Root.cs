@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Audio;
 using LevelEnemy;
+using RocketFeature;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ShipBase
@@ -30,6 +30,9 @@ namespace ShipBase
         [SerializeField] private CoinPool _coinPool;
 
         [SerializeField] private RewardedAd _rewardedAd;
+        [SerializeField] private InterstitialAd _interstitialAd;
+
+        [SerializeField] private FocusTracker _focusTracker;
 
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ShieldView _shieldView;
@@ -145,6 +148,16 @@ namespace ShipBase
             if (_rewardedAd == null)
             {
                 throw new ArgumentNullException(nameof(_rewardedAd));
+            }
+
+            if (_interstitialAd == null)
+            {
+                throw new ArgumentNullException(nameof(_interstitialAd));
+            }
+
+            if (_focusTracker == null)
+            {
+                throw new ArgumentNullException(nameof(_focusTracker));
             }
 
             if (_bulletData == null)
@@ -273,6 +286,8 @@ namespace ShipBase
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
+            
+            _focusTracker.Init(_music);
 
             _musicButton.Init(_musicSetting);
             _sfxButton.Init(_sfxSetting);
@@ -293,7 +308,7 @@ namespace ShipBase
             _wallet.Init(_sfxSetting, _walletData, _winPopup);
 
             _losePopup.Init(_gameEndHandler);
-            _winPopup.Init(_gameEndHandler, _wallet, _score);
+            _winPopup.Init(_gameEndHandler, _wallet, _score, _interstitialAd);
             _pausePopup.Init(_music, _levelsData);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
@@ -315,7 +330,7 @@ namespace ShipBase
 
             _timerView.Init(_timer);
             _timer.Init(levelData);
-            _music.Init(_timer, _musicSetting, _musicButton, levelData);
+            _music.Init(_timer, _musicSetting, _musicButton);
 
             _healthView.Init(health);
             _shieldView.Init(shield);

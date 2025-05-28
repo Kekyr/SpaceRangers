@@ -18,6 +18,7 @@ public class WinPopup : MonoBehaviour
     private Wallet _wallet;
     private Score _score;
     private EnemyShip _boss;
+    private InterstitialAd _interstitialAd;
 
     public event Action Exited;
 
@@ -55,11 +56,12 @@ public class WinPopup : MonoBehaviour
         _score.Changed -= OnScoreChanged;
     }
 
-    public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score)
+    public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd)
     {
         _gameEndHandler = gameEndHandler;
         _wallet = wallet;
         _score = score;
+        _interstitialAd = interstitialAd;
 
         _gameEndHandler.Won += OnWon;
         _wallet.Changed += OnWalletChanged;
@@ -84,10 +86,7 @@ public class WinPopup : MonoBehaviour
 
     private void OnExit()
     {
-        int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
-
-        Time.timeScale = 1f;
         Exited?.Invoke();
-        SceneManager.LoadScene(previousSceneIndex);
+        _interstitialAd.Show();
     }
 }

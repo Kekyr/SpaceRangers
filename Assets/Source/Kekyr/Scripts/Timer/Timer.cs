@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    private readonly int _endTime = 10;
     private readonly int _interval = 1;
     
     private WaitForSeconds _wait;
@@ -14,16 +13,13 @@ public class Timer : MonoBehaviour
     private int _duration;
     
     public event Action<int,int> Changed;
-    public event Action Ends;
     public event Action Ended;
-
-    public int EndTime => _endTime;
+    
     public int Duration => _duration;
 
     private void Start()
     {
         _duration = _levelData.Duration;
-        
         _wait = new WaitForSeconds(_interval);
         
         Change();
@@ -42,13 +38,7 @@ public class Timer : MonoBehaviour
         {
             yield return _wait;
             _duration--;
-            
             Change();
-            
-            if (_duration <= _endTime)
-            {
-                Ends?.Invoke();
-            }
         }
         
         Ended?.Invoke();

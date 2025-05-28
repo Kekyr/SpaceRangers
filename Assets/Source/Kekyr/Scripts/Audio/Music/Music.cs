@@ -12,13 +12,11 @@ namespace Audio
         private readonly float _endPitch = 1.5f;
 
         [SerializeField] private MusicSO _data;
-        [SerializeField] private MusicSO _bossData;
 
         private AudioSource _audioSource;
         private Timer _timer;
         private AudioSettingSO _setting;
         private AudioButton _button;
-        private LevelSO _levelData;
 
         private float _volume;
 
@@ -28,13 +26,7 @@ namespace Audio
             {
                 throw new ArgumentNullException(nameof(_data));
             }
-
-            if (_bossData == null)
-            {
-                throw new ArgumentNullException(nameof(_bossData));
-            }
-
-            _timer.Ends += OnEnds;
+            
             _timer.Ended += OnEnded;
             _button.Switched += OnSwitched;
 
@@ -44,17 +36,15 @@ namespace Audio
 
         private void OnDestroy()
         {
-            _timer.Ends -= OnEnds;
             _timer.Ended += OnEnded;
             _button.Switched -= OnSwitched;
         }
 
-        public void Init(Timer timer, AudioSettingSO setting, AudioButton button, LevelSO levelData)
+        public void Init(Timer timer, AudioSettingSO setting, AudioButton button)
         {
             _timer = timer;
             _setting = setting;
             _button = button;
-            _levelData = levelData;
             enabled = true;
         }
 
@@ -94,11 +84,6 @@ namespace Audio
             _volume = audio.Volume == 0 ? _audioSource.volume : audio.Volume;
             _audioSource.volume = _volume;
             _audioSource.Play();
-        }
-
-        private void OnEnds()
-        {
-            _audioSource.DOPitch(_endPitch, _timer.EndTime);
         }
 
         private void OnSwitched()
