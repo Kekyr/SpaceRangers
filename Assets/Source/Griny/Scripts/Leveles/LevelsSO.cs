@@ -33,9 +33,12 @@ namespace LevelEnemy
 
         public void Init(List<LevelState> levelStates, int currentIndex)
         {
-            for (int i = 0; i < _data.Count; i++)
+            if (levelStates != null)
             {
-                _data[i].Init(levelStates[i]);
+                for (int i = 0; i < _data.Count; i++)
+                {
+                    _data[i].Init(levelStates[i]);
+                }
             }
 
             _currentIndex = currentIndex;

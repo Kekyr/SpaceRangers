@@ -301,6 +301,7 @@ MonoBehaviour:
   _musicSetting: {fileID: 11400000, guid: 2577a98525f0c2340bab46d7d99944fc, type: 2}
   _sfxButton: {fileID: 8161309105259785217}
   _sfxSetting: {fileID: 11400000, guid: c68e51d0ae4d9a042901627acb5bfa85, type: 2}
+  _saveLoader: {fileID: 787079406}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0
@@ -569,6 +570,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c82591061d948ae4991817daf7abd019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &787079404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787079405}
+  - component: {fileID: 787079406}
+  m_Layer: 0
+  m_Name: SaveLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &787079405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787079404}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8655287767823477806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &787079406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787079404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196ad755ec3e5504aa08e2b9666ccb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1172271628
@@ -19733,6 +19778,7 @@ Transform:
   - {fileID: 4775928630649424279}
   - {fileID: 3479482371987833305}
   - {fileID: 1178059824}
+  - {fileID: 787079405}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8658262821223263697

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Audio;
 using LevelEnemy;
 using ShipBase;
 using UnityEngine;
@@ -24,6 +25,10 @@ public class LevelsRoot : MonoBehaviour
     [SerializeField] private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
     [SerializeField] private ImprovementsSO<GameObject> _shipImprovementsData;
     [SerializeField] private ImprovementsSO<int> _rocketImprovementsData;
+    [SerializeField] private AudioSettingSO _sfxSetting;
+    [SerializeField] private AudioSettingSO _musicSetting;
+
+    [SerializeField] private SaveLoader _saveLoader;
     [SerializeField] private ResetSO _resetData;
 
     private void Validate()
@@ -98,6 +103,21 @@ public class LevelsRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_rocketImprovementsData));
         }
 
+        if (_sfxSetting == null)
+        {
+            throw new ArgumentNullException(nameof(_sfxSetting));
+        }
+
+        if (_musicSetting == null)
+        {
+            throw new ArgumentNullException(nameof(_musicSetting));
+        }
+
+        if (_saveLoader == null)
+        {
+            throw new ArgumentNullException(nameof(_saveLoader));
+        }
+
         if (_resetData == null)
         {
             throw new ArgumentNullException(nameof(_resetData));
@@ -109,18 +129,20 @@ public class LevelsRoot : MonoBehaviour
         Validate();
         Reset();
 
+        _saveLoader.Init(_levelsData, _walletData, _sfxSetting, _musicSetting, _bulletImprovementsData,
+            _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
         _screenAdjuster.Init(_canvas, _camera, _background, _postProcessProfile);
         _levelsView.Init(_levelsData, _backgroundData);
 
         IImprovementsSO[] improvementsData = new IImprovementsSO[]
         {
-            _bulletImprovementsData, 
-            _shieldImprovementsData, 
+            _bulletImprovementsData,
+            _shieldImprovementsData,
             _shipImprovementsData,
             _rocketImprovementsData
         };
-        
-        _hangarPopup.Init(_walletData, improvementsData);
+
+        _hangarPopup.Init(_walletData, _saveLoader, improvementsData);
 
         StartCoroutine(Initialization());
     }

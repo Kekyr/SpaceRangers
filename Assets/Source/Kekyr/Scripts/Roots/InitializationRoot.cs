@@ -7,7 +7,6 @@ using YG;
 
 public class InitializationRoot : MonoBehaviour
 {
-    [SerializeField] private SDKInitializer _sdkInitializer;
     [SerializeField] private SaveLoader _saveLoader;
     [SerializeField] private LevelsSO _levelsData;
     [SerializeField] private WalletSO _walletData;
@@ -22,10 +21,6 @@ public class InitializationRoot : MonoBehaviour
 
     private void Validate()
     {
-        if (_sdkInitializer == null)
-        {
-            throw new ArgumentNullException(nameof(_sdkInitializer));
-        }
         
         if (_saveLoader == null)
         {
@@ -79,9 +74,7 @@ public class InitializationRoot : MonoBehaviour
 
         _saveLoader.Init(_levelsData, _walletData, _sfxSetting, _musicSetting, _bulletImprovementsData,
             _shipImprovementsData, _shipImprovementsData, _rocketImprovementsData);
-        _sdkInitializer.Init(_saveLoader);
-        
-        /*_saveLoader.OnLoaded();
-        YandexGame.GameReadyAPI();*/
+        _saveLoader.OnLoaded();
+        YandexGame.GameReadyAPI();
     }
 }

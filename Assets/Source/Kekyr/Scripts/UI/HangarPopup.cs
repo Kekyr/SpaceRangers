@@ -13,6 +13,7 @@ public class HangarPopup : MonoBehaviour
     
     private IImprovementsSO[] _improvementsData;
     private WalletSO _walletData;
+    private SaveLoader _saveLoader;
 
     public event Action Bought;
 
@@ -58,9 +59,10 @@ public class HangarPopup : MonoBehaviour
         _closeButton.onClick.RemoveListener(OnClose);
     }
 
-    public void Init(WalletSO walletData, IImprovementsSO[] improvementsData)
+    public void Init(WalletSO walletData, SaveLoader saveLoader,IImprovementsSO[] improvementsData)
     {
         _walletData = walletData;
+        _saveLoader = saveLoader;
         _improvementsData = improvementsData;
         enabled = true;
     }
@@ -83,6 +85,7 @@ public class HangarPopup : MonoBehaviour
         {
             Buy(improvementData.Price);
             improvementsData.SetCurrent(improvementData);
+            _saveLoader.Save();
             Bought?.Invoke();
         }
     }

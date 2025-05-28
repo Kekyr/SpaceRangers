@@ -18,11 +18,14 @@ namespace ShipBase
 
         public void Init(int currentLevelIndex, List<ImprovementState> improvementStates)
         {
-            for (int i = 0; i < Levels.Length; i++)
+            if (improvementStates != null)
             {
-                Levels[i].Init(improvementStates[i]);    
+                for (int i = 0; i < Levels.Length; i++)
+                {
+                    Levels[i].Init(improvementStates[i]);
+                }
             }
-            
+
             _currentLevelIndex = currentLevelIndex;
             Levels[_currentLevelIndex].Choose();
         }

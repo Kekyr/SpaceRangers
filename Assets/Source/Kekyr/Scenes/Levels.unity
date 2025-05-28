@@ -3816,6 +3816,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634318971}
   m_CullTransparentMesh: 1
+--- !u!1 &635792349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 635792350}
+  - component: {fileID: 635792351}
+  m_Layer: 0
+  m_Name: SaveLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &635792350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635792349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1522282840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635792351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635792349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196ad755ec3e5504aa08e2b9666ccb7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &644993661
 GameObject:
   m_ObjectHideFlags: 0
@@ -9315,6 +9359,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2134554991}
+  - {fileID: 635792350}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1522807254
@@ -12587,6 +12632,9 @@ MonoBehaviour:
   _shieldImprovementsData: {fileID: 11400000, guid: 1a103f3b12fbc9f459ad7be3b40c1a36, type: 2}
   _shipImprovementsData: {fileID: 11400000, guid: 8640b2e8cb57c7740ac6f6955ac998e0, type: 2}
   _rocketImprovementsData: {fileID: 11400000, guid: 50574b0a226cc174b9663743d53ac972, type: 2}
+  _sfxSetting: {fileID: 11400000, guid: c68e51d0ae4d9a042901627acb5bfa85, type: 2}
+  _musicSetting: {fileID: 11400000, guid: 2577a98525f0c2340bab46d7d99944fc, type: 2}
+  _saveLoader: {fileID: 635792351}
   _resetData: {fileID: 11400000, guid: 909b6d9bc381fe14a945fe9292bb64a2, type: 2}
 --- !u!1 &1977127099
 GameObject:

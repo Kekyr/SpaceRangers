@@ -68,6 +68,8 @@ namespace ShipBase
         [SerializeField] private AudioButton _sfxButton;
         [SerializeField] private AudioSettingSO _sfxSetting;
 
+        [SerializeField] private SaveLoader _saveLoader;
+
         private void Validate()
         {
             if (_camera == null)
@@ -274,11 +276,19 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_sfxSetting));
             }
+
+            if (_saveLoader == null)
+            {
+                throw new ArgumentNullException(nameof(_saveLoader));
+            }
         }
 
         private void Awake()
         {
             Validate();
+
+            _saveLoader.Init(_levelsData, _walletData, _sfxSetting, _musicSetting, _bulletData, _shieldData, _shipData,
+                _rocketData);
 
             LevelSO levelData = _levelsData.Current;
 
@@ -286,11 +296,11 @@ namespace ShipBase
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
-            
+
             _focusTracker.Init(_music);
 
-            _musicButton.Init(_musicSetting);
-            _sfxButton.Init(_sfxSetting);
+            _musicButton.Init(_musicSetting, _saveLoader);
+            _sfxButton.Init(_sfxSetting, _saveLoader);
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 
@@ -308,7 +318,7 @@ namespace ShipBase
             _wallet.Init(_sfxSetting, _walletData, _winPopup);
 
             _losePopup.Init(_gameEndHandler);
-            _winPopup.Init(_gameEndHandler, _wallet, _score, _interstitialAd);
+            _winPopup.Init(_gameEndHandler, _wallet, _score, _interstitialAd, _saveLoader);
             _pausePopup.Init(_music, _levelsData);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))

@@ -14,6 +14,7 @@ namespace Audio
 
         private Button _button;
         private AudioSettingSO _audioSettingSO;
+        private SaveLoader _saveLoader;
 
         public event Action Switched;
 
@@ -34,15 +35,17 @@ namespace Audio
             _button.onClick.RemoveListener(Switch);
         }
 
-        public void Init(AudioSettingSO audioSettingSO)
+        public void Init(AudioSettingSO audioSettingSO, SaveLoader saveLoader)
         {
             _audioSettingSO = audioSettingSO;
+            _saveLoader = saveLoader;
             enabled = true;
         }
 
         private void Switch()
         {
             _audioSettingSO.Switch();
+            _saveLoader.Save();
             Sync();
             Switched?.Invoke();
         }

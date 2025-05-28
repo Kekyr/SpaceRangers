@@ -1,10 +1,8 @@
 using System;
-using Audio;
 using Enemy;
 using ShipBase;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WinPopup : MonoBehaviour
@@ -19,6 +17,7 @@ public class WinPopup : MonoBehaviour
     private Score _score;
     private EnemyShip _boss;
     private InterstitialAd _interstitialAd;
+    private SaveLoader _saveLoader;
 
     public event Action Exited;
 
@@ -56,12 +55,13 @@ public class WinPopup : MonoBehaviour
         _score.Changed -= OnScoreChanged;
     }
 
-    public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd)
+    public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd,SaveLoader saveLoader)
     {
         _gameEndHandler = gameEndHandler;
         _wallet = wallet;
         _score = score;
         _interstitialAd = interstitialAd;
+        _saveLoader = saveLoader;
 
         _gameEndHandler.Won += OnWon;
         _wallet.Changed += OnWalletChanged;
@@ -87,6 +87,7 @@ public class WinPopup : MonoBehaviour
     private void OnExit()
     {
         Exited?.Invoke();
+        _saveLoader.Save();
         _interstitialAd.Show();
     }
 }
