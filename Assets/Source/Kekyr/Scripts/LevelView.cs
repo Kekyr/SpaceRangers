@@ -2,6 +2,7 @@ using System;
 using LevelEnemy;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class LevelView : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class LevelView : MonoBehaviour
 
     private void CheckState()
     {
-        if (_data.IsOpened == true)
+        if (_data.Status == LevelState.Opened)
         {
             ChangeColor(_planet, _planetOpened);
 
@@ -70,7 +71,7 @@ public class LevelView : MonoBehaviour
             ChangeColor(_planet, _planetSelected);
         }
         
-        if (_data.IsCompleted == true)
+        if (_data.Status == LevelState.Completed)
         {
             for (int i = 0; i < _stars.Length; i++)
             {

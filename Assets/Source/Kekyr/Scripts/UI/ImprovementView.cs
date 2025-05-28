@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class ImprovementView : MonoBehaviour
 {
@@ -51,18 +52,18 @@ public class ImprovementView : MonoBehaviour
 
     public void CheckState()
     {
-        if (_data.isOpened == false)
+        if (_data.Status == ImprovementState.Closed)
         {
             return;
         }
 
         _button.interactable = true;
 
-        if (_data.isBought == false)
+        if (_data.Status == ImprovementState.Opened)
         {
             return;
         }
-
+        
         _image.gameObject.SetActive(false);
         _button.interactable = false;
 

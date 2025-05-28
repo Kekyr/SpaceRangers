@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   _price: 50
-  _isBought: 0
-  _isOpened: 1
+  _state: 1
   _isCurrent: 0
   _value: {fileID: 1205919163400505641, guid: b28a36241d174864896a538cfee4391f, type: 3}

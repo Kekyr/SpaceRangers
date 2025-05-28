@@ -7,6 +7,11 @@ public class WalletSO : ScriptableObject
 
     public int Money => _money;
 
+    public void Init(int money)
+    {
+        _money = money;
+    }
+    
     public void Add(int count)
     {
         _money += count;

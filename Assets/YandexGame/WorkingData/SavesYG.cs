@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -10,25 +11,47 @@ namespace YG
         public string language = "ru";
         public bool promptDone;
 
-        // Тестовые сохранения для демо сцены
-        // Можно удалить этот код, но тогда удалите и демо (папка Example)
-        public int money = 1;                       // Можно задать полям значения по умолчанию
-        public string newPlayerName = "Hello!";
-        public bool[] openLevels = new bool[3];
+        public int CurrentLevelIndex = 0;
+        public int CurrentBulletIndex = 0;
+        public int CurrentShieldIndex = 0;
+        public int CurrentShipIndex = 0;
+        public int CurrentRocketIndex = 0;
+        public int Money = 0;
+        public bool IsFirstTime = true;
+        public bool IsSfxOn = true;
+        public bool IsMusicOn = true;
 
-        // Ваши сохранения
+        public List<LevelState> LevelsState = null;
+        public List<ImprovementState> BulletImprovementStates = null;
+        public List<ImprovementState> ShieldImprovementStates = null;
+        public List<ImprovementState> ShipImprovementStates = null;
+        public List<ImprovementState> RocketImprovementStates = null;
 
-        // ...
+        public SavesYG(int currentLevelIndex, int currentBulletIndex, int currentShieldIndex, int currentShipIndex,
+            int currentRocketIndex, int money,
+            bool isFirstTime, bool isSfxOn, bool isMusicOn,
+            List<LevelState> levelsState, List<ImprovementState> bulletImprovementStates, List<ImprovementState>
+                shieldImprovementStates, List<ImprovementState> shipImprovementStates, List<ImprovementState>
+                rocketImprovementStates)
+        {
+            CurrentLevelIndex = currentLevelIndex;
+            CurrentBulletIndex = currentBulletIndex;
+            CurrentShieldIndex = currentShieldIndex;
+            CurrentShipIndex = currentShipIndex;
+            CurrentRocketIndex = currentRocketIndex;
+            Money = money;
+            IsFirstTime = isFirstTime;
+            IsSfxOn = isSfxOn;
+            IsMusicOn = isMusicOn;
+            LevelsState = levelsState;
+            BulletImprovementStates = bulletImprovementStates;
+            ShieldImprovementStates = shieldImprovementStates;
+            ShipImprovementStates = shipImprovementStates;
+            RocketImprovementStates = rocketImprovementStates;
+        }
 
-        // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
-
-
-        // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
-            // Допустим, задать значения по умолчанию для отдельных элементов массива
-
-            openLevels[1] = true;
         }
     }
 }

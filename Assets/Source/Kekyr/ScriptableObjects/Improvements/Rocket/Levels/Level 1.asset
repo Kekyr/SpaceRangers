@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   _price: 0
-  _isBought: 1
-  _isOpened: 1
+  _state: 2
   _isCurrent: 1
   _value: 0

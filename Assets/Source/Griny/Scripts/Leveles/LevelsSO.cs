@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 namespace LevelEnemy
 {
@@ -11,7 +12,6 @@ namespace LevelEnemy
         private bool _isFirstTime = true;
 
         public List<LevelSO> Data => _data;
-
         public int CurrentIndex => _currentIndex;
         public bool IsFirstTime => _isFirstTime;
         public LevelSO Current => _data[_currentIndex];
@@ -29,6 +29,17 @@ namespace LevelEnemy
 
                 return Current;
             }
+        }
+
+        public void Init(List<LevelState> levelStates, int currentIndex)
+        {
+            for (int i = 0; i < _data.Count; i++)
+            {
+                _data[i].Init(levelStates[i]);
+            }
+
+            _currentIndex = currentIndex;
+            _data[_currentIndex].Choose();
         }
 
         public void SetCurrent(LevelSO levelData)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using YG;
 
 namespace ShipBase
 {
@@ -13,10 +14,17 @@ namespace ShipBase
         public T CurrentLevel => _levels[_currentLevelIndex].Value;
 
         public ImprovementDataSO[] Levels => _levels;
+        public int CurrentIndex => _currentLevelIndex;
 
-        public void Init(int currentLevelIndex)
+        public void Init(int currentLevelIndex, List<ImprovementState> improvementStates)
         {
+            for (int i = 0; i < Levels.Length; i++)
+            {
+                Levels[i].Init(improvementStates[i]);    
+            }
+            
             _currentLevelIndex = currentLevelIndex;
+            Levels[_currentLevelIndex].Choose();
         }
 
         public void SetCurrent(ImprovementDataSO data)

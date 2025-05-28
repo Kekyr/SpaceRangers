@@ -9,8 +9,6 @@ namespace Audio
     [RequireComponent(typeof(AudioSource))]
     public class Music : MonoBehaviour
     {
-        private readonly float _endPitch = 1.5f;
-
         [SerializeField] private MusicSO _data;
 
         private AudioSource _audioSource;
