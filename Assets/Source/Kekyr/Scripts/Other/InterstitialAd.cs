@@ -18,7 +18,10 @@ public class InterstitialAd : MonoBehaviour
 
     public void Show()
     {
+        int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        
         YandexGame.FullscreenShow();
+        SceneManager.LoadScene(previousSceneIndex);
     }
 
     private void OnOpenCallback()
@@ -28,9 +31,6 @@ public class InterstitialAd : MonoBehaviour
 
     private void OnCloseCallback()
     {
-        int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
-        
         Time.timeScale = 1;
-        SceneManager.LoadScene(previousSceneIndex);
     }
 }
