@@ -111,8 +111,16 @@ public class LevelsRoot : MonoBehaviour
 
         _screenAdjuster.Init(_canvas, _camera, _background, _postProcessProfile);
         _levelsView.Init(_levelsData, _backgroundData);
-        _hangarPopup.Init(_walletData, _bulletImprovementsData, _shieldImprovementsData, _shipImprovementsData,
-            _rocketImprovementsData);
+
+        IImprovementsSO[] improvementsData = new IImprovementsSO[]
+        {
+            _bulletImprovementsData, 
+            _shieldImprovementsData, 
+            _shipImprovementsData,
+            _rocketImprovementsData
+        };
+        
+        _hangarPopup.Init(_walletData, improvementsData);
 
         StartCoroutine(Initialization());
     }

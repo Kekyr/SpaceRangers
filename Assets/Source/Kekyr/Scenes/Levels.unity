@@ -6312,10 +6312,11 @@ MonoBehaviour:
   _coinsCount: {fileID: 1183437922}
   _closeButton: {fileID: 892920945}
   _blackout: {fileID: 874650712}
-  _bulletsView: {fileID: 1150065538}
-  _shieldsView: {fileID: 3262200772148931859}
-  _shipsView: {fileID: 1724743988227587606}
-  _rocketsView: {fileID: 7081798076702119169}
+  _improvementsViews:
+  - {fileID: 1150065538}
+  - {fileID: 3262200772148931859}
+  - {fileID: 1724743988227587606}
+  - {fileID: 7081798076702119169}
 --- !u!1 &1039268467
 GameObject:
   m_ObjectHideFlags: 3

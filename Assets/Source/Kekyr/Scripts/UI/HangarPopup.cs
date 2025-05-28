@@ -1,5 +1,4 @@
 using System;
-using ShipBase;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,16 +9,9 @@ public class HangarPopup : MonoBehaviour
     [SerializeField] private Button _closeButton;
     [SerializeField] private Image _blackout;
 
-    [SerializeField] private ImprovementsView _bulletsView;
-    [SerializeField] private ImprovementsView _shieldsView;
-    [SerializeField] private ImprovementsView _shipsView;
-    [SerializeField] private ImprovementsView _rocketsView;
-
-    private ImprovementsSO<GameObject> _bulletImprovementsData;
-    private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
-    private ImprovementsSO<GameObject> _shipImprovementsData;
-    private ImprovementsSO<int> _rocketImprovementsData;
-
+    [SerializeField] private ImprovementsView[] _improvementsViews;
+    
+    private IImprovementsSO[] _improvementsData;
     private WalletSO _walletData;
 
     public event Action Bought;
@@ -41,59 +33,35 @@ public class HangarPopup : MonoBehaviour
             throw new ArgumentNullException(nameof(_blackout));
         }
 
-        if (_bulletsView == null)
+        if (_improvementsViews.Length == 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(_bulletsView));
+            throw new ArgumentOutOfRangeException(nameof(_improvementsViews));
         }
 
-        if (_shieldsView == null)
+        for (int i = 0; i < _improvementsData.Length; i++)
         {
-            throw new ArgumentOutOfRangeException(nameof(_shieldsView));
+            _improvementsViews[i].Init(_improvementsData[i],this);
+            _improvementsViews[i].Clicked += OnClicked;
         }
-
-        if (_shipsView == null)
-        {
-            throw new ArgumentOutOfRangeException(nameof(_shipsView));
-        }
-
-        if (_rocketsView == null)
-        {
-            throw new ArgumentOutOfRangeException(nameof(_shipsView));
-        }
-
-        _bulletsView.Init(_bulletImprovementsData.Levels,this);
-        _shieldsView.Init(_shieldImprovementsData.Levels,this);
-        _shipsView.Init(_shipImprovementsData.Levels,this);
-        _rocketsView.Init(_rocketImprovementsData.Levels,this);
 
         _coinsCount.text = _walletData.Money.ToString();
         _closeButton.onClick.AddListener(OnClose);
-
-        _bulletsView.Clicked += OnBulletClicked;
-        _shieldsView.Clicked += OnShieldClicked;
-        _shipsView.Clicked += OnShipClicked;
-        _rocketsView.Clicked += OnRocketClicked;
     }
 
     private void OnDestroy()
     {
+        for (int i = 0; i < _improvementsData.Length; i++)
+        {
+            _improvementsViews[i].Clicked -= OnClicked;
+        }
+        
         _closeButton.onClick.RemoveListener(OnClose);
-
-        _bulletsView.Clicked -= OnBulletClicked;
-        _shieldsView.Clicked -= OnShieldClicked;
-        _shipsView.Clicked -= OnShipClicked;
-        _rocketsView.Clicked -= OnRocketClicked;
     }
 
-    public void Init(WalletSO walletData, ImprovementsSO<GameObject> bulletImprovementsData,
-        ImprovementsSO<ShieldDataSO> shieldImprovementsData, ImprovementsSO<GameObject> shipImprovementsData,
-        ImprovementsSO<int> rocketImprovementsData)
+    public void Init(WalletSO walletData, IImprovementsSO[] improvementsData)
     {
-        _bulletImprovementsData = bulletImprovementsData;
-        _shieldImprovementsData = shieldImprovementsData;
-        _shipImprovementsData = shipImprovementsData;
-        _rocketImprovementsData = rocketImprovementsData;
         _walletData = walletData;
+        _improvementsData = improvementsData;
         enabled = true;
     }
 
@@ -108,43 +76,13 @@ public class HangarPopup : MonoBehaviour
         _blackout.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
-
-    private void OnBulletClicked(ImprovementDataSO data)
+    
+    private void OnClicked(IImprovementsSO improvementsData, ImprovementDataSO improvementData)
     {
-        if (TryBuy(data.Price) == true)
+        if (TryBuy(improvementData.Price) == true)
         {
-            Buy(data.Price);
-            _bulletImprovementsData.SetCurrent(data);
-            Bought?.Invoke();
-        }
-    }
-
-    private void OnShieldClicked(ImprovementDataSO data)
-    {
-        if (TryBuy(data.Price) == true)
-        {
-            Buy(data.Price);
-            _shieldImprovementsData.SetCurrent(data);
-            Bought?.Invoke();
-        }
-    }
-
-    private void OnShipClicked(ImprovementDataSO data)
-    {
-        if (TryBuy(data.Price) == true)
-        {
-            Buy(data.Price);
-            _shipImprovementsData.SetCurrent(data);
-            Bought?.Invoke();
-        }
-    }
-
-    private void OnRocketClicked(ImprovementDataSO data)
-    {
-        if (TryBuy(data.Price) == true)
-        {
-            Buy(data.Price);
-            _rocketImprovementsData.SetCurrent(data);
+            Buy(improvementData.Price);
+            improvementsData.SetCurrent(improvementData);
             Bought?.Invoke();
         }
     }

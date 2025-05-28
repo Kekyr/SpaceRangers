@@ -4,11 +4,12 @@ using UnityEngine;
 public class ImprovementsView : MonoBehaviour
 {
     [SerializeField] private ImprovementView[] _views;
-    
-    private ImprovementDataSO[] _data;
+
+    private IImprovementsSO _data;
+    private ImprovementDataSO[] _levels;
     private HangarPopup _hangarPopup;
 
-    public event Action<ImprovementDataSO> Clicked;
+    public event Action<IImprovementsSO, ImprovementDataSO> Clicked;
 
     private void Start()
     {
@@ -17,30 +18,37 @@ public class ImprovementsView : MonoBehaviour
             throw new ArgumentOutOfRangeException(nameof(_views));
         }
 
-        _hangarPopup.Bought += OnBought;
+        _levels = _data.Levels;
 
         for (int i = 0; i < _views.Length; i++)
         {
-            _views[i].Init(_data[i+1]);
+            _views[i].Init(_levels[i + 1]);
             _views[i].Clicked += OnClicked;
         }
+
+        _hangarPopup.Bought += OnBought;
     }
 
     private void OnDestroy()
     {
+        for (int i = 0; i < _views.Length; i++)
+        {
+            _views[i].Clicked -= OnClicked;
+        }
+
         _hangarPopup.Bought -= OnBought;
     }
 
-    public void Init(ImprovementDataSO[] data, HangarPopup hangarPopup)
+    public void Init(IImprovementsSO data, HangarPopup hangarPopup)
     {
         _data = data;
         _hangarPopup = hangarPopup;
         enabled = true;
     }
 
-    private void OnClicked(ImprovementDataSO data)
+    private void OnClicked(ImprovementDataSO improvementData)
     {
-        Clicked?.Invoke(data);
+        Clicked?.Invoke(_data, improvementData);
     }
 
     private void OnBought()

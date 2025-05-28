@@ -83,6 +83,5 @@ public class ImprovementView : MonoBehaviour
     private void OnClick()
     {
         Clicked?.Invoke(_data);
-        CheckState();
     }
 }
