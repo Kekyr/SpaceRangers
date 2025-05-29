@@ -29,7 +29,10 @@ namespace LevelEnemy
         
         public void Opened()
         {
-            _state = LevelState.Opened;
+            if (_state != LevelState.Completed)
+            {
+                _state = LevelState.Opened;
+            }
         }
 
         public void Completed()

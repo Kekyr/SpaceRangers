@@ -20,4 +20,4 @@ MonoBehaviour:
   _hasBoss: 0
   _bossPrefab: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
   _state: 1
-  _isCurrent: 1
+  _isCurrent: 0

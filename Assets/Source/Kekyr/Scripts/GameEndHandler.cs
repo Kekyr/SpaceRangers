@@ -104,7 +104,6 @@ public class GameEndHandler : MonoBehaviour
         if (_isEnded == false)
         {
             _isEnded = true;
-            
             yield return _wait;
             _sfx.Play(_winSfx);
             _levelData.Completed();

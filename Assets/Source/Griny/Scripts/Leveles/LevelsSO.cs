@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using YG;
 
@@ -33,7 +34,7 @@ namespace LevelEnemy
 
         public void Init(List<LevelState> levelStates, int currentIndex)
         {
-            if (levelStates != null)
+            if (levelStates!=null && levelStates.Count!=0)
             {
                 for (int i = 0; i < _data.Count; i++)
                 {
@@ -61,6 +62,8 @@ namespace LevelEnemy
 
             _data[0].Opened();
             _data[0].Choose();
+
+            _currentIndex = 0;
         }
 
         public void Played()

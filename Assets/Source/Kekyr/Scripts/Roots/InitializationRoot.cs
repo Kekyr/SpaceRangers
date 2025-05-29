@@ -21,7 +21,6 @@ public class InitializationRoot : MonoBehaviour
 
     private void Validate()
     {
-        
         if (_saveLoader == null)
         {
             throw new ArgumentNullException(nameof(_saveLoader));
@@ -73,7 +72,7 @@ public class InitializationRoot : MonoBehaviour
         Validate();
 
         _saveLoader.Init(_levelsData, _walletData, _sfxSetting, _musicSetting, _bulletImprovementsData,
-            _shipImprovementsData, _shipImprovementsData, _rocketImprovementsData);
+            _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
         _saveLoader.OnLoaded();
         YandexGame.GameReadyAPI();
     }

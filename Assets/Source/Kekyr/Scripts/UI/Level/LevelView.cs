@@ -54,35 +54,22 @@ public class LevelView : MonoBehaviour
 
     private void CheckState()
     {
-        if (_data.Status == LevelState.Opened)
+        if (_data.Status == LevelState.Closed)
         {
-            ChangeColor(_planet, _planetOpened);
-
-            for (int i = 0; i < _stars.Length; i++)
-            {
-                ChangeColor(_stars[i], _starsOpened);
-            }
-        
-            _button.interactable = true;
+            return;
         }
 
-        if (_data.IsCurrent == true)
+        Color planetColor = _data.IsCurrent == true ? _planetSelected : _planetOpened;
+        _planet.color = planetColor;
+
+        Color starColor = _data.Status == LevelState.Completed ? _starsCompleted : _starsOpened;
+        
+        for (int i = 0; i < _stars.Length; i++)
         {
-            ChangeColor(_planet, _planetSelected);
+            _stars[i].color = starColor;
         }
         
-        if (_data.Status == LevelState.Completed)
-        {
-            for (int i = 0; i < _stars.Length; i++)
-            {
-                ChangeColor(_stars[i], _starsCompleted);
-            }
-        }
-    }
-
-    private void ChangeColor(Image image, Color color)
-    {
-        image.color = color;
+        _button.interactable = true;
     }
 
     private void OnClick()

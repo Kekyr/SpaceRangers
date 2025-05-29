@@ -16,9 +16,9 @@ namespace ShipBase
         public ImprovementDataSO[] Levels => _levels;
         public int CurrentIndex => _currentLevelIndex;
 
-        public void Init(int currentLevelIndex, List<ImprovementState> improvementStates)
+        public void Init(List<ImprovementState> improvementStates, int currentLevelIndex)
         {
-            if (improvementStates != null)
+            if (improvementStates!=null && improvementStates.Count != 0  )
             {
                 for (int i = 0; i < Levels.Length; i++)
                 {
@@ -34,21 +34,21 @@ namespace ShipBase
         {
             List<ImprovementSO<T>> list = _levels.ToList();
             ImprovementSO<T> fullData = (ImprovementSO<T>)data;
-            
+
             list[_currentLevelIndex].UnChoose();
-            
+
             _currentLevelIndex = list.IndexOf(fullData);
-            
+
             data.Buy();
             data.Choose();
-            
+
             int nextLevelIndex = _currentLevelIndex + 1;
 
             if (nextLevelIndex >= _levels.Length)
             {
                 return;
             }
-            
+
             list[nextLevelIndex].Open();
         }
 
@@ -60,7 +60,7 @@ namespace ShipBase
             {
                 Levels[i].Reset();
             }
-            
+
             Levels[1].Open();
         }
     }

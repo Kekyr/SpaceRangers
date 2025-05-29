@@ -5,7 +5,9 @@ using LevelEnemy;
 using ShipBase;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 
 public class LevelsRoot : MonoBehaviour
 {
@@ -29,7 +31,7 @@ public class LevelsRoot : MonoBehaviour
     [SerializeField] private AudioSettingSO _musicSetting;
 
     [SerializeField] private SaveLoader _saveLoader;
-    [SerializeField] private ResetSO _resetData;
+    [SerializeField] private Button _resetButton;
 
     private void Validate()
     {
@@ -118,21 +120,22 @@ public class LevelsRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_saveLoader));
         }
 
-        if (_resetData == null)
+        if (_resetButton == null)
         {
-            throw new ArgumentNullException(nameof(_resetData));
+            throw new ArgumentNullException(nameof(_resetButton));
         }
     }
 
     private void Awake()
     {
         Validate();
-        Reset();
+
+        _resetButton.onClick.AddListener(Reset);
 
         _saveLoader.Init(_levelsData, _walletData, _sfxSetting, _musicSetting, _bulletImprovementsData,
             _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
         _screenAdjuster.Init(_canvas, _camera, _background, _postProcessProfile);
-        _levelsView.Init(_levelsData, _backgroundData);
+        _levelsView.Init(_levelsData, _backgroundData, _saveLoader);
 
         IImprovementsSO[] improvementsData = new IImprovementsSO[]
         {
@@ -147,6 +150,11 @@ public class LevelsRoot : MonoBehaviour
         StartCoroutine(Initialization());
     }
 
+    private void OnDestroy()
+    {
+        _resetButton.onClick.RemoveListener(Reset);
+    }
+
     private IEnumerator Initialization()
     {
         yield return new WaitForSeconds(_initTime);
@@ -157,15 +165,15 @@ public class LevelsRoot : MonoBehaviour
 
     private void Reset()
     {
-        if (_resetData.IsReseted == false)
-        {
-            _walletData.Reset();
-            _levelsData.Reset();
-            _bulletImprovementsData.Reset();
-            _shipImprovementsData.Reset();
-            _shieldImprovementsData.Reset();
-            _rocketImprovementsData.Reset();
-            _resetData.Reseted();
-        }
+        int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        YandexGame.ResetSaveProgress();
+        _walletData.Reset();
+        _levelsData.Reset();
+        _bulletImprovementsData.Reset();
+        _shipImprovementsData.Reset();
+        _shieldImprovementsData.Reset();
+        _rocketImprovementsData.Reset();
+        YandexGame.SaveProgress();
+        SceneManager.LoadScene(previousSceneIndex);
     }
 }

@@ -10,7 +10,7 @@ public interface IImprovementsSO
 
     public void SetCurrent(ImprovementDataSO data);
 
-    public void Init(int currentLevelIndex, List<ImprovementState> improvementStates);
+    public void Init( List<ImprovementState> improvementStates,int currentLevelIndex);
 
     public void Reset();
     

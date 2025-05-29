@@ -82,10 +82,10 @@ public class SaveLoader : MonoBehaviour
         _sfxSetting.Init(saveData.IsSfxOn);
         _musicSetting.Init(saveData.IsMusicOn);
 
-        _bulletImprovementsData.Init(saveData.CurrentBulletIndex, saveData.BulletImprovementStates);
-        _shieldImprovementsData.Init(saveData.CurrentShieldIndex, saveData.ShieldImprovementStates);
-        _shipImprovementsData.Init(saveData.CurrentShipIndex, saveData.ShipImprovementStates);
-        _rocketImprovementsData.Init(saveData.CurrentRocketIndex, saveData.RocketImprovementStates);
+        _bulletImprovementsData.Init(saveData.BulletImprovementStates, saveData.CurrentBulletIndex);
+        _shieldImprovementsData.Init(saveData.ShieldImprovementStates, saveData.CurrentShieldIndex);
+        _shipImprovementsData.Init(saveData.ShipImprovementStates, saveData.CurrentShipIndex);
+        _rocketImprovementsData.Init(saveData.RocketImprovementStates, saveData.CurrentRocketIndex);
 
         SceneManager.LoadScene(nextSceneIndex);
     }

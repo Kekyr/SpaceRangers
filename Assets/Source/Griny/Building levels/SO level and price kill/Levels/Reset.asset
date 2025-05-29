@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b097b1ca685384fae097bbb4990e77, type: 3}
   m_Name: Reset
   m_EditorClassIdentifier: 
-  _isReseted: 1
+  _isReseted: 0

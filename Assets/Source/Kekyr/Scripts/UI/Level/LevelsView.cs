@@ -9,6 +9,7 @@ public class LevelsView : MonoBehaviour
     
     private LevelsSO _levelsData;
     private BackgroundSO _backgroundData;
+    private SaveLoader _saveLoader;
 
     private void Start()
     {
@@ -32,10 +33,11 @@ public class LevelsView : MonoBehaviour
         }
     }
 
-    public void Init(LevelsSO data, BackgroundSO backgroundData)
+    public void Init(LevelsSO data, BackgroundSO backgroundData, SaveLoader saveLoader)
     {
         _levelsData = data;
         _backgroundData = backgroundData;
+        _saveLoader = saveLoader;
         enabled = true;
     }
 
@@ -45,6 +47,7 @@ public class LevelsView : MonoBehaviour
         
         _levelsData.SetCurrent(data);
         _backgroundData.SetCurrent(_levelsData.CurrentIndex);
+        _saveLoader.Save();
         
         SceneManager.LoadScene(nextSceneIndex);
     }
