@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using Audio;
+using LeaderboardBase;
 using LevelEnemy;
 using ShipBase;
+using UI;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
@@ -21,8 +23,10 @@ public class LevelsRoot : MonoBehaviour
     [SerializeField] private PostProcessProfile _postProcessProfile;
     [SerializeField] private LevelsView _levelsView;
     [SerializeField] private HangarPopup _hangarPopup;
+    [SerializeField] private AuthorizationPopup _authorizationPopup;
     [SerializeField] private LevelsSO _levelsData;
     [SerializeField] private WalletSO _walletData;
+    [SerializeField] private ScoreSO _scoreData;
     [SerializeField] private ImprovementsSO<GameObject> _bulletImprovementsData;
     [SerializeField] private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
     [SerializeField] private ImprovementsSO<GameObject> _shipImprovementsData;
@@ -31,6 +35,7 @@ public class LevelsRoot : MonoBehaviour
     [SerializeField] private AudioSettingSO _musicSetting;
 
     [SerializeField] private SaveLoader _saveLoader;
+    [SerializeField] private Leaderboard _leaderboard;
     [SerializeField] private Button _resetButton;
 
     private void Validate()
@@ -75,6 +80,11 @@ public class LevelsRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_hangarPopup));
         }
 
+        if (_authorizationPopup == null)
+        {
+            throw new ArgumentNullException(nameof(_authorizationPopup));
+        }
+
         if (_levelsData == null)
         {
             throw new ArgumentNullException(nameof(_levelsData));
@@ -83,6 +93,11 @@ public class LevelsRoot : MonoBehaviour
         if (_walletData == null)
         {
             throw new ArgumentNullException(nameof(_walletData));
+        }
+
+        if (_scoreData == null)
+        {
+            throw new ArgumentNullException(nameof(_scoreData));
         }
 
         if (_bulletImprovementsData == null)
@@ -120,6 +135,11 @@ public class LevelsRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_saveLoader));
         }
 
+        if (_leaderboard == null)
+        {
+            throw new ArgumentNullException(nameof(_leaderboard));
+        }
+
         if (_resetButton == null)
         {
             throw new ArgumentNullException(nameof(_resetButton));
@@ -132,7 +152,8 @@ public class LevelsRoot : MonoBehaviour
 
         _resetButton.onClick.AddListener(Reset);
 
-        _saveLoader.Init(_levelsData, _walletData, _sfxSetting, _musicSetting, _bulletImprovementsData,
+        _leaderboard.Init(_scoreData);
+        _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletImprovementsData,
             _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
         _screenAdjuster.Init(_canvas, _camera, _background, _postProcessProfile);
         _levelsView.Init(_levelsData, _backgroundData, _saveLoader);
@@ -146,6 +167,7 @@ public class LevelsRoot : MonoBehaviour
         };
 
         _hangarPopup.Init(_walletData, _saveLoader, improvementsData);
+        _authorizationPopup.Init(_leaderboard);
 
         StartCoroutine(Initialization());
     }
@@ -169,6 +191,7 @@ public class LevelsRoot : MonoBehaviour
         YandexGame.ResetSaveProgress();
         _walletData.Reset();
         _levelsData.Reset();
+        _scoreData.Reset();
         _bulletImprovementsData.Reset();
         _shipImprovementsData.Reset();
         _shieldImprovementsData.Reset();

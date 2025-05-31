@@ -86,8 +86,6 @@ public class WinPopup : MonoBehaviour
 
     private void OnExit()
     {
-        Exited?.Invoke();
-        _saveLoader.Save();
         _interstitialAd.Show();
     }
 }

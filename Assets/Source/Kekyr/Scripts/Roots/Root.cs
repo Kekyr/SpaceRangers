@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Audio;
+using LeaderboardBase;
 using LevelEnemy;
 using RocketFeature;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace ShipBase
         [SerializeField] private EnemySpawners _enemySpawners;
         [SerializeField] private SpriteModifier _spriteModifier;
         [SerializeField] private Score _score;
+        [SerializeField] private ScoreSO _scoreData;
         [SerializeField] private Wallet _wallet;
         [SerializeField] private WalletSO _walletData;
         [SerializeField] private Music _music;
@@ -69,6 +71,7 @@ namespace ShipBase
         [SerializeField] private AudioSettingSO _sfxSetting;
 
         [SerializeField] private SaveLoader _saveLoader;
+        [SerializeField] private Leaderboard _leaderboard;
 
         private void Validate()
         {
@@ -105,6 +108,11 @@ namespace ShipBase
             if (_score == null)
             {
                 throw new ArgumentNullException(nameof(_score));
+            }
+
+            if (_scoreData == null)
+            {
+                throw new ArgumentNullException(nameof(_scoreData));
             }
 
             if (_wallet == null)
@@ -281,13 +289,19 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_saveLoader));
             }
+
+            if (_leaderboard == null)
+            {
+                throw new ArgumentNullException(nameof(_leaderboard));
+            }
         }
 
         private void Awake()
         {
             Validate();
 
-            _saveLoader.Init(_levelsData, _walletData, _sfxSetting, _musicSetting, _bulletData, _shieldData, _shipData,
+            _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletData, _shieldData,
+                _shipData,
                 _rocketData);
 
             LevelSO levelData = _levelsData.Current;
@@ -315,8 +329,10 @@ namespace ShipBase
 
             _coinPool.Init(player.transform, health);
             _gameEndHandler.Init(_timer, health, _sfxSetting, levelData, _levelsData);
-            _wallet.Init(_sfxSetting, _walletData, _winPopup);
+            _wallet.Init(_sfxSetting, _walletData, _gameEndHandler, _saveLoader);
+            _score.Init(_gameEndHandler, _scoreData, _saveLoader);
 
+            _leaderboard.Init(_gameEndHandler, _scoreData);
             _losePopup.Init(_gameEndHandler);
             _winPopup.Init(_gameEndHandler, _wallet, _score, _interstitialAd, _saveLoader);
             _pausePopup.Init(_music, _levelsData);

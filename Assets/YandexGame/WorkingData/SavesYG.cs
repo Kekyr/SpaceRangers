@@ -17,6 +17,7 @@ namespace YG
         public int CurrentShipIndex = 0;
         public int CurrentRocketIndex = 0;
         public int Money = 0;
+        public int Score = 0;
         public bool IsFirstTime = true;
         public bool IsSfxOn = true;
         public bool IsMusicOn = true;
@@ -28,7 +29,7 @@ namespace YG
         public List<ImprovementState> RocketImprovementStates = null;
 
         public SavesYG(int currentLevelIndex, int currentBulletIndex, int currentShieldIndex, int currentShipIndex,
-            int currentRocketIndex, int money,
+            int currentRocketIndex, int money, int score,
             bool isFirstTime, bool isSfxOn, bool isMusicOn,
             List<LevelState> levelsState, List<ImprovementState> bulletImprovementStates, List<ImprovementState>
                 shieldImprovementStates, List<ImprovementState> shipImprovementStates, List<ImprovementState>
@@ -40,6 +41,7 @@ namespace YG
             CurrentShipIndex = currentShipIndex;
             CurrentRocketIndex = currentRocketIndex;
             Money = money;
+            Score = score;
             IsFirstTime = isFirstTime;
             IsSfxOn = isSfxOn;
             IsMusicOn = isMusicOn;

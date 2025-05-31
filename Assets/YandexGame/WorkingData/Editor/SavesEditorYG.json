@@ -1,6 +1,6 @@
 {
-    "idSave": 2,
-    "isFirstSession": false,
+    "idSave": 1,
+    "isFirstSession": true,
     "language": "ru",
     "promptDone": false,
     "CurrentLevelIndex": 0,
@@ -8,13 +8,65 @@
     "CurrentShieldIndex": 0,
     "CurrentShipIndex": 0,
     "CurrentRocketIndex": 0,
-    "Money": 0,
+    "Money": 150,
+    "Score": 150,
     "IsFirstTime": true,
     "IsSfxOn": true,
     "IsMusicOn": true,
-    "LevelsState": [],
-    "BulletImprovementStates": [],
-    "ShieldImprovementStates": [],
-    "ShipImprovementStates": [],
-    "RocketImprovementStates": []
+    "LevelsState": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "BulletImprovementStates": [
+        2,
+        1,
+        0,
+        0
+    ],
+    "ShieldImprovementStates": [
+        2,
+        1,
+        0,
+        0
+    ],
+    "ShipImprovementStates": [
+        2,
+        1,
+        0,
+        0
+    ],
+    "RocketImprovementStates": [
+        2,
+        1,
+        0,
+        0
+    ]
 }

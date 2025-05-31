@@ -10,6 +10,7 @@ public class InitializationRoot : MonoBehaviour
     [SerializeField] private SaveLoader _saveLoader;
     [SerializeField] private LevelsSO _levelsData;
     [SerializeField] private WalletSO _walletData;
+    [SerializeField] private ScoreSO _scoreData;
 
     [SerializeField] private AudioSettingSO _sfxSetting;
     [SerializeField] private AudioSettingSO _musicSetting;
@@ -34,6 +35,11 @@ public class InitializationRoot : MonoBehaviour
         if (_walletData == null)
         {
             throw new ArgumentNullException(nameof(_walletData));
+        }
+
+        if (_scoreData == null)
+        {
+            throw new ArgumentNullException(nameof(_scoreData));
         }
 
         if (_sfxSetting == null)
@@ -71,7 +77,7 @@ public class InitializationRoot : MonoBehaviour
     {
         Validate();
 
-        _saveLoader.Init(_levelsData, _walletData, _sfxSetting, _musicSetting, _bulletImprovementsData,
+        _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletImprovementsData,
             _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
         _saveLoader.OnLoaded();
         YandexGame.GameReadyAPI();
