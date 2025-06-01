@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ee6b81b136ec5479deee02bdb1de89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _imageRank: {fileID: 0}
+  _imageRank: {fileID: 11400000, guid: 3a45e9a8c62c43340b87dbf366c0c348, type: 2}
   _playerAvatar: {fileID: 285962168240908719}
   _playerImageRank: {fileID: 1401763680363052603}
   _playerName: {fileID: 8235721461681142916}
@@ -311,8 +311,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.17248, y: -0.1}
-  m_SizeDelta: {x: 53.22, y: 46.77}
+  m_AnchoredPosition: {x: 1.39, y: -3.42}
+  m_SizeDelta: {x: 83.58, y: 79.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3991430990309638281
 CanvasRenderer:
@@ -860,7 +860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18.33, y: -70.882}
+  m_AnchoredPosition: {x: -18.33, y: -67}
   m_SizeDelta: {x: 247.14, y: 59.885}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6229308349258782889
@@ -1144,7 +1144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.69, y: 7}
+  m_AnchoredPosition: {x: -23.69, y: 5.9}
   m_SizeDelta: {x: 27.62, y: 29.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6600769651716733937
