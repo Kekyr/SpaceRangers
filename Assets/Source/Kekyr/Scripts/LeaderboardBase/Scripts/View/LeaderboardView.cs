@@ -83,6 +83,7 @@ namespace LeaderboardBase
                 }
             }
 
+            _blackout.gameObject.SetActive(true);
             gameObject.SetActive(true);
         }
 
