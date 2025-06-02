@@ -57,6 +57,9 @@ namespace LeaderboardBase
 
         public void Initialize(string avatar, string name, int rank, int score)
         {
+            RemoteImage image = new RemoteImage(avatar);
+            image.Download(OnSuccessCallback, OnErrorCallback);
+            
             _playerName.text = name;
             _playerScore.text = score.ToString();
 
@@ -66,10 +69,8 @@ namespace LeaderboardBase
                 _playerImageRank.sprite = _imageRank.Sprites[spriteIndex];
                 _playerImageRank.gameObject.SetActive(true);
             }
-            else
-            {
-                _playerRank.text = rank.ToString();
-            }
+
+            _playerRank.text = rank.ToString();
         }
 
         private void OnSuccessCallback(Texture2D texture)

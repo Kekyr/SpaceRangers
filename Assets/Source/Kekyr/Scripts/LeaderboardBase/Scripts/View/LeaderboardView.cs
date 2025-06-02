@@ -62,16 +62,11 @@ namespace LeaderboardBase
 
             string playerId = YandexGame.playerId;
             int length = leaderboardPlayers.Count < Size ? leaderboardPlayers.Count : Size;
-
+            
             for (int i = 0; i < length; i++)
             {
                 if (leaderboardPlayers[i].Id == playerId)
                 {
-                    SpawnLeaderboardElement(
-                        _playerLeaderboardElementPrefab,
-                        leaderboardPlayers[i],
-                        _playerScoreContainer);
-
                     SpawnLeaderboardElement(
                         _playerLeaderboardElementPrefab, 
                         leaderboardPlayers[i], 
@@ -80,6 +75,17 @@ namespace LeaderboardBase
                 else
                 {
                     SpawnLeaderboardElement(_leaderboardElementPrefab, leaderboardPlayers[i], _container);
+                }
+            }
+
+            for (int i = 0; i < leaderboardPlayers.Count; i++)
+            {
+                if (leaderboardPlayers[i].Id == playerId)
+                {
+                    SpawnLeaderboardElement(
+                        _playerLeaderboardElementPrefab,
+                        leaderboardPlayers[i],
+                        _playerScoreContainer);
                 }
             }
 

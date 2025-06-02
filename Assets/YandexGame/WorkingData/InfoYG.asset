@@ -100,6 +100,11 @@ MonoBehaviour:
     decimalOffset: 0
     type: numeric
     players:
+    - rank: 7
+      name: playerThis
+      score: 5
+      photo: https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/0/islands-retina-small
+      uniqueID: 000
     - rank: 6
       name: anonymous
       score: 10
@@ -121,10 +126,10 @@ MonoBehaviour:
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 321
     - rank: 2
-      name: playerThis
+      name: anonymous
       score: 40
       photo: https://justplaygames.ru/public/icon_player.png
-      uniqueID: 000
+      uniqueID: 899
     - rank: 1
       name: player6
       score: 50

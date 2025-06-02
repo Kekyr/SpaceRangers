@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerLeaderboardElement Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1845254838952459815, guid: 0efcebefeb8ea0c40846d5b8f3ab9c7c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b27b0fc697e46c54f8c45c265e31c6cc, type: 3}
     - target: {fileID: 3018760871685810617, guid: 0efcebefeb8ea0c40846d5b8f3ab9c7c, type: 3}
       propertyPath: m_Sprite
       value: 
