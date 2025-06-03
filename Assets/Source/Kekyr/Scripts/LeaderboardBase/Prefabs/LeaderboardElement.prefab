@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 1166358878243819887}
   - component: {fileID: 1374119649811165033}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: ScoreAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,8 +1196,9 @@ GameObject:
   - component: {fileID: 7736659552808403834}
   - component: {fileID: 6600769651716733937}
   - component: {fileID: 329811899453416727}
+  - component: {fileID: 6989491677965691601}
   m_Layer: 5
-  m_Name: ScoreIcon
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1319,6 +1320,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6989491677965691601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7515175790443914015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: PointsPhrase
+  FallbackText: "\u043E\u0447\u043A."
 --- !u!1 &8479297635716191195
 GameObject:
   m_ObjectHideFlags: 0

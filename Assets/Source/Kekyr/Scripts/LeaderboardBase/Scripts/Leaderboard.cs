@@ -11,6 +11,7 @@ namespace LeaderboardBase
     {
         private const string LeaderboardName = "Leaderboard";
         private const string TranslationName = "AnonymPhrase";
+        private const string AnonymName = "anonymous";
 
         private readonly List<LeaderboardPlayer> _leaderboardPlayers = new();
 
@@ -40,7 +41,7 @@ namespace LeaderboardBase
             {
                 _gameEndHandler.Won -= SetScore;
             }
-            
+
             YandexGame.onGetLeaderboard -= OnGet;
         }
 
@@ -103,7 +104,7 @@ namespace LeaderboardBase
                 string avatar = playerData.photo;
                 string name = playerData.name;
 
-                if (string.IsNullOrEmpty(name))
+                if (string.IsNullOrEmpty(name) || name == AnonymName)
                 {
                     name = (string)_translation.Data;
                 }

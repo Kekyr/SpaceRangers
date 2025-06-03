@@ -18,7 +18,7 @@ MonoBehaviour:
   playerInfoSimulation:
     authorized: 1
     isMobile: 0
-    language: ru
+    language: tr
     name: Player this
     uniqueID: 000
     photo: https://justplaygames.ru/public/icon_player.png
@@ -111,7 +111,7 @@ MonoBehaviour:
       photo: https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/0/islands-retina-small
       uniqueID: 123
     - rank: 5
-      name: Ivan
+      name: 
       score: 15
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 321
@@ -189,7 +189,7 @@ MonoBehaviour:
       score: 10
   LocalizationEnable: 1
   callingLanguageCheck: 1
-  translateMethod: 0
+  translateMethod: 1
   domainAutoLocalization: com
   CSVFileTranslate:
     format: 0
