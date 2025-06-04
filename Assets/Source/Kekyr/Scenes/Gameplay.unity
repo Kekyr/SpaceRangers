@@ -265,6 +265,7 @@ MonoBehaviour:
   _enemySpawners: {fileID: 9091333161875800994}
   _spriteModifier: {fileID: 2557745229014845438}
   _score: {fileID: 8924620640646227850}
+  _scoreData: {fileID: 11400000, guid: 9466c9de6cf3892469a7d761f996d60b, type: 2}
   _wallet: {fileID: 3002139784727130965}
   _walletData: {fileID: 11400000, guid: a5b094cafb9ac7b4bb144d565d3da89f, type: 2}
   _music: {fileID: 8427888185971947560}
@@ -302,6 +303,7 @@ MonoBehaviour:
   _sfxButton: {fileID: 8161309105259785217}
   _sfxSetting: {fileID: 11400000, guid: c68e51d0ae4d9a042901627acb5bfa85, type: 2}
   _saveLoader: {fileID: 787079406}
+  _leaderboard: {fileID: 1355528997}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0
@@ -882,6 +884,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1355528995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1355528996}
+  - component: {fileID: 1355528997}
+  m_Layer: 0
+  m_Name: Leaderboard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1355528996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355528995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8655287767823477806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1355528997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355528995}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963ce557afa4ac1478d88416316dbdb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leaderboardView: {fileID: 0}
 --- !u!1 &1851346099
 GameObject:
   m_ObjectHideFlags: 0
@@ -19779,6 +19826,7 @@ Transform:
   - {fileID: 3479482371987833305}
   - {fileID: 1178059824}
   - {fileID: 787079405}
+  - {fileID: 1355528996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8658262821223263697

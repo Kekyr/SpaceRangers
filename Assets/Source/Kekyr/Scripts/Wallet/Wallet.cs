@@ -10,10 +10,12 @@ namespace ShipBase
         [SerializeField] private SFXSO _addSFX;
         
         private SFX _sfx;
-        private int _money;
         private AudioSettingSO _sfxSetting;
         private WalletSO _data;
-        private WinPopup _winPopup;
+        private GameEndHandler _gameEndHandler;
+        private SaveLoader _saveLoader;
+
+        private int _money;
 
         public Action<int> Changed;
 
@@ -27,19 +29,20 @@ namespace ShipBase
             _sfx = GetComponent<SFX>();
             _sfx.Init(_sfxSetting);
 
-            _winPopup.Exited += OnExit;
+            _gameEndHandler.Won += OnWon;
         }
 
         private void OnDestroy()
         {
-            _winPopup.Exited -= OnExit;
+            _gameEndHandler.Won -= OnWon;
         }
 
-        public void Init(AudioSettingSO sfxSetting, WalletSO data, WinPopup winPopup)
+        public void Init(AudioSettingSO sfxSetting, WalletSO data, GameEndHandler gameEndHandler, SaveLoader saveLoader)
         {
             _sfxSetting = sfxSetting;
             _data = data;
-            _winPopup = winPopup;
+            _gameEndHandler = gameEndHandler;
+            _saveLoader = saveLoader;
             enabled = true;
         }
         
@@ -55,9 +58,10 @@ namespace ShipBase
             Changed?.Invoke(_money);
         }
 
-        private void OnExit()
+        private void OnWon()
         {
             _data.Add(_money);
+            _saveLoader.Save();
         }
     }
 }

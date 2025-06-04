@@ -228,6 +228,7 @@ MonoBehaviour:
   _saveLoader: {fileID: 1859765404}
   _levelsData: {fileID: 11400000, guid: 5caae0ea10a4bec42bd89094c6a07e7a, type: 2}
   _walletData: {fileID: 11400000, guid: a5b094cafb9ac7b4bb144d565d3da89f, type: 2}
+  _scoreData: {fileID: 11400000, guid: 9466c9de6cf3892469a7d761f996d60b, type: 2}
   _sfxSetting: {fileID: 11400000, guid: c68e51d0ae4d9a042901627acb5bfa85, type: 2}
   _musicSetting: {fileID: 11400000, guid: 2577a98525f0c2340bab46d7d99944fc, type: 2}
   _bulletImprovementsData: {fileID: 11400000, guid: 28f7a87b90372364c9b283bf3a995244, type: 2}

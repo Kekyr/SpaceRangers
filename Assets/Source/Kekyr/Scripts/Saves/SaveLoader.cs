@@ -9,6 +9,7 @@ public class SaveLoader : MonoBehaviour
 {
     private LevelsSO _levelsData;
     private WalletSO _walletData;
+    private ScoreSO _scoreData;
 
     private AudioSettingSO _sfxSetting;
     private AudioSettingSO _musicSetting;
@@ -18,7 +19,8 @@ public class SaveLoader : MonoBehaviour
     private IImprovementsSO _shipImprovementsData;
     private IImprovementsSO _rocketImprovementsData;
 
-    public void Init(LevelsSO levelsData, WalletSO walletData, AudioSettingSO sfxSetting, AudioSettingSO musicSetting,
+    public void Init(LevelsSO levelsData, WalletSO walletData, ScoreSO scoreData, AudioSettingSO sfxSetting,
+        AudioSettingSO musicSetting,
         IImprovementsSO bulletImprovementsData,
         IImprovementsSO shieldImprovementsData,
         IImprovementsSO shipImprovementsData, IImprovementsSO rocketImprovementsData
@@ -26,6 +28,7 @@ public class SaveLoader : MonoBehaviour
     {
         _levelsData = levelsData;
         _walletData = walletData;
+        _scoreData = scoreData;
         _bulletImprovementsData = bulletImprovementsData;
         _shieldImprovementsData = shieldImprovementsData;
         _shipImprovementsData = shipImprovementsData;
@@ -55,6 +58,7 @@ public class SaveLoader : MonoBehaviour
             _shipImprovementsData.CurrentIndex,
             _rocketImprovementsData.CurrentIndex,
             _walletData.Money,
+            _scoreData.Points,
             _levelsData.IsFirstTime,
             _sfxSetting.IsOn,
             _musicSetting.IsOn,
@@ -78,6 +82,7 @@ public class SaveLoader : MonoBehaviour
 
         _levelsData.Init(saveData.LevelsState, saveData.CurrentLevelIndex);
         _walletData.Init(saveData.Money);
+        _scoreData.Init(saveData.Score);
 
         _sfxSetting.Init(saveData.IsSfxOn);
         _musicSetting.Init(saveData.IsMusicOn);
