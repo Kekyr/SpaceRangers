@@ -75,7 +75,6 @@ public class SaveLoader : MonoBehaviour
 
     public void OnLoaded()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SavesYG saveData;
 
         saveData = YandexGame.savesData;
@@ -91,8 +90,6 @@ public class SaveLoader : MonoBehaviour
         _shieldImprovementsData.Init(saveData.ShieldImprovementStates, saveData.CurrentShieldIndex);
         _shipImprovementsData.Init(saveData.ShipImprovementStates, saveData.CurrentShipIndex);
         _rocketImprovementsData.Init(saveData.RocketImprovementStates, saveData.CurrentRocketIndex);
-
-        SceneManager.LoadScene(nextSceneIndex);
     }
 
     private List<ImprovementState> Convert(ImprovementDataSO[] improvements)

@@ -3,6 +3,7 @@ using Audio;
 using LevelEnemy;
 using ShipBase;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 public class InitializationRoot : MonoBehaviour
@@ -75,11 +76,14 @@ public class InitializationRoot : MonoBehaviour
 
     private void Start()
     {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        
         Validate();
 
         _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletImprovementsData,
             _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
-        _saveLoader.OnLoaded();
+        //_saveLoader.OnLoaded();
         YandexGame.GameReadyAPI();
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
