@@ -31,7 +31,6 @@ namespace WordGame
             }
         }
 
-
         private void CheckSave(Image controller)
         {
             if (PlayerPrefs.HasKey(_keyPrefse) == false)
