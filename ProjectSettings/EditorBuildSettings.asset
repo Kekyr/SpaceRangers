@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Source/Kekyr/Scenes/Initialization.unity
     guid: 754bd8703f19afc4985f329bb314a841
   - enabled: 1
-    path: Assets/Source/Kekyr/Scenes/Levels.unity
+    path: Assets/Source/Kekyr/Scenes/LevelsMap.unity
     guid: 98851606a8f4ac048af9696c02087c27
   - enabled: 1
     path: Assets/Source/Kekyr/Scenes/Gameplay.unity
