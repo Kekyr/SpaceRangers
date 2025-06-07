@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using YG;
 
-public class LevelsRoot : MonoBehaviour
+public class LevelsMapRoot : MonoBehaviour
 {
     private readonly float _initTime = 0.001f;
 
@@ -36,6 +36,8 @@ public class LevelsRoot : MonoBehaviour
 
     [SerializeField] private SaveLoader _saveLoader;
     [SerializeField] private Leaderboard _leaderboard;
+    [SerializeField] private Tutorial _tutorial;
+    [SerializeField] private TutorialSO _tutorialData;
     [SerializeField] private Button _resetButton;
 
     private void Validate()
@@ -140,6 +142,16 @@ public class LevelsRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_leaderboard));
         }
 
+        if (_tutorial == null)
+        {
+            throw new ArgumentNullException(nameof(_tutorial));
+        }
+
+        if (_tutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_tutorialData));
+        }
+
         if (_resetButton == null)
         {
             throw new ArgumentNullException(nameof(_resetButton));
@@ -152,6 +164,7 @@ public class LevelsRoot : MonoBehaviour
 
         _resetButton.onClick.AddListener(Reset);
 
+        _tutorial.Init(_tutorialData);
         _leaderboard.Init(_scoreData);
         _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletImprovementsData,
             _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);

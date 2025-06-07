@@ -1,36 +1,72 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] private Image _image;
+    [SerializeField] private TutorialHand _hand;
     [SerializeField] private RectTransform[] _positions;
+    [SerializeField] private Animator _handAnimator;
 
-    private RectTransform _imageRectTransform;
+    private RectTransform _handRectTransform;
     private TutorialSO _tutorialData;
-    private int _currentPositionIndex;
 
-    private void Awake()
+    private void Start()
     {
-        if (_image == null)
+        if (_hand == null)
         {
-            throw new ArgumentNullException(nameof(_image));
+            throw new ArgumentNullException(nameof(_hand));
         }
 
         if (_positions.Length == 0)
         {
             throw new ArgumentOutOfRangeException(nameof(_positions));
         }
-        
-        _imageRectTransform = _image.GetComponent<RectTransform>();
-        _imageRectTransform.anchoredPosition = _positions[_currentPositionIndex].anchoredPosition;
+
+        if (_handAnimator == null)
+        {
+            throw new ArgumentNullException(nameof(_handAnimator));
+        }
+
+        if (_tutorialData.IsFinished == true)
+        {
+            return;
+        }
+
+        _handRectTransform = _hand.GetComponent<RectTransform>();
+        SetStep(_positions[_tutorialData.CurrentIndex], _tutorialData.Current.AnimationTrigger);
+
+        _hand.Clicked += OnClicked;
     }
-    
-    private void OnMouseDown()
+
+    private void OnDestroy()
+    {
+        _hand.Clicked -= OnClicked;
+    }
+
+    public void Init(TutorialSO tutorialData)
+    {
+        _tutorialData = tutorialData;
+        enabled = true;
+    }
+
+    private void OnClicked()
     {
         Debug.Log("Tutorial Completed!");
-        _currentPositionIndex++;
-        _imageRectTransform.anchoredPosition = _positions[_currentPositionIndex].anchoredPosition;
+        _tutorialData.Completed();
+
+        if (_tutorialData.IsFinished == true)
+        {
+            gameObject.SetActive(false);
+        }
+
+        SetStep(_positions[_tutorialData.CurrentIndex], _tutorialData.Current.AnimationTrigger);
+    }
+
+    private void SetStep(RectTransform newPosition, string _trigger)
+    {
+        _handAnimator.SetTrigger(_trigger);
+        _handRectTransform.anchorMin = newPosition.anchorMin;
+        _handRectTransform.anchorMax = newPosition.anchorMax;
+        _handRectTransform.anchoredPosition = newPosition.anchoredPosition;
     }
 }
