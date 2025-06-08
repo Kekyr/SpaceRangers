@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
     [SerializeField] private TutorialHand _hand;
-    [SerializeField] private RectTransform[] _positions;
+    [SerializeField] private Image _blackout;
+    [SerializeField] private TutorialStep[] _steps;
     [SerializeField] private Animator _handAnimator;
 
     private RectTransform _handRectTransform;
@@ -17,9 +19,14 @@ public class Tutorial : MonoBehaviour
             throw new ArgumentNullException(nameof(_hand));
         }
 
-        if (_positions.Length == 0)
+        if (_blackout == null)
         {
-            throw new ArgumentOutOfRangeException(nameof(_positions));
+            throw new ArgumentNullException(nameof(_blackout));
+        }
+
+        if (_steps.Length == 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(_steps));
         }
 
         if (_handAnimator == null)
@@ -32,8 +39,11 @@ public class Tutorial : MonoBehaviour
             return;
         }
 
+        Time.timeScale = 0f;
+        _hand.gameObject.SetActive(true);
+        
         _handRectTransform = _hand.GetComponent<RectTransform>();
-        SetStep(_positions[_tutorialData.CurrentIndex], _tutorialData.Current.AnimationTrigger);
+        SetStep(_steps[_tutorialData.CurrentIndex], _tutorialData.Current.AnimationTrigger);
 
         _hand.Clicked += OnClicked;
     }
@@ -57,16 +67,19 @@ public class Tutorial : MonoBehaviour
         if (_tutorialData.IsFinished == true)
         {
             gameObject.SetActive(false);
+            Time.timeScale = 1f;
         }
 
-        SetStep(_positions[_tutorialData.CurrentIndex], _tutorialData.Current.AnimationTrigger);
+        SetStep(_steps[_tutorialData.CurrentIndex], _tutorialData.Current.AnimationTrigger);
     }
 
-    private void SetStep(RectTransform newPosition, string _trigger)
+    private void SetStep(TutorialStep step, string _trigger)
     {
+        step.Prepare();
+        _blackout.gameObject.SetActive(step.IsBlackOut);
         _handAnimator.SetTrigger(_trigger);
-        _handRectTransform.anchorMin = newPosition.anchorMin;
-        _handRectTransform.anchorMax = newPosition.anchorMax;
-        _handRectTransform.anchoredPosition = newPosition.anchoredPosition;
+        _handRectTransform.anchorMin = step.Position.anchorMin;
+        _handRectTransform.anchorMax = step.Position.anchorMax;
+        _handRectTransform.anchoredPosition = step.Position.anchoredPosition;
     }
 }

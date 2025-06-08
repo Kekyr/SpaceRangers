@@ -209,6 +209,7 @@ public class LevelsMapRoot : MonoBehaviour
         _shipImprovementsData.Reset();
         _shieldImprovementsData.Reset();
         _rocketImprovementsData.Reset();
+        _tutorialData.Reset();
         YandexGame.SaveProgress();
         SceneManager.LoadScene(previousSceneIndex);
     }

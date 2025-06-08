@@ -26,7 +26,7 @@ namespace Game
         private void ChangeLanguage()
         {
             string languageCode = YandexGame.lang;
-            Debug.Log($"LanguageCode: {languageCode}");
+
             switch (languageCode)
             {
                 case English:
