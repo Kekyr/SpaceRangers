@@ -4,11 +4,11 @@
     "language": "ru",
     "promptDone": false,
     "CurrentLevelIndex": 0,
-    "CurrentBulletIndex": 0,
-    "CurrentShieldIndex": 0,
-    "CurrentShipIndex": 0,
-    "CurrentRocketIndex": 0,
-    "Money": 0,
+    "CurrentBulletIndex": 1,
+    "CurrentShieldIndex": 1,
+    "CurrentShipIndex": 1,
+    "CurrentRocketIndex": 1,
+    "Money": 100,
     "Score": 0,
     "IsFirstTime": true,
     "IsSfxOn": true,
@@ -23,7 +23,7 @@
         0,
         0,
         0,
-        0,
+        1,
         0,
         0,
         0,
@@ -47,26 +47,26 @@
     ],
     "BulletImprovementStates": [
         2,
-        1,
+        2,
         0,
         0
     ],
     "ShieldImprovementStates": [
         2,
+        2,
         1,
-        0,
         0
     ],
     "ShipImprovementStates": [
         2,
+        2,
         1,
-        0,
         0
     ],
     "RocketImprovementStates": [
         2,
+        2,
         1,
-        0,
         0
     ]
 }
