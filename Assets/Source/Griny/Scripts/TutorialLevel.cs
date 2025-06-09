@@ -12,6 +12,21 @@ namespace WordGame
         private bool _isMobile;
         private Coroutine _coroutine;
 
+        private void Awake()
+        {
+#if !UNITY_EDITOR && UNITY_WEBGL
+        _isMobile = Device.IsMobile;
+#endif
+            if (_isMobile)
+            {
+                CheckSave(_hand);
+            }
+            else
+            {
+                CheckSave(_wasd);
+            }
+        }
+
         private void CheckSave(Image controller)
         {
             Time.timeScale = 0;

@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageColor: {r: 1, g: 0, b: 0, a: 1}
-  _damage: 2
+  _damage: 10
 --- !u!1 &6809008081623507287
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5115293459053650946, guid: b5c85f33814810e41bea14eb1cd74c53, type: 3}
       propertyPath: _startValue
-      value: 1600
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 5769664323316702232, guid: b5c85f33814810e41bea14eb1cd74c53, type: 3}
       propertyPath: m_Name
@@ -575,7 +575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8300981963935752119, guid: b5c85f33814810e41bea14eb1cd74c53, type: 3}
       propertyPath: _startValue
-      value: 2000
+      value: 1600
       objectReference: {fileID: 0}
     - target: {fileID: 8691680221453915761, guid: b5c85f33814810e41bea14eb1cd74c53, type: 3}
       propertyPath: m_Controller
