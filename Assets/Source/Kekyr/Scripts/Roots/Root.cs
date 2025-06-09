@@ -76,6 +76,8 @@ namespace ShipBase
         [SerializeField] private Tutorial _tutorial;
         [SerializeField] private TutorialSO _tutorialData;
 
+        private LevelSO _levelData;
+
         private void Validate()
         {
             if (_camera == null)
@@ -317,9 +319,10 @@ namespace ShipBase
                 _shipData,
                 _rocketData);
 
-            LevelSO levelData = _levelsData.Current;
+            _levelData = _levelsData.Current;
 
             _backgroundImage.texture = _backgroundData.CurrentTexture;
+            
             _tutorial.Init(_tutorialData);
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
@@ -342,7 +345,7 @@ namespace ShipBase
             BulletPool pool = player.GetComponentInChildren<BulletPool>();
 
             _coinPool.Init(player.transform, health);
-            _gameEndHandler.Init(_timer, health, _sfxSetting, levelData, _levelsData);
+            _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData);
             _wallet.Init(_sfxSetting, _walletData, _gameEndHandler, _saveLoader);
             _score.Init(_gameEndHandler, _scoreData, _saveLoader);
 
@@ -369,7 +372,7 @@ namespace ShipBase
             shield.Init(_shieldData.CurrentLevel);
 
             _timerView.Init(_timer);
-            _timer.Init(levelData);
+            _timer.Init(_levelData);
             _music.Init(_timer, _musicSetting, _musicButton);
 
             _healthView.Init(health);
@@ -388,11 +391,11 @@ namespace ShipBase
 
             _rewardedAd.Init(_music, _sfxSetting);
 
-            List<EnemySpawnerSO> enemySpawnersData = levelData.SpawnersData;
+            List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
             _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _gameEndHandler, _sfxSetting, _music);
             _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
-                _score, _timer, levelData);
+                _score, _timer, _levelData);
 
             StartCoroutine(Initialization());
         }
