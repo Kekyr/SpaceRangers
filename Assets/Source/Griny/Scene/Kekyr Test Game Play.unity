@@ -732,6 +732,7 @@ MonoBehaviour:
   _enemySpawners: {fileID: 9091333161875800994}
   _spriteModifier: {fileID: 2557745229014845438}
   _score: {fileID: 8924620640646227850}
+  _scoreData: {fileID: 0}
   _wallet: {fileID: 3002139784727130965}
   _walletData: {fileID: 0}
   _music: {fileID: 8427888185971947560}
@@ -769,6 +770,7 @@ MonoBehaviour:
   _sfxButton: {fileID: 0}
   _sfxSetting: {fileID: 0}
   _saveLoader: {fileID: 0}
+  _leaderboard: {fileID: 0}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0

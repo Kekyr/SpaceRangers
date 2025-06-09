@@ -73,6 +73,9 @@ namespace ShipBase
         [SerializeField] private SaveLoader _saveLoader;
         [SerializeField] private Leaderboard _leaderboard;
 
+        [SerializeField] private Tutorial _tutorial;
+        [SerializeField] private TutorialSO _tutorialData;
+
         private void Validate()
         {
             if (_camera == null)
@@ -294,6 +297,16 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_leaderboard));
             }
+
+            if (_tutorial == null)
+            {
+                throw new ArgumentNullException(nameof(_tutorial));
+            }
+
+            if (_tutorialData == null)
+            {
+                throw new ArgumentNullException(nameof(_tutorialData));
+            }
         }
 
         private void Awake()
@@ -307,6 +320,7 @@ namespace ShipBase
             LevelSO levelData = _levelsData.Current;
 
             _backgroundImage.texture = _backgroundData.CurrentTexture;
+            _tutorial.Init(_tutorialData);
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
