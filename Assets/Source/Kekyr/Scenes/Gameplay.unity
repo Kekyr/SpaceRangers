@@ -1690,9 +1690,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8468424022108959131, guid: 3d23264d7725c9849a13deb9607ebca0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.5524979
+      objectReference: {fileID: 0}
     - target: {fileID: 8505397578969197990, guid: 3d23264d7725c9849a13deb9607ebca0, type: 3}
       propertyPath: m_Name
       value: MovementTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505397578969197990, guid: 3d23264d7725c9849a13deb9607ebca0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -14,9 +14,6 @@ namespace WordGame
 
         private void Awake()
         {
-#if !UNITY_EDITOR && UNITY_WEBGL
-        _isMobile = Device.IsMobile;
-#endif
             if (_isMobile)
             {
                 CheckSave(_hand);

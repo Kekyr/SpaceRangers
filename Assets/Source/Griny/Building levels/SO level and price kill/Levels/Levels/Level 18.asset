@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 50
   _spawnersData:
+  - {fileID: 11400000, guid: 96686b9b530379247a1421b8f55731a4, type: 2}
   - {fileID: 11400000, guid: 812ab1d36c444b94cb84f1e4aa1a15bd, type: 2}
-  - {fileID: 11400000, guid: 016a3e6cac1bfec47a89232a9b641bff, type: 2}
   - {fileID: 11400000, guid: 0e3486b4f779c6645b899e586f1aebb2, type: 2}
   _hasBoss: 0
   _bossPrefab: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
-  _isOpened: 0
-  _isCompleted: 0
+  _state: 0
   _isCurrent: 0
