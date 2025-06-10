@@ -139,7 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 6905781203566687445}
   _button: {fileID: 2112390497896778267}
-  _animator: {fileID: 5078997725937907770}
   _price: {fileID: 82085435467783907}
 --- !u!1 &1385370120433567909
 GameObject:
@@ -430,7 +429,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 3532150310908155384}
   _button: {fileID: 5179594481714996022}
-  _animator: {fileID: 8220713405997114749}
   _price: {fileID: 761053729921762570}
 --- !u!1 &2230855823578401075
 GameObject:
@@ -443,7 +441,6 @@ GameObject:
   - component: {fileID: 4109846578684664014}
   - component: {fileID: 657852958479868097}
   - component: {fileID: 3532150310908155384}
-  - component: {fileID: 8220713405997114749}
   m_Layer: 5
   m_Name: Backlight
   m_TagString: Untagged
@@ -508,27 +505,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8220713405997114749
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2230855823578401075}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e1994a945d514dc43b93a2c3adda8fd4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4157889236118052551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 7749866693661148654}
   _button: {fileID: 1103993672840106365}
-  _animator: {fileID: 1842148451220920834}
   _price: {fileID: 1187946166318313170}
 --- !u!1 &7178885101786816885
 GameObject:
@@ -1231,7 +1206,6 @@ GameObject:
   - component: {fileID: 5267031511054529478}
   - component: {fileID: 3333087999718005474}
   - component: {fileID: 6905781203566687445}
-  - component: {fileID: 5078997725937907770}
   m_Layer: 5
   m_Name: Backlight
   m_TagString: Untagged
@@ -1296,27 +1270,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &5078997725937907770
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7229115411607185952}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e1994a945d514dc43b93a2c3adda8fd4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7325121616868320152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,7 +1356,6 @@ GameObject:
   - component: {fileID: 4873222229038848340}
   - component: {fileID: 5537643578163510290}
   - component: {fileID: 7749866693661148654}
-  - component: {fileID: 1842148451220920834}
   m_Layer: 5
   m_Name: Backlight
   m_TagString: Untagged
@@ -1468,27 +1420,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &1842148451220920834
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8088378959216752887}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e1994a945d514dc43b93a2c3adda8fd4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8144747582380263381
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,7 @@ using Audio;
 using LeaderboardBase;
 using LevelEnemy;
 using ShipBase;
-using TMPro;
 using UI;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
@@ -41,7 +39,6 @@ public class LevelsMapRoot : MonoBehaviour
     [SerializeField] private Tutorial _tutorial;
     [SerializeField] private TutorialSO _tutorialData;
     [SerializeField] private Button _resetButton;
-    [SerializeField] private TextMeshProUGUI _coinsCount;
 
     private void Validate()
     {
@@ -159,11 +156,6 @@ public class LevelsMapRoot : MonoBehaviour
         {
             throw new ArgumentNullException(nameof(_resetButton));
         }
-
-        if (_coinsCount == null)
-        {
-            throw new ArgumentNullException(nameof(_coinsCount));
-        }
     }
 
     private void Awake()
@@ -172,7 +164,6 @@ public class LevelsMapRoot : MonoBehaviour
 
         _resetButton.onClick.AddListener(Reset);
 
-        _coinsCount.text = _walletData.Money.ToString();
         _tutorial.Init(_tutorialData);
         _leaderboard.Init(_scoreData);
         _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletImprovementsData,

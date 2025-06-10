@@ -10,7 +10,6 @@ public class ImprovementView : MonoBehaviour
 
     [SerializeField] private Image _image;
     [SerializeField] private Button _button;
-    [SerializeField] private Animator _animator;
     [SerializeField] private TextMeshProUGUI _price;
 
     private ImprovementDataSO _data;
@@ -27,11 +26,6 @@ public class ImprovementView : MonoBehaviour
         if (_button == null)
         {
             throw new ArgumentNullException(nameof(_button));
-        }
-
-        if (_animator == null)
-        {
-            throw new ArgumentNullException(nameof(_animator));
         }
 
         if (_price == null)
@@ -80,7 +74,6 @@ public class ImprovementView : MonoBehaviour
 
         ChangeColor(_image, _current);
         _image.gameObject.SetActive(true);
-        _animator.enabled = true;
     }
 
     private void ChangeColor(Image image, Color color)
