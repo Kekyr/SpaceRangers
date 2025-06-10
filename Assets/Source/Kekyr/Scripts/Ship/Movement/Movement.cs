@@ -21,6 +21,8 @@ namespace ShipBase
 
         private bool _isMoving;
 
+        public event Action Performed;
+
         public PlayerInputRouter InputRouter => _inputRouter;
 
         public Rigidbody2D Rigidbody => _rigidbody;
@@ -72,6 +74,11 @@ namespace ShipBase
         {
             _isMoving = state;
             _engineAnimator.SetBool(_movingAnimation, _isMoving);
+        }
+
+        protected void InvokePerformed()
+        {
+            Performed?.Invoke();
         }
 
         private void OnDead()

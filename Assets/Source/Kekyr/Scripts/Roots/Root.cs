@@ -7,6 +7,7 @@ using LevelEnemy;
 using RocketFeature;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ShipBase
@@ -73,8 +74,9 @@ namespace ShipBase
         [SerializeField] private SaveLoader _saveLoader;
         [SerializeField] private Leaderboard _leaderboard;
 
-        [SerializeField] private Tutorial _tutorial;
-        [SerializeField] private TutorialSO _tutorialData;
+        [SerializeField] private TouchMovementTutorial _touchMovementTutorial;
+        [SerializeField] private KeyboardMovementTutorial _keyboardMovementTutorial;
+        [SerializeField] private TutorialStepSO _movementTutorialData;
 
         private LevelSO _levelData;
 
@@ -300,14 +302,19 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_leaderboard));
             }
 
-            if (_tutorial == null)
+            if (_touchMovementTutorial == null)
             {
-                throw new ArgumentNullException(nameof(_tutorial));
+                throw new ArgumentNullException(nameof(_touchMovementTutorial));
             }
 
-            if (_tutorialData == null)
+            if (_keyboardMovementTutorial == null)
             {
-                throw new ArgumentNullException(nameof(_tutorialData));
+                throw new ArgumentNullException(nameof(_keyboardMovementTutorial));
+            }
+
+            if (_movementTutorialData == null)
+            {
+                throw new ArgumentNullException(nameof(_movementTutorialData));
             }
         }
 
@@ -322,8 +329,7 @@ namespace ShipBase
             _levelData = _levelsData.Current;
 
             _backgroundImage.texture = _backgroundData.CurrentTexture;
-            
-            _tutorial.Init(_tutorialData);
+
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
@@ -335,7 +341,6 @@ namespace ShipBase
 
             GameObject player = Instantiate(_shipData.CurrentLevel, _playerSpawnPoint);
 
-            PlayerInputRouter playerInputRouter = player.GetComponent<PlayerInputRouter>();
             Ship ship = player.GetComponent<Ship>();
             DamageHandler damageHandler = player.GetComponent<DamageHandler>();
             Movement[] movements = player.GetComponents<Movement>();
@@ -343,6 +348,11 @@ namespace ShipBase
             Shield shield = player.GetComponentInChildren<Shield>();
             RocketLauncher rocketLauncher = player.GetComponentInChildren<RocketLauncher>();
             BulletPool pool = player.GetComponentInChildren<BulletPool>();
+            TouchMovement touchMovement = player.GetComponent<TouchMovement>();
+            KeyboardMovement keyboardMovement = player.GetComponent<KeyboardMovement>();
+
+            _touchMovementTutorial.Init(_movementTutorialData, touchMovement);
+            _keyboardMovementTutorial.Init(_movementTutorialData,keyboardMovement);
 
             _coinPool.Init(player.transform, health);
             _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData);

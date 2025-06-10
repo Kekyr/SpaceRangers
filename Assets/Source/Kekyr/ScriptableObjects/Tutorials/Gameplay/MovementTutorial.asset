@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec17d88fb83aea2408443a6f1fc37089, type: 3}
+  m_Script: {fileID: 11500000, guid: 7033d4895e8da0f4786678e7beab9af4, type: 3}
   m_Name: MovementTutorial
   m_EditorClassIdentifier: 
-  _steps:
-  - {fileID: 11400000, guid: 7bd3b53ed6ee47547bf9f69adb56177c, type: 2}
-  _currentIndex: 0
-  _isFinished: 0
+  _isCompleted: 0
+  _animationTrigger: Cross

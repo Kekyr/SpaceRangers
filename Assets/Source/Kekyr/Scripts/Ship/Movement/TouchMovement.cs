@@ -52,6 +52,7 @@ namespace ShipBase
             _endPosition = touchWorldPosition;
             
             ChangeState(true);
+            InvokePerformed();
         }
 
         private void OnSelectStarted(InputAction.CallbackContext context)

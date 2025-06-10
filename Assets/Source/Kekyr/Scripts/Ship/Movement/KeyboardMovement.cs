@@ -38,6 +38,7 @@ namespace ShipBase
 
             _direction = context.ReadValue<Vector2>();
             ChangeState(true);
+            InvokePerformed();
         }
 
         private void OnMoveCanceled(InputAction.CallbackContext context)
