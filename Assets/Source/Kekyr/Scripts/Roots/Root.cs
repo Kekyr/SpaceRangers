@@ -6,6 +6,7 @@ using LeaderboardBase;
 using LevelEnemy;
 using RocketFeature;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -352,7 +353,7 @@ namespace ShipBase
             KeyboardMovement keyboardMovement = player.GetComponent<KeyboardMovement>();
 
             _touchMovementTutorial.Init(_movementTutorialData, touchMovement);
-            _keyboardMovementTutorial.Init(_movementTutorialData,keyboardMovement);
+            _keyboardMovementTutorial.Init(_movementTutorialData, keyboardMovement);
 
             _coinPool.Init(player.transform, health);
             _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData);
@@ -419,6 +420,15 @@ namespace ShipBase
             _screenAdjuster.ChangeEffect();
             _enemySpawners.OnResolutionChanged();
             _screenAdjuster.enabled = true;
+
+            if (Touchscreen.current != null)
+            {
+                _touchMovementTutorial.enabled = true;
+            }
+            else
+            {
+                _keyboardMovementTutorial.enabled = true;
+            }
         }
     }
 }

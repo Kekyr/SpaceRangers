@@ -784,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2299881994068633312, guid: 05f5b47bcb1ced04aa2228ebef0ceceb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.0012207
+      value: -1.0014648
       objectReference: {fileID: 0}
     - target: {fileID: 2299881994068633312, guid: 05f5b47bcb1ced04aa2228ebef0ceceb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -798,9 +798,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2434956571296558972, guid: 05f5b47bcb1ced04aa2228ebef0ceceb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359402423634771361, guid: 05f5b47bcb1ced04aa2228ebef0ceceb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7596602959503945577, guid: 05f5b47bcb1ced04aa2228ebef0ceceb, type: 3}
       propertyPath: m_Name
       value: TouchMovementTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596602959503945577, guid: 05f5b47bcb1ced04aa2228ebef0ceceb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14300,13 +14312,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 125836168}
     m_Modifications:
+    - target: {fileID: 973024069980624106, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889982772838509427, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.42297363
+      objectReference: {fileID: 0}
     - target: {fileID: 3071854590884537528, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
       propertyPath: m_Name
       value: KeyboardMovementTutorial
       objectReference: {fileID: 0}
     - target: {fileID: 3071854590884537528, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3900996070930206913, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
       propertyPath: _pauseButton
@@ -14378,7 +14398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5655094785873354082, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.0026855
+      value: -1.0029297
       objectReference: {fileID: 0}
     - target: {fileID: 5655094785873354082, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14390,6 +14410,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5655094785873354082, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5989394354103604066, guid: 7a1a3cdb40dcc524696300fd591593d2, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

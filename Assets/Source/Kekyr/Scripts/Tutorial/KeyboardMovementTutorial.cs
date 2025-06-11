@@ -52,7 +52,6 @@ public class KeyboardMovementTutorial : MonoBehaviour
     {
         _tutorialData = tutorialData;
         _movement = movement;
-        enabled = true;
     }
 
     private void OnPerformed()

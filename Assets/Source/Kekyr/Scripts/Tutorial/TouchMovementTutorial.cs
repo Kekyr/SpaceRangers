@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using ShipBase;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,8 +43,8 @@ public class TouchMovementTutorial : MonoBehaviour
         Time.timeScale = 0f;
         _pauseButton.interactable = false;
         
-        _handAnimator.SetTrigger(_tutorialData.AnimationTrigger);
         _hand.SetActive(true);
+        _handAnimator.SetTrigger(_tutorialData.AnimationTrigger);
         _explanation.gameObject.SetActive(true);
         
         _movement.Performed += OnPerformed;
@@ -60,7 +59,6 @@ public class TouchMovementTutorial : MonoBehaviour
     {
         _tutorialData = tutorialData;
         _movement = movement;
-        enabled = true;
     }
 
     private void OnPerformed()
