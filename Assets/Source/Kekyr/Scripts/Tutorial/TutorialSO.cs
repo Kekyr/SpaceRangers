@@ -21,7 +21,7 @@ public class TutorialSO : ScriptableObject
         _currentIndex = currentIndex;
         _isFinished = isFinished;
     }
-    
+
     public void Completed()
     {
         _steps[_currentIndex].Completed();
@@ -31,7 +31,7 @@ public class TutorialSO : ScriptableObject
             _isFinished = true;
             return;
         }
-        
+
         _currentIndex++;
     }
 

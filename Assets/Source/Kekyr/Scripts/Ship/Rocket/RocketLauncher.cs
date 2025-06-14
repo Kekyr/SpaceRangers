@@ -34,6 +34,7 @@ namespace ShipBase
         private int _destroyedRocketCount;
 
         public event Action<int> CountChanged;
+        public event Action Launched;
 
         private void Start()
         {
@@ -168,6 +169,7 @@ namespace ShipBase
                 _rocketCount--;
                 CountChanged?.Invoke(_rocketCount);
                 _currentSlotIndex++;
+                Launched?.Invoke();
             }
         }
 

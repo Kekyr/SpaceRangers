@@ -8,7 +8,6 @@ using RocketFeature;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ShipBase
@@ -78,6 +77,16 @@ namespace ShipBase
         [SerializeField] private TouchMovementTutorial _touchMovementTutorial;
         [SerializeField] private KeyboardMovementTutorial _keyboardMovementTutorial;
         [SerializeField] private TutorialStepSO _movementTutorialData;
+
+        [SerializeField] private TouchRocketLauncherTutorial _touchRocketLauncherTutorial;
+        [SerializeField] private KeyboardRocketLauncherTutorial _keyboardRocketLauncherTutorial;
+        [SerializeField] private TutorialStepSO _rocketLauncherTutorialData;
+
+        [SerializeField] private PopupTutorial _winPopupTutorial;
+        [SerializeField] private TutorialStepSO _winPopupTutorialData;
+
+        [SerializeField] private PopupTutorial _losePopupTutorial;
+        [SerializeField] private TutorialStepSO _losePopupTutorialData;
 
         private LevelSO _levelData;
 
@@ -317,6 +326,41 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_movementTutorialData));
             }
+
+            if (_touchRocketLauncherTutorial == null)
+            {
+                throw new ArgumentNullException(nameof(_touchRocketLauncherTutorial));
+            }
+
+            if (_keyboardRocketLauncherTutorial == null)
+            {
+                throw new ArgumentNullException(nameof(_keyboardRocketLauncherTutorial));
+            }
+
+            if (_rocketLauncherTutorialData == null)
+            {
+                throw new ArgumentNullException(nameof(_rocketLauncherTutorialData));
+            }
+
+            if (_winPopupTutorial == null)
+            {
+                throw new ArgumentNullException(nameof(_winPopupTutorial));
+            }
+
+            if (_winPopupTutorialData == null)
+            {
+                throw new ArgumentNullException(nameof(_winPopupTutorialData));
+            }
+
+            if (_losePopupTutorial == null)
+            {
+                throw new ArgumentNullException(nameof(_losePopupTutorial));
+            }
+
+            if (_losePopupTutorialData == null)
+            {
+                throw new ArgumentNullException(nameof(_losePopupTutorialData));
+            }
         }
 
         private void Awake()
@@ -330,7 +374,6 @@ namespace ShipBase
             _levelData = _levelsData.Current;
 
             _backgroundImage.texture = _backgroundData.CurrentTexture;
-
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
             _bordersAdjuster.Init(_canvas, _camera, _screenAdjuster);
@@ -355,14 +398,20 @@ namespace ShipBase
             _touchMovementTutorial.Init(_movementTutorialData, touchMovement);
             _keyboardMovementTutorial.Init(_movementTutorialData, keyboardMovement);
 
+            _touchRocketLauncherTutorial.Init(_rocketLauncherTutorialData, rocketLauncher);
+            _keyboardRocketLauncherTutorial.Init(_rocketLauncherTutorialData, rocketLauncher);
+
+            _winPopupTutorial.Init(_winPopupTutorialData);
+            _losePopupTutorial.Init(_losePopupTutorialData);
+
             _coinPool.Init(player.transform, health);
             _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData);
             _wallet.Init(_sfxSetting, _walletData, _gameEndHandler, _saveLoader);
             _score.Init(_gameEndHandler, _scoreData, _saveLoader);
 
             _leaderboard.Init(_gameEndHandler, _scoreData);
-            _losePopup.Init(_gameEndHandler);
-            _winPopup.Init(_gameEndHandler, _wallet, _score, _interstitialAd, _saveLoader);
+            _losePopup.Init(_gameEndHandler, _losePopupTutorial);
+            _winPopup.Init(_gameEndHandler, _wallet, _score, _interstitialAd, _winPopupTutorial);
             _pausePopup.Init(_music, _levelsData);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
@@ -421,13 +470,24 @@ namespace ShipBase
             _enemySpawners.OnResolutionChanged();
             _screenAdjuster.enabled = true;
 
-            if (Touchscreen.current != null)
+
+            if (PlatformChecker.IsPreferredDesktopPlatform() == true)
             {
-                _touchMovementTutorial.enabled = true;
+                _keyboardMovementTutorial.enabled = true;
+
+                if (_rocketData.CurrentLevel != 0)
+                {
+                    _keyboardRocketLauncherTutorial.enabled = true;
+                }
             }
             else
             {
-                _keyboardMovementTutorial.enabled = true;
+                _touchMovementTutorial.enabled = true;
+
+                if (_rocketData.CurrentLevel != 0)
+                {
+                    _touchRocketLauncherTutorial.enabled = true;
+                }
             }
         }
     }

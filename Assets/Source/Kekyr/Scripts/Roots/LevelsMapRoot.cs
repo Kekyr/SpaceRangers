@@ -8,6 +8,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using YG;
 
@@ -36,8 +37,9 @@ public class LevelsMapRoot : MonoBehaviour
 
     [SerializeField] private SaveLoader _saveLoader;
     [SerializeField] private Leaderboard _leaderboard;
-    [SerializeField] private Tutorial _tutorial;
+    [SerializeField] private LevelsMapTutorial _tutorial;
     [SerializeField] private TutorialSO _tutorialData;
+    [SerializeField] private TutorialStepSO[] _tutorialsData;
     [SerializeField] private Button _resetButton;
 
     private void Validate()
@@ -152,6 +154,11 @@ public class LevelsMapRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_tutorialData));
         }
 
+        if (_tutorialsData.Length == 0)
+        {
+            throw new ArgumentNullException(nameof(_tutorialsData));
+        }
+
         if (_resetButton == null)
         {
             throw new ArgumentNullException(nameof(_resetButton));
@@ -210,6 +217,12 @@ public class LevelsMapRoot : MonoBehaviour
         _shieldImprovementsData.Reset();
         _rocketImprovementsData.Reset();
         _tutorialData.Reset();
+
+        for (int i = 0; i < _tutorialsData.Length; i++)
+        {
+            _tutorialsData[i].Reset();
+        }
+
         YandexGame.SaveProgress();
         SceneManager.LoadScene(previousSceneIndex);
     }

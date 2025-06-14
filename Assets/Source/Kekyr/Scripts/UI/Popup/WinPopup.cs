@@ -17,9 +17,7 @@ public class WinPopup : MonoBehaviour
     private Score _score;
     private EnemyShip _boss;
     private InterstitialAd _interstitialAd;
-    private SaveLoader _saveLoader;
-
-    public event Action Exited;
+    private PopupTutorial _tutorial;
 
     private void Awake()
     {
@@ -42,26 +40,29 @@ public class WinPopup : MonoBehaviour
         {
             throw new ArgumentNullException(nameof(_blackout));
         }
-        
+
+        _tutorial.enabled = true;
+
         _exitButton.onClick.AddListener(OnExit);
     }
 
     private void OnDisable()
     {
         _exitButton.onClick.RemoveListener(OnExit);
-        
+
         _gameEndHandler.Won -= OnWon;
         _wallet.Changed -= OnWalletChanged;
         _score.Changed -= OnScoreChanged;
     }
 
-    public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd,SaveLoader saveLoader)
+    public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd,
+        PopupTutorial tutorial)
     {
         _gameEndHandler = gameEndHandler;
         _wallet = wallet;
         _score = score;
         _interstitialAd = interstitialAd;
-        _saveLoader = saveLoader;
+        _tutorial = tutorial;
 
         _gameEndHandler.Won += OnWon;
         _wallet.Changed += OnWalletChanged;
@@ -78,7 +79,7 @@ public class WinPopup : MonoBehaviour
     {
         _walletView.text = newValue.ToString();
     }
-    
+
     private void OnScoreChanged(int newValue)
     {
         _scoreView.text = newValue.ToString();

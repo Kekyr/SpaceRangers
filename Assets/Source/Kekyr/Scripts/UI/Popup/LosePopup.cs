@@ -8,6 +8,7 @@ public class LosePopup : MonoBehaviour
     [SerializeField] private Image _blackout;
 
     private GameEndHandler _gameEndHandler;
+    private PopupTutorial _tutorial;
 
     private void Start()
     {
@@ -22,9 +23,11 @@ public class LosePopup : MonoBehaviour
         _gameEndHandler.Lose -= OnLose;
     }
 
-    public void Init(GameEndHandler gameEndHandler)
+    public void Init(GameEndHandler gameEndHandler, PopupTutorial tutorial)
     {
         _gameEndHandler = gameEndHandler;
+        _tutorial = tutorial;
+
         _gameEndHandler.Lose += OnLose;
     }
 
@@ -32,5 +35,6 @@ public class LosePopup : MonoBehaviour
     {
         _blackout.gameObject.SetActive(true);
         gameObject.SetActive(true);
+        _tutorial.enabled = true;
     }
 }

@@ -5,6 +5,7 @@ using YG;
 public class FocusTracker : MonoBehaviour
 {
     private Music _music;
+    private float _currentTimeScale;
 
     private void OnEnable()
     {
@@ -26,12 +27,13 @@ public class FocusTracker : MonoBehaviour
 
     private void OnShowWindow()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = _currentTimeScale;
         _music.Continue();
     }
 
     private void OnHideWindow()
     {
+        _currentTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         _music.Pause();
     }

@@ -1,6 +1,6 @@
 {
-    "idSave": 1,
-    "isFirstSession": true,
+    "idSave": 3,
+    "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "CurrentLevelIndex": 0,
@@ -13,60 +13,9 @@
     "IsFirstTime": true,
     "IsSfxOn": true,
     "IsMusicOn": true,
-    "LevelsState": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    ],
-    "BulletImprovementStates": [
-        2,
-        2,
-        0,
-        0
-    ],
-    "ShieldImprovementStates": [
-        2,
-        1,
-        0,
-        0
-    ],
-    "ShipImprovementStates": [
-        2,
-        1,
-        0,
-        0
-    ],
-    "RocketImprovementStates": [
-        2,
-        1,
-        0,
-        0
-    ]
+    "LevelsState": [],
+    "BulletImprovementStates": [],
+    "ShieldImprovementStates": [],
+    "ShipImprovementStates": [],
+    "RocketImprovementStates": []
 }

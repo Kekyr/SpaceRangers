@@ -54,14 +54,18 @@ namespace ShipBase
 
         public void Reset()
         {
-            Levels[0].Choose();
+            int firstElementIndex = 0;
+            int secondElementIndex = 1;
+            
+            _currentLevelIndex = firstElementIndex;
+            Levels[firstElementIndex].Choose();
 
             for (int i = 1; i < _levels.Length; i++)
             {
                 Levels[i].Reset();
             }
 
-            Levels[1].Open();
+            Levels[secondElementIndex].Open();
         }
     }
 }
