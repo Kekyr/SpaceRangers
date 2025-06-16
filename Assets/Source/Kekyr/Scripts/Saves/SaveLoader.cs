@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Audio;
 using LevelEnemy;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using YG;
 
 public class SaveLoader : MonoBehaviour
@@ -14,13 +13,23 @@ public class SaveLoader : MonoBehaviour
     private AudioSettingSO _sfxSetting;
     private AudioSettingSO _musicSetting;
 
+    private TutorialStepSO _levelTutorialData;
+    private TutorialStepSO _hangarButtonTutorialData;
+    private TutorialStepSO _improvementTutorialData;
+    private TutorialStepSO _movementTutorialData;
+    private TutorialStepSO _rocketLauncherTutorialData;
+    private TutorialStepSO _winPopupTutorialData;
+    private TutorialStepSO _losePopupTutorialData;
+
     private IImprovementsSO _bulletImprovementsData;
     private IImprovementsSO _shieldImprovementsData;
     private IImprovementsSO _shipImprovementsData;
     private IImprovementsSO _rocketImprovementsData;
 
     public void Init(LevelsSO levelsData, WalletSO walletData, ScoreSO scoreData, AudioSettingSO sfxSetting,
-        AudioSettingSO musicSetting,
+        AudioSettingSO musicSetting, TutorialStepSO levelTutorialData, TutorialStepSO hangarButtonTutorialData,
+        TutorialStepSO improvementTutorialData,TutorialStepSO movementTutorialData, TutorialStepSO rocketLauncherTutorialData,
+        TutorialStepSO winPopupTutorialData, TutorialStepSO losePopupTutorialData,
         IImprovementsSO bulletImprovementsData,
         IImprovementsSO shieldImprovementsData,
         IImprovementsSO shipImprovementsData, IImprovementsSO rocketImprovementsData
@@ -35,6 +44,13 @@ public class SaveLoader : MonoBehaviour
         _rocketImprovementsData = rocketImprovementsData;
         _sfxSetting = sfxSetting;
         _musicSetting = musicSetting;
+        _levelTutorialData = levelTutorialData;
+        _hangarButtonTutorialData = hangarButtonTutorialData;
+        _improvementTutorialData = improvementTutorialData;
+        _movementTutorialData = movementTutorialData;
+        _rocketLauncherTutorialData = rocketLauncherTutorialData;
+        _winPopupTutorialData = winPopupTutorialData;
+        _losePopupTutorialData = losePopupTutorialData;
     }
 
     public void Save()
@@ -62,6 +78,13 @@ public class SaveLoader : MonoBehaviour
             _levelsData.IsFirstTime,
             _sfxSetting.IsOn,
             _musicSetting.IsOn,
+            _levelTutorialData.IsCompleted,
+            _hangarButtonTutorialData.IsCompleted,
+            _improvementTutorialData.IsCompleted,
+            _movementTutorialData.IsCompleted,
+            _rocketLauncherTutorialData.IsCompleted,
+            _winPopupTutorialData.IsCompleted,
+            _losePopupTutorialData.IsCompleted,
             levelsState,
             bulletImprovementsState,
             shieldImprovementsState,
@@ -85,6 +108,14 @@ public class SaveLoader : MonoBehaviour
 
         _sfxSetting.Init(saveData.IsSfxOn);
         _musicSetting.Init(saveData.IsMusicOn);
+        
+        _levelTutorialData.Init(saveData.LevelTutorialCompletion);
+        _hangarButtonTutorialData.Init(saveData.HangarButtonTutorialCompletion);
+        _improvementTutorialData.Init(saveData.ImprovementTutorialCompletion);
+        _movementTutorialData.Init(saveData.MovementTutorialCompletion);
+        _rocketLauncherTutorialData.Init(saveData.RocketLauncherTutorialCompletion);
+        _winPopupTutorialData.Init(saveData.WinPopupTutorialCompletion);
+        _losePopupTutorialData.Init(saveData.LosePopupTutorialCompletion);
 
         _bulletImprovementsData.Init(saveData.BulletImprovementStates, saveData.CurrentBulletIndex);
         _shieldImprovementsData.Init(saveData.ShieldImprovementStates, saveData.CurrentShieldIndex);

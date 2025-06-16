@@ -67,7 +67,6 @@ namespace ShipBase
 
         [SerializeField] private AudioButton _musicButton;
         [SerializeField] private AudioSettingSO _musicSetting;
-
         [SerializeField] private AudioButton _sfxButton;
         [SerializeField] private AudioSettingSO _sfxSetting;
 
@@ -87,6 +86,10 @@ namespace ShipBase
 
         [SerializeField] private PopupTutorial _losePopupTutorial;
         [SerializeField] private TutorialStepSO _losePopupTutorialData;
+
+        [SerializeField] private TutorialStepSO _levelTutorialData;
+        [SerializeField] private TutorialStepSO _hangarButtonTutorialData;
+        [SerializeField] private TutorialStepSO _improvementTutorialData;
 
         private LevelSO _levelData;
 
@@ -361,13 +364,30 @@ namespace ShipBase
             {
                 throw new ArgumentNullException(nameof(_losePopupTutorialData));
             }
+
+            if (_levelTutorialData == null)
+            {
+                throw new ArgumentNullException(nameof(_levelTutorialData));
+            }
+
+            if (_hangarButtonTutorialData == null)
+            {
+                throw new ArgumentNullException(nameof(_hangarButtonTutorialData));
+            }
+
+            if (_improvementTutorialData == null)
+            {
+                throw new ArgumentNullException(nameof(_improvementTutorialData));
+            }
         }
 
         private void Awake()
         {
             Validate();
 
-            _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletData, _shieldData,
+            _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,
+                _hangarButtonTutorialData, _improvementTutorialData, _movementTutorialData, _rocketLauncherTutorialData,
+                _winPopupTutorialData, _losePopupTutorialData, _bulletData, _shieldData,
                 _shipData,
                 _rocketData);
 
@@ -395,14 +415,14 @@ namespace ShipBase
             TouchMovement touchMovement = player.GetComponent<TouchMovement>();
             KeyboardMovement keyboardMovement = player.GetComponent<KeyboardMovement>();
 
-            _touchMovementTutorial.Init(_movementTutorialData, touchMovement);
-            _keyboardMovementTutorial.Init(_movementTutorialData, keyboardMovement);
+            _touchMovementTutorial.Init(_movementTutorialData, touchMovement, _saveLoader);
+            _keyboardMovementTutorial.Init(_movementTutorialData, keyboardMovement, _saveLoader);
 
-            _touchRocketLauncherTutorial.Init(_rocketLauncherTutorialData, rocketLauncher);
-            _keyboardRocketLauncherTutorial.Init(_rocketLauncherTutorialData, rocketLauncher);
+            _touchRocketLauncherTutorial.Init(_rocketLauncherTutorialData, rocketLauncher, _saveLoader);
+            _keyboardRocketLauncherTutorial.Init(_rocketLauncherTutorialData, rocketLauncher, _saveLoader);
 
-            _winPopupTutorial.Init(_winPopupTutorialData);
-            _losePopupTutorial.Init(_losePopupTutorialData);
+            _winPopupTutorial.Init(_winPopupTutorialData, _saveLoader);
+            _losePopupTutorial.Init(_losePopupTutorialData, _saveLoader);
 
             _coinPool.Init(player.transform, health);
             _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData);

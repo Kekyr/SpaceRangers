@@ -16,6 +16,14 @@ public class InitializationRoot : MonoBehaviour
     [SerializeField] private AudioSettingSO _sfxSetting;
     [SerializeField] private AudioSettingSO _musicSetting;
 
+    [SerializeField] private TutorialStepSO _levelTutorialData;
+    [SerializeField] private TutorialStepSO _hangarButtonTutorialData;
+    [SerializeField] private TutorialStepSO _improvementTutorialData;
+    [SerializeField] private TutorialStepSO _movementTutorialData;
+    [SerializeField] private TutorialStepSO _rocketLauncherTutorialData;
+    [SerializeField] private TutorialStepSO _winPopupTutorialData;
+    [SerializeField] private TutorialStepSO _losePopupTutorialData;
+
     [SerializeField] private ImprovementsSO<GameObject> _bulletImprovementsData;
     [SerializeField] private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
     [SerializeField] private ImprovementsSO<GameObject> _shipImprovementsData;
@@ -53,6 +61,41 @@ public class InitializationRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_musicSetting));
         }
 
+        if (_levelTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_levelTutorialData));
+        }
+
+        if (_hangarButtonTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_hangarButtonTutorialData));
+        }
+
+        if (_improvementTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_improvementTutorialData));
+        }
+
+        if (_movementTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_movementTutorialData));
+        }
+
+        if (_rocketLauncherTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_rocketLauncherTutorialData));
+        }
+
+        if (_winPopupTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_winPopupTutorialData));
+        }
+
+        if (_losePopupTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_losePopupTutorialData));
+        }
+
         if (_bulletImprovementsData == null)
         {
             throw new ArgumentNullException(nameof(_bulletImprovementsData));
@@ -77,12 +120,14 @@ public class InitializationRoot : MonoBehaviour
     private void Start()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        
+
         Validate();
 
-        _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletImprovementsData,
+        _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,
+            _hangarButtonTutorialData, _improvementTutorialData, _movementTutorialData, _rocketLauncherTutorialData,
+            _winPopupTutorialData, _losePopupTutorialData, _bulletImprovementsData,
             _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
-        //_saveLoader.OnLoaded();
+        _saveLoader.OnLoaded();
         YandexGame.GameReadyAPI();
         SceneManager.LoadScene(nextSceneIndex);
     }

@@ -12,6 +12,7 @@ public class TouchMovementTutorial : MonoBehaviour
 
     private TutorialStepSO _tutorialData;
     private Movement _movement;
+    private SaveLoader _saveLoader;
 
     private void Start()
     {
@@ -55,18 +56,19 @@ public class TouchMovementTutorial : MonoBehaviour
         _movement.Performed -= OnPerformed;
     }
 
-    public void Init(TutorialStepSO tutorialData, Movement movement)
+    public void Init(TutorialStepSO tutorialData, Movement movement, SaveLoader saveLoader)
     {
         _tutorialData = tutorialData;
         _movement = movement;
+        _saveLoader = saveLoader;
     }
 
     private void OnPerformed()
     {
-        Debug.Log("Tutorial Completed!");
         _pauseButton.interactable = true;
         _tutorialData.Completed();
         Time.timeScale = 1f;
+        _saveLoader.Save();
         gameObject.SetActive(false);
     }
 }

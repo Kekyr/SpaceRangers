@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [Serializable]
@@ -7,9 +8,9 @@ public class TutorialStep
 {
     [SerializeField] private Button[] _buttons;
     [SerializeField] private bool _isInteractable;
-    [SerializeField] private RectTransform _imagePosition;
+    [SerializeField] private RectTransform _position;
 
-    public RectTransform ImagePosition => _imagePosition;
+    public RectTransform Position => _position;
     
     public void Prepare()
     {

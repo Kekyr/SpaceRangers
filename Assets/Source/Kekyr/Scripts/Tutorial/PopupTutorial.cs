@@ -11,6 +11,7 @@ public class PopupTutorial : MonoBehaviour
     [SerializeField] private Button[] _buttons;
 
     private TutorialStepSO _tutorialData;
+    private SaveLoader _saveLoader;
 
     private void Start()
     {
@@ -62,15 +63,16 @@ public class PopupTutorial : MonoBehaviour
         _hand.Clicked -= OnClicked;
     }
 
-    public void Init(TutorialStepSO tutorialData)
+    public void Init(TutorialStepSO tutorialData, SaveLoader saveLoader)
     {
         _tutorialData = tutorialData;
+        _saveLoader = saveLoader;
     }
 
     private void OnClicked()
     {
-        Debug.Log("Tutorial Completed!");
         _tutorialData.Completed();
+        _saveLoader.Save();
         gameObject.SetActive(false);
     }
 }

@@ -10,8 +10,10 @@ public class LevelsMapTutorial : MonoBehaviour
     [SerializeField] private TutorialStep[] _steps;
     [SerializeField] private Animator _handAnimator;
 
+    private TutorialStepSO[] _stepsData;
     private RectTransform _handRectTransform;
-    private TutorialSO _tutorialData;
+    private SaveLoader _saveLoader;
+    private int _currentStepIndex;
 
     private void Start()
     {
@@ -35,17 +37,21 @@ public class LevelsMapTutorial : MonoBehaviour
             throw new ArgumentNullException(nameof(_handAnimator));
         }
 
-        if (_tutorialData.IsFinished == true)
-        {
-            return;
-        }
-        
-        _hand.gameObject.SetActive(true);
-        _blackout.gameObject.SetActive(true);
-        
         _handRectTransform = _hand.GetComponent<RectTransform>();
 
-        SetStep(_steps[_tutorialData.CurrentIndex], _tutorialData.Current.AnimationTrigger);
+        for (int i = 0; i < _stepsData.Length; i++)
+        {
+            if (_stepsData[i].IsCompleted == true)
+            {
+                continue;
+            }
+
+            _currentStepIndex = i;
+            _hand.gameObject.SetActive(true);
+            _blackout.gameObject.SetActive(true);
+            SetStep(_steps[i], _stepsData[i].AnimationTrigger);
+            break;
+        }
 
         _hand.Clicked += OnClicked;
     }
@@ -55,31 +61,41 @@ public class LevelsMapTutorial : MonoBehaviour
         _hand.Clicked -= OnClicked;
     }
 
-    public void Init(TutorialSO tutorialData)
+    public void Init(TutorialStepSO[] stepsData, SaveLoader saveLoader)
     {
-        _tutorialData = tutorialData;
+        _stepsData = stepsData;
+        _saveLoader = saveLoader;
         enabled = true;
     }
 
     private void OnClicked()
     {
-        Debug.Log("Tutorial Completed!");
-        _tutorialData.Completed();
-        
-        if (_tutorialData.IsFinished == true)
+        _stepsData[_currentStepIndex].Completed();
+        _saveLoader.Save();
+
+        for (int i = 0; i < _stepsData.Length; i++)
         {
-            gameObject.SetActive(false);
+            if (_stepsData[i].IsCompleted == true)
+            {
+                continue;
+            }
+
+            _currentStepIndex = i;
+            _hand.gameObject.SetActive(true);
+            _blackout.gameObject.SetActive(true);
+            SetStep(_steps[i], _stepsData[i].AnimationTrigger);
+            return;
         }
 
-        SetStep(_steps[_tutorialData.CurrentIndex], _tutorialData.Current.AnimationTrigger);
+        gameObject.SetActive(false);
     }
 
     private void SetStep(TutorialStep step, string _trigger)
     {
         step.Prepare();
         _handAnimator.SetTrigger(_trigger);
-        _handRectTransform.anchorMin = step.ImagePosition.anchorMin;
-        _handRectTransform.anchorMax = step.ImagePosition.anchorMax;
-        _handRectTransform.anchoredPosition = step.ImagePosition.anchoredPosition;
+        _handRectTransform.anchorMin = step.Position.anchorMin;
+        _handRectTransform.anchorMax = step.Position.anchorMax;
+        _handRectTransform.anchoredPosition = step.Position.anchoredPosition;
     }
 }

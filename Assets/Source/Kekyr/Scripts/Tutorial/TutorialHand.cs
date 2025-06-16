@@ -7,7 +7,6 @@ public class TutorialHand : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("OnMouseDown!");
         Clicked?.Invoke();
     }
 }

@@ -8,7 +8,6 @@ using UI;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using YG;
 
@@ -38,8 +37,13 @@ public class LevelsMapRoot : MonoBehaviour
     [SerializeField] private SaveLoader _saveLoader;
     [SerializeField] private Leaderboard _leaderboard;
     [SerializeField] private LevelsMapTutorial _tutorial;
-    [SerializeField] private TutorialSO _tutorialData;
-    [SerializeField] private TutorialStepSO[] _tutorialsData;
+    [SerializeField] private TutorialStepSO _levelTutorialData;
+    [SerializeField] private TutorialStepSO _hangarButtonTutorialData;
+    [SerializeField] private TutorialStepSO _improvementTutorialData;
+    [SerializeField] private TutorialStepSO _movementTutorialData;
+    [SerializeField] private TutorialStepSO _rocketLauncherTutorialData;
+    [SerializeField] private TutorialStepSO _winPopupTutorialData;
+    [SerializeField] private TutorialStepSO _losePopupTutorialData;
     [SerializeField] private Button _resetButton;
 
     private void Validate()
@@ -149,14 +153,39 @@ public class LevelsMapRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_tutorial));
         }
 
-        if (_tutorialData == null)
+        if (_levelTutorialData == null)
         {
-            throw new ArgumentNullException(nameof(_tutorialData));
+            throw new ArgumentNullException(nameof(_levelTutorialData));
         }
 
-        if (_tutorialsData.Length == 0)
+        if (_hangarButtonTutorialData == null)
         {
-            throw new ArgumentNullException(nameof(_tutorialsData));
+            throw new ArgumentNullException(nameof(_hangarButtonTutorialData));
+        }
+
+        if (_improvementTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_improvementTutorialData));
+        }
+
+        if (_movementTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_movementTutorialData));
+        }
+
+        if (_rocketLauncherTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_rocketLauncherTutorialData));
+        }
+
+        if (_winPopupTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_winPopupTutorialData));
+        }
+
+        if (_losePopupTutorialData == null)
+        {
+            throw new ArgumentNullException(nameof(_losePopupTutorialData));
         }
 
         if (_resetButton == null)
@@ -171,9 +200,14 @@ public class LevelsMapRoot : MonoBehaviour
 
         _resetButton.onClick.AddListener(Reset);
 
-        _tutorial.Init(_tutorialData);
+        TutorialStepSO[] mapTutorialsData = new[]
+            { _levelTutorialData, _hangarButtonTutorialData, _improvementTutorialData };
+
+        _tutorial.Init(mapTutorialsData, _saveLoader);
         _leaderboard.Init(_scoreData);
-        _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _bulletImprovementsData,
+        _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,
+            _hangarButtonTutorialData, _improvementTutorialData, _movementTutorialData, _rocketLauncherTutorialData,
+            _winPopupTutorialData, _losePopupTutorialData, _bulletImprovementsData,
             _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
         _screenAdjuster.Init(_canvas, _camera, _background, _postProcessProfile);
         _levelsView.Init(_levelsData, _backgroundData, _saveLoader);
@@ -216,13 +250,13 @@ public class LevelsMapRoot : MonoBehaviour
         _shipImprovementsData.Reset();
         _shieldImprovementsData.Reset();
         _rocketImprovementsData.Reset();
-        _tutorialData.Reset();
-
-        for (int i = 0; i < _tutorialsData.Length; i++)
-        {
-            _tutorialsData[i].Reset();
-        }
-
+        _levelTutorialData.Reset();
+        _hangarButtonTutorialData.Reset();
+        _improvementTutorialData.Reset();
+        _movementTutorialData.Reset();
+        _rocketLauncherTutorialData.Reset();
+        _winPopupTutorialData.Reset();
+        _losePopupTutorialData.Reset();
         YandexGame.SaveProgress();
         SceneManager.LoadScene(previousSceneIndex);
     }

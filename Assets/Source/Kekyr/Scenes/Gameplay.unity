@@ -726,6 +726,9 @@ MonoBehaviour:
   _winPopupTutorialData: {fileID: 11400000, guid: d27a783faddc29149be78fa9d2fd7597, type: 2}
   _losePopupTutorial: {fileID: 1099809199}
   _losePopupTutorialData: {fileID: 11400000, guid: 0e8cf952a470e3f4eb662a5e75772b76, type: 2}
+  _levelTutorialData: {fileID: 11400000, guid: c3d95dd0513bbcc438cab757f8cdde1e, type: 2}
+  _hangarButtonTutorialData: {fileID: 11400000, guid: 729bd6b074fb1a24f89dbca3ee7ce308, type: 2}
+  _improvementTutorialData: {fileID: 11400000, guid: d4ecadcb368f09442bb9d3e52a7aac04, type: 2}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0

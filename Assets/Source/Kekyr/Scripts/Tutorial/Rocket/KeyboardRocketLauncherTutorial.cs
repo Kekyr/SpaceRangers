@@ -11,6 +11,7 @@ public class KeyboardRocketLauncherTutorial : MonoBehaviour
 
     private TutorialStepSO _tutorialData;
     private RocketLauncher _rocketLauncher;
+    private SaveLoader _saveLoader;
 
     private void Start()
     {
@@ -52,18 +53,19 @@ public class KeyboardRocketLauncherTutorial : MonoBehaviour
         _rocketLauncher.Launched -= OnLaunched;
     }
 
-    public void Init(TutorialStepSO tutorialData, RocketLauncher rocketLauncher)
+    public void Init(TutorialStepSO tutorialData, RocketLauncher rocketLauncher, SaveLoader saveLoader)
     {
         _tutorialData = tutorialData;
         _rocketLauncher = rocketLauncher;
+        _saveLoader = saveLoader;
     }
 
     private void OnLaunched()
     {
-        Debug.Log("Tutorial Completed!");
         _pauseButton.interactable = true;
         _tutorialData.Completed();
         Time.timeScale = 1f;
+        _saveLoader.Save();
         gameObject.SetActive(false);
     }
 }
