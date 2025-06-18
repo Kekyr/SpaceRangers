@@ -97,7 +97,7 @@ public class EnemySpawners : MonoBehaviour
     public void OnResolutionChanged()
     {
         RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
-        float quarter = (_canvas.pixelRect.width / 100) * 25;
+        float quarter = (_canvas.pixelRect.width / 100) * 20;
 
         Vector3 leftPosition = new Vector3(_canvas.pixelRect.min.x + quarter, _canvas.pixelRect.min.y,
             _mainCamera.nearClipPlane);

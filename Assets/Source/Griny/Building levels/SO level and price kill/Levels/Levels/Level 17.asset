@@ -15,8 +15,10 @@ MonoBehaviour:
   _duration: 50
   _spawnersData:
   - {fileID: 11400000, guid: 2c90f249e9bba6c49970301f2fe4dbed, type: 2}
+  - {fileID: 11400000, guid: 85fb2c037fd77f04fa23b41626dcb572, type: 2}
   - {fileID: 11400000, guid: 9dacc25ea441875438ff806ec23760f5, type: 2}
   - {fileID: 11400000, guid: be8b7801e1c12ad4b944129e53d3a3a2, type: 2}
+  - {fileID: 11400000, guid: a41149f2589f58c4ebcb4a2ff8f3680a, type: 2}
   _hasBoss: 0
   _bossPrefab: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
   _state: 0
