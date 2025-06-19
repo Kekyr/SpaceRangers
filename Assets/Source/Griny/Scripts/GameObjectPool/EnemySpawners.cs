@@ -124,7 +124,6 @@ public class EnemySpawners : MonoBehaviour
         
         if (_canvas.pixelRect.width >= _minExtendWidth)
         {
-            Debug.Log("Five spawners is active!");
             float oneEight = (_canvas.pixelRect.width / 100) * 12.5f;
             float threeEigth = (_canvas.pixelRect.width / 100) * 12.5f + (_canvas.pixelRect.width / 100) * 25f;
             
@@ -151,7 +150,6 @@ public class EnemySpawners : MonoBehaviour
         }
         else
         {
-            Debug.Log("Three spawners is active!");
             float oneFifth = (_canvas.pixelRect.width / 100) * 20;
 
             firstLeftPosition = new Vector3(_canvas.pixelRect.min.x + oneFifth, _canvas.pixelRect.min.y,
@@ -164,10 +162,6 @@ public class EnemySpawners : MonoBehaviour
 
             _activeSpawnersCount = 3;
         }
-
-        Debug.Log($"RectWidth: {rectTransform.rect.width}");
-        Debug.Log($"PixelRectWidth: {_canvas.pixelRect.width}");
-
 
         ChangePosition(_spawners[1].transform, firstLeftPosition);
         _spawners[1].enabled = true;

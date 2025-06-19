@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 953968343e915c349a7180035cdcd676
+guid: a1391a3e63539ea4b8a3dec0f0335fa5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigExplosion_0
+      name: Big Explosion 2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
+        width: 217
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2984090d4fbacd84aa598510d03969ed
-      internalID: -1574811983
+      spriteID: 88a43f423256a0e408ed30a098b0c9f4
+      internalID: -361954294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigExplosion_1
+      name: Big Explosion 2_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 217
         y: 0
-        width: 320
-        height: 320
+        width: 217
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 603e353eadce5ea428624e9d78b5ffe5
-      internalID: -1806391
+      spriteID: e524ced1bfaa7d5499d84175f0b09f6e
+      internalID: 1591895311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigExplosion_2
+      name: Big Explosion 2_2
       rect:
         serializedVersion: 2
-        x: 640
+        x: 434
         y: 0
-        width: 320
-        height: 320
+        width: 217
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70ffedad27816a24fb05b3bd6c5ad53b
-      internalID: -1666533532
+      spriteID: 13854ba72988708408a1f2d280dd2c5c
+      internalID: 482030799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigExplosion_3
+      name: Big Explosion 2_3
       rect:
         serializedVersion: 2
-        x: 960
+        x: 651
         y: 0
-        width: 320
-        height: 320
+        width: 217
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fed8c1bc2dee8d4daf60db81b0b5efb
-      internalID: -150648209
+      spriteID: f386bdf0d96e5d1478e0085476a7469f
+      internalID: 1797538426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigExplosion_4
+      name: Big Explosion 2_4
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 868
         y: 0
-        width: 320
-        height: 320
+        width: 217
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5621fc19969ae64bba8256bf875b173
-      internalID: -619943253
+      spriteID: fe5fcad6d3f055d47a0f53dcabde8a25
+      internalID: -158405865
       vertices: []
       indices: 
       edges: []
@@ -238,11 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BigExplosion_0: -1574811983
-      BigExplosion_1: -1806391
-      BigExplosion_2: -1666533532
-      BigExplosion_3: -150648209
-      BigExplosion_4: -619943253
+      Big Explosion 2_0: -361954294
+      Big Explosion 2_1: 1591895311
+      Big Explosion 2_2: 482030799
+      Big Explosion 2_3: 1797538426
+      Big Explosion 2_4: -158405865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
