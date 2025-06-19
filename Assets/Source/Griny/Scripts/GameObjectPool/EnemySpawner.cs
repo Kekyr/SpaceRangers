@@ -24,6 +24,8 @@ namespace Enemy
 
         public event Action Ended;
 
+        public int CurrentInstanceIndex => _currentInstanceIndex;
+
         private void Start()
         {
             foreach (GameObject prefab in _data.Prefabs)
@@ -63,7 +65,11 @@ namespace Enemy
             _screenAdjuster = screenAdjuster;
             _sfxSetting = sfxSetting;
             _timer = timer;
-            enabled = true;
+        }
+
+        public void Init(int currentInstanceIndex)
+        {
+            _currentInstanceIndex = currentInstanceIndex;
         }
 
         public void Initialize(GameObject prefab, Transform spawnPoint)

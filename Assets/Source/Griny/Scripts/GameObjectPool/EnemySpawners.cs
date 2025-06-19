@@ -4,9 +4,14 @@ using Audio;
 using Enemy;
 using LevelEnemy;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class EnemySpawners : MonoBehaviour
 {
+    private readonly int _minExtendWidth = 1300;
+
+    [SerializeField] private EnemySpawner _center;
+
     private Canvas _canvas;
     private Camera _mainCamera;
     private ScreenAdjuster _screenAdjuster;
@@ -23,11 +28,20 @@ public class EnemySpawners : MonoBehaviour
     private AudioSettingSO _sfxSetting;
 
     private int _endedCount;
+    private int _pixelsPerUnit;
     private bool _isBossSpawned;
+    private int _activeSpawnersCount;
     private GameObject _boss;
 
     private void Start()
     {
+        if (_center == null)
+        {
+            throw new ArgumentNullException(nameof(_center));
+        }
+
+        _pixelsPerUnit = _mainCamera.GetComponent<PixelPerfectCamera>().assetsPPU;
+
         _spawners = GetComponentsInChildren<EnemySpawner>(true);
 
         for (int i = 0; i < _spawnersData.Count; i++)
@@ -39,8 +53,8 @@ public class EnemySpawners : MonoBehaviour
 
         if (_levelData.HasBoss == true)
         {
-            GameObject boss = _spawners[1].Prepare(_levelData.BossPrefab, _spawners[1].transform);
-            boss.transform.position = _spawners[1].transform.position;
+            GameObject boss = _center.Prepare(_levelData.BossPrefab, _center.transform);
+            boss.transform.position = _center.transform.position;
             EnemyShip ship = boss.GetComponent<EnemyShip>();
             _gameEndHandler.Init(ship);
             _music.Init(ship);
@@ -64,7 +78,7 @@ public class EnemySpawners : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_levelData.HasBoss == true && _endedCount == _spawners.Length && _timer.Duration == 0)
+        if (_levelData.HasBoss == true && _endedCount == _activeSpawnersCount && _timer.Duration == 0)
         {
             SpawnBoss();
         }
@@ -96,18 +110,73 @@ public class EnemySpawners : MonoBehaviour
 
     public void OnResolutionChanged()
     {
+        Vector3 firstLeftPosition;
+        Vector3 secondLeftPosition;
+        Vector3 firstRightPosition;
+        Vector3 secondRightPosition;
+
         RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
-        float quarter = (_canvas.pixelRect.width / 100) * 20;
 
-        Vector3 leftPosition = new Vector3(_canvas.pixelRect.min.x + quarter, _canvas.pixelRect.min.y,
-            _mainCamera.nearClipPlane);
-        ChangePosition(_spawners[0].transform, leftPosition);
+        if (_isBossSpawned == true)
+        {
+            return;
+        }
+        
+        if (_canvas.pixelRect.width >= _minExtendWidth)
+        {
+            Debug.Log("Five spawners is active!");
+            float oneEight = (_canvas.pixelRect.width / 100) * 12.5f;
+            float threeEigth = (_canvas.pixelRect.width / 100) * 12.5f + (_canvas.pixelRect.width / 100) * 25f;
+            
+            firstLeftPosition = new Vector3(_canvas.pixelRect.min.x + threeEigth, _canvas.pixelRect.min.y,
+                _mainCamera.nearClipPlane);
+            secondLeftPosition = new Vector3(_canvas.pixelRect.min.x + oneEight, _canvas.pixelRect.min.y,
+                _mainCamera.nearClipPlane);
+            firstRightPosition = new Vector3(_canvas.pixelRect.max.x - threeEigth, _canvas.pixelRect.max.y,
+                _mainCamera.nearClipPlane);
+            secondRightPosition = new Vector3(_canvas.pixelRect.max.x - oneEight, _canvas.pixelRect.max.y,
+                _mainCamera.nearClipPlane);
 
-        ChangePosition(_spawners[1].transform, _canvas.pixelRect.center);
+            ChangePosition(_spawners[0].transform, secondLeftPosition);
+            _spawners[0].enabled = true;
+            _spawners[0].Init(_spawners[1].CurrentInstanceIndex);
+            _spawners[0].gameObject.SetActive(true);
 
-        Vector3 rightPosition = new Vector3(_canvas.pixelRect.max.x - quarter, _canvas.pixelRect.max.y,
-            _mainCamera.nearClipPlane);
-        ChangePosition(_spawners[2].transform, rightPosition);
+            ChangePosition(_spawners[4].transform, secondRightPosition);
+            _spawners[4].enabled = true;
+            _spawners[4].Init(_spawners[3].CurrentInstanceIndex);
+            _spawners[4].gameObject.SetActive(true);
+
+            _activeSpawnersCount = 5;
+        }
+        else
+        {
+            Debug.Log("Three spawners is active!");
+            float oneFifth = (_canvas.pixelRect.width / 100) * 20;
+
+            firstLeftPosition = new Vector3(_canvas.pixelRect.min.x + oneFifth, _canvas.pixelRect.min.y,
+                _mainCamera.nearClipPlane);
+            firstRightPosition = new Vector3(_canvas.pixelRect.max.x - oneFifth, _canvas.pixelRect.max.y,
+                _mainCamera.nearClipPlane);
+
+            _spawners[0].gameObject.SetActive(false);
+            _spawners[4].gameObject.SetActive(false);
+
+            _activeSpawnersCount = 3;
+        }
+
+        Debug.Log($"RectWidth: {rectTransform.rect.width}");
+        Debug.Log($"PixelRectWidth: {_canvas.pixelRect.width}");
+
+
+        ChangePosition(_spawners[1].transform, firstLeftPosition);
+        _spawners[1].enabled = true;
+
+        ChangePosition(_spawners[2].transform, _canvas.pixelRect.center);
+        _spawners[2].enabled = true;
+
+        ChangePosition(_spawners[3].transform, firstRightPosition);
+        _spawners[3].enabled = true;
     }
 
     private void SpawnBoss()
