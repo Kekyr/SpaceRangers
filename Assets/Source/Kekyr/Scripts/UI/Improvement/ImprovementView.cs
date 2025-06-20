@@ -11,6 +11,7 @@ public class ImprovementView : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _price;
+    [SerializeField] private Animator _animator;
 
     private ImprovementDataSO _data;
 
@@ -74,6 +75,7 @@ public class ImprovementView : MonoBehaviour
 
         ChangeColor(_image, _current);
         _image.gameObject.SetActive(true);
+        _animator.enabled = true;
     }
 
     private void ChangeColor(Image image, Color color)
