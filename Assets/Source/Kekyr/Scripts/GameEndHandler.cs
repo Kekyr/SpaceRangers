@@ -29,7 +29,7 @@ public class GameEndHandler : MonoBehaviour
     public event Action Won;
     public event Action Lose;
 
-    private Music _music;
+    private GameplayMusic _music;
 
     private void OnEnable()
     {
@@ -62,7 +62,7 @@ public class GameEndHandler : MonoBehaviour
         }
     }
 
-    public void Init(Timer timer, ShipHealth shipHealth, AudioSettingSO setting,LevelSO levelData, LevelsSO levelsData, Music music)
+    public void Init(Timer timer, ShipHealth shipHealth, AudioSettingSO setting,LevelSO levelData, LevelsSO levelsData, GameplayMusic music)
     {
         _timer = timer;
         _shipHealth = shipHealth;
@@ -97,6 +97,7 @@ public class GameEndHandler : MonoBehaviour
         if (_isEnded == false)
         {
             _isEnded = true;
+            _music.Stop();
             _sfx.Play(_loseSfx);
             Lose?.Invoke();
         }
@@ -107,7 +108,7 @@ public class GameEndHandler : MonoBehaviour
         if (_isEnded == false)
         {
             _isEnded = true;
-            _music.StopMusic();
+            _music.Stop();
             yield return _wait;
             _sfx.Play(_winSfx);
             _levelData.Completed();

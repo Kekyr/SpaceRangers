@@ -1,3 +1,4 @@
+using System;
 using Enemy;
 using UnityEngine;
 
@@ -6,26 +7,33 @@ namespace Audio
     [RequireComponent(typeof(AudioSource))]
     public class GameplayMusic : Music
     {
-        private Timer _timer;
+        [SerializeField] private MusicSO _boss;
+        
+        private EnemySpawners _enemySpawners;
         private AudioButton _button;
 
         protected override void Start()
         {
+            if (_boss == null)
+            {
+                throw new ArgumentNullException(nameof(_boss));
+            }
+            
             base.Start();
-            _timer.Ended += OnEnded;
             _button.Switched += OnSwitched;
+            _enemySpawners.Spawned += OnSpawned;
         }
 
         private void OnDestroy()
         {
-            _timer.Ended += OnEnded;
             _button.Switched -= OnSwitched;
+            _enemySpawners.Spawned -= OnSpawned;
         }
 
-        public void Init(Timer timer, AudioButton button)
+        public void Init(AudioButton button, EnemySpawners enemySpawners)
         {
-            _timer = timer;
             _button = button;
+            _enemySpawners = enemySpawners;
         }
 
         public void Init(EnemyShip boss)
@@ -35,18 +43,19 @@ namespace Audio
 
         private void OnSwitched()
         {
-            Pause();
+            Stop();
             Play();
-        }
-
-        private void OnEnded()
-        {
-            Pause();
         }
 
         private void OnDestroyed()
         {
-            Pause();
+            Stop();
+        }
+
+        private void OnSpawned()
+        {
+            Stop();
+            Play(_boss.GetRandomClip());
         }
     }
 }

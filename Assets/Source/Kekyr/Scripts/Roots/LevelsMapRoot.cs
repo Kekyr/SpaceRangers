@@ -106,6 +106,11 @@ public class LevelsMapRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_walletData));
         }
 
+        if (_textMoney == null)
+        {
+            throw new ArgumentNullException(nameof(_textMoney));
+        }
+
         if (_scoreData == null)
         {
             throw new ArgumentNullException(nameof(_scoreData));

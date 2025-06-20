@@ -28,10 +28,11 @@ public class EnemySpawners : MonoBehaviour
     private AudioSettingSO _sfxSetting;
 
     private int _endedCount;
-    private int _pixelsPerUnit;
     private bool _isBossSpawned;
     private int _activeSpawnersCount;
     private GameObject _boss;
+
+    public event Action Spawned;
 
     private void Start()
     {
@@ -39,9 +40,7 @@ public class EnemySpawners : MonoBehaviour
         {
             throw new ArgumentNullException(nameof(_center));
         }
-
-        _pixelsPerUnit = _mainCamera.GetComponent<PixelPerfectCamera>().assetsPPU;
-
+        
         _spawners = GetComponentsInChildren<EnemySpawner>(true);
 
         for (int i = 0; i < _spawnersData.Count; i++)
@@ -182,6 +181,7 @@ public class EnemySpawners : MonoBehaviour
 
         _boss.gameObject.SetActive(true);
         _isBossSpawned = true;
+        Spawned?.Invoke();
     }
 
     private void ChangePosition(Transform spawner, Vector3 newScreenPosition)

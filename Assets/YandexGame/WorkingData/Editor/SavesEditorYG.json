@@ -3,13 +3,13 @@
     "isFirstSession": true,
     "language": "ru",
     "promptDone": false,
-    "CurrentLevelIndex": 1,
-    "CurrentBulletIndex": 0,
-    "CurrentShieldIndex": 0,
-    "CurrentShipIndex": 0,
-    "CurrentRocketIndex": 2,
-    "Money": 50,
-    "Score": 475,
+    "CurrentLevelIndex": 0,
+    "CurrentBulletIndex": 2,
+    "CurrentShieldIndex": 3,
+    "CurrentShipIndex": 3,
+    "CurrentRocketIndex": 3,
+    "Money": 1750,
+    "Score": 0,
     "IsFirstTime": true,
     "IsSfxOn": true,
     "IsMusicOn": true,
@@ -17,12 +17,12 @@
     "HangarButtonTutorialCompletion": true,
     "ImprovementTutorialCompletion": true,
     "MovementTutorialCompletion": true,
-    "RocketLauncherTutorialCompletion": true,
-    "WinPopupTutorialCompletion": true,
+    "RocketLauncherTutorialCompletion": false,
+    "WinPopupTutorialCompletion": false,
     "LosePopupTutorialCompletion": false,
     "LevelsState": [
-        2,
         1,
+        0,
         0,
         0,
         0,
@@ -54,26 +54,26 @@
     ],
     "BulletImprovementStates": [
         2,
-        1,
-        0,
-        0
+        2,
+        2,
+        1
     ],
     "ShieldImprovementStates": [
         2,
-        1,
-        0,
-        0
+        2,
+        2,
+        2
     ],
     "ShipImprovementStates": [
         2,
-        1,
-        0,
-        0
+        2,
+        2,
+        2
     ],
     "RocketImprovementStates": [
         2,
         2,
         2,
-        1
+        2
     ]
 }

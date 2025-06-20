@@ -21865,6 +21865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 52446eaad7a80a145bae843c4f1475e1, type: 2}
+  _boss: {fileID: 11400000, guid: 8d1c6720b6e3e214cab0569819473e74, type: 2}
 --- !u!224 &8428852666509289317
 RectTransform:
   m_ObjectHideFlags: 0

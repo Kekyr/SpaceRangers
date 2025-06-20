@@ -32,7 +32,11 @@ namespace Audio
         public void Play()
         {
             AudioSO audio = _data.GetRandomClip();
+            Play(audio);
+        }
 
+        public void Play(AudioSO audio)
+        {
             if (_setting.IsOn == false)
             {
                 return;
@@ -62,6 +66,11 @@ namespace Audio
             }
 
             _audioSource.volume = _volume;
+        }
+
+        public void Stop()
+        {
+            _audioSource.Stop();
         }
     }
 }

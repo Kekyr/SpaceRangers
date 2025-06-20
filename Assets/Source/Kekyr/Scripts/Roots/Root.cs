@@ -423,7 +423,7 @@ namespace ShipBase
             _losePopupTutorial.Init(_losePopupTutorialData, _saveLoader);
 
             _coinPool.Init(player.transform, health);
-            _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData);
+            _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData, _music);
             _wallet.Init(_sfxSetting, _walletData, _gameEndHandler, _saveLoader, _rewardedAd);
             _score.Init(_gameEndHandler, _scoreData, _saveLoader, _rewardedAd);
 
@@ -451,7 +451,7 @@ namespace ShipBase
 
             _timerView.Init(_timer);
             _timer.Init(_levelData);
-            _music.Init(_timer, _musicButton);
+            _music.Init(_musicButton, _enemySpawners);
             _music.Init(_musicSetting);
 
             _healthView.Init(health);
