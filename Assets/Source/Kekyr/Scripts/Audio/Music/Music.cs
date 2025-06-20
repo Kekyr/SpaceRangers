@@ -1,73 +1,38 @@
 using System;
-using DG.Tweening;
-using Enemy;
-using LevelEnemy;
 using UnityEngine;
 
 namespace Audio
 {
-    [RequireComponent(typeof(AudioSource))]
     public class Music : MonoBehaviour
     {
         [SerializeField] private MusicSO _data;
 
         private AudioSource _audioSource;
-        private Timer _timer;
         private AudioSettingSO _setting;
-        private AudioButton _button;
 
         private float _volume;
 
-        private void Start()
+        protected virtual void Start()
         {
             if (_data == null)
             {
                 throw new ArgumentNullException(nameof(_data));
             }
-            
-            _timer.Ended += OnEnded;
-            _button.Switched += OnSwitched;
 
             _audioSource = GetComponent<AudioSource>();
-            Play(_data.GetRandomClip());
+            Play();
         }
 
-        private void OnDestroy()
+        public void Init(AudioSettingSO setting)
         {
-            _timer.Ended += OnEnded;
-            _button.Switched -= OnSwitched;
-        }
-
-        public void Init(Timer timer, AudioSettingSO setting, AudioButton button)
-        {
-            _timer = timer;
             _setting = setting;
-            _button = button;
             enabled = true;
         }
 
-        public void Init(EnemyShip boss)
+        public void Play()
         {
-            boss.Destroyed += OnDestroyed;
-        }
+            AudioSO audio = _data.GetRandomClip();
 
-        public void Pause()
-        {
-            _audioSource.volume = 0f;
-        }
-
-        public void Continue()
-        {
-            if (_setting.IsOn == false)
-            {
-                return;
-            }
-
-            _audioSource.volume = _volume;
-        }
-
-        private void Play(AudioSO audio)
-        {
             if (_setting.IsOn == false)
             {
                 return;
@@ -84,20 +49,19 @@ namespace Audio
             _audioSource.Play();
         }
 
-        private void OnSwitched()
+        public void Pause()
         {
-            _audioSource.Stop();
-            Play(_data.GetRandomClip());
+            _audioSource.volume = 0f;
         }
 
-        private void OnEnded()
+        public void Continue()
         {
-            _audioSource.Stop();
-        }
+            if (_setting.IsOn == false)
+            {
+                return;
+            }
 
-        private void OnDestroyed()
-        {
-            _audioSource.Stop();
+            _audioSource.volume = _volume;
         }
     }
 }

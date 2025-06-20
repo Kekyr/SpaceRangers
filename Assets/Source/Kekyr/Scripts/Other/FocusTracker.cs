@@ -4,7 +4,7 @@ using YG;
 
 public class FocusTracker : MonoBehaviour
 {
-    private Music _music;
+    private GameplayMusic _music;
     private float _currentTimeScale;
 
     private void OnEnable()
@@ -19,7 +19,7 @@ public class FocusTracker : MonoBehaviour
         YandexGame.onHideWindowGame -= OnHideWindow;
     }
 
-    public void Init(Music music)
+    public void Init(GameplayMusic music)
     {
         _music = music;
         enabled = true;

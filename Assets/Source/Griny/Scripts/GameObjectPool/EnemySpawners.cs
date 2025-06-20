@@ -24,7 +24,7 @@ public class EnemySpawners : MonoBehaviour
     private Timer _timer;
     private LevelSO _levelData;
     private GameEndHandler _gameEndHandler;
-    private Music _music;
+    private GameplayMusic _music;
     private AudioSettingSO _sfxSetting;
 
     private int _endedCount;
@@ -98,7 +98,7 @@ public class EnemySpawners : MonoBehaviour
     }
 
     public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, GameEndHandler gameEndHandler,
-        AudioSettingSO sfxSetting, Music music)
+        AudioSettingSO sfxSetting, GameplayMusic music)
     {
         _canvas = canvas;
         _mainCamera = mainCamera;

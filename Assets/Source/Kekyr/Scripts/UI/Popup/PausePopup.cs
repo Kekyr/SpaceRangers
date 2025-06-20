@@ -12,7 +12,7 @@ public class PausePopup : MonoBehaviour
     [SerializeField] private Image _blackout;
 
     private LevelsSO _levelsData;
-    private Music _music;
+    private GameplayMusic _music;
 
     private void Start()
     {
@@ -40,7 +40,7 @@ public class PausePopup : MonoBehaviour
         _closeButton.onClick.RemoveListener(OnClose);
     }
 
-    public void Init(Music music, LevelsSO levelsData)
+    public void Init(GameplayMusic music, LevelsSO levelsData)
     {
         _music = music;
         _levelsData = levelsData;

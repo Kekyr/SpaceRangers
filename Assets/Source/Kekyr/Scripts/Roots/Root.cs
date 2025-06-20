@@ -22,7 +22,7 @@ namespace ShipBase
         [SerializeField] private ScoreSO _scoreData;
         [SerializeField] private Wallet _wallet;
         [SerializeField] private WalletSO _walletData;
-        [SerializeField] private Music _music;
+        [SerializeField] private GameplayMusic _music;
         [SerializeField] private Timer _timer;
         [SerializeField] private GameEndHandler _gameEndHandler;
 
@@ -451,7 +451,8 @@ namespace ShipBase
 
             _timerView.Init(_timer);
             _timer.Init(_levelData);
-            _music.Init(_timer, _musicSetting, _musicButton);
+            _music.Init(_timer, _musicButton);
+            _music.Init(_musicSetting);
 
             _healthView.Init(health);
             _shieldView.Init(shield);

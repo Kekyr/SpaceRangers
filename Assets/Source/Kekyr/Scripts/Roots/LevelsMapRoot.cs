@@ -31,6 +31,7 @@ public class LevelsMapRoot : MonoBehaviour
     [SerializeField] private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
     [SerializeField] private ImprovementsSO<GameObject> _shipImprovementsData;
     [SerializeField] private ImprovementsSO<int> _rocketImprovementsData;
+    [SerializeField] private Music _music;
     [SerializeField] private AudioSettingSO _sfxSetting;
     [SerializeField] private AudioSettingSO _musicSetting;
 
@@ -128,6 +129,11 @@ public class LevelsMapRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_rocketImprovementsData));
         }
 
+        if (_music == null)
+        {
+            throw new ArgumentNullException(nameof(_music));
+        }
+
         if (_sfxSetting == null)
         {
             throw new ArgumentNullException(nameof(_sfxSetting));
@@ -203,6 +209,7 @@ public class LevelsMapRoot : MonoBehaviour
         TutorialStepSO[] mapTutorialsData = new[]
             { _levelTutorialData, _hangarButtonTutorialData, _improvementTutorialData };
 
+        _music.Init(_musicSetting);
         _tutorial.Init(mapTutorialsData, _saveLoader);
         _leaderboard.Init(_scoreData);
         _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,

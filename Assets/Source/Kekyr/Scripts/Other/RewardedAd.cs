@@ -9,7 +9,7 @@ public class RewardedAd : MonoBehaviour
     [SerializeField] private SFXSO _success;
 
     private SFX _sfx;
-    private Music _music;
+    private GameplayMusic _music;
     private AudioSettingSO _sfxSetting;
 
     public event Action Rewarded;
@@ -37,7 +37,7 @@ public class RewardedAd : MonoBehaviour
         YandexGame.CloseVideoEvent -= OnCloseCallback;
     }
 
-    public void Init(Music music, AudioSettingSO sfxSetting)
+    public void Init(GameplayMusic music, AudioSettingSO sfxSetting)
     {
         _music = music;
         _sfxSetting = sfxSetting;

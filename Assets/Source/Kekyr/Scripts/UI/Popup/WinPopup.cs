@@ -2,7 +2,6 @@ using System;
 using Enemy;
 using ShipBase;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -86,7 +85,6 @@ public class WinPopup : MonoBehaviour
 
     private void UpdateScore()
     {
-        Debug.Log("Score Updated!");
         _walletView.text = _wallet.Money.ToString();
         _scoreView.text = _score.Points.ToString();
     }

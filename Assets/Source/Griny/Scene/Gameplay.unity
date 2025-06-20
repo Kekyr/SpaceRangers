@@ -576,6 +576,7 @@ MonoBehaviour:
   _coinPool: {fileID: 8009268209071412065}
   _rewardedAd: {fileID: 7183152733284310439}
   _interstitialAd: {fileID: 598804271}
+  _rewardButton: {fileID: 0}
   _focusTracker: {fileID: 1178059825}
   _healthView: {fileID: 8291558511016768853}
   _shieldView: {fileID: 4030290751433596999}
@@ -583,7 +584,6 @@ MonoBehaviour:
   _scoreView: {fileID: 6397505503571604196}
   _timerView: {fileID: 4874011897673520519}
   _rocketView: {fileID: 864236428264909984}
-  _addRocketButton: {fileID: 4653275602361378012}
   _losePopup: {fileID: 8969565726884188264}
   _winPopup: {fileID: 5210850997821191531}
   _pausePopup: {fileID: 8641975096034982411}

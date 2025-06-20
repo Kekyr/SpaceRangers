@@ -1212,6 +1212,7 @@ Transform:
   - {fileID: 373855961}
   - {fileID: 1195440357}
   - {fileID: 1187991634}
+  - {fileID: 1303551099}
   m_Father: {fileID: 1522282840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &118241499
@@ -1238,7 +1239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Turkish
+  currentLanguage: Russian
   detectLanguage: 0
   defaultLanguage: 
   saveLoad: 0
@@ -15331,6 +15332,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287643961}
   m_CullTransparentMesh: 1
+--- !u!1 &1297986524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297986525}
+  - component: {fileID: 1297986526}
+  m_Layer: 0
+  m_Name: Rockets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1297986525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297986524}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1303551099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1297986526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297986524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Rockets
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0420\u0430\u043A\u0435\u0442\u044B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Roketler
+    Object: {fileID: 0}
 --- !u!1 &1299436033
 GameObject:
   m_ObjectHideFlags: 0
@@ -15556,6 +15612,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302631710}
   m_CullTransparentMesh: 1
+--- !u!1 &1303551098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303551099}
+  m_Layer: 0
+  m_Name: Hangar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1303551099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303551098}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1842418000}
+  - {fileID: 1940823002}
+  - {fileID: 1692996879}
+  - {fileID: 1297986525}
+  - {fileID: 1951225223}
+  m_Father: {fileID: 118241498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316584940
 GameObject:
   m_ObjectHideFlags: 0
@@ -17267,6 +17359,148 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481581312}
   m_CullTransparentMesh: 1
+--- !u!1 &1481724115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481724116}
+  - component: {fileID: 1481724117}
+  - component: {fileID: 1481724118}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1481724116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481724115}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1481724117
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481724115}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1481724118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481724115}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648f553d529dd904e82eea2fb97bd6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 1f8ccfd71c682a7429b687d0f788bb41, type: 2}
 --- !u!1 &1489089203
 GameObject:
   m_ObjectHideFlags: 0
@@ -19973,6 +20207,61 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -127.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1692996878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692996879}
+  - component: {fileID: 1692996880}
+  m_Layer: 0
+  m_Name: Guns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1692996879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692996878}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1303551099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692996880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692996878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Guns
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u0443\u0448\u043A\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Toplar
+    Object: {fileID: 0}
 --- !u!1 &1714203309
 GameObject:
   m_ObjectHideFlags: 0
@@ -21879,6 +22168,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835919112}
   m_CullTransparentMesh: 1
+--- !u!1 &1842417999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842418000}
+  - component: {fileID: 1842418001}
+  m_Layer: 0
+  m_Name: Bullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1842418000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842417999}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1303551099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1842418001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842417999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Damage
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0423\u0440\u043E\u043D\n"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Zarar
+    Object: {fileID: 0}
 --- !u!1 &1843151483
 GameObject:
   m_ObjectHideFlags: 0
@@ -22939,6 +23283,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937509885}
   m_CullTransparentMesh: 1
+--- !u!1 &1940823001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940823002}
+  - component: {fileID: 1940823003}
+  m_Layer: 0
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1940823002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940823001}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1303551099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1940823003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940823001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Shield
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0429\u0438\u0442"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Kalkan
+    Object: {fileID: 0}
 --- !u!1 &1940918549
 GameObject:
   m_ObjectHideFlags: 0
@@ -23074,6 +23473,7 @@ MonoBehaviour:
   _shieldImprovementsData: {fileID: 11400000, guid: 1a103f3b12fbc9f459ad7be3b40c1a36, type: 2}
   _shipImprovementsData: {fileID: 11400000, guid: 8640b2e8cb57c7740ac6f6955ac998e0, type: 2}
   _rocketImprovementsData: {fileID: 11400000, guid: 50574b0a226cc174b9663743d53ac972, type: 2}
+  _music: {fileID: 1481724118}
   _sfxSetting: {fileID: 11400000, guid: c68e51d0ae4d9a042901627acb5bfa85, type: 2}
   _musicSetting: {fileID: 11400000, guid: 2577a98525f0c2340bab46d7d99944fc, type: 2}
   _saveLoader: {fileID: 635792351}
@@ -23087,6 +23487,61 @@ MonoBehaviour:
   _winPopupTutorialData: {fileID: 11400000, guid: d27a783faddc29149be78fa9d2fd7597, type: 2}
   _losePopupTutorialData: {fileID: 11400000, guid: 0e8cf952a470e3f4eb662a5e75772b76, type: 2}
   _resetButton: {fileID: 1764853374}
+--- !u!1 &1951225222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951225223}
+  - component: {fileID: 1951225224}
+  m_Layer: 0
+  m_Name: Hangar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951225223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951225222}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1303551099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1951225224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951225222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Hangar
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0410\u043D\u0433\u0430\u0440"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Hangar
+    Object: {fileID: 0}
 --- !u!1 &1952869320
 GameObject:
   m_ObjectHideFlags: 0
@@ -24133,6 +24588,7 @@ GameObject:
   - component: {fileID: 2024566368}
   - component: {fileID: 2024566370}
   - component: {fileID: 2024566369}
+  - component: {fileID: 2024566371}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -24256,6 +24712,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024566367}
   m_CullTransparentMesh: 1
+--- !u!114 &2024566371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024566367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Hangar
+  FallbackText: "\u0410\u043D\u0433\u0430\u0440"
 --- !u!1 &2033479464
 GameObject:
   m_ObjectHideFlags: 0
@@ -26116,6 +26586,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1407456463}
     m_Modifications:
+    - target: {fileID: 2738954447667772829, guid: 2d80b34c98cfdf140824c3d6fa8d4b8e, type: 3}
+      propertyPath: m_text
+      value: "\u043F\u0443\u043B\u0438"
+      objectReference: {fileID: 0}
     - target: {fileID: 3345715777339123756, guid: 2d80b34c98cfdf140824c3d6fa8d4b8e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -26199,6 +26673,14 @@ PrefabInstance:
     - target: {fileID: 4681666837443496507, guid: 2d80b34c98cfdf140824c3d6fa8d4b8e, type: 3}
       propertyPath: m_Name
       value: ShipImprovementsView
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262648514914339887, guid: 2d80b34c98cfdf140824c3d6fa8d4b8e, type: 3}
+      propertyPath: FallbackText
+      value: "\u043F\u0443\u0448\u043A\u0438"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262648514914339887, guid: 2d80b34c98cfdf140824c3d6fa8d4b8e, type: 3}
+      propertyPath: translationName
+      value: Guns
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26825,6 +27307,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShieldImprovementsView
       objectReference: {fileID: 0}
+    - target: {fileID: 1793983921948947562, guid: dcd67f41800dea2418f04bfb87ffb449, type: 3}
+      propertyPath: FallbackText
+      value: "\u0429\u0438\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793983921948947562, guid: dcd67f41800dea2418f04bfb87ffb449, type: 3}
+      propertyPath: translationName
+      value: Shield
+      objectReference: {fileID: 0}
     - target: {fileID: 6945317801584775273, guid: dcd67f41800dea2418f04bfb87ffb449, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -26904,6 +27394,14 @@ PrefabInstance:
     - target: {fileID: 6945317801584775273, guid: dcd67f41800dea2418f04bfb87ffb449, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498035935643764184, guid: dcd67f41800dea2418f04bfb87ffb449, type: 3}
+      propertyPath: m_text
+      value: "\u0429\u0418\u0422"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498035935643764184, guid: dcd67f41800dea2418f04bfb87ffb449, type: 3}
+      propertyPath: m_fontSize
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27838,6 +28336,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1407456463}
     m_Modifications:
+    - target: {fileID: 4023724885346381448, guid: e7610514c7f5ea84e838197aac60a678, type: 3}
+      propertyPath: m_text
+      value: "\u043F\u0443\u043B\u0438"
+      objectReference: {fileID: 0}
     - target: {fileID: 4592477816149850937, guid: e7610514c7f5ea84e838197aac60a678, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -27917,6 +28419,10 @@ PrefabInstance:
     - target: {fileID: 4592477816149850937, guid: e7610514c7f5ea84e838197aac60a678, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5133251851937259322, guid: e7610514c7f5ea84e838197aac60a678, type: 3}
+      propertyPath: FallbackText
+      value: "\u0423\u0440\u043E\u043D"
       objectReference: {fileID: 0}
     - target: {fileID: 5849335713770051886, guid: e7610514c7f5ea84e838197aac60a678, type: 3}
       propertyPath: m_Name
@@ -28613,9 +29119,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1407456463}
     m_Modifications:
+    - target: {fileID: 190264558180223776, guid: 0f0458c982d6b2544bc234b1ab1e0b7b, type: 3}
+      propertyPath: FallbackText
+      value: "\u0440\u0430\u043A\u0435\u0442\u044B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 190264558180223776, guid: 0f0458c982d6b2544bc234b1ab1e0b7b, type: 3}
+      propertyPath: translationName
+      value: Rockets
+      objectReference: {fileID: 0}
     - target: {fileID: 1491269888994364724, guid: 0f0458c982d6b2544bc234b1ab1e0b7b, type: 3}
       propertyPath: m_Name
       value: RocketImprovementsView
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234877762087926418, guid: 0f0458c982d6b2544bc234b1ab1e0b7b, type: 3}
+      propertyPath: m_text
+      value: "\u043F\u0443\u043B\u0438"
       objectReference: {fileID: 0}
     - target: {fileID: 8801388248002916131, guid: 0f0458c982d6b2544bc234b1ab1e0b7b, type: 3}
       propertyPath: m_Pivot.x
@@ -29290,4 +29808,5 @@ SceneRoots:
   - {fileID: 1948675502}
   - {fileID: 644993662}
   - {fileID: 1095614031}
+  - {fileID: 1481724116}
   - {fileID: 1522282840}

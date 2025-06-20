@@ -3,13 +3,13 @@
     "isFirstSession": true,
     "language": "ru",
     "promptDone": false,
-    "CurrentLevelIndex": 0,
-    "CurrentBulletIndex": 1,
+    "CurrentLevelIndex": 1,
+    "CurrentBulletIndex": 0,
     "CurrentShieldIndex": 0,
     "CurrentShipIndex": 0,
-    "CurrentRocketIndex": 1,
-    "Money": 4695,
-    "Score": 4645,
+    "CurrentRocketIndex": 2,
+    "Money": 50,
+    "Score": 475,
     "IsFirstTime": true,
     "IsSfxOn": true,
     "IsMusicOn": true,
@@ -22,12 +22,12 @@
     "LosePopupTutorialCompletion": false,
     "LevelsState": [
         2,
-        2,
-        2,
-        2,
-        2,
-        2,
         1,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -54,8 +54,8 @@
     ],
     "BulletImprovementStates": [
         2,
-        2,
         1,
+        0,
         0
     ],
     "ShieldImprovementStates": [
@@ -73,7 +73,7 @@
     "RocketImprovementStates": [
         2,
         2,
-        1,
-        0
+        2,
+        1
     ]
 }
