@@ -5,10 +5,10 @@
     "promptDone": false,
     "CurrentLevelIndex": 0,
     "CurrentBulletIndex": 0,
-    "CurrentShieldIndex": 0,
-    "CurrentShipIndex": 0,
+    "CurrentShieldIndex": 2,
+    "CurrentShipIndex": 3,
     "CurrentRocketIndex": 0,
-    "Money": 0,
+    "Money": 45,
     "Score": 0,
     "IsFirstTime": true,
     "IsSfxOn": true,
@@ -47,21 +47,21 @@
     ],
     "BulletImprovementStates": [
         2,
-        1,
+        2,
         0,
         0
     ],
     "ShieldImprovementStates": [
         2,
-        1,
-        0,
-        0
+        2,
+        2,
+        1
     ],
     "ShipImprovementStates": [
         2,
-        1,
-        0,
-        0
+        2,
+        2,
+        2
     ],
     "RocketImprovementStates": [
         2,

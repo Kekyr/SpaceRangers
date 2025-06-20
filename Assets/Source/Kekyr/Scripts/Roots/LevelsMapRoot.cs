@@ -4,6 +4,7 @@ using Audio;
 using LeaderboardBase;
 using LevelEnemy;
 using ShipBase;
+using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
@@ -26,6 +27,7 @@ public class LevelsMapRoot : MonoBehaviour
     [SerializeField] private AuthorizationPopup _authorizationPopup;
     [SerializeField] private LevelsSO _levelsData;
     [SerializeField] private WalletSO _walletData;
+    [SerializeField] private TextMeshProUGUI _textMoney; 
     [SerializeField] private ScoreSO _scoreData;
     [SerializeField] private ImprovementsSO<GameObject> _bulletImprovementsData;
     [SerializeField] private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
@@ -183,6 +185,8 @@ public class LevelsMapRoot : MonoBehaviour
         _authorizationPopup.Init(_leaderboard);
 
         StartCoroutine(Initialization());
+
+        _textMoney.text = _walletData.Money.ToString();
     }
 
     private void OnDestroy()

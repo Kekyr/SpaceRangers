@@ -345,7 +345,7 @@ namespace ShipBase
             BulletPool pool = player.GetComponentInChildren<BulletPool>();
 
             _coinPool.Init(player.transform, health);
-            _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData);
+            _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData, _music);
             _wallet.Init(_sfxSetting, _walletData, _gameEndHandler, _saveLoader);
             _score.Init(_gameEndHandler, _scoreData, _saveLoader);
 
@@ -373,7 +373,7 @@ namespace ShipBase
 
             _timerView.Init(_timer);
             _timer.Init(_levelData);
-            _music.Init(_timer, _musicSetting, _musicButton);
+            _music.Init(_timer, _musicSetting, _musicButton, _levelsData);
 
             _healthView.Init(health);
             _shieldView.Init(shield);

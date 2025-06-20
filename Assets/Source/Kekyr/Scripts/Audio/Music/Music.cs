@@ -15,6 +15,7 @@ namespace Audio
         private Timer _timer;
         private AudioSettingSO _setting;
         private AudioButton _button;
+        private LevelSO _level;
 
         private float _volume;
 
@@ -34,15 +35,16 @@ namespace Audio
 
         private void OnDestroy()
         {
-            _timer.Ended += OnEnded;
+            _timer.Ended -= OnEnded;
             _button.Switched -= OnSwitched;
         }
 
-        public void Init(Timer timer, AudioSettingSO setting, AudioButton button)
+        public void Init(Timer timer, AudioSettingSO setting, AudioButton button, LevelsSO _levelsData)
         {
             _timer = timer;
             _setting = setting;
             _button = button;
+            _level = _levelsData.Current;
             enabled = true;
         }
 
@@ -92,10 +94,22 @@ namespace Audio
 
         private void OnEnded()
         {
-            _audioSource.Stop();
+            if (_level.HasBoss == true)
+            {
+                Play(_data.GetRandomClip());
+            }
+            else
+            {
+                _audioSource.Stop();
+            }
         }
 
         private void OnDestroyed()
+        {
+            _audioSource.Stop();
+        }
+
+        public void StopMusic()
         {
             _audioSource.Stop();
         }
