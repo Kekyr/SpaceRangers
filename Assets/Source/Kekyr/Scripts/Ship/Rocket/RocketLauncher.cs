@@ -1,9 +1,7 @@
 using System;
 using Audio;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 namespace ShipBase
 {
@@ -19,10 +17,8 @@ namespace ShipBase
 
         [SerializeField] private GameObject[] _slots;
         [SerializeField] private GameObject _prefab;
-
-        private Button _button;
+        
         private Camera _camera;
-        private RewardedAd _rewardedAd;
         private AudioSettingSO _sfxSetting;
 
         private Animator[] _slotsAnimator;
@@ -31,7 +27,6 @@ namespace ShipBase
         private int _maxRocketCount;
         private int _rocketCount;
         private int _currentSlotIndex;
-        private int _destroyedRocketCount;
 
         public event Action<int> CountChanged;
         public event Action Launched;
@@ -60,8 +55,6 @@ namespace ShipBase
 
             _playerInputRouter.Rocket.performed += OnRocketPerformed;
             _health.Dying += OnDead;
-            _rewardedAd.Rewarded += OnRewarded;
-            _rewardedAd.Closed += OnClosed;
 
             _rocketCount = _maxRocketCount;
             CountChanged?.Invoke(_rocketCount);
@@ -84,35 +77,11 @@ namespace ShipBase
         {
             _playerInputRouter.Rocket.performed -= OnRocketPerformed;
             _health.Dying -= OnDead;
-            _rewardedAd.Rewarded -= OnRewarded;
-            _rewardedAd.Closed -= OnClosed;
-
-            for (int i = 0; i < _rockets.Length; i++)
-            {
-                if (_rockets[i] != null)
-                {
-                    _rockets[i].Destroyed -= OnRocketDestroyed;
-                }
-            }
         }
 
-        private void FixedUpdate()
-        {
-            if (_maxRocketCount != 0 && _destroyedRocketCount == _maxRocketCount && _button.interactable == false)
-            {
-                _currentSlotIndex = 0;
-                _maxRocketCount = 0;
-                _destroyedRocketCount = 0;
-                _button.transform.DOScale(_newScale, _scalingDuration).SetEase(Ease.OutSine)
-                    .OnComplete(() => { _button.interactable = true; });
-            }
-        }
-
-        public void Init(Camera camera, Button button, int rocketCount, RewardedAd rewardedAd, AudioSettingSO sfxSetting)
+        public void Init(Camera camera, int rocketCount, AudioSettingSO sfxSetting)
         {
             _camera = camera;
-            _button = button;
-            _rewardedAd = rewardedAd;
             _maxRocketCount = rocketCount;
             _sfxSetting = sfxSetting;
             enabled = true;
@@ -122,7 +91,6 @@ namespace ShipBase
         {
             Rocket rocket = Instantiate(_prefab, _slots[index].transform).GetComponent<Rocket>();
             rocket.Init(_sfxSetting);
-            rocket.Destroyed += OnRocketDestroyed;
             _rockets[index] = rocket;
         }
 
@@ -171,31 +139,6 @@ namespace ShipBase
                 _currentSlotIndex++;
                 Launched?.Invoke();
             }
-        }
-
-        private void OnRewarded()
-        {
-            _button.gameObject.SetActive(false);
-
-            _maxRocketCount = _addCount;
-            _rocketCount = _maxRocketCount;
-
-            for (int i = 0; i < _maxRocketCount; i++)
-            {
-                Spawn(i);
-            }
-
-            CountChanged?.Invoke(_rocketCount);
-        }
-
-        private void OnClosed()
-        {
-            _button.gameObject.SetActive(false);
-        }
-
-        private void OnRocketDestroyed(Rocket rocket)
-        {
-            _destroyedRocketCount++;
         }
 
         private void OnDead()

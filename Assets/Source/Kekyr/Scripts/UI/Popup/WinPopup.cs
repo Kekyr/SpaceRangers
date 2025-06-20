@@ -2,6 +2,7 @@ using System;
 using Enemy;
 using ShipBase;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class WinPopup : MonoBehaviour
     private Score _score;
     private EnemyShip _boss;
     private InterstitialAd _interstitialAd;
+    private RewardedAd _rewardedAd;
     private PopupTutorial _tutorial;
 
     private void Awake()
@@ -43,30 +45,32 @@ public class WinPopup : MonoBehaviour
 
         _tutorial.enabled = true;
 
+        UpdateScore();
+
+        _rewardedAd.Rewarded += UpdateScore;
         _exitButton.onClick.AddListener(OnExit);
     }
 
     private void OnDisable()
     {
+        _rewardedAd.Rewarded -= UpdateScore;
         _exitButton.onClick.RemoveListener(OnExit);
 
         _gameEndHandler.Won -= OnWon;
-        _wallet.Changed -= OnWalletChanged;
-        _score.Changed -= OnScoreChanged;
     }
 
     public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd,
+        RewardedAd rewardedAd,
         PopupTutorial tutorial)
     {
         _gameEndHandler = gameEndHandler;
         _wallet = wallet;
         _score = score;
         _interstitialAd = interstitialAd;
+        _rewardedAd = rewardedAd;
         _tutorial = tutorial;
 
         _gameEndHandler.Won += OnWon;
-        _wallet.Changed += OnWalletChanged;
-        _score.Changed += OnScoreChanged;
     }
 
     private void OnWon()
@@ -75,18 +79,15 @@ public class WinPopup : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    private void OnWalletChanged(int newValue)
-    {
-        _walletView.text = newValue.ToString();
-    }
-
-    private void OnScoreChanged(int newValue)
-    {
-        _scoreView.text = newValue.ToString();
-    }
-
     private void OnExit()
     {
         _interstitialAd.Show();
+    }
+
+    private void UpdateScore()
+    {
+        Debug.Log("Score Updated!");
+        _walletView.text = _wallet.Money.ToString();
+        _scoreView.text = _score.Points.ToString();
     }
 }

@@ -604,6 +604,19 @@ MonoBehaviour:
   _sfxSetting: {fileID: 11400000, guid: c68e51d0ae4d9a042901627acb5bfa85, type: 2}
   _saveLoader: {fileID: 787079406}
   _leaderboard: {fileID: 1355528997}
+  _touchMovementTutorial: {fileID: 0}
+  _keyboardMovementTutorial: {fileID: 0}
+  _movementTutorialData: {fileID: 0}
+  _touchRocketLauncherTutorial: {fileID: 0}
+  _keyboardRocketLauncherTutorial: {fileID: 0}
+  _rocketLauncherTutorialData: {fileID: 0}
+  _winPopupTutorial: {fileID: 0}
+  _winPopupTutorialData: {fileID: 0}
+  _losePopupTutorial: {fileID: 0}
+  _losePopupTutorialData: {fileID: 0}
+  _levelTutorialData: {fileID: 0}
+  _hangarButtonTutorialData: {fileID: 0}
+  _improvementTutorialData: {fileID: 0}
 --- !u!4 &316022408
 Transform:
   m_ObjectHideFlags: 0
@@ -20268,7 +20281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8009268209071412065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22526,6 +22539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3bc939e63cf4b4184d563f83d329db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _center: {fileID: 0}
 --- !u!224 &9092575192224046576
 RectTransform:
   m_ObjectHideFlags: 0

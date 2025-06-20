@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using Audio;
 using LeaderboardBase;
 using LevelEnemy;
-using RocketFeature;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
@@ -34,6 +32,7 @@ namespace ShipBase
 
         [SerializeField] private RewardedAd _rewardedAd;
         [SerializeField] private InterstitialAd _interstitialAd;
+        [SerializeField] private RewardButton _rewardButton;
 
         [SerializeField] private FocusTracker _focusTracker;
 
@@ -44,7 +43,6 @@ namespace ShipBase
         [SerializeField] private TimerView _timerView;
 
         [SerializeField] private RocketView _rocketView;
-        [SerializeField] private Button _addRocketButton;
 
         [SerializeField] private LosePopup _losePopup;
         [SerializeField] private WinPopup _winPopup;
@@ -108,11 +106,6 @@ namespace ShipBase
             if (_autoGunsZone == null)
             {
                 throw new ArgumentNullException(nameof(_autoGunsZone));
-            }
-
-            if (_addRocketButton == null)
-            {
-                throw new ArgumentNullException(nameof(_addRocketButton));
             }
 
             if (_enemySpawners == null)
@@ -183,6 +176,11 @@ namespace ShipBase
             if (_interstitialAd == null)
             {
                 throw new ArgumentNullException(nameof(_interstitialAd));
+            }
+
+            if (_rewardButton == null)
+            {
+                throw new ArgumentNullException(nameof(_rewardButton));
             }
 
             if (_focusTracker == null)
@@ -426,12 +424,12 @@ namespace ShipBase
 
             _coinPool.Init(player.transform, health);
             _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData);
-            _wallet.Init(_sfxSetting, _walletData, _gameEndHandler, _saveLoader);
-            _score.Init(_gameEndHandler, _scoreData, _saveLoader);
+            _wallet.Init(_sfxSetting, _walletData, _gameEndHandler, _saveLoader, _rewardedAd);
+            _score.Init(_gameEndHandler, _scoreData, _saveLoader, _rewardedAd);
 
             _leaderboard.Init(_gameEndHandler, _scoreData);
             _losePopup.Init(_gameEndHandler, _losePopupTutorial);
-            _winPopup.Init(_gameEndHandler, _wallet, _score, _interstitialAd, _winPopupTutorial);
+            _winPopup.Init(_gameEndHandler, _wallet, _score, _interstitialAd, _rewardedAd, _winPopupTutorial);
             _pausePopup.Init(_music, _levelsData);
 
             if (player.TryGetComponent(out AutoGuns autoGuns))
@@ -447,7 +445,7 @@ namespace ShipBase
                 movements[i].Init(_camera, _canvas);
             }
 
-            rocketLauncher.Init(_camera, _addRocketButton, _rocketData.CurrentLevel, _rewardedAd, _sfxSetting);
+            rocketLauncher.Init(_camera, _rocketData.CurrentLevel, _sfxSetting);
             pool.Init(_bulletData.CurrentLevel);
             shield.Init(_shieldData.CurrentLevel);
 
@@ -460,8 +458,6 @@ namespace ShipBase
             _walletView.Init(_wallet, _gameEndHandler);
             _scoreView.Init(_score, _gameEndHandler);
 
-            AddRocketButton addRocketButton = _addRocketButton.GetComponent<AddRocketButton>();
-            addRocketButton.Init(_rewardedAd);
             _rocketView.Init(rocketLauncher);
 
             if (_rocketData.CurrentLevel == 0)
@@ -470,6 +466,7 @@ namespace ShipBase
             }
 
             _rewardedAd.Init(_music, _sfxSetting);
+            _rewardButton.Init(_rewardedAd, _wallet);
 
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
