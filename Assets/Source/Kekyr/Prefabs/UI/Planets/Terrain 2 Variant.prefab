@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 629099077799704628, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: d527138965a69584d834a87acebbed41, type: 2}
+      objectReference: {fileID: 9100000, guid: 4fa49635d4d50a145b937734efb179a2, type: 2}
     - target: {fileID: 835085551001772729, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Name
       value: Terrain 2 Variant
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 6831050960463243586, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -40348260, guid: 54ff389b45fdfa7478e1d1ba732c9329, type: 3}
+      objectReference: {fileID: 1381447118, guid: 2e26385d514e6534c9f9eba4b7e36545, type: 3}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.000122
+      value: 2.0002441
       objectReference: {fileID: 0}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

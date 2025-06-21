@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 629099077799704628, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 66852bae4fed7db489a590b2372eadb7, type: 2}
+      objectReference: {fileID: 9100000, guid: a2a24de3ebe507a4aada8115166dad47, type: 2}
     - target: {fileID: 835085551001772729, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Name
       value: NoAtmos 5 Variant
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 6831050960463243586, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -79235514, guid: 983251c7a02726a4e87fb2727a45c0f2, type: 3}
+      objectReference: {fileID: -1464944115, guid: f7fc983985fde7946aa09bd1e46fe8cd, type: 3}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -98,11 +98,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.0001221
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9.000488
+      value: -8.998779
       objectReference: {fileID: 0}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

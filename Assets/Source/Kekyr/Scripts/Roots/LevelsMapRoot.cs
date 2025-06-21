@@ -49,6 +49,8 @@ public class LevelsMapRoot : MonoBehaviour
     [SerializeField] private TutorialStepSO _losePopupTutorialData;
     [SerializeField] private Button _resetButton;
 
+    [SerializeField] private FocusTracker _focusTracker;
+
     private void Validate()
     {
         if (_background == null)
@@ -205,6 +207,11 @@ public class LevelsMapRoot : MonoBehaviour
         {
             throw new ArgumentNullException(nameof(_resetButton));
         }
+
+        if (_focusTracker == null)
+        {
+            throw new ArgumentNullException(nameof(_focusTracker));
+        }
     }
 
     private void Awake()
@@ -226,6 +233,8 @@ public class LevelsMapRoot : MonoBehaviour
         _screenAdjuster.Init(_canvas, _camera, _background, _postProcessProfile);
         _levelsView.Init(_levelsData, _backgroundData, _saveLoader);
 
+        _focusTracker.Init(_music);
+        
         IImprovementsSO[] improvementsData = new IImprovementsSO[]
         {
             _bulletImprovementsData,

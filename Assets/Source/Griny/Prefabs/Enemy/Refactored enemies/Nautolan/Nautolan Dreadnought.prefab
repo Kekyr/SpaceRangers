@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: db7fb9629d272e84abf9b87dbe57be96, type: 2}
     - target: {fileID: 102445179259909071, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
       propertyPath: _damage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 492421890135673771, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
       propertyPath: _startValue
-      value: 1200
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 860711793523191464, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
       propertyPath: _bulletPrefab
@@ -150,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5a6f21f86e6ab6d4380986cb300438f9, type: 3}
     - target: {fileID: 3682607801286062110, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
       propertyPath: _startValue
-      value: 800
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 4162650449155849527, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
       propertyPath: m_Size.x

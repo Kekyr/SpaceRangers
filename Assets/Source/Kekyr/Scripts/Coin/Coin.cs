@@ -10,7 +10,11 @@ namespace Game
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("Player") || collider.gameObject.CompareTag("Boundary"))
+            if (collider.gameObject.CompareTag("Player") || 
+                collider.gameObject.CompareTag("BorderDown") || 
+                collider.gameObject.CompareTag("BorderUp")|| 
+                collider.gameObject.CompareTag("BorderRight") || 
+                collider.gameObject.CompareTag("BorderLeft"))
             {
                 gameObject.SetActive(false);
             }

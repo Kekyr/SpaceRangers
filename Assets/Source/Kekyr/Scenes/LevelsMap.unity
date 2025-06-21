@@ -1578,7 +1578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 79.99994, y: -89.999985}
+  m_AnchoredPosition: {x: 79.99994, y: -90}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &143048701
@@ -5488,6 +5488,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485690607}
   m_CullTransparentMesh: 1
+--- !u!1 &486045605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486045606}
+  - component: {fileID: 486045607}
+  m_Layer: 0
+  m_Name: FocusTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &486045606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486045605}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1522282840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486045607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486045605}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4824d1f18ec4a1b478a146ab0961066e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &525675488
 GameObject:
   m_ObjectHideFlags: 0
@@ -12070,6 +12114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bac045076aac94db803e37c0293e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _walletView: {fileID: 143048703}
   _coinsCount: {fileID: 1183437922}
   _closeButton: {fileID: 892920945}
   _blackout: {fileID: 874650712}
@@ -18397,6 +18442,7 @@ Transform:
   m_Children:
   - {fileID: 2134554991}
   - {fileID: 635792350}
+  - {fileID: 486045606}
   - {fileID: 1026007825}
   - {fileID: 118241498}
   m_Father: {fileID: 0}
@@ -23735,6 +23781,7 @@ MonoBehaviour:
   _winPopupTutorialData: {fileID: 11400000, guid: d27a783faddc29149be78fa9d2fd7597, type: 2}
   _losePopupTutorialData: {fileID: 11400000, guid: 0e8cf952a470e3f4eb662a5e75772b76, type: 2}
   _resetButton: {fileID: 1764853374}
+  _focusTracker: {fileID: 486045607}
 --- !u!1 &1951225222
 GameObject:
   m_ObjectHideFlags: 0
@@ -26959,6 +27006,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1522021746}
     m_Modifications:
+    - target: {fileID: 3986447277860956528, guid: b5324ec95b70c884286fada38d534574, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -91.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4006254253966913890, guid: b5324ec95b70c884286fada38d534574, type: 3}
       propertyPath: m_Name
       value: Tutorial
@@ -27099,6 +27150,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1779282138}
     m_Modifications:
+    - target: {fileID: 1754338102537296442, guid: 274a5d9e8601067458cea8ccea84fd16, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 608374184, guid: 803cd75fb2211c74a997b6e5279ce07a, type: 3}
     - target: {fileID: 3047042510690817559, guid: 274a5d9e8601067458cea8ccea84fd16, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -27183,6 +27238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelView 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5633844620966054732, guid: 274a5d9e8601067458cea8ccea84fd16, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7ff0553ac8ae0d4489d8259e87b21120, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28689,6 +28748,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1779282138}
     m_Modifications:
+    - target: {fileID: 2211859346285351193, guid: be739731ca6ccc848a699739ff960628, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 608374184, guid: 803cd75fb2211c74a997b6e5279ce07a, type: 3}
     - target: {fileID: 3216685502000389428, guid: be739731ca6ccc848a699739ff960628, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -28769,6 +28832,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5243840039102775407, guid: be739731ca6ccc848a699739ff960628, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7ff0553ac8ae0d4489d8259e87b21120, type: 2}
     - target: {fileID: 5469638372889877218, guid: be739731ca6ccc848a699739ff960628, type: 3}
       propertyPath: m_Name
       value: LevelView 5
@@ -29028,6 +29095,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1779282138}
     m_Modifications:
+    - target: {fileID: 1622135034675608054, guid: 3dd594d6492ab724c943ce91b544e11c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1944981826, guid: 07b6e19bb2f1dff4c9aaddf973dbb0c0, type: 3}
     - target: {fileID: 2635475533006681563, guid: 3dd594d6492ab724c943ce91b544e11c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -29108,6 +29179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4680715389775669376, guid: 3dd594d6492ab724c943ce91b544e11c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6a04acd59cb8ce64880914ca27d187aa, type: 2}
     - target: {fileID: 4888919618733421069, guid: 3dd594d6492ab724c943ce91b544e11c, type: 3}
       propertyPath: m_Name
       value: LevelView 24

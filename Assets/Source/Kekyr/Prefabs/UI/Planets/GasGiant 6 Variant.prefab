@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 629099077799704628, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a0ff9b011ef69e04fb4f651e7d90ad90, type: 2}
+      objectReference: {fileID: 9100000, guid: 3518134824571f146abfeda1c38600c9, type: 2}
     - target: {fileID: 835085551001772729, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Name
       value: GasGiant 6 Variant
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 6831050960463243586, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1972165299, guid: 7ed8508b99f135a40b954352ce4703b9, type: 3}
+      objectReference: {fileID: -311330911, guid: 1f5c62e0fd3fff54481596f74620dbed, type: 3}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -98,11 +98,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.9998779
+      value: -0.9995117
       objectReference: {fileID: 0}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3
+      value: 2.9992676
       objectReference: {fileID: 0}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

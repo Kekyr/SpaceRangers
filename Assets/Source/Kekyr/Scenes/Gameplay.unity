@@ -7409,7 +7409,7 @@ GameObject:
   - component: {fileID: 6675321371916717979}
   - component: {fileID: 8932862342898339809}
   - component: {fileID: 4644918528934574556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BorderRight
   m_TagString: BorderRight
   m_Icon: {fileID: 0}
@@ -13049,7 +13049,7 @@ GameObject:
   - component: {fileID: 1694940214105978653}
   - component: {fileID: 339554526660143548}
   - component: {fileID: 3649905367633075866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BorderUp
   m_TagString: BorderUp
   m_Icon: {fileID: 0}
@@ -14277,7 +14277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3229853574329778156}
   - component: {fileID: 4084716155243933887}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BorderDown
   m_TagString: BorderDown
   m_Icon: {fileID: 0}
@@ -18883,7 +18883,7 @@ GameObject:
   - component: {fileID: 2799842513649200214}
   - component: {fileID: 878159572551319016}
   - component: {fileID: 799512472461731366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BorderLeft
   m_TagString: BorderLeft
   m_Icon: {fileID: 0}
@@ -21113,7 +21113,7 @@ MonoBehaviour:
   _prefabs:
   - {fileID: 6357865801980161856, guid: f36cf33ce023390448461ebe42660df9, type: 3}
   - {fileID: 5345485789884237115, guid: b63e98535700bf44e9317e0d2a1a4c3a, type: 3}
-  _count: 20
+  _count: 40
 --- !u!222 &8019287388034091336
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 629099077799704628, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 98147d0885c19a641b646a726fa13e7b, type: 2}
+      objectReference: {fileID: 9100000, guid: 6a04acd59cb8ce64880914ca27d187aa, type: 2}
     - target: {fileID: 835085551001772729, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Name
       value: Island 3 Variant
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 6831050960463243586, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2007184759, guid: 073e09d23bc9e8341bacc57aebcb0e94, type: 3}
+      objectReference: {fileID: -1944981826, guid: 07b6e19bb2f1dff4c9aaddf973dbb0c0, type: 3}
     - target: {fileID: 7844470756793001327, guid: e095a31312fd71b48b35627ca827c4e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

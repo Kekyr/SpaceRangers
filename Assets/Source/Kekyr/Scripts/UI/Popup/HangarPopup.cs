@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HangarPopup : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _walletView;
     [SerializeField] private TextMeshProUGUI _coinsCount;
     [SerializeField] private Button _closeButton;
     [SerializeField] private Image _blackout;
@@ -19,6 +20,11 @@ public class HangarPopup : MonoBehaviour
 
     private void Start()
     {
+        if (_walletView == null)
+        {
+            throw new ArgumentNullException(nameof(_walletView));
+        }
+        
         if (_coinsCount == null)
         {
             throw new ArgumentNullException(nameof(_coinsCount));
@@ -94,6 +100,7 @@ public class HangarPopup : MonoBehaviour
     {
         _walletData.Decrease(price);
         _coinsCount.text = _walletData.Money.ToString();
+        _walletView.text = _walletData.Money.ToString();
     }
 
     private bool TryBuy(int price)
