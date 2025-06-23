@@ -2217,7 +2217,8 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0414\u0432\u0438\u0433\u0430\u0439\u0442\u0435 \u043A\u043E\u0440\u0430\u0431\u043B\u044C
-      \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E WASD \u0438\u043B\u0438 \u0441\u0442\u0440\u0435\u043B\u043E\u043A"
+      \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E \u043A\u043B\u0430\u0432\u0438\u0448
+      WASD \u0438\u043B\u0438 \u0441\u0442\u0440\u0435\u043B\u043E\u043A"
     Object: {fileID: 0}
   - Language: Turkish
     Text: "\rGemiyi hareket ettirmek i\xE7in WASD veya oklar\u0131 kullan\u0131n"
@@ -2677,7 +2678,7 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Press the arrow button to return to the levels map
+    Text: Click on the arrow button to return to the levels map
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443
@@ -2793,8 +2794,9 @@ MonoBehaviour:
     Text: Press space to launch rocket
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041D\u0430\u0436\u043C\u0438 \u043F\u0440\u043E\u0431\u0435\u043B, \u0447\u0442\u043E\u0431\u044B
-      \u0432\u044B\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0440\u0430\u043A\u0435\u0442\u0443"
+    Text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043F\u0440\u043E\u0431\u0435\u043B,
+      \u0447\u0442\u043E\u0431\u044B \u0432\u044B\u043F\u0443\u0441\u0442\u0438\u0442\u044C
+      \u0440\u0430\u043A\u0435\u0442\u0443"
     Object: {fileID: 0}
   - Language: Turkish
     Text: "Roketi f\u0131rlatmak i\xE7in bo\u015Fluk tu\u015Funa bas\u0131n"
@@ -2954,11 +2956,12 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Click on the curved arrow to restart the level
+    Text: Click on the curved arrow to restart level
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041D\u0430\u0436\u043C\u0438 \u043D\u0430 \u0437\u0430\u043A\u0440\u0443\u0433\u043B\u0451\u043D\u043D\u0443\u044E
-      \u0441\u0442\u0440\u0435\u043B\u043A\u0443, \u0447\u0442\u043E\u0431\u044B
+    Text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443
+      \u0441 \u0437\u0430\u043A\u0440\u0443\u0433\u043B\u0451\u043D\u043D\u043E\u0439
+      \u0441\u0442\u0440\u0435\u043B\u043A\u043E\u0439, \u0447\u0442\u043E\u0431\u044B
       \u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C
       \u0443\u0440\u043E\u0432\u0435\u043D\u044C"
     Object: {fileID: 0}
@@ -5549,9 +5552,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 125836168}
     m_Modifications:
+    - target: {fileID: 948439917268439975, guid: aec50c986657ed546a0bff4f240322d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382231832557995741, guid: aec50c986657ed546a0bff4f240322d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1983957626232329030, guid: aec50c986657ed546a0bff4f240322d5, type: 3}
       propertyPath: m_Name
       value: KeyboardRocketLauncherTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309156135917393384, guid: aec50c986657ed546a0bff4f240322d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7282273873533105388, guid: aec50c986657ed546a0bff4f240322d5, type: 3}
       propertyPath: m_Pivot.x
@@ -5637,6 +5652,10 @@ PrefabInstance:
       propertyPath: _pauseButton
       value: 
       objectReference: {fileID: 7481440532045433337}
+    - target: {fileID: 7898185923218525195, guid: aec50c986657ed546a0bff4f240322d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8652,14 +8671,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 125836168}
     m_Modifications:
-    - target: {fileID: 862870768099546485, guid: 89056d48f3076dc4180dd12938731439, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -57.409668
-      objectReference: {fileID: 0}
-    - target: {fileID: 862870768099546485, guid: 89056d48f3076dc4180dd12938731439, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -205.9408
-      objectReference: {fileID: 0}
     - target: {fileID: 5960131056415172663, guid: 89056d48f3076dc4180dd12938731439, type: 3}
       propertyPath: m_Name
       value: LosePopupTutorial
@@ -8749,7 +8760,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7481440532045433337}
     - target: {fileID: 8339280740312148534, guid: 89056d48f3076dc4180dd12938731439, type: 3}
-      propertyPath: _buttons.Array.data[2]
+      propertyPath: _buttons.Array.data[1]
       value: 
       objectReference: {fileID: 2838540639094617224}
     m_RemovedComponents: []
@@ -12639,7 +12650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Repeat
+  m_text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
   m_sharedMaterial: {fileID: 8584857642691098040, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
@@ -22838,7 +22849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lose
+  m_text: "\u041F\u043E\u0440\u0430\u0436\u0435\u043D\u0438\u0435"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}
   m_sharedMaterial: {fileID: 8584857642691098040, guid: 5499570141c28ff4cbc4f2fd930a1a0d, type: 2}

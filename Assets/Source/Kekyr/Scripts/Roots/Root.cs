@@ -458,8 +458,8 @@ namespace ShipBase
 
             _timerView.Init(_timer);
             _timer.Init(_levelData);
-            _music.Init(_musicButton, _enemySpawners);
-            _music.Init(_musicSetting);
+            _music.Init(_enemySpawners);
+            _music.Init(_musicButton, _musicSetting);
 
             _healthView.Init(health);
             _shieldView.Init(shield);

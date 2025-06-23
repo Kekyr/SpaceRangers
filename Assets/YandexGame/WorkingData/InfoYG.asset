@@ -41,9 +41,9 @@ MonoBehaviour:
       iconURL: https://avatars.mds.yandex.net/get-games/1890793/2a00000189c00383b5000f00c723ed0fa77c/pjpg128x128
   scopes: 1
   playerPhotoSize: 0
-  autoGameReadyAPI: 1
+  autoGameReadyAPI: 0
   playerInfoSimulation:
-    authorized: 1
+    authorized: 0
     isMobile: 0
     language: ru
     name: Player this
@@ -52,17 +52,17 @@ MonoBehaviour:
     payingStatus: paying
     serverTime: 1721201231000
   AdWhenLoadingScene: 0
-  showFirstAd: 1
+  showFirstAd: 0
   rewardedAfterClosing: 1
   adDisplayCalls: 1
-  fullscreenAdInterval: 60
+  fullscreenAdInterval: 1
   durationOfAdSimulation: 0.5
   loadAdWithDelaySimulation: 0
   testErrorOfRewardedAdsInEditor: 0
   saveCloud: 1
-  flush: 0
-  localSaveSync: 1
-  saveCloudInterval: 5
+  flush: 1
+  localSaveSync: 0
+  saveCloudInterval: 1
   saveOnQuitGame: 0
   quitGameParameters:
     objectName: YandexGame
@@ -119,7 +119,7 @@ MonoBehaviour:
     thisPlayer:
       rank: 2
       score: 10
-  - technoName: simple
+  - technoName: Leaderboard
     entries: "Test LeaderBoard\nName: simple\n1. \u0441\u043A\u0440\u044B\u0442:
       10\n2. Max: 15\n3. Maria: 23"
     isDefault: 0
@@ -245,35 +245,6 @@ MonoBehaviour:
     de: 0
     hi: 0
   fonts:
-    defaultFont: []
-    ru: []
-    en: []
-    tr: []
-    az: []
-    be: []
-    he: []
-    hy: []
-    ka: []
-    et: []
-    fr: []
-    kk: []
-    ky: []
-    lt: []
-    lv: []
-    ro: []
-    tg: []
-    tk: []
-    uk: []
-    uz: []
-    es: []
-    pt: []
-    ar: []
-    id: []
-    ja: []
-    it: []
-    de: []
-    hi: []
-  fontsTMP:
     defaultFont: []
     ru: []
     en: []

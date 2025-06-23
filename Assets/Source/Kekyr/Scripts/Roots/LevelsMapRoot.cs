@@ -35,6 +35,8 @@ public class LevelsMapRoot : MonoBehaviour
     [SerializeField] private ImprovementsSO<GameObject> _shipImprovementsData;
     [SerializeField] private ImprovementsSO<int> _rocketImprovementsData;
     [SerializeField] private Music _music;
+    [SerializeField] private AudioButton _musicButton;
+    [SerializeField] private AudioButton _sfxButton;
     [SerializeField] private AudioSettingSO _sfxSetting;
     [SerializeField] private AudioSettingSO _musicSetting;
 
@@ -149,6 +151,16 @@ public class LevelsMapRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_music));
         }
 
+        if (_musicButton == null)
+        {
+            throw new ArgumentNullException(nameof(_musicButton));
+        }
+
+        if (_sfxButton == null)
+        {
+            throw new ArgumentNullException(nameof(_sfxButton));
+        }
+
         if (_sfxSetting == null)
         {
             throw new ArgumentNullException(nameof(_sfxSetting));
@@ -224,17 +236,20 @@ public class LevelsMapRoot : MonoBehaviour
     {
         Validate();
 
-        _resetButton.onClick.AddListener(Reset);
-
         if (YandexGame.EnvironmentData.isDesktop == true)
         {
             _postProcessLayer.enabled = true;
         }
 
+        _resetButton.onClick.AddListener(Reset);
+
+        _musicButton.Init(_musicSetting, _saveLoader);
+        _sfxButton.Init(_sfxSetting, _saveLoader);
+
         TutorialStepSO[] mapTutorialsData = new[]
             { _levelTutorialData, _hangarButtonTutorialData, _improvementTutorialData };
 
-        _music.Init(_musicSetting);
+        _music.Init(_musicButton, _musicSetting);
         _tutorial.Init(mapTutorialsData, _saveLoader);
         _leaderboard.Init(_scoreData);
         _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,
