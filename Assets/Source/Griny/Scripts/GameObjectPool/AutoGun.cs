@@ -49,12 +49,13 @@ namespace Enemy
             _health.Died += OnDied;
         }
 
-        protected virtual void Start()
+        protected virtual void OnEnable()
         {
+            _canShoot = true;
             StartCoroutine(Prepare());
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _health.Died -= OnDied;
         }

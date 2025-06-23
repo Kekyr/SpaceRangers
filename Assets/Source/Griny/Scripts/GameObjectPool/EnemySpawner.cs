@@ -7,20 +7,21 @@ namespace Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
+        private readonly int _instanceCount = 3;
+
         private SpriteModifier _spriteModifier;
         private CoinPool _coinPool;
         private Score _score;
         private ScreenAdjuster _screenAdjuster;
         private GameObject _enemyBulletsContainer;
-
         private EnemySpawnerSO _data;
         private AudioSettingSO _sfxSetting;
         private Timer _timer;
 
-        private List<GameObject> _instances = new List<GameObject>();
-
         private int _currentInstanceIndex = 0;
         private bool _canSpawn = true;
+
+        private Dictionary<string, Queue<GameObject>> _pools = new Dictionary<string, Queue<GameObject>>();
 
         public event Action Ended;
 
@@ -28,9 +29,9 @@ namespace Enemy
 
         private void Start()
         {
-            foreach (GameObject prefab in _data.Prefabs)
+            foreach (GameObject type in _data.Sequence)
             {
-                Initialize(prefab, transform);
+                Initialize(type);
             }
 
             _timer.Ended += OnEnded;
@@ -39,15 +40,20 @@ namespace Enemy
 
         private void OnDestroy()
         {
-            foreach (GameObject instance in _instances)
+            foreach (string key in _pools.Keys)
             {
-                EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
-                enemyShip.Destroyed -= Spawn;
-                enemyShip.Annihilated -= _coinPool.Spawn;
-                enemyShip.Annihilated -= _score.Add;
+                _pools.TryGetValue(key, out Queue<GameObject> pool);
 
-                DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
-                directionChanger.OutSight -= Spawn;
+                for (int i = 0; i < pool.Count; i++)
+                {
+                    GameObject enemy = pool.Dequeue();
+
+                    EnemyShip enemyShip = enemy.GetComponent<EnemyShip>();
+                    enemyShip.Annihilated -= OnAnnihilated;
+
+                    DirectionChanger directionChanger = enemy.GetComponentInChildren<DirectionChanger>();
+                    directionChanger.OutSight -= OnOutSight;
+                }
             }
 
             _timer.Ended -= OnEnded;
@@ -72,10 +78,25 @@ namespace Enemy
             _currentInstanceIndex = currentInstanceIndex;
         }
 
-        public void Initialize(GameObject prefab, Transform spawnPoint)
+        public void Initialize(GameObject prefab)
         {
-            GameObject instance = Prepare(prefab, spawnPoint);
-            _instances.Add(instance);
+            string key = prefab.name + "(Clone)";
+
+            if (_pools.ContainsKey(key) == true)
+            {
+                return;
+            }
+
+            Queue<GameObject> pool = new Queue<GameObject>();
+            GameObject container = new GameObject(prefab.name);
+            container.transform.parent = transform;
+
+            for (int i = 0; i < _instanceCount; i++)
+            {
+                pool.Enqueue(Prepare(prefab, container.transform));
+            }
+
+            _pools.Add(key, pool);
         }
 
         public GameObject Prepare(GameObject prefab, Transform spawnPoint)
@@ -102,12 +123,10 @@ namespace Enemy
 
             EnemyShip ship = instance.GetComponent<EnemyShip>();
             ship.Init(_spriteModifier, _screenAdjuster);
-            ship.Destroyed += Spawn;
-            ship.Annihilated += _coinPool.Spawn;
-            ship.Annihilated += _score.Add;
+            ship.Annihilated += OnAnnihilated;
 
             DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
-            directionChanger.OutSight += Spawn;
+            directionChanger.OutSight += OnOutSight;
 
             return instance;
         }
@@ -116,25 +135,52 @@ namespace Enemy
         {
             GameObject enemy;
 
-            if (_canSpawn == false || _currentInstanceIndex >= _instances.Count)
+            if (_canSpawn == false || _currentInstanceIndex >= _data.Sequence.Count)
             {
                 Ended?.Invoke();
                 return;
             }
 
-            enemy = _instances[_currentInstanceIndex];
+            string enemyType = _data.Sequence[_currentInstanceIndex].name;
+            string key = enemyType + "(Clone)";
+            _pools.TryGetValue(key, out Queue<GameObject> pool);
+            enemy = pool.Dequeue();
 
+            enemy.gameObject.SetActive(true);
             EnemyShip enemyShip = enemy.GetComponent<EnemyShip>();
             enemyShip.Reset();
 
             enemy.transform.position = transform.position;
-            enemy.gameObject.SetActive(true);
             _currentInstanceIndex++;
         }
 
         private void OnEnded()
         {
             _canSpawn = false;
+        }
+
+        private void OnAnnihilated(EnemyShip ship)
+        {
+            if (_pools.ContainsKey(ship.gameObject.name) == true)
+            {
+                _pools.TryGetValue(ship.gameObject.name, out Queue<GameObject> pool);
+                pool.Enqueue(ship.gameObject);
+            }
+
+            Spawn();
+            _coinPool.Spawn(ship);
+            _score.Add(ship);
+        }
+
+        private void OnOutSight(GameObject ship)
+        {
+            if (_pools.ContainsKey(ship.name) == true)
+            {
+                _pools.TryGetValue(ship.name, out Queue<GameObject> pool);
+                pool.Enqueue(ship);
+            }
+            
+            Spawn();
         }
     }
 }

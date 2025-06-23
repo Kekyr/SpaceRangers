@@ -61,7 +61,7 @@ MonoBehaviour:
   testErrorOfRewardedAdsInEditor: 0
   saveCloud: 1
   flush: 1
-  localSaveSync: 0
+  localSaveSync: 1
   saveCloudInterval: 1
   saveOnQuitGame: 0
   quitGameParameters:

@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "new EnemySpawnerSO", menuName = "EnemySpawnerSO/Create new EnemySpawnerSO")]
 public class EnemySpawnerSO : ScriptableObject
 {
-    
-    [SerializeField] private List<GameObject> _prefabs;
-
-    public List<GameObject> Prefabs => _prefabs;
+    [FormerlySerializedAs("_prefabs")] [SerializeField] private List<GameObject> _sequence;
+    public List<GameObject> Sequence => _sequence;
 }

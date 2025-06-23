@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 640
         width: 320
         height: 320
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 0
+        y: 640
         width: 320
         height: 320
       alignment: 0
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 0
+        y: 640
         width: 320
         height: 320
       alignment: 0
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 960
-        y: 0
+        y: 640
         width: 320
         height: 320
       alignment: 0
@@ -211,7 +211,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 0
+        y: 640
         width: 320
         height: 320
       alignment: 0
@@ -232,7 +232,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1600
-        y: 0
+        y: 640
         width: 320
         height: 320
       alignment: 0
@@ -252,8 +252,8 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_6
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
+        x: 0
+        y: 320
         width: 320
         height: 320
       alignment: 0
@@ -273,8 +273,8 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_7
       rect:
         serializedVersion: 2
-        x: 2240
-        y: 0
+        x: 320
+        y: 320
         width: 320
         height: 320
       alignment: 0
@@ -294,8 +294,8 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_8
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
+        x: 640
+        y: 320
         width: 320
         height: 320
       alignment: 0
@@ -315,8 +315,8 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_9
       rect:
         serializedVersion: 2
-        x: 2880
-        y: 0
+        x: 960
+        y: 320
         width: 320
         height: 320
       alignment: 0
@@ -336,8 +336,8 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_10
       rect:
         serializedVersion: 2
-        x: 3200
-        y: 0
+        x: 1280
+        y: 320
         width: 320
         height: 320
       alignment: 0
@@ -357,8 +357,8 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_11
       rect:
         serializedVersion: 2
-        x: 3520
-        y: 0
+        x: 1600
+        y: 320
         width: 320
         height: 320
       alignment: 0
@@ -378,7 +378,7 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_12
       rect:
         serializedVersion: 2
-        x: 3840
+        x: 0
         y: 0
         width: 320
         height: 320
@@ -399,7 +399,7 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_13
       rect:
         serializedVersion: 2
-        x: 4160
+        x: 320
         y: 0
         width: 320
         height: 320
@@ -420,7 +420,7 @@ TextureImporter:
       name: Nairan - Fighter -  Destruction_14
       rect:
         serializedVersion: 2
-        x: 4480
+        x: 640
         y: 0
         width: 320
         height: 320
@@ -433,27 +433,6 @@ TextureImporter:
       bones: []
       spriteID: 6cc43d00a9c61854ab31b3ed2029e832
       internalID: -1512193756
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nairan - Fighter -  Destruction_15
-      rect:
-        serializedVersion: 2
-        x: 4800
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd8a651e53f992f479f35db16f67f88d
-      internalID: 1421306489
       vertices: []
       indices: 
       edges: []
@@ -476,7 +455,6 @@ TextureImporter:
       Nairan - Fighter -  Destruction_12: -938353897
       Nairan - Fighter -  Destruction_13: 649790583
       Nairan - Fighter -  Destruction_14: -1512193756
-      Nairan - Fighter -  Destruction_15: 1421306489
       Nairan - Fighter -  Destruction_2: -1622666507
       Nairan - Fighter -  Destruction_3: -875178737
       Nairan - Fighter -  Destruction_4: -984459992
