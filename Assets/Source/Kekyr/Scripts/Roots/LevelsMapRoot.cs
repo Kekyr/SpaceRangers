@@ -21,13 +21,14 @@ public class LevelsMapRoot : MonoBehaviour
     [SerializeField] private ScreenAdjuster _screenAdjuster;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Camera _camera;
+    [SerializeField] private PostProcessLayer _postProcessLayer;
     [SerializeField] private PostProcessProfile _postProcessProfile;
     [SerializeField] private LevelsView _levelsView;
     [SerializeField] private HangarPopup _hangarPopup;
     [SerializeField] private AuthorizationPopup _authorizationPopup;
     [SerializeField] private LevelsSO _levelsData;
     [SerializeField] private WalletSO _walletData;
-    [SerializeField] private TextMeshProUGUI _textMoney; 
+    [SerializeField] private TextMeshProUGUI _textMoney;
     [SerializeField] private ScoreSO _scoreData;
     [SerializeField] private ImprovementsSO<GameObject> _bulletImprovementsData;
     [SerializeField] private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
@@ -76,6 +77,11 @@ public class LevelsMapRoot : MonoBehaviour
         if (_camera == null)
         {
             throw new ArgumentNullException(nameof(_camera));
+        }
+
+        if (_postProcessLayer == null)
+        {
+            throw new ArgumentNullException(nameof(_postProcessLayer));
         }
 
         if (_postProcessProfile == null)
@@ -220,6 +226,11 @@ public class LevelsMapRoot : MonoBehaviour
 
         _resetButton.onClick.AddListener(Reset);
 
+        if (YandexGame.EnvironmentData.isDesktop == true)
+        {
+            _postProcessLayer.enabled = true;
+        }
+
         TutorialStepSO[] mapTutorialsData = new[]
             { _levelTutorialData, _hangarButtonTutorialData, _improvementTutorialData };
 
@@ -234,7 +245,7 @@ public class LevelsMapRoot : MonoBehaviour
         _levelsView.Init(_levelsData, _backgroundData, _saveLoader);
 
         _focusTracker.Init(_music);
-        
+
         IImprovementsSO[] improvementsData = new IImprovementsSO[]
         {
             _bulletImprovementsData,

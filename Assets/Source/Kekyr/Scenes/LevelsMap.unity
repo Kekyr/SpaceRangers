@@ -21553,7 +21553,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770486585}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -23755,6 +23755,7 @@ MonoBehaviour:
   _screenAdjuster: {fileID: 2134554992}
   _canvas: {fileID: 1522021750}
   _camera: {fileID: 1770486590}
+  _postProcessLayer: {fileID: 1770486591}
   _postProcessProfile: {fileID: 11400000, guid: 16a6c3e74a22ecb4690c6ce7e06aaf69, type: 2}
   _levelsView: {fileID: 1779282139}
   _hangarPopup: {fileID: 1019807216}
