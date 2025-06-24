@@ -14,12 +14,12 @@
     "IsSfxOn": true,
     "IsMusicOn": true,
     "LevelTutorialCompletion": true,
-    "HangarButtonTutorialCompletion": false,
-    "ImprovementTutorialCompletion": false,
+    "HangarButtonTutorialCompletion": true,
+    "ImprovementTutorialCompletion": true,
     "MovementTutorialCompletion": true,
     "RocketLauncherTutorialCompletion": false,
     "WinPopupTutorialCompletion": false,
-    "LosePopupTutorialCompletion": false,
+    "LosePopupTutorialCompletion": true,
     "LevelsState": [
         1,
         0,
@@ -54,7 +54,7 @@
     ],
     "BulletImprovementStates": [
         2,
-        1,
+        2,
         0,
         0
     ],
@@ -72,7 +72,7 @@
     ],
     "RocketImprovementStates": [
         2,
-        1,
+        2,
         0,
         0
     ]
