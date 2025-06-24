@@ -8,9 +8,8 @@ namespace Audio
     public class GameplayMusic : Music
     {
         [SerializeField] private MusicSO _boss;
-        
+
         private EnemySpawners _enemySpawners;
-        private AudioButton _button;
 
         protected override void Start()
         {
@@ -18,33 +17,25 @@ namespace Audio
             {
                 throw new ArgumentNullException(nameof(_boss));
             }
-            
+
             base.Start();
-            _button.Switched += OnSwitched;
             _enemySpawners.Spawned += OnSpawned;
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
-            _button.Switched -= OnSwitched;
+            base.OnDestroy();
             _enemySpawners.Spawned -= OnSpawned;
         }
 
-        public void Init(AudioButton button, EnemySpawners enemySpawners)
+        public void Init(EnemySpawners enemySpawners)
         {
-            _button = button;
             _enemySpawners = enemySpawners;
         }
 
         public void Init(EnemyShip boss)
         {
             boss.Destroyed += OnDestroyed;
-        }
-
-        private void OnSwitched()
-        {
-            Stop();
-            Play();
         }
 
         private void OnDestroyed()

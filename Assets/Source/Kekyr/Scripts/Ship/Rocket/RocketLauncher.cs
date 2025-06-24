@@ -8,9 +8,6 @@ namespace ShipBase
     public class RocketLauncher : MonoBehaviour
     {
         private readonly string _launchTrigger = "Launch";
-        private readonly float _scalingDuration = 0.7f;
-        private readonly float _newScale = 1f;
-        private readonly int _addCount = 1;
 
         [SerializeField] private PlayerInputRouter _playerInputRouter;
         [SerializeField] private ShipHealth _health;

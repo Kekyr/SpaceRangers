@@ -21,19 +21,22 @@ public class LevelsMapRoot : MonoBehaviour
     [SerializeField] private ScreenAdjuster _screenAdjuster;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Camera _camera;
+    [SerializeField] private PostProcessLayer _postProcessLayer;
     [SerializeField] private PostProcessProfile _postProcessProfile;
     [SerializeField] private LevelsView _levelsView;
     [SerializeField] private HangarPopup _hangarPopup;
     [SerializeField] private AuthorizationPopup _authorizationPopup;
     [SerializeField] private LevelsSO _levelsData;
     [SerializeField] private WalletSO _walletData;
-    [SerializeField] private TextMeshProUGUI _textMoney; 
+    [SerializeField] private TextMeshProUGUI _textMoney;
     [SerializeField] private ScoreSO _scoreData;
     [SerializeField] private ImprovementsSO<GameObject> _bulletImprovementsData;
     [SerializeField] private ImprovementsSO<ShieldDataSO> _shieldImprovementsData;
     [SerializeField] private ImprovementsSO<GameObject> _shipImprovementsData;
     [SerializeField] private ImprovementsSO<int> _rocketImprovementsData;
     [SerializeField] private Music _music;
+    [SerializeField] private AudioButton _musicButton;
+    [SerializeField] private AudioButton _sfxButton;
     [SerializeField] private AudioSettingSO _sfxSetting;
     [SerializeField] private AudioSettingSO _musicSetting;
 
@@ -76,6 +79,11 @@ public class LevelsMapRoot : MonoBehaviour
         if (_camera == null)
         {
             throw new ArgumentNullException(nameof(_camera));
+        }
+
+        if (_postProcessLayer == null)
+        {
+            throw new ArgumentNullException(nameof(_postProcessLayer));
         }
 
         if (_postProcessProfile == null)
@@ -141,6 +149,16 @@ public class LevelsMapRoot : MonoBehaviour
         if (_music == null)
         {
             throw new ArgumentNullException(nameof(_music));
+        }
+
+        if (_musicButton == null)
+        {
+            throw new ArgumentNullException(nameof(_musicButton));
+        }
+
+        if (_sfxButton == null)
+        {
+            throw new ArgumentNullException(nameof(_sfxButton));
         }
 
         if (_sfxSetting == null)
@@ -218,12 +236,20 @@ public class LevelsMapRoot : MonoBehaviour
     {
         Validate();
 
+        if (YandexGame.EnvironmentData.isDesktop == true)
+        {
+            _postProcessLayer.enabled = true;
+        }
+
         _resetButton.onClick.AddListener(Reset);
+
+        _musicButton.Init(_musicSetting, _saveLoader);
+        _sfxButton.Init(_sfxSetting, _saveLoader);
 
         TutorialStepSO[] mapTutorialsData = new[]
             { _levelTutorialData, _hangarButtonTutorialData, _improvementTutorialData };
 
-        _music.Init(_musicSetting);
+        _music.Init(_musicButton, _musicSetting);
         _tutorial.Init(mapTutorialsData, _saveLoader);
         _leaderboard.Init(_scoreData);
         _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,
@@ -234,7 +260,7 @@ public class LevelsMapRoot : MonoBehaviour
         _levelsView.Init(_levelsData, _backgroundData, _saveLoader);
 
         _focusTracker.Init(_music);
-        
+
         IImprovementsSO[] improvementsData = new IImprovementsSO[]
         {
             _bulletImprovementsData,

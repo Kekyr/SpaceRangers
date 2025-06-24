@@ -21,15 +21,11 @@ namespace Enemy
             }
 
             _ship = GetComponent<EnemyShip>();
+            _ship.Reseted += OnReseted;
             OnReseted();
         }
 
-        private void OnEnable()
-        {
-            _ship.Reseted += OnReseted;
-        }
-
-        private void OnDisable()
+        private void OnDestroy()
         {
             _ship.Reseted -= OnReseted;
         }

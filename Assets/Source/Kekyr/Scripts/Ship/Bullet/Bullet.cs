@@ -29,7 +29,9 @@ namespace ShipBase
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("Boundary"))
+            if (collider.gameObject.CompareTag("BorderUp")|| 
+                collider.gameObject.CompareTag("BorderLeft") || 
+                collider.gameObject.CompareTag("BorderRight"))
             {
                 gameObject.SetActive(false);
             }

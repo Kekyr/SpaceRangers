@@ -631,7 +631,7 @@ PrefabInstance:
     - target: {fileID: 4602432114318216228, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1591290343, guid: 8cd28fe1ad78289488f52383191effa0, type: 3}
+      objectReference: {fileID: 21300000, guid: 6a29b04b19253354f815b6a41fcfe031, type: 3}
     - target: {fileID: 5133564438830740738, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -709,8 +709,12 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8476281416062757092, guid: 32adc371a0891134d855937d02919041, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476281416062757092, guid: 32adc371a0891134d855937d02919041, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.6699218
+      value: 0.33333334
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2574931963433178073, guid: 32adc371a0891134d855937d02919041, type: 3}

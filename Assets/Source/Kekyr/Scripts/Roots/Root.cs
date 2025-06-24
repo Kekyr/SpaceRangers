@@ -7,6 +7,7 @@ using LevelEnemy;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
+using YG;
 
 namespace ShipBase
 {
@@ -15,6 +16,7 @@ namespace ShipBase
         private readonly float _initTime = 0.001f;
 
         [SerializeField] private Camera _camera;
+        [SerializeField] private PostProcessLayer _postProcessLayer;
         [SerializeField] private AutoGunsZone _autoGunsZone;
         [SerializeField] private EnemySpawners _enemySpawners;
         [SerializeField] private SpriteModifier _spriteModifier;
@@ -96,6 +98,11 @@ namespace ShipBase
             if (_camera == null)
             {
                 throw new ArgumentNullException(nameof(_camera));
+            }
+
+            if (_postProcessLayer == null)
+            {
+                throw new ArgumentNullException(nameof(_postProcessLayer));
             }
 
             if (_canvas == null)
@@ -451,8 +458,8 @@ namespace ShipBase
 
             _timerView.Init(_timer);
             _timer.Init(_levelData);
-            _music.Init(_musicButton, _enemySpawners);
-            _music.Init(_musicSetting);
+            _music.Init(_enemySpawners);
+            _music.Init(_musicButton, _musicSetting);
 
             _healthView.Init(health);
             _shieldView.Init(shield);
@@ -488,10 +495,10 @@ namespace ShipBase
             _enemySpawners.OnResolutionChanged();
             _screenAdjuster.enabled = true;
 
-
-            if (PlatformChecker.IsPreferredDesktopPlatform() == true)
+            if (YandexGame.EnvironmentData.isDesktop == true)
             {
                 _keyboardMovementTutorial.enabled = true;
+                _postProcessLayer.enabled = true;
 
                 if (_rocketData.CurrentLevel != 0)
                 {

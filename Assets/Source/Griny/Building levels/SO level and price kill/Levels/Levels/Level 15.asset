@@ -21,5 +21,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 985eb607abe049b45bced559ca58c333, type: 2}
   _hasBoss: 1
   _bossPrefab: {fileID: 3952654464072391685, guid: 2db7e9867d217ec499cc973c11d23fda, type: 3}
-  _state: 2
+  _state: 0
   _isCurrent: 0

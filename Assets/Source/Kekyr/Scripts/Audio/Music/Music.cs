@@ -8,6 +8,7 @@ namespace Audio
         [SerializeField] private MusicSO _data;
 
         private AudioSource _audioSource;
+        private AudioButton _button;
         private AudioSettingSO _setting;
 
         private float _volume;
@@ -21,10 +22,18 @@ namespace Audio
 
             _audioSource = GetComponent<AudioSource>();
             Play();
+
+            _button.Switched += OnSwitched;
         }
 
-        public void Init(AudioSettingSO setting)
+        protected virtual void OnDestroy()
         {
+            _button.Switched -= OnSwitched;
+        }
+
+        public void Init(AudioButton button, AudioSettingSO setting)
+        {
+            _button = button;
             _setting = setting;
             enabled = true;
         }
@@ -71,6 +80,12 @@ namespace Audio
         public void Stop()
         {
             _audioSource.Stop();
+        }
+
+        private void OnSwitched()
+        {
+            Stop();
+            Play();
         }
     }
 }
