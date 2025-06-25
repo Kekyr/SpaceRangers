@@ -42,7 +42,8 @@ public class LevelsMapRoot : MonoBehaviour
 
     [SerializeField] private SaveLoader _saveLoader;
     [SerializeField] private Leaderboard _leaderboard;
-    [SerializeField] private LevelsMapTutorial _tutorial;
+    [SerializeField] private LevelsMapTutorial _mapTutorial;
+    [SerializeField] private PopupTutorial _hangarPopupTutorial;
     [SerializeField] private TutorialStepSO _levelTutorialData;
     [SerializeField] private TutorialStepSO _hangarButtonTutorialData;
     [SerializeField] private TutorialStepSO _improvementTutorialData;
@@ -181,9 +182,14 @@ public class LevelsMapRoot : MonoBehaviour
             throw new ArgumentNullException(nameof(_leaderboard));
         }
 
-        if (_tutorial == null)
+        if (_mapTutorial == null)
         {
-            throw new ArgumentNullException(nameof(_tutorial));
+            throw new ArgumentNullException(nameof(_mapTutorial));
+        }
+
+        if (_hangarPopupTutorial == null)
+        {
+            throw new ArgumentNullException(nameof(_hangarPopupTutorial));
         }
 
         if (_levelTutorialData == null)
@@ -243,14 +249,19 @@ public class LevelsMapRoot : MonoBehaviour
 
         _resetButton.onClick.AddListener(Reset);
 
+#if UNITY_EDITOR
+        _resetButton.gameObject.SetActive(true);
+#endif
+
         _musicButton.Init(_musicSetting, _saveLoader);
         _sfxButton.Init(_sfxSetting, _saveLoader);
 
         TutorialStepSO[] mapTutorialsData = new[]
-            { _levelTutorialData, _hangarButtonTutorialData, _improvementTutorialData };
+            { _levelTutorialData, _hangarButtonTutorialData };
 
         _music.Init(_musicButton, _musicSetting);
-        _tutorial.Init(mapTutorialsData, _saveLoader);
+        _hangarPopupTutorial.Init(_improvementTutorialData, _saveLoader);
+        _mapTutorial.Init(mapTutorialsData, _saveLoader);
         _leaderboard.Init(_scoreData);
         _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,
             _hangarButtonTutorialData, _improvementTutorialData, _movementTutorialData, _rocketLauncherTutorialData,
@@ -269,7 +280,7 @@ public class LevelsMapRoot : MonoBehaviour
             _rocketImprovementsData
         };
 
-        _hangarPopup.Init(_walletData, _saveLoader, improvementsData);
+        _hangarPopup.Init(_walletData, _saveLoader, improvementsData, _hangarPopupTutorial);
         _authorizationPopup.Init(_leaderboard);
 
         StartCoroutine(Initialization());

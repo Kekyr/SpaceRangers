@@ -56,8 +56,6 @@ namespace ShipBase
 
         private IEnumerator Spawn()
         {
-            int orderInLayer = _spriteRenderer.sortingOrder + 1;
-
             while (gameObject.activeSelf == true)
             {
                 for (int i = 0; i < _spawnPoints.Length; i++)
@@ -66,7 +64,7 @@ namespace ShipBase
                     {
                         GameObject bullet = _bulletPool.Spawn(_spawnPoints[i].position);
                         BulletMovement bulletMovement = bullet.GetComponent<BulletMovement>();
-                        bulletMovement.Init(_bulletSpeed, _spawnPoints[i].up, orderInLayer);
+                        bulletMovement.Init(_bulletSpeed, _spawnPoints[i].up);
                     }
                 }
 

@@ -13,7 +13,7 @@ public class PopupTutorial : MonoBehaviour
     private TutorialStepSO _tutorialData;
     private SaveLoader _saveLoader;
 
-    private void Start()
+    private void OnEnable()
     {
         if (_hand == null)
         {
@@ -60,6 +60,9 @@ public class PopupTutorial : MonoBehaviour
 
     private void OnDisable()
     {
+        _hand.gameObject.SetActive(false);
+        _blackout.gameObject.SetActive(false);
+        _explanation.gameObject.SetActive(false);
         _hand.Clicked -= OnClicked;
     }
 

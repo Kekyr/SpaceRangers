@@ -19,6 +19,7 @@ public class CoinPool : MonoBehaviour
 
     private Transform _destination;
     private ShipHealth _shipHealth;
+    private GameEndHandler _gameEndHandler;
 
     private List<Queue<Coin>> _instances = new List<Queue<Coin>>();
 
@@ -50,17 +51,20 @@ public class CoinPool : MonoBehaviour
         }
 
         _shipHealth.Dying += OnDead;
+        _gameEndHandler.Won += OnWon;
     }
 
     private void OnDisable()
     {
         _shipHealth.Dying -= OnDead;
+        _gameEndHandler.Won += OnWon;
     }
 
-    public void Init(Transform destination, ShipHealth shipHealth)
+    public void Init(Transform destination, ShipHealth shipHealth, GameEndHandler gameEndHandler)
     {
         _destination = destination;
         _shipHealth = shipHealth;
+        _gameEndHandler = gameEndHandler;
         enabled = true;
     }
 
@@ -81,6 +85,11 @@ public class CoinPool : MonoBehaviour
     }
 
     private void OnDead()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnWon()
     {
         gameObject.SetActive(false);
     }

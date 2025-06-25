@@ -7563,7 +7563,7 @@ GameObject:
   - component: {fileID: 6675321371916717979}
   - component: {fileID: 8932862342898339809}
   - component: {fileID: 4644918528934574556}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BorderRight
   m_TagString: BorderRight
   m_Icon: {fileID: 0}
@@ -13203,7 +13203,7 @@ GameObject:
   - component: {fileID: 1694940214105978653}
   - component: {fileID: 339554526660143548}
   - component: {fileID: 3649905367633075866}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BorderUp
   m_TagString: BorderUp
   m_Icon: {fileID: 0}
@@ -13800,7 +13800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864225897951264210}
   - component: {fileID: 7300111894228359553}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BorderTorpedo
   m_TagString: Torpedo
   m_Icon: {fileID: 0}
@@ -14404,7 +14404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3229853574329778156}
   - component: {fileID: 4084716155243933887}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BorderDown
   m_TagString: BorderDown
   m_Icon: {fileID: 0}
@@ -18911,7 +18911,7 @@ GameObject:
   - component: {fileID: 2799842513649200214}
   - component: {fileID: 878159572551319016}
   - component: {fileID: 799512472461731366}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BorderLeft
   m_TagString: BorderLeft
   m_Icon: {fileID: 0}
@@ -23183,7 +23183,7 @@ GameObject:
   - component: {fileID: 2114677595429628907}
   - component: {fileID: 2069556958185865764}
   - component: {fileID: 841520993516121435}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BorderFighterDown
   m_TagString: FighterDown
   m_Icon: {fileID: 0}

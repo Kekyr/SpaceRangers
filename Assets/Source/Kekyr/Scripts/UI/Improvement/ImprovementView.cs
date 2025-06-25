@@ -36,8 +36,6 @@ public class ImprovementView : MonoBehaviour
 
         _price.text = _data.Price.ToString();
         _button.onClick.AddListener(OnClick);
-
-        CheckState();
     }
 
     private void OnDestroy()
@@ -51,36 +49,23 @@ public class ImprovementView : MonoBehaviour
         enabled = true;
     }
 
-    public void CheckState()
+    public void Open()
     {
-        if (_data.Status == ImprovementState.Closed)
-        {
-            return;
-        }
-
         _button.interactable = true;
-
-        if (_data.Status == ImprovementState.Opened)
-        {
-            return;
-        }
-        
-        _image.gameObject.SetActive(false);
-        _button.interactable = false;
-
-        if (_data.isCurrent == false)
-        {
-            return;
-        }
-
-        ChangeColor(_image, _current);
-        _image.gameObject.SetActive(true);
-        _animator.enabled = true;
     }
 
-    private void ChangeColor(Image image, Color color)
+    public void Buy()
     {
-        image.color = color;
+        _image.gameObject.SetActive(false);
+        _button.interactable = false;
+    }
+
+    public void Choose()
+    {
+        _image.color = _current;
+        _image.gameObject.SetActive(true);
+        _animator.enabled = true;
+        _button.interactable = false;
     }
 
     private void OnClick()

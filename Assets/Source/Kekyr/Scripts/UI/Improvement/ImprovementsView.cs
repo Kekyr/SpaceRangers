@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using YG;
 
 public class ImprovementsView : MonoBehaviour
 {
@@ -27,7 +26,9 @@ public class ImprovementsView : MonoBehaviour
             _views[i].Clicked += OnClicked;
         }
 
-        _hangarPopup.Bought += OnBought;
+        SetStates();
+
+        _hangarPopup.Bought += SetStates;
     }
 
     private void OnDestroy()
@@ -37,7 +38,7 @@ public class ImprovementsView : MonoBehaviour
             _views[i].Clicked -= OnClicked;
         }
 
-        _hangarPopup.Bought -= OnBought;
+        _hangarPopup.Bought -= SetStates;
     }
 
     public void Init(IImprovementsSO data, HangarPopup hangarPopup)
@@ -52,11 +53,24 @@ public class ImprovementsView : MonoBehaviour
         Clicked?.Invoke(_data, improvementData);
     }
 
-    private void OnBought()
+    private void SetStates()
     {
-        for (int i = 0; i < _views.Length; i++)
+        if (_data.CurrentIndex != 0)
         {
-            _views[i].CheckState();
+            _views[_data.CurrentIndex - 1].Choose();
+        }
+
+        if (_data.CurrentIndex > 1)
+        {
+            for (int i = 0; i < _data.CurrentIndex - 1; i++)
+            {
+                _views[i].Buy();
+            }
+        }
+
+        if (_data.CurrentIndex < _views.Length)
+        {
+            _views[_data.CurrentIndex].Open();
         }
     }
 }
