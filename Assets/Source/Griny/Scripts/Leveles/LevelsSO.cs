@@ -61,7 +61,6 @@ namespace LevelEnemy
             }
 
             _data[0].Opened();
-            _data[0].Choose();
 
             _currentIndex = 0;
         }

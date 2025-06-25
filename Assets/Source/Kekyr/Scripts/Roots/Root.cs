@@ -429,7 +429,7 @@ namespace ShipBase
             _winPopupTutorial.Init(_winPopupTutorialData, _saveLoader);
             _losePopupTutorial.Init(_losePopupTutorialData, _saveLoader);
 
-            _coinPool.Init(player.transform, health);
+            _coinPool.Init(player.transform, health,_gameEndHandler);
             _gameEndHandler.Init(_timer, health, _sfxSetting, _levelData, _levelsData, _music);
             _wallet.Init(_sfxSetting, _walletData, _gameEndHandler, _saveLoader, _rewardedAd);
             _score.Init(_gameEndHandler, _scoreData, _saveLoader, _rewardedAd);

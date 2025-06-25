@@ -180,7 +180,7 @@
                 {
                     "name": "binding",
                     "id": "72a2528a-d87f-4b9e-9a56-dcd64b476b07",
-                    "path": "<Pointer>/position",
+                    "path": "<Touchscreen>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touchscreen",

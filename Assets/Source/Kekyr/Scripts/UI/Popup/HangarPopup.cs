@@ -15,6 +15,7 @@ public class HangarPopup : MonoBehaviour
     private IImprovementsSO[] _improvementsData;
     private WalletSO _walletData;
     private SaveLoader _saveLoader;
+    private PopupTutorial _tutorial;
 
     public event Action Bought;
 
@@ -65,11 +66,12 @@ public class HangarPopup : MonoBehaviour
         _closeButton.onClick.RemoveListener(OnClose);
     }
 
-    public void Init(WalletSO walletData, SaveLoader saveLoader,IImprovementsSO[] improvementsData)
+    public void Init(WalletSO walletData, SaveLoader saveLoader,IImprovementsSO[] improvementsData, PopupTutorial tutorial)
     {
         _walletData = walletData;
         _saveLoader = saveLoader;
         _improvementsData = improvementsData;
+        _tutorial = tutorial;
         enabled = true;
     }
 
@@ -77,12 +79,15 @@ public class HangarPopup : MonoBehaviour
     {
         _blackout.gameObject.SetActive(true);
         gameObject.SetActive(true);
+        _tutorial.enabled = true;
+        _tutorial.gameObject.SetActive(true);
     }
 
     private void OnClose()
     {
         _blackout.gameObject.SetActive(false);
         gameObject.SetActive(false);
+        _tutorial.gameObject.SetActive(false);
     }
     
     private void OnClicked(IImprovementsSO improvementsData, ImprovementDataSO improvementData)

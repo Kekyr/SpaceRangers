@@ -9,6 +9,7 @@ public class LevelsMapTutorial : MonoBehaviour
     [SerializeField] private Image _blackout;
     [SerializeField] private TutorialStep[] _steps;
     [SerializeField] private Animator _handAnimator;
+    [SerializeField] private Button[] _buttons;
 
     private TutorialStepSO[] _stepsData;
     private RectTransform _handRectTransform;
@@ -35,6 +36,11 @@ public class LevelsMapTutorial : MonoBehaviour
         if (_handAnimator == null)
         {
             throw new ArgumentNullException(nameof(_handAnimator));
+        }
+
+        if (_buttons.Length == 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(_buttons));
         }
 
         _handRectTransform = _hand.GetComponent<RectTransform>();
@@ -87,6 +93,11 @@ public class LevelsMapTutorial : MonoBehaviour
             return;
         }
 
+        for (int i = 0; i < _buttons.Length; i++)
+        {
+            _buttons[i].interactable = true;
+        }
+        
         gameObject.SetActive(false);
     }
 

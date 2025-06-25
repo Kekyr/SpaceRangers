@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelsView : MonoBehaviour
 {
     [SerializeField] private LevelView[] _views;
-    
+
     private LevelsSO _levelsData;
     private BackgroundSO _backgroundData;
     private SaveLoader _saveLoader;
@@ -22,6 +22,7 @@ public class LevelsView : MonoBehaviour
         {
             _views[i].Init(_levelsData.Data[i]);
             _views[i].Clicked += OnClicked;
+            _views[i].Checked += OnChecked;
         }
     }
 
@@ -30,6 +31,7 @@ public class LevelsView : MonoBehaviour
         for (int i = 0; i < _levelsData.Data.Count; i++)
         {
             _views[i].Clicked -= OnClicked;
+            _views[i].Checked -= OnChecked;
         }
     }
 
@@ -41,14 +43,19 @@ public class LevelsView : MonoBehaviour
         enabled = true;
     }
 
+    private void OnChecked()
+    {
+        _views[_levelsData.CurrentIndex].MakeCurrent();
+    }
+
     private void OnClicked(LevelSO data)
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        
+
         _levelsData.SetCurrent(data);
         _backgroundData.SetCurrent(_levelsData.CurrentIndex);
         _saveLoader.Save();
-        
+
         SceneManager.LoadScene(nextSceneIndex);
     }
 }

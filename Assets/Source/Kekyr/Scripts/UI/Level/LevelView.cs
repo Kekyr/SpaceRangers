@@ -18,6 +18,7 @@ public class LevelView : MonoBehaviour
     private LevelSO _data;
 
     public event Action<LevelSO> Clicked;
+    public event Action Checked;
 
     private void Start()
     {
@@ -52,15 +53,19 @@ public class LevelView : MonoBehaviour
         enabled = true;
     }
 
+    public void MakeCurrent()
+    {
+        _planet.color = _planetSelected;
+    }
+
     private void CheckState()
     {
         if (_data.Status == LevelState.Closed)
         {
             return;
         }
-
-        Color planetColor = _data.IsCurrent == true ? _planetSelected : _planetOpened;
-        _planet.color = planetColor;
+        
+        _planet.color = _planetOpened;
 
         Color starColor = _data.Status == LevelState.Completed ? _starsCompleted : _starsOpened;
         
@@ -70,6 +75,7 @@ public class LevelView : MonoBehaviour
         }
         
         _button.interactable = true;
+        Checked?.Invoke();
     }
 
     private void OnClick()
