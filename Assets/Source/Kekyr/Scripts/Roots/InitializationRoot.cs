@@ -128,7 +128,6 @@ public class InitializationRoot : MonoBehaviour
             _winPopupTutorialData, _losePopupTutorialData, _bulletImprovementsData,
             _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
         _saveLoader.OnLoaded();
-        YandexGame.GameReadyAPI();
         SceneManager.LoadScene(nextSceneIndex);
     }
 }

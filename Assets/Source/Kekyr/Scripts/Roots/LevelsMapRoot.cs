@@ -241,6 +241,8 @@ public class LevelsMapRoot : MonoBehaviour
     private void Awake()
     {
         Validate();
+        
+        YandexGame.GameReadyAPI();
 
         if (YandexGame.EnvironmentData.isDesktop == true)
         {
