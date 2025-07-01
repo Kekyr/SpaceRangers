@@ -5,7 +5,7 @@ using YG;
 public class FocusTracker : MonoBehaviour
 {
     private Music _music;
-    private float _currentTimeScale;
+    private float _currentTimeScale = 1f;
 
     private void OnEnable()
     {
