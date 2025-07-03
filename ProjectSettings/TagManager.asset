@@ -3,19 +3,31 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Boundary
+  - ParentBullets
+  - Coin
+  - PlayerProjectile
+  - Enemy
+  - Torpedo
+  - BorderDown
+  - BorderUp
+  - BorderLeft
+  - BorderRight
+  - FighterDown
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Coin
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - BorderDown
+  - Border
+  - ObjectBorder
+  - TouchArea
   - 
   - 
   - 

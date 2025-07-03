@@ -12,4 +12,9 @@ public class BackgroundSO : ScriptableObject
     {
         _currentTextureIndex = currentTextureIndex;
     }
+    
+    public void SetCurrent(int index)
+    {
+        _currentTextureIndex = index;
+    }
 }

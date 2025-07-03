@@ -5,18 +5,18 @@ namespace Enemy
     public class Bullet : Attacker
     {
         private Vector3 _direction;
-        private BulletMovement _bulletMovement;
+        private EnemyBulletMovement _enemyBulletMovement;
 
         public Vector2 Direction => _direction;
 
         private void Awake()
         {
-            _bulletMovement = GetComponent<BulletMovement>();
+            _enemyBulletMovement = GetComponent<EnemyBulletMovement>();
         }
         
         private void OnEnable()
         {
-            _bulletMovement.enabled = true;
+            _enemyBulletMovement.enabled = true;
         }
         
         public void SetVector(Vector3 vector)

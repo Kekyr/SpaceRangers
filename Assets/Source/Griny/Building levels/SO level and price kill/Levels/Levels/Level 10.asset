@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611e818d2c3f0c142b5903f56bf43a50, type: 3}
+  m_Name: Level 10
+  m_EditorClassIdentifier: 
+  _duration: 40
+  _spawnersData:
+  - {fileID: 11400000, guid: 869d0eb6d9219f342b03b5b99b3e3fd3, type: 2}
+  - {fileID: 11400000, guid: 76ba4267c06dd7f4ba2560d6c50d0724, type: 2}
+  - {fileID: 11400000, guid: 2049b63bae1c52a418ffbca71e43fc11, type: 2}
+  - {fileID: 11400000, guid: 30219034bd0d2b047a6cd898c19f277d, type: 2}
+  - {fileID: 11400000, guid: 8c44a5b7197cc4d43b6b57d814820042, type: 2}
+  _hasBoss: 1
+  _bossPrefab: {fileID: 2735825886949410820, guid: 1aaf607cb62dbc54da66c5953edef88f, type: 3}
+  _state: 0
+  _isCurrent: 0

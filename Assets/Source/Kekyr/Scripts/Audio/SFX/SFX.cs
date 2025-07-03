@@ -10,6 +10,7 @@ namespace Audio
         private readonly int _maxPitch = 3;
 
         private AudioSource _audioSource;
+        private AudioSettingSO _setting;
 
         private float _defaultVolume;
         private float _defaultPitch;
@@ -21,8 +22,18 @@ namespace Audio
             _defaultPitch = _audioSource.pitch;
         }
 
+        public void Init(AudioSettingSO setting)
+        {
+            _setting = setting;
+        }
+
         public void Play(SFXSO sfx)
         {
+            if (_setting.IsOn == false)
+            {
+                return;
+            }
+            
             AudioClip randomClip = sfx.GetRandomClip();
 
             if (randomClip == null)

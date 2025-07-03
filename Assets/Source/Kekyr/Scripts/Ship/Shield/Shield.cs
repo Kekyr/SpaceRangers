@@ -23,8 +23,7 @@ namespace ShipBase
         public event Action Emptied;
 
         public event Action<float> ValueChanged;
-
-
+        
         public event Action<float> Remained;
 
         public int Max => _shieldData.MaxHealth;

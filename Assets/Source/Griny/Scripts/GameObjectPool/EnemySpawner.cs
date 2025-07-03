@@ -1,121 +1,186 @@
+using System;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 namespace Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private GameObject _parentBullets;
+        private readonly int _instanceCount = 3;
 
         private SpriteModifier _spriteModifier;
+        private CoinPool _coinPool;
+        private Score _score;
+        private ScreenAdjuster _screenAdjuster;
+        private GameObject _enemyBulletsContainer;
         private EnemySpawnerSO _data;
-        private List<GameObject> _pool = new List<GameObject>();
+        private AudioSettingSO _sfxSetting;
+        private Timer _timer;
+
         private int _currentInstanceIndex = 0;
-        private List<Gun> _gans = new List<Gun>();
+        private bool _canSpawn = true;
+
+        private Dictionary<string, Queue<GameObject>> _pools = new Dictionary<string, Queue<GameObject>>();
+
+        public event Action Ended;
+
+        public int CurrentInstanceIndex => _currentInstanceIndex;
 
         private void Start()
         {
-            Initialize(_data.Prefabs, _spawnPoint);
+            foreach (GameObject type in _data.Sequence)
+            {
+                Initialize(type);
+            }
+
+            _timer.Ended += OnEnded;
             Spawn();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
-            foreach (GameObject instance in _pool)
+            foreach (string key in _pools.Keys)
             {
-                instance.GetComponent<EnemyShip>().Destroyed -= Spawn;
+                _pools.TryGetValue(key, out Queue<GameObject> pool);
 
-                Movement movement = instance.GetComponent<Movement>();
-
-                switch (movement)
+                for (int i = 0; i < pool.Count; i++)
                 {
-                    case FighterMovement:
-                        break;
+                    GameObject enemy = pool.Dequeue();
 
-                    case ScoutMovement:
-                        ScoutMovement scoutMovement = (ScoutMovement)movement;
-                        scoutMovement.DisabledEnemy -= Spawn;
-                        break;
+                    EnemyShip enemyShip = enemy.GetComponent<EnemyShip>();
+                    enemyShip.Annihilated -= OnAnnihilated;
 
-                    case Movement:
-                        movement.OutSight -= Spawn;
-                        break;
+                    DirectionChanger directionChanger = enemy.GetComponentInChildren<DirectionChanger>();
+                    directionChanger.OutSight -= OnOutSight;
                 }
             }
+
+            _timer.Ended -= OnEnded;
         }
 
-        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier)
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier,
+            GameObject enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster,
+            AudioSettingSO sfxSetting, Timer timer)
         {
             _data = data;
             _spriteModifier = spriteModifier;
-            enabled = true;
+            _enemyBulletsContainer = enemyBulletsContainer;
+            _coinPool = coinPool;
+            _score = score;
+            _screenAdjuster = screenAdjuster;
+            _sfxSetting = sfxSetting;
+            _timer = timer;
         }
 
-        private void Initialize(List<GameObject> prefabs, Transform spawnPoint)
+        public void Init(int currentInstanceIndex)
         {
-            foreach (GameObject prefab in prefabs)
-            {
-                GameObject instance = Instantiate(prefab, spawnPoint);
-                instance.SetActive(false);
-                EnemyShip enemyShip = instance.GetComponent<EnemyShip>();
-                enemyShip.Init(_spriteModifier);
-                enemyShip.Destroyed += Spawn;
-
-                _gans.AddRange(instance.GetComponentsInChildren<Gun>());
-
-                foreach (Gun gun in _gans)
-                {
-                    gun.Init(_parentBullets);
-                }
-
-                Movement movement = instance.GetComponent<Movement>();
-
-                switch (movement)
-                {
-                    case FighterMovement:
-                        break;
-
-                    case ScoutMovement:
-                        ScoutMovement scoutMovement = (ScoutMovement)movement;
-                        scoutMovement.DisabledEnemy += Spawn;
-                        break;
-
-                    case Movement:
-                        movement.OutSight += Spawn;
-                        break;
-                }
-
-                _pool.Add(instance);
-            }
+            _currentInstanceIndex = currentInstanceIndex;
         }
 
-        private void Spawn()
+        public void Initialize(GameObject prefab)
+        {
+            string key = prefab.name + "(Clone)";
+
+            if (_pools.ContainsKey(key) == true)
+            {
+                return;
+            }
+
+            Queue<GameObject> pool = new Queue<GameObject>();
+            GameObject container = new GameObject(prefab.name);
+            container.transform.parent = transform;
+
+            for (int i = 0; i < _instanceCount; i++)
+            {
+                pool.Enqueue(Prepare(prefab, container.transform));
+            }
+
+            _pools.Add(key, pool);
+        }
+
+        public GameObject Prepare(GameObject prefab, Transform spawnPoint)
+        {
+            GameObject instance = Instantiate(prefab, spawnPoint);
+            instance.SetActive(false);
+
+            SFX sfx = instance.GetComponent<SFX>();
+            sfx.Init(_sfxSetting);
+
+            AutoGun autoGun = instance.GetComponentInChildren<AutoGun>();
+
+            if (autoGun != null)
+            {
+                autoGun.Init(_enemyBulletsContainer.transform);
+            }
+
+            RocketLauncher rocketLauncher = instance.GetComponentInChildren<RocketLauncher>();
+
+            if (rocketLauncher != null)
+            {
+                rocketLauncher.Init(_enemyBulletsContainer);
+            }
+
+            EnemyShip ship = instance.GetComponent<EnemyShip>();
+            ship.Init(_spriteModifier, _screenAdjuster);
+            ship.Annihilated += OnAnnihilated;
+
+            DirectionChanger directionChanger = instance.GetComponentInChildren<DirectionChanger>();
+            directionChanger.OutSight += OnOutSight;
+
+            return instance;
+        }
+
+        public void Spawn()
         {
             GameObject enemy;
 
-            if (_currentInstanceIndex >= _pool.Count)
+            if (_canSpawn == false || _currentInstanceIndex >= _data.Sequence.Count)
             {
-                _currentInstanceIndex = 0;
+                Ended?.Invoke();
+                return;
             }
 
-            enemy = _pool[_currentInstanceIndex];
-
-            if (enemy.GetComponent<FighterNairan>())
-            {
-                enemy.GetComponent<FighterNairan>().RestsrtRockets();
-            }
+            string enemyType = _data.Sequence[_currentInstanceIndex].name;
+            string key = enemyType + "(Clone)";
+            _pools.TryGetValue(key, out Queue<GameObject> pool);
+            enemy = pool.Dequeue();
 
             enemy.gameObject.SetActive(true);
-            enemy.transform.position = _spawnPoint.position;
+            EnemyShip enemyShip = enemy.GetComponent<EnemyShip>();
+            enemyShip.Reset();
+
+            enemy.transform.position = transform.position;
             _currentInstanceIndex++;
+        }
 
-            enemy.GetComponent<Health>().ResetHealth();
+        private void OnEnded()
+        {
+            _canSpawn = false;
+        }
 
-            if (enemy.TryGetComponent(out Shield shield))
+        private void OnAnnihilated(EnemyShip ship)
+        {
+            if (_pools.ContainsKey(ship.gameObject.name) == true)
             {
-                shield.ReStartValue();
+                _pools.TryGetValue(ship.gameObject.name, out Queue<GameObject> pool);
+                pool.Enqueue(ship.gameObject);
             }
+
+            Spawn();
+            _coinPool.Spawn(ship);
+            _score.Add(ship);
+        }
+
+        private void OnOutSight(GameObject ship)
+        {
+            if (_pools.ContainsKey(ship.name) == true)
+            {
+                _pools.TryGetValue(ship.name, out Queue<GameObject> pool);
+                pool.Enqueue(ship);
+            }
+            
+            Spawn();
         }
     }
 }

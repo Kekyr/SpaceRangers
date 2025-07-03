@@ -1,7 +1,7 @@
 using System;
+using Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 namespace ShipBase
 {
@@ -14,16 +14,19 @@ namespace ShipBase
 
         [SerializeField] private GameObject[] _slots;
         [SerializeField] private GameObject _prefab;
-
-        private Button _button;
+        
         private Camera _camera;
+        private AudioSettingSO _sfxSetting;
 
         private Animator[] _slotsAnimator;
         private Rocket[] _rockets;
 
+        private int _maxRocketCount;
         private int _rocketCount;
         private int _currentSlotIndex;
-        private int _destroyedRocketCount;
+
+        public event Action<int> CountChanged;
+        public event Action Launched;
 
         private void Start()
         {
@@ -48,9 +51,10 @@ namespace ShipBase
             }
 
             _playerInputRouter.Rocket.performed += OnRocketPerformed;
-            _health.Died += OnDead;
+            _health.Dying += OnDead;
 
-            _button.onClick.AddListener(OnRocketAdded);
+            _rocketCount = _maxRocketCount;
+            CountChanged?.Invoke(_rocketCount);
 
             _slotsAnimator = new Animator[_slots.Length];
             _rockets = new Rocket[_slots.Length];
@@ -59,7 +63,7 @@ namespace ShipBase
             {
                 _slotsAnimator[i] = _slots[i].GetComponent<Animator>();
 
-                if (i < _rocketCount)
+                if (i < _maxRocketCount)
                 {
                     Spawn(i);
                 }
@@ -69,41 +73,21 @@ namespace ShipBase
         private void OnDisable()
         {
             _playerInputRouter.Rocket.performed -= OnRocketPerformed;
-            _health.Died -= OnDead;
-            _button.onClick.RemoveListener(OnRocketAdded);
-
-            for (int i = 0; i < _rockets.Length; i++)
-            {
-                if (_rockets[i] != null)
-                {
-                    _rockets[i].Destroyed -= OnRocketDestroyed;
-                }
-            }
+            _health.Dying -= OnDead;
         }
 
-        private void FixedUpdate()
-        {
-            if (_destroyedRocketCount == _rocketCount && _button.interactable == false)
-            {
-                _currentSlotIndex = 0;
-                _rocketCount = 0;
-                _destroyedRocketCount = 0;
-                _button.interactable = true;
-            }
-        }
-
-        public void Init(Camera camera, Button button, int rocketCount)
+        public void Init(Camera camera, int rocketCount, AudioSettingSO sfxSetting)
         {
             _camera = camera;
-            _button = button;
-            _rocketCount = rocketCount;
+            _maxRocketCount = rocketCount;
+            _sfxSetting = sfxSetting;
             enabled = true;
         }
 
         private void Spawn(int index)
         {
             Rocket rocket = Instantiate(_prefab, _slots[index].transform).GetComponent<Rocket>();
-            rocket.Destroyed += OnRocketDestroyed;
+            rocket.Init(_sfxSetting);
             _rockets[index] = rocket;
         }
 
@@ -142,30 +126,16 @@ namespace ShipBase
                 }
             }
 
-            if (_rocketCount > 0 && _currentSlotIndex < _rocketCount)
+            if (_maxRocketCount > 0 && _currentSlotIndex < _maxRocketCount)
             {
                 Rocket rocket = _rockets[_currentSlotIndex];
                 _slotsAnimator[_currentSlotIndex].SetTrigger(_launchTrigger);
                 rocket.Launch();
+                _rocketCount--;
+                CountChanged?.Invoke(_rocketCount);
                 _currentSlotIndex++;
+                Launched?.Invoke();
             }
-        }
-
-        private void OnRocketAdded()
-        {
-            _rocketCount = 1;
-
-            for (int i = 0; i < _rocketCount; i++)
-            {
-                Spawn(i);
-            }
-
-            _button.interactable = false;
-        }
-
-        private void OnRocketDestroyed(Rocket rocket)
-        {
-            _destroyedRocketCount++;
         }
 
         private void OnDead()

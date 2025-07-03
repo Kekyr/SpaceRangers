@@ -13,10 +13,7 @@ namespace Audio
 
         public AudioSO GetRandomClip()
         {
-            while (_nextTrackIndex == _currentTrackIndex)
-            {
-                _nextTrackIndex = Random.Range(0, _tracks.Count);
-            }
+            _nextTrackIndex = Random.Range(0, _tracks.Count);
 
             _currentTrackIndex = _nextTrackIndex;
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using WordGame;
 
 namespace ShipBase
 {
@@ -8,7 +9,7 @@ namespace ShipBase
     public class Bullet : Attacker
     {
         private readonly string DestructionTrigger = "Destruct";
-        
+
         private Animator _animator;
         private BoxCollider2D _collider;
         private BulletMovement _bulletMovement;
@@ -28,7 +29,9 @@ namespace ShipBase
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("Boundary"))
+            if (collider.gameObject.CompareTag("BorderUp")|| 
+                collider.gameObject.CompareTag("BorderLeft") || 
+                collider.gameObject.CompareTag("BorderRight"))
             {
                 gameObject.SetActive(false);
             }

@@ -15,7 +15,7 @@ namespace ShipBase
     {
         private readonly float _impulseForce = 0.05f;
         private readonly Vector3 _impulseDirection = new Vector3(1, 1, 1);
-        
+
         [SerializeField] private GameObject _explosion;
         [SerializeField] private float _explosionDuration;
         [SerializeField] private SFXSO _explosionSFX;
@@ -29,10 +29,11 @@ namespace ShipBase
         private Vector3 _impulseVelocity;
         private WaitForSeconds _waitForExplosionEnd;
         private Coroutine _explode;
+        private AudioSettingSO _sfxSetting;
 
         public event Action<Rocket> Destroyed;
 
-        private void Awake()
+        private void Start()
         {
             if (_explosion == null)
             {
@@ -48,7 +49,9 @@ namespace ShipBase
             _rocketMovement = GetComponent<RocketMovement>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
+            
             _sfx = GetComponent<SFX>();
+            _sfx.Init(_sfxSetting);
 
             _waitForExplosionEnd = new WaitForSeconds(_explosionDuration);
             _impulseVelocity = _impulseDirection * _impulseForce;
@@ -58,6 +61,12 @@ namespace ShipBase
         {
             _collider.enabled = true;
             _rocketMovement.enabled = true;
+        }
+
+        public void Init(AudioSettingSO sfxSetting)
+        {
+            _sfxSetting = sfxSetting;
+            enabled = true;
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
@@ -72,7 +81,7 @@ namespace ShipBase
                 StartCoroutine(Explode());
             }
 
-            if (collider.gameObject.CompareTag("Boundary") && _collider.enabled == true)
+            if (collider.gameObject.CompareTag("BorderUp") && _collider.enabled == true)
             {
                 Destroyed?.Invoke(this);
                 Destroy(gameObject);

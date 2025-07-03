@@ -1,22 +1,29 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Enemy
 {
+    [RequireComponent(typeof(Slider))]
     public class ValueBar : MonoBehaviour
     {
         [SerializeReference] private CharacteristicEnemy _characteristic;
-        [SerializeField] public Slider _slider;
         [SerializeField] private float _speedChange;
 
+        private Slider _slider;
         private float _targetHealth;
         private Coroutine _coroutine;
         private float _maxValue = 1;
-
-
+        
         private void Awake()
         {
+            if (_characteristic == null)
+            {
+                throw new ArgumentNullException(nameof(_characteristic));
+            }
+            
+            _slider = GetComponent<Slider>();
             _slider.value = _maxValue;
         }
 
@@ -39,19 +46,19 @@ namespace Enemy
                 StopCoroutine(_coroutine);
             }
 
-            _coroutine = StartCoroutine(ChangHelth(_targetHealth));
+            _coroutine = StartCoroutine(ChangHealth(_targetHealth));
         }
 
-        private IEnumerator ChangHelth(float targetHealth)
+        private IEnumerator ChangHealth(float targetHealth)
         {
             while (targetHealth != _slider.value)
             {
-                ChangHealthSlow(targetHealth);
+                ChangeHealthSlow(targetHealth);
                 yield return null;
             }
         }
 
-        private void ChangHealthSlow(float targetHealth)
+        private void ChangeHealthSlow(float targetHealth)
         {
             _slider.value = Mathf.MoveTowards(_slider.value, targetHealth, _speedChange * Time.deltaTime);
         }

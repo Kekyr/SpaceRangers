@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace ShipBase
 {
-    [RequireComponent(typeof(Wallet))]
     [RequireComponent(typeof(DamageHandler))]
     [RequireComponent(typeof(CinemachineImpulseSource))]
     public class Ship : MonoBehaviour
@@ -19,20 +18,31 @@ namespace ShipBase
 
         [SerializeField] private SFXSO _damageSFX;
         [SerializeField] private SFXSO _explosionSFX;
+        [SerializeField] private Collider2D _shieldCollider;
 
         private Wallet _wallet;
         private DamageHandler _damageHandler;
         private SFX _sfx;
         private ShipHealth _health;
         private CinemachineImpulseSource _impulseSource;
+        private ScreenAdjuster _screenAdjuster;
+        private Collider2D _collider;
+        private AudioSettingSO _sfxSetting;
+        private GameEndHandler _gameEndHandler;
 
-        private Vector3 _impulseExplosionVelocity;
-        private Vector3 _impulseDamageVelocity;
         private Coroutine _staying;
         private WaitForSeconds _waitInterval;
 
-        private void Awake()
+        private Vector3 _impulseExplosionVelocity;
+        private Vector3 _impulseDamageVelocity;
+
+        private void Start()
         {
+            if (_shieldCollider == null)
+            {
+                throw new ArgumentNullException(nameof(_shieldCollider));
+            }
+            
             if (_damageSFX == null)
             {
                 throw new ArgumentNullException(nameof(_damageSFX));
@@ -43,27 +53,33 @@ namespace ShipBase
                 throw new ArgumentNullException(nameof(_explosionSFX));
             }
 
-            _sfx = GetComponent<SFX>();
             _health = GetComponent<ShipHealth>();
-            _wallet = GetComponent<Wallet>();
             _damageHandler = GetComponent<DamageHandler>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
+            _collider = GetComponent<Collider2D>();
+            
+            _sfx = GetComponent<SFX>();
+            _sfx.Init(_sfxSetting);
 
             _impulseExplosionVelocity = _impulseDirection * _impulseExplosionForce;
             _impulseDamageVelocity = _impulseDirection * _impulseDamageForce;
             _waitInterval = new WaitForSeconds(_stayingDamageInterval);
 
-            _health.Died += OnDead;
+            _gameEndHandler.Won += OnWon;
+            _health.Dying += OnDead;
+            _screenAdjuster.ResolutionChanged += OnResolutionChanged;
         }
 
         private void OnDestroy()
         {
-            _health.Died -= OnDead;
+            _gameEndHandler.Won -= OnWon;
+            _health.Dying -= OnDead;
+            _screenAdjuster.ResolutionChanged -= OnResolutionChanged;
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("EnemyBullet") || collider.gameObject.CompareTag("Enemy"))
+            if (collider.gameObject.CompareTag("EnemyProjectile") || collider.gameObject.CompareTag("Enemy"))
             {
                 Attacker attacker = collider.gameObject.GetComponent<Attacker>();
                 _damageHandler.TakeDamage(attacker);
@@ -95,6 +111,15 @@ namespace ShipBase
             }
         }
 
+        public void Init(Wallet wallet, ScreenAdjuster screenAdjuster, AudioSettingSO sfxSetting, GameEndHandler gameEndHandler)
+        {
+            _wallet = wallet;
+            _screenAdjuster = screenAdjuster;
+            _sfxSetting = sfxSetting;
+            _gameEndHandler = gameEndHandler;
+            enabled = true;
+        }
+
         private IEnumerator StayingIn(Attacker attacker)
         {
             yield return _waitInterval;
@@ -109,7 +134,19 @@ namespace ShipBase
             _impulseSource.GenerateImpulseWithVelocity(_impulseExplosionVelocity);
         }
 
-        private void OnDestruct()
+        private void OnResolutionChanged()
+        {
+            if (_collider.enabled == true)
+            {
+                _screenAdjuster.Clamp(transform, _collider);
+            }
+            else
+            {
+                _screenAdjuster.Clamp(transform, _shieldCollider);
+            }
+        }
+
+        private void OnWon()
         {
             gameObject.SetActive(false);
         }
