@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 7911301049949410555}
   - component: {fileID: 3048546860291740771}
   - component: {fileID: 689813341652281169}
-  - component: {fileID: 611345589785383859}
+  - component: {fileID: 2523867569945116116}
   m_Layer: 0
   m_Name: Laser
   m_TagString: EnemyProjectile
@@ -277,7 +277,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29528368, y: 9.649454}
   m_EdgeRadius: 0
---- !u!114 &611345589785383859
+--- !u!114 &2523867569945116116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,10 +286,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5883021966291491128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e8c29ca085ac241b255e52d31fa0ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 715ae7908e4bdda4f9eec02dbbf967f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageColor: {r: 1, g: 0, b: 0, a: 1}
+  _damageColor: {r: 1, g: 0, b: 0, a: 0}
   _damage: 15
 --- !u!1 &6809008081623507287
 GameObject:
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3225db0bd5cfae54492772edfa1b59b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _laser: {fileID: 611345589785383859}
+  _laser: {fileID: 2523867569945116116}
   _idle: {fileID: 21300000, guid: b1b7b74b478e75d4fac71bcf4b9925bf, type: 3}
   _startDelay: 1
   _duration: 1

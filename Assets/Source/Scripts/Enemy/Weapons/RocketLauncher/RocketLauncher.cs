@@ -1,8 +1,8 @@
+using Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Audio;
 
 namespace Enemy
 {
@@ -72,8 +72,7 @@ namespace Enemy
 
             for (int i = 1; i < instanceCount; i++)
             {
-                RocketMovement rocket = Instantiate(_prefab, container.transform.position, Quaternion.identity,
-                    container.transform);
+                RocketMovement rocket = Instantiate(_prefab, container.transform.position, Quaternion.identity, container.transform);
                 rocket.gameObject.SetActive(false);
                 _pool.Add(rocket);
             }

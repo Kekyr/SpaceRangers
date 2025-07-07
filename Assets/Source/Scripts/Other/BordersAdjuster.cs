@@ -93,29 +93,16 @@ namespace Game
 
             float torpedoHeight = (_canvas.pixelRect.height / 100) * _torpedoHeightInPercent;
 
-            _up.transform.position =
-                _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.max.y));
-
-            _left.transform.position =
-                _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.min.x, _canvas.pixelRect.center.y));
-
-            _down.transform.position =
-                _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.min.y));
-
-            _right.transform.position =
-                _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.max.x, _canvas.pixelRect.center.y));
-
-            _fighterDown.transform.position =
-                _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
-
-            _torpedo.transform.position =
-                _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, torpedoHeight));
-
-            _autoGunsZone.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x,
-                _canvas.pixelRect.center.y));
-
-            _autoGunsZone.transform.position = new Vector3(_autoGunsZone.transform.position.x,
-                _autoGunsZone.transform.position.y + _autoGunsYOffset);
+            _up.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.max.y));
+            _left.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.min.x, _canvas.pixelRect.center.y));
+            _down.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.min.y));
+            _right.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.max.x, _canvas.pixelRect.center.y));
+            
+            _fighterDown.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
+            _torpedo.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, torpedoHeight));
+            
+            _autoGunsZone.transform.position = _mainCamera.ScreenToWorldPoint(new Vector3(_canvas.pixelRect.center.x, _canvas.pixelRect.center.y));
+            _autoGunsZone.transform.position = new Vector3(_autoGunsZone.transform.position.x, _autoGunsZone.transform.position.y + _autoGunsYOffset);
 
             _up.size = new Vector2(sizeX, _up.size.y);
             _down.size = new Vector2(sizeX, _down.size.y);

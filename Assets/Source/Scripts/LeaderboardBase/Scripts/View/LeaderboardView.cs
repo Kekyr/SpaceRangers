@@ -19,7 +19,7 @@ namespace LeaderboardBase
         [SerializeField] private Image _blackout;
         [SerializeField] private Button _closeButton;
 
-        private List<LeaderboardElement> _spawnedElements = new();
+        private List<LeaderboardElement> _spawnedElements = new ();
 
         private void Start()
         {

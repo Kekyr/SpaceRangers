@@ -77,8 +77,7 @@ namespace Pool
                 for (int j = 0; j < enemy.Data.CoinsCount[i]; j++)
                 {
                     Coin instance = _instances[i].Dequeue();
-                    Vector3 offset = new Vector3(Random.Range(MinRandomX, MaxRandomX),
-                        Random.Range(MinRandomY, MaxRandomY));
+                    Vector3 offset = new Vector3(Random.Range(MinRandomX, MaxRandomX), Random.Range(MinRandomY, MaxRandomY));
                     instance.transform.position = enemy.transform.position + offset;
                     instance.gameObject.SetActive(true);
                     _instances[i].Enqueue(instance);

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public abstract class DamageSource : MonoBehaviour
+    public class DamageSource : MonoBehaviour
     {
         [SerializeField] private Color _damageColor;
         [SerializeField] private float _damage;

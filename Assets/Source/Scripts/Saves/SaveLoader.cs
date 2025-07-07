@@ -32,15 +32,7 @@ namespace SaveSystem
         private IImprovementsSO _shipImprovementsData;
         private IImprovementsSO _rocketImprovementsData;
 
-        public void Init(LevelsSO levelsData, WalletSO walletData, ScoreSO scoreData, AudioSettingSO sfxSetting,
-            AudioSettingSO musicSetting, TutorialStepSO levelTutorialData, TutorialStepSO hangarButtonTutorialData,
-            TutorialStepSO improvementTutorialData, TutorialStepSO movementTutorialData,
-            TutorialStepSO rocketLauncherTutorialData,
-            TutorialStepSO winPopupTutorialData, TutorialStepSO losePopupTutorialData,
-            IImprovementsSO bulletImprovementsData,
-            IImprovementsSO shieldImprovementsData,
-            IImprovementsSO shipImprovementsData, IImprovementsSO rocketImprovementsData
-        )
+        public void Init(LevelsSO levelsData, WalletSO walletData, ScoreSO scoreData, AudioSettingSO sfxSetting, AudioSettingSO musicSetting, TutorialStepSO levelTutorialData, TutorialStepSO hangarButtonTutorialData, TutorialStepSO improvementTutorialData, TutorialStepSO movementTutorialData, TutorialStepSO rocketLauncherTutorialData, TutorialStepSO winPopupTutorialData, TutorialStepSO losePopupTutorialData, IImprovementsSO bulletImprovementsData, IImprovementsSO shieldImprovementsData, IImprovementsSO shipImprovementsData, IImprovementsSO rocketImprovementsData)
         {
             _levelsData = levelsData;
             _walletData = walletData;
@@ -74,30 +66,7 @@ namespace SaveSystem
             List<ImprovementState> shipImprovementsState = Convert(_shipImprovementsData.Levels);
             List<ImprovementState> rocketImprovementsState = Convert(_rocketImprovementsData.Levels);
 
-            SavesYG saveData = new SavesYG(
-                _levelsData.CurrentIndex,
-                _bulletImprovementsData.CurrentIndex,
-                _shieldImprovementsData.CurrentIndex,
-                _shipImprovementsData.CurrentIndex,
-                _rocketImprovementsData.CurrentIndex,
-                _walletData.Money,
-                _scoreData.Points,
-                _levelsData.IsFirstTime,
-                _sfxSetting.IsOn,
-                _musicSetting.IsOn,
-                _levelTutorialData.IsCompleted,
-                _hangarButtonTutorialData.IsCompleted,
-                _improvementTutorialData.IsCompleted,
-                _movementTutorialData.IsCompleted,
-                _rocketLauncherTutorialData.IsCompleted,
-                _winPopupTutorialData.IsCompleted,
-                _losePopupTutorialData.IsCompleted,
-                levelsState,
-                bulletImprovementsState,
-                shieldImprovementsState,
-                shipImprovementsState,
-                rocketImprovementsState
-            );
+            SavesYG saveData = new SavesYG(_levelsData.CurrentIndex, _bulletImprovementsData.CurrentIndex, _shieldImprovementsData.CurrentIndex, _shipImprovementsData.CurrentIndex, _rocketImprovementsData.CurrentIndex, _walletData.Money, _scoreData.Points, _levelsData.IsFirstTime, _sfxSetting.IsOn, _musicSetting.IsOn, _levelTutorialData.IsCompleted, _hangarButtonTutorialData.IsCompleted, _improvementTutorialData.IsCompleted, _movementTutorialData.IsCompleted, _rocketLauncherTutorialData.IsCompleted, _winPopupTutorialData.IsCompleted, _losePopupTutorialData.IsCompleted, levelsState, bulletImprovementsState, shieldImprovementsState, shipImprovementsState, rocketImprovementsState);
 
             YandexGame.savesData = saveData;
             YandexGame.SaveProgress();

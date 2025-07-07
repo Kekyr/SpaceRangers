@@ -128,10 +128,7 @@ namespace Game
 
             Validate();
 
-            _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,
-                _hangarButtonTutorialData, _improvementTutorialData, _movementTutorialData, _rocketLauncherTutorialData,
-                _winPopupTutorialData, _losePopupTutorialData, _bulletImprovementsData,
-                _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
+            _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData, _hangarButtonTutorialData, _improvementTutorialData, _movementTutorialData, _rocketLauncherTutorialData, _winPopupTutorialData, _losePopupTutorialData, _bulletImprovementsData, _shieldImprovementsData, _shipImprovementsData, _rocketImprovementsData);
             _saveLoader.OnLoaded();
             SceneManager.LoadScene(nextSceneIndex);
         }

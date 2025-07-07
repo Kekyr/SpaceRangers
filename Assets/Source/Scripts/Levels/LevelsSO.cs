@@ -33,7 +33,7 @@ namespace Level
 
         public void Init(List<LevelState> levelStates, int currentIndex)
         {
-            if (levelStates!=null && levelStates.Count!=0)
+            if (levelStates != null && levelStates.Count != 0)
             {
                 for (int i = 0; i < _data.Count; i++)
                 {

@@ -49,9 +49,7 @@ namespace Enemy
 
             for (int i = 0; i < _spawnersData.Count; i++)
             {
-                _spawners[i].Init(_spawnersData[i], _spriteModifier, _bulletsContainer, _coinPool, _score,
-                    _screenAdjuster,
-                    _sfxSetting, _timer);
+                _spawners[i].Init(_spawnersData[i], _spriteModifier, _bulletsContainer, _coinPool, _score, _screenAdjuster, _sfxSetting, _timer);
                 _spawners[i].Ended += OnEnded;
             }
 
@@ -60,7 +58,7 @@ namespace Enemy
                 GameObject boss = _center.Prepare(_levelData.BossPrefab, _center.transform);
                 boss.transform.position = _center.transform.position;
                 EnemyShip ship = boss.GetComponent<EnemyShip>();
-                _gameEndHandler.Init(ship);
+                _gameEndHandler.OnBossInitialized(ship);
                 _music.Init(ship);
                 _boss = boss;
             }
@@ -88,8 +86,7 @@ namespace Enemy
             }
         }
 
-        public void Init(List<EnemySpawnerSO> spawnersData, SpriteModifier spriteModifier, GameObject bulletsContainer,
-            CoinPool coinPool, Score score, Timer timer, LevelSO levelData)
+        public void Init(List<EnemySpawnerSO> spawnersData, SpriteModifier spriteModifier, GameObject bulletsContainer, CoinPool coinPool, Score score, Timer timer, LevelSO levelData)
         {
             _spawnersData = spawnersData;
             _spriteModifier = spriteModifier;
@@ -101,8 +98,7 @@ namespace Enemy
             enabled = true;
         }
 
-        public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, GameEndHandler gameEndHandler,
-            AudioSettingSO sfxSetting, GameplayMusic music)
+        public void Init(Canvas canvas, Camera mainCamera, ScreenAdjuster screenAdjuster, GameEndHandler gameEndHandler, AudioSettingSO sfxSetting, GameplayMusic music)
         {
             _canvas = canvas;
             _mainCamera = mainCamera;
@@ -131,14 +127,10 @@ namespace Enemy
                 float oneEight = (_canvas.pixelRect.width / 100) * 12.5f;
                 float threeEigth = (_canvas.pixelRect.width / 100) * 12.5f + (_canvas.pixelRect.width / 100) * 25f;
 
-                firstLeftPosition = new Vector3(_canvas.pixelRect.min.x + threeEigth, _canvas.pixelRect.min.y,
-                    _mainCamera.nearClipPlane);
-                secondLeftPosition = new Vector3(_canvas.pixelRect.min.x + oneEight, _canvas.pixelRect.min.y,
-                    _mainCamera.nearClipPlane);
-                firstRightPosition = new Vector3(_canvas.pixelRect.max.x - threeEigth, _canvas.pixelRect.max.y,
-                    _mainCamera.nearClipPlane);
-                secondRightPosition = new Vector3(_canvas.pixelRect.max.x - oneEight, _canvas.pixelRect.max.y,
-                    _mainCamera.nearClipPlane);
+                firstLeftPosition = new Vector3(_canvas.pixelRect.min.x + threeEigth, _canvas.pixelRect.min.y, _mainCamera.nearClipPlane);
+                secondLeftPosition = new Vector3(_canvas.pixelRect.min.x + oneEight, _canvas.pixelRect.min.y, _mainCamera.nearClipPlane);
+                firstRightPosition = new Vector3(_canvas.pixelRect.max.x - threeEigth, _canvas.pixelRect.max.y, _mainCamera.nearClipPlane);
+                secondRightPosition = new Vector3(_canvas.pixelRect.max.x - oneEight, _canvas.pixelRect.max.y, _mainCamera.nearClipPlane);
 
                 ChangePosition(_spawners[0].transform, secondLeftPosition);
                 _spawners[0].enabled = true;
@@ -156,10 +148,8 @@ namespace Enemy
             {
                 float oneFifth = (_canvas.pixelRect.width / 100) * 20;
 
-                firstLeftPosition = new Vector3(_canvas.pixelRect.min.x + oneFifth, _canvas.pixelRect.min.y,
-                    _mainCamera.nearClipPlane);
-                firstRightPosition = new Vector3(_canvas.pixelRect.max.x - oneFifth, _canvas.pixelRect.max.y,
-                    _mainCamera.nearClipPlane);
+                firstLeftPosition = new Vector3(_canvas.pixelRect.min.x + oneFifth, _canvas.pixelRect.min.y, _mainCamera.nearClipPlane);
+                firstRightPosition = new Vector3(_canvas.pixelRect.max.x - oneFifth, _canvas.pixelRect.max.y, _mainCamera.nearClipPlane);
 
                 _spawners[0].gameObject.SetActive(false);
                 _spawners[4].gameObject.SetActive(false);

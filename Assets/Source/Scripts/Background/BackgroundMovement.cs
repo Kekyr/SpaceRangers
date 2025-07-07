@@ -20,8 +20,7 @@ namespace Background
 
         private void LateUpdate()
         {
-            _rawImage.uvRect = new Rect(_rawImage.uvRect.position + _positionModifier * Time.deltaTime,
-                _rawImage.uvRect.size);
+            _rawImage.uvRect = new Rect(_rawImage.uvRect.position + _positionModifier * Time.deltaTime, _rawImage.uvRect.size);
         }
     }
 }

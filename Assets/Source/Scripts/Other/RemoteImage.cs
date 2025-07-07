@@ -16,17 +16,23 @@ namespace LeaderboardBase
         {
             get
             {
-                if (!IsDownloadFinished)
-                    throw new InvalidOperationException(
-                        $"Attempt to get {nameof(Texture)} while {nameof(IsDownloadFinished)} = {IsDownloadFinished}");
+                if (IsDownloadFinished == false)
+                {
+                    throw new InvalidOperationException($"Attempt to get {nameof(Texture)} while {nameof(IsDownloadFinished)} = {IsDownloadFinished}");
+                }
 
-                if (!IsDownloadSuccessful)
-                    throw new InvalidOperationException(
-                        $"Attempt to get {nameof(Texture)} while {nameof(IsDownloadSuccessful)} = {IsDownloadSuccessful}");
+                if (IsDownloadSuccessful == false)
+                {
+                    throw new InvalidOperationException($"Attempt to get {nameof(Texture)} while {nameof(IsDownloadSuccessful)} = {IsDownloadSuccessful}");
+                }
 
                 return _texture;
             }
-            private set { _texture = value; }
+
+            private set
+            {
+                _texture = value;
+            }
         }
 
         public bool IsDownloadFinished { get; private set; } = false;
@@ -35,34 +41,30 @@ namespace LeaderboardBase
 
         public string DownloadErrorMessage { get; private set; }
 
-        /// <summary>
-        /// Creates an instance of an image that can be downloaded from a remote server.
-        /// </summary>
-        /// <param name="url">It's actually a URL, not URI because <see cref="UnityWebRequestTexture"/> silently fails without a protocol (like https://).</param>
         public RemoteImage(string url)
         {
             _url = url;
         }
 
-        // Async is used here to avoid creation of coroutines that must be tied to a MonoBehaviour.
-        public async void Download(Action<Texture2D> successCallback = null, Action<string> errorCallback = null,
-            CancellationToken cancellationToken = default)
+        public async void Download(Action<Texture2D> successCallback = null, Action<string> errorCallback = null, CancellationToken cancellationToken = default)
         {
             using (UnityWebRequest downloadTextureWebRequest = UnityWebRequestTexture.GetTexture(_url))
             {
                 UnityWebRequestAsyncOperation downloadOperation = downloadTextureWebRequest.SendWebRequest();
 
-                while (!downloadOperation.isDone)
+                while (downloadOperation.isDone == false)
                 {
-                    if (cancellationToken.IsCancellationRequested)
+                    if (cancellationToken.IsCancellationRequested == true)
+                    {
                         break;
+                    }
 
                     await Task.Yield();
                 }
 
                 IsDownloadFinished = true;
 
-                if (cancellationToken.IsCancellationRequested)
+                if (cancellationToken.IsCancellationRequested == true)
                 {
                     DownloadErrorMessage = $"Download interrupted via {nameof(CancellationToken)}";
                 }
@@ -75,16 +77,24 @@ namespace LeaderboardBase
                     _texture = DownloadHandlerTexture.GetContent(downloadTextureWebRequest);
 
                     if (_texture != null)
+                    {
                         IsDownloadSuccessful = true;
+                    }
                     else
+                    {
                         DownloadErrorMessage = "Getting content of a downloaded texture has failed.";
+                    }
                 }
             }
 
             if (IsDownloadSuccessful)
+            {
                 successCallback?.Invoke(_texture);
+            }
             else
+            {
                 errorCallback?.Invoke(DownloadErrorMessage);
+            }
         }
     }
 }

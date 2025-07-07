@@ -1,11 +1,12 @@
 using System;
+using Game;
 using UnityEngine;
 
 namespace Enemy
 {
     public class LaserGun : MonoBehaviour
     {
-        [SerializeField] private Laser _laser;
+        [SerializeField] private DamageSource _laser;
         [SerializeField] private Sprite _idle;
 
         private Animator _animator;

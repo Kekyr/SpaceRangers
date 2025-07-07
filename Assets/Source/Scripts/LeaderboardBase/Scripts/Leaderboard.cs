@@ -14,7 +14,7 @@ namespace LeaderboardBase
         private const string TranslationName = "AnonymPhrase";
         private const string AnonymName = "anonymous";
 
-        private readonly List<LeaderboardPlayer> _leaderboardPlayers = new();
+        private readonly List<LeaderboardPlayer> _leaderboardPlayers = new ();
 
         [SerializeField] private LeaderboardView _leaderboardView;
 

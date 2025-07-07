@@ -24,15 +24,13 @@ namespace Game
         private ShipHealth _shipHealth;
         private SFX _sfx;
         private AudioSettingSO _setting;
-
+        private GameplayMusic _music;
         private WaitForSeconds _wait;
 
         private bool _isEnded;
 
         public event Action Won;
         public event Action Lose;
-
-        private GameplayMusic _music;
 
         private void OnEnable()
         {
@@ -65,8 +63,7 @@ namespace Game
             }
         }
 
-        public void Init(Timer timer, ShipHealth shipHealth, AudioSettingSO setting, LevelSO levelData,
-            LevelsSO levelsData, GameplayMusic music)
+        public void Init(Timer timer, ShipHealth shipHealth, AudioSettingSO setting, LevelSO levelData, LevelsSO levelsData, GameplayMusic music)
         {
             _timer = timer;
             _shipHealth = shipHealth;
@@ -77,7 +74,7 @@ namespace Game
             enabled = true;
         }
 
-        public void Init(EnemyShip boss)
+        public void OnBossInitialized(EnemyShip boss)
         {
             _boss = boss;
             _boss.Destroyed += OnDestroyed;

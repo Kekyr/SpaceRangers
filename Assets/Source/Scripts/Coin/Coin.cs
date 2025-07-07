@@ -12,7 +12,7 @@ namespace Game
         {
             if (collider.gameObject.CompareTag("Player") || 
                 collider.gameObject.CompareTag("BorderDown") || 
-                collider.gameObject.CompareTag("BorderUp")|| 
+                collider.gameObject.CompareTag("BorderUp") || 
                 collider.gameObject.CompareTag("BorderRight") || 
                 collider.gameObject.CompareTag("BorderLeft"))
             {

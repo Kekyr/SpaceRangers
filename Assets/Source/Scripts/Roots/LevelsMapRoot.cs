@@ -258,15 +258,14 @@ namespace Game
 
             _resetButton.onClick.AddListener(Reset);
 
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             _resetButton.gameObject.SetActive(true);
-#endif
+            #endif
 
             _musicButton.Init(_musicSetting, _saveLoader);
             _sfxButton.Init(_sfxSetting, _saveLoader);
 
-            TutorialStepSO[] mapTutorialsData = new[]
-                { _levelTutorialData, _hangarButtonTutorialData };
+            TutorialStepSO[] mapTutorialsData = new[] { _levelTutorialData, _hangarButtonTutorialData };
 
             _music.Init(_musicButton, _musicSetting);
             _hangarPopupTutorial.Init(_improvementTutorialData, _saveLoader);
@@ -286,7 +285,7 @@ namespace Game
                 _bulletImprovementsData,
                 _shieldImprovementsData,
                 _shipImprovementsData,
-                _rocketImprovementsData
+                _rocketImprovementsData,
             };
 
             _hangarPopup.Init(_walletData, _saveLoader, improvementsData, _hangarPopupTutorial);

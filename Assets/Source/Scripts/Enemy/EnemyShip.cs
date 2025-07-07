@@ -103,14 +103,12 @@ namespace Enemy
 
                 if (_enemyShield.GetValue() <= 0)
                 {
-                    Sequence sequence =
-                        _spriteModifier.ChangeColor(_spriteRenderer, damageSource.DamageColor, _changeColorDuration);
+                    Sequence sequence = _spriteModifier.ChangeColor(_spriteRenderer, damageSource.DamageColor, _changeColorDuration);
                     sequence.OnComplete(() => { _enemyHealth.TakeDamage(damageSource.Damage); });
                 }
                 else
                 {
-                    Sequence sequence = _spriteModifier.ChangeColor(_shield, damageSource.DamageColor,
-                        _changeColorDuration);
+                    Sequence sequence = _spriteModifier.ChangeColor(_shield, damageSource.DamageColor, _changeColorDuration);
                     sequence.OnComplete(() => { _enemyShield.TakeDamage(damageSource.Damage); });
                 }
             }

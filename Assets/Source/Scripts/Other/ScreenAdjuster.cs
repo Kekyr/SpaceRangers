@@ -62,10 +62,9 @@ namespace Game
             float newWidth = (_canvasRectTransform.rect.width / _pixelsPerUnit) / 10;
             float newHeight = (_canvasRectTransform.rect.height / _pixelsPerUnit) / 10;
 
-            Vector2 newSize = new Vector2(newWidth, newHeight);
+            Vector2 newSize = new Vector2 (newWidth, newHeight);
 
-            _backgroundImage.uvRect = new Rect(_backgroundImage.uvRect.position,
-                newSize);
+            _backgroundImage.uvRect = new Rect(_backgroundImage.uvRect.position, newSize);
         }
 
         public void ChangeEffect()
@@ -74,7 +73,7 @@ namespace Game
             float oneFourth = 5;
             float newValue;
 
-            float unitsCount = (_canvasRectTransform.rect.width / _pixelsPerUnit);
+            float unitsCount = _canvasRectTransform.rect.width / _pixelsPerUnit;
             float modifier = unitsCount / oneFourth;
 
             newValue = maxValue / modifier;

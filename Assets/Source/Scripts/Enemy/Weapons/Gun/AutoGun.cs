@@ -69,8 +69,7 @@ namespace Enemy
             {
                 for (int i = 0; i < _capacity; i++)
                 {
-                    GameObject instance = Instantiate(_bulletPrefab, spawnPoint.position, Quaternion.identity,
-                        container.transform);
+                    GameObject instance = Instantiate(_bulletPrefab, spawnPoint.position, Quaternion.identity, container.transform);
 
                     EnemyBulletMovement enemyBulletMovement = instance.GetComponent<EnemyBulletMovement>();
 

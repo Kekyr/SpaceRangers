@@ -17,7 +17,7 @@ namespace Enemy
         {
             _rigidbody = GetComponent<Rigidbody2D>();
         }
-        
+
         private void Start()
         {
             _directionSpeed = _speed;
@@ -25,7 +25,7 @@ namespace Enemy
 
         public void Launch()
         {
-            if(_coroutine != null)
+            if (_coroutine != null)
             {
                 StopCoroutine(_coroutine);
             }

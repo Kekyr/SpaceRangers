@@ -402,14 +402,8 @@ namespace Game
         {
             Validate();
 
-            _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData,
-                _hangarButtonTutorialData, _improvementTutorialData, _movementTutorialData, _rocketLauncherTutorialData,
-                _winPopupTutorialData, _losePopupTutorialData, _bulletData, _shieldData,
-                _shipData,
-                _rocketData);
-
+            _saveLoader.Init(_levelsData, _walletData, _scoreData, _sfxSetting, _musicSetting, _levelTutorialData, _hangarButtonTutorialData, _improvementTutorialData, _movementTutorialData, _rocketLauncherTutorialData, _winPopupTutorialData, _losePopupTutorialData, _bulletData, _shieldData, _shipData, _rocketData);
             _levelData = _levelsData.Current;
-
             _backgroundImage.texture = _backgroundData.CurrentTexture;
 
             _screenAdjuster.Init(_canvas, _camera, _backgroundImage, _postProcessProfile);
@@ -491,8 +485,7 @@ namespace Game
             List<EnemySpawnerSO> enemySpawnersData = _levelData.SpawnersData;
 
             _enemySpawners.Init(_canvas, _camera, _screenAdjuster, _gameEndHandler, _sfxSetting, _music);
-            _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool,
-                _score, _timer, _levelData);
+            _enemySpawners.Init(enemySpawnersData, _spriteModifier, _enemyBulletsContainer, _coinPool, _score, _timer, _levelData);
 
             StartCoroutine(Initialization());
         }

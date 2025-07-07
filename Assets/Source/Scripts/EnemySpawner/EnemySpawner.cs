@@ -48,6 +48,11 @@ namespace Enemy
             {
                 _pools.TryGetValue(key, out Queue<GameObject> pool);
 
+                if (pool == null)
+                {
+                    continue;
+                }
+
                 for (int i = 0; i < pool.Count; i++)
                 {
                     GameObject enemy = pool.Dequeue();
@@ -63,9 +68,7 @@ namespace Enemy
             _timer.Ended -= OnEnded;
         }
 
-        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier,
-            GameObject enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster,
-            AudioSettingSO sfxSetting, Timer timer)
+        public void Init(EnemySpawnerSO data, SpriteModifier spriteModifier, GameObject enemyBulletsContainer, CoinPool coinPool, Score score, ScreenAdjuster screenAdjuster, AudioSettingSO sfxSetting, Timer timer)
         {
             _data = data;
             _spriteModifier = spriteModifier;
@@ -148,6 +151,12 @@ namespace Enemy
             string enemyType = _data.Sequence[_currentInstanceIndex].name;
             string key = enemyType + "(Clone)";
             _pools.TryGetValue(key, out Queue<GameObject> pool);
+
+            if (pool == null)
+            {
+                return;
+            }
+            
             enemy = pool.Dequeue();
 
             enemy.gameObject.SetActive(true);
@@ -168,6 +177,12 @@ namespace Enemy
             if (_pools.ContainsKey(ship.gameObject.name) == true)
             {
                 _pools.TryGetValue(ship.gameObject.name, out Queue<GameObject> pool);
+
+                if (pool == null)
+                {
+                    return;
+                }
+                
                 pool.Enqueue(ship.gameObject);
             }
 
@@ -181,6 +196,12 @@ namespace Enemy
             if (_pools.ContainsKey(ship.name) == true)
             {
                 _pools.TryGetValue(ship.name, out Queue<GameObject> pool);
+                
+                if (pool == null)
+                {
+                    return;
+                }
+
                 pool.Enqueue(ship);
             }
             
