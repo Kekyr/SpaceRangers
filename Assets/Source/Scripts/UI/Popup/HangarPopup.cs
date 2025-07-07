@@ -1,120 +1,128 @@
 using System;
+using SaveSystem;
+using ShipBase;
 using TMPro;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.UI;
+using WalletSystem;
 
-public class HangarPopup : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TextMeshProUGUI _walletView;
-    [SerializeField] private TextMeshProUGUI _coinsCount;
-    [SerializeField] private Button _closeButton;
-    [SerializeField] private Image _blackout;
-
-    [SerializeField] private ImprovementsView[] _improvementsViews;
-    
-    private IImprovementsSO[] _improvementsData;
-    private WalletSO _walletData;
-    private SaveLoader _saveLoader;
-    private PopupTutorial _tutorial;
-
-    public event Action Bought;
-
-    private void Start()
+    public class HangarPopup : MonoBehaviour
     {
-        if (_walletView == null)
+        [SerializeField] private TextMeshProUGUI _walletView;
+        [SerializeField] private TextMeshProUGUI _coinsCount;
+        [SerializeField] private Button _closeButton;
+        [SerializeField] private Image _blackout;
+
+        [SerializeField] private ImprovementsView[] _improvementsViews;
+
+        private IImprovementsSO[] _improvementsData;
+        private WalletSO _walletData;
+        private SaveLoader _saveLoader;
+        private PopupTutorial _tutorial;
+
+        public event Action Bought;
+
+        private void Start()
         {
-            throw new ArgumentNullException(nameof(_walletView));
-        }
-        
-        if (_coinsCount == null)
-        {
-            throw new ArgumentNullException(nameof(_coinsCount));
-        }
+            if (_walletView == null)
+            {
+                throw new ArgumentNullException(nameof(_walletView));
+            }
 
-        if (_closeButton == null)
-        {
-            throw new ArgumentNullException(nameof(_closeButton));
-        }
+            if (_coinsCount == null)
+            {
+                throw new ArgumentNullException(nameof(_coinsCount));
+            }
 
-        if (_blackout == null)
-        {
-            throw new ArgumentNullException(nameof(_blackout));
-        }
+            if (_closeButton == null)
+            {
+                throw new ArgumentNullException(nameof(_closeButton));
+            }
 
-        if (_improvementsViews.Length == 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(_improvementsViews));
-        }
+            if (_blackout == null)
+            {
+                throw new ArgumentNullException(nameof(_blackout));
+            }
 
-        for (int i = 0; i < _improvementsData.Length; i++)
-        {
-            _improvementsViews[i].Init(_improvementsData[i],this);
-            _improvementsViews[i].Clicked += OnClicked;
-        }
+            if (_improvementsViews.Length == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_improvementsViews));
+            }
 
-        _coinsCount.text = _walletData.Money.ToString();
-        _closeButton.onClick.AddListener(OnClose);
-    }
+            for (int i = 0; i < _improvementsData.Length; i++)
+            {
+                _improvementsViews[i].Init(_improvementsData[i], this);
+                _improvementsViews[i].Clicked += OnClicked;
+            }
 
-    private void OnDestroy()
-    {
-        for (int i = 0; i < _improvementsData.Length; i++)
-        {
-            _improvementsViews[i].Clicked -= OnClicked;
-        }
-        
-        _closeButton.onClick.RemoveListener(OnClose);
-    }
-
-    public void Init(WalletSO walletData, SaveLoader saveLoader,IImprovementsSO[] improvementsData, PopupTutorial tutorial)
-    {
-        _walletData = walletData;
-        _saveLoader = saveLoader;
-        _improvementsData = improvementsData;
-        _tutorial = tutorial;
-        enabled = true;
-    }
-
-    public void OnOpen()
-    {
-        _blackout.gameObject.SetActive(true);
-        gameObject.SetActive(true);
-        _tutorial.enabled = true;
-        _tutorial.gameObject.SetActive(true);
-    }
-
-    private void OnClose()
-    {
-        _blackout.gameObject.SetActive(false);
-        gameObject.SetActive(false);
-        _tutorial.gameObject.SetActive(false);
-    }
-    
-    private void OnClicked(IImprovementsSO improvementsData, ImprovementDataSO improvementData)
-    {
-        if (TryBuy(improvementData.Price) == true)
-        {
-            Buy(improvementData.Price);
-            improvementsData.SetCurrent(improvementData);
-            _saveLoader.Save();
-            Bought?.Invoke();
-        }
-    }
-
-    private void Buy(int price)
-    {
-        _walletData.Decrease(price);
-        _coinsCount.text = _walletData.Money.ToString();
-        _walletView.text = _walletData.Money.ToString();
-    }
-
-    private bool TryBuy(int price)
-    {
-        if (price < 0)
-        {
-            return false;
+            _coinsCount.text = _walletData.Money.ToString();
+            _closeButton.onClick.AddListener(OnClose);
         }
 
-        return _walletData.Money - price >= 0;
+        private void OnDestroy()
+        {
+            for (int i = 0; i < _improvementsData.Length; i++)
+            {
+                _improvementsViews[i].Clicked -= OnClicked;
+            }
+
+            _closeButton.onClick.RemoveListener(OnClose);
+        }
+
+        public void Init(WalletSO walletData, SaveLoader saveLoader, IImprovementsSO[] improvementsData,
+            PopupTutorial tutorial)
+        {
+            _walletData = walletData;
+            _saveLoader = saveLoader;
+            _improvementsData = improvementsData;
+            _tutorial = tutorial;
+            enabled = true;
+        }
+
+        public void OnOpen()
+        {
+            _blackout.gameObject.SetActive(true);
+            gameObject.SetActive(true);
+            _tutorial.enabled = true;
+            _tutorial.gameObject.SetActive(true);
+        }
+
+        private void OnClose()
+        {
+            _blackout.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            _tutorial.gameObject.SetActive(false);
+        }
+
+        private void OnClicked(IImprovementsSO improvementsData, ImprovementDataSO improvementData)
+        {
+            if (TryBuy(improvementData.Price) == true)
+            {
+                Buy(improvementData.Price);
+                improvementsData.SetCurrent(improvementData);
+                _saveLoader.Save();
+                Bought?.Invoke();
+            }
+        }
+
+        private void Buy(int price)
+        {
+            _walletData.Decrease(price);
+            _coinsCount.text = _walletData.Money.ToString();
+            _walletView.text = _walletData.Money.ToString();
+        }
+
+        private bool TryBuy(int price)
+        {
+            if (price < 0)
+            {
+                return false;
+            }
+
+            return _walletData.Money - price >= 0;
+        }
     }
 }

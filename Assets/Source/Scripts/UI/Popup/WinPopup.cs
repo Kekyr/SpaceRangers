@@ -1,89 +1,99 @@
 using System;
+using Ad;
+using Enemy;
+using Game;
+using ScoreSystem;
 using ShipBase;
 using TMPro;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.UI;
+using WalletSystem;
 
-public class WinPopup : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TextMeshProUGUI _walletView;
-    [SerializeField] private TextMeshProUGUI _scoreView;
-    [SerializeField] private Button _exitButton;
-    [SerializeField] private Image _blackout;
-
-    private GameEndHandler _gameEndHandler;
-    private Wallet _wallet;
-    private Score _score;
-    private InterstitialAd _interstitialAd;
-    private RewardedAd _rewardedAd;
-    private PopupTutorial _tutorial;
-
-    private void Awake()
+    public class WinPopup : MonoBehaviour
     {
-        if (_wallet == null)
+        [SerializeField] private TextMeshProUGUI _walletView;
+        [SerializeField] private TextMeshProUGUI _scoreView;
+        [SerializeField] private Button _exitButton;
+        [SerializeField] private Image _blackout;
+
+        private GameEndHandler _gameEndHandler;
+        private Wallet _wallet;
+        private Score _score;
+        private EnemyShip _boss;
+        private InterstitialAd _interstitialAd;
+        private RewardedAd _rewardedAd;
+        private PopupTutorial _tutorial;
+
+        private void Awake()
         {
-            throw new ArgumentNullException(nameof(_wallet));
+            if (_wallet == null)
+            {
+                throw new ArgumentNullException(nameof(_wallet));
+            }
+
+            if (_score == null)
+            {
+                throw new ArgumentNullException(nameof(_score));
+            }
+
+            if (_exitButton == null)
+            {
+                throw new ArgumentNullException(nameof(_exitButton));
+            }
+
+            if (_blackout == null)
+            {
+                throw new ArgumentNullException(nameof(_blackout));
+            }
+
+            _tutorial.enabled = true;
+
+            UpdateScore();
+
+            _rewardedAd.Rewarded += UpdateScore;
+            _exitButton.onClick.AddListener(OnExit);
         }
 
-        if (_score == null)
+        private void OnDisable()
         {
-            throw new ArgumentNullException(nameof(_score));
+            _rewardedAd.Rewarded -= UpdateScore;
+            _exitButton.onClick.RemoveListener(OnExit);
+
+            _gameEndHandler.Won -= OnWon;
         }
 
-        if (_exitButton == null)
+        public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd,
+            RewardedAd rewardedAd,
+            PopupTutorial tutorial)
         {
-            throw new ArgumentNullException(nameof(_exitButton));
+            _gameEndHandler = gameEndHandler;
+            _wallet = wallet;
+            _score = score;
+            _interstitialAd = interstitialAd;
+            _rewardedAd = rewardedAd;
+            _tutorial = tutorial;
+
+            _gameEndHandler.Won += OnWon;
         }
 
-        if (_blackout == null)
+        private void OnWon()
         {
-            throw new ArgumentNullException(nameof(_blackout));
+            _blackout.gameObject.SetActive(true);
+            gameObject.SetActive(true);
         }
 
-        _tutorial.enabled = true;
+        private void OnExit()
+        {
+            _interstitialAd.Show();
+        }
 
-        UpdateScore();
-
-        _rewardedAd.Rewarded += UpdateScore;
-        _exitButton.onClick.AddListener(OnExit);
-    }
-
-    private void OnDisable()
-    {
-        _rewardedAd.Rewarded -= UpdateScore;
-        _exitButton.onClick.RemoveListener(OnExit);
-
-        _gameEndHandler.Won -= OnWon;
-    }
-
-    public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd,
-        RewardedAd rewardedAd,
-        PopupTutorial tutorial)
-    {
-        _gameEndHandler = gameEndHandler;
-        _wallet = wallet;
-        _score = score;
-        _interstitialAd = interstitialAd;
-        _rewardedAd = rewardedAd;
-        _tutorial = tutorial;
-
-        _gameEndHandler.Won += OnWon;
-    }
-
-    private void OnWon()
-    {
-        _blackout.gameObject.SetActive(true);
-        gameObject.SetActive(true);
-    }
-
-    private void OnExit()
-    {
-        _interstitialAd.Show();
-    }
-
-    private void UpdateScore()
-    {
-        _walletView.text = _wallet.Money.ToString();
-        _scoreView.text = _score.Points.ToString();
+        private void UpdateScore()
+        {
+            _walletView.text = _wallet.Money.ToString();
+            _scoreView.text = _score.Points.ToString();
+        }
     }
 }

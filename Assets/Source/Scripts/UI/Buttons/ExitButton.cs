@@ -2,26 +2,29 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ExitButton : MonoBehaviour
+namespace UI
 {
-    private Button _button;
-
-    private void Start()
+    public class ExitButton : MonoBehaviour
     {
-        _button = GetComponent<Button>();
-        _button.onClick.AddListener(OnClick);
-    }
+        private Button _button;
 
-    private void OnDestroy()
-    {
-        _button.onClick.RemoveListener(OnClick);
-    }
+        private void Start()
+        {
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(OnClick);
+        }
 
-    private void OnClick()
-    {
-        int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        private void OnDestroy()
+        {
+            _button.onClick.RemoveListener(OnClick);
+        }
 
-        Time.timeScale = 1;
-        SceneManager.LoadScene(previousSceneIndex);
+        private void OnClick()
+        {
+            int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+
+            Time.timeScale = 1;
+            SceneManager.LoadScene(previousSceneIndex);
+        }
     }
 }

@@ -1,29 +1,32 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new WalletSO", menuName = "WalletSO/Create new WalletSO")]
-public class WalletSO : ScriptableObject
+namespace WalletSystem
 {
-    [SerializeField] private int _money;
-
-    public int Money => _money;
-
-    public void Init(int money)
+    [CreateAssetMenu(fileName = "new WalletSO", menuName = "WalletSO/Create new WalletSO")]
+    public class WalletSO : ScriptableObject
     {
-        _money = money;
-    }
-    
-    public void Add(int count)
-    {
-        _money += count;
-    }
+        [SerializeField] private int _money;
 
-    public void Decrease(int count)
-    {
-        _money -= count;
-    }
+        public int Money => _money;
 
-    public void Reset()
-    {
-        _money = 0;
+        public void Init(int money)
+        {
+            _money = money;
+        }
+
+        public void Add(int count)
+        {
+            _money += count;
+        }
+
+        public void Decrease(int count)
+        {
+            _money -= count;
+        }
+
+        public void Reset()
+        {
+            _money = 0;
+        }
     }
 }

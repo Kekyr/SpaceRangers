@@ -1,3 +1,8 @@
-public class Laser : Attacker
+using Game;
+
+namespace Enemy
 {
+    public class Laser : DamageSource
+    {
+    }
 }

@@ -1,40 +1,45 @@
 using System;
 using Audio;
+using Game;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LosePopup : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Image _blackout;
-
-    private GameEndHandler _gameEndHandler;
-    private PopupTutorial _tutorial;
-
-    private void Start()
+    public class LosePopup : MonoBehaviour
     {
-        if (_blackout == null)
+        [SerializeField] private Image _blackout;
+
+        private GameEndHandler _gameEndHandler;
+        private PopupTutorial _tutorial;
+
+        private void Start()
         {
-            throw new ArgumentNullException(nameof(_blackout));
+            if (_blackout == null)
+            {
+                throw new ArgumentNullException(nameof(_blackout));
+            }
         }
-    }
 
-    private void OnDestroy()
-    {
-        _gameEndHandler.Lose -= OnLose;
-    }
+        private void OnDestroy()
+        {
+            _gameEndHandler.Lose -= OnLose;
+        }
 
-    public void Init(GameEndHandler gameEndHandler, PopupTutorial tutorial)
-    {
-        _gameEndHandler = gameEndHandler;
-        _tutorial = tutorial;
+        public void Init(GameEndHandler gameEndHandler, PopupTutorial tutorial)
+        {
+            _gameEndHandler = gameEndHandler;
+            _tutorial = tutorial;
 
-        _gameEndHandler.Lose += OnLose;
-    }
+            _gameEndHandler.Lose += OnLose;
+        }
 
-    private void OnLose()
-    {
-        _blackout.gameObject.SetActive(true);
-        gameObject.SetActive(true);
-        _tutorial.enabled = true;
+        private void OnLose()
+        {
+            _blackout.gameObject.SetActive(true);
+            gameObject.SetActive(true);
+            _tutorial.enabled = true;
+        }
     }
 }

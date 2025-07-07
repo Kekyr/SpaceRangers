@@ -1,85 +1,88 @@
 using System;
-using LevelEnemy;
+using Level;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
 
-public class LevelView : MonoBehaviour
+namespace UI
 {
-    private readonly Color _planetOpened = new Color(0.8773585f, 0.8773585f, 0.8773585f);
-    private readonly Color _starsOpened = new Color(0.2745098f, 0.1215686f, 0.1529412f);
-    private readonly Color _starsCompleted = new Color(255, 225, 0);
-    private readonly Color _planetSelected = new Color(0.3813552f, 0.745283f, 0.2425685f, 0.6588235f);
-
-    [SerializeField] private Image _planet;
-    [SerializeField] private Image[] _stars;
-    [SerializeField] private Button _button;
-
-    private LevelSO _data;
-
-    public event Action<LevelSO> Clicked;
-    public event Action Checked;
-
-    private void Start()
+    public class LevelView : MonoBehaviour
     {
-        if (_planet == null)
+        private readonly Color _planetOpened = new Color(0.8773585f, 0.8773585f, 0.8773585f);
+        private readonly Color _starsOpened = new Color(0.2745098f, 0.1215686f, 0.1529412f);
+        private readonly Color _starsCompleted = new Color(255, 225, 0);
+        private readonly Color _planetSelected = new Color(0.3813552f, 0.745283f, 0.2425685f, 0.6588235f);
+
+        [SerializeField] private Image _planet;
+        [SerializeField] private Image[] _stars;
+        [SerializeField] private Button _button;
+
+        private LevelSO _data;
+
+        public event Action<LevelSO> Clicked;
+        public event Action Checked;
+
+        private void Start()
         {
-            throw new ArgumentNullException(nameof(_planet));
+            if (_planet == null)
+            {
+                throw new ArgumentNullException(nameof(_planet));
+            }
+
+            if (_stars.Length == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_stars));
+            }
+
+            if (_button == null)
+            {
+                throw new ArgumentNullException(nameof(_button));
+            }
+
+            _button.onClick.AddListener(OnClick);
+
+            CheckState();
         }
 
-        if (_stars.Length == 0)
+        private void OnDestroy()
         {
-            throw new ArgumentOutOfRangeException(nameof(_stars));
+            _button.onClick.RemoveListener(OnClick);
         }
 
-        if (_button == null)
+        public void Init(LevelSO data)
         {
-            throw new ArgumentNullException(nameof(_button));
+            _data = data;
+            enabled = true;
         }
 
-        _button.onClick.AddListener(OnClick);
-
-        CheckState();
-    }
-
-    private void OnDestroy()
-    {
-        _button.onClick.RemoveListener(OnClick);
-    }
-
-    public void Init(LevelSO data)
-    {
-        _data = data;
-        enabled = true;
-    }
-
-    public void MakeCurrent()
-    {
-        _planet.color = _planetSelected;
-    }
-
-    private void CheckState()
-    {
-        if (_data.Status == LevelState.Closed)
+        public void MakeCurrent()
         {
-            return;
+            _planet.color = _planetSelected;
         }
-        
-        _planet.color = _planetOpened;
 
-        Color starColor = _data.Status == LevelState.Completed ? _starsCompleted : _starsOpened;
-        
-        for (int i = 0; i < _stars.Length; i++)
+        private void CheckState()
         {
-            _stars[i].color = starColor;
-        }
-        
-        _button.interactable = true;
-        Checked?.Invoke();
-    }
+            if (_data.Status == LevelState.Closed)
+            {
+                return;
+            }
 
-    private void OnClick()
-    {
-        Clicked?.Invoke(_data);
+            _planet.color = _planetOpened;
+
+            Color starColor = _data.Status == LevelState.Completed ? _starsCompleted : _starsOpened;
+
+            for (int i = 0; i < _stars.Length; i++)
+            {
+                _stars[i].color = starColor;
+            }
+
+            _button.interactable = true;
+            Checked?.Invoke();
+        }
+
+        private void OnClick()
+        {
+            Clicked?.Invoke(_data);
+        }
     }
 }

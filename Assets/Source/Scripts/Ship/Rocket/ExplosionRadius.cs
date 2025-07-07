@@ -1,6 +1,6 @@
 namespace ShipBase
 {
-    public class ExplosionRadius : Attacker
+    public class ExplosionRadius : DamageSource
     {
     }
 }

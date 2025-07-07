@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Game;
 using UnityEngine;
 
 namespace ShipBase
@@ -71,19 +72,19 @@ namespace ShipBase
             _spriteModifier = spriteModifier;
         }
 
-        public void TakeDamage(Attacker attacker)
+        public void TakeDamage(DamageSource damageSource)
         {
             if (_shield.IsDead == false)
             {
                 Sequence shieldSequence =
-                    _spriteModifier.ChangeColor(_shieldSpriteRenderer, attacker.DamageColor, _changeColorDuration);
-                shieldSequence.OnComplete(() => { _shield.TakeDamage(attacker.Damage); });
+                    _spriteModifier.ChangeColor(_shieldSpriteRenderer, damageSource.DamageColor, _changeColorDuration);
+                shieldSequence.OnComplete(() => { _shield.TakeDamage(damageSource.Damage); });
                 return;
             }
 
             Sequence healthSequence =
-                _spriteModifier.ChangeColor(_spriteRenderer, attacker.DamageColor, _changeColorDuration);
-            healthSequence.OnComplete(() => { _health.TakeDamage(attacker.Damage); });
+                _spriteModifier.ChangeColor(_spriteRenderer, damageSource.DamageColor, _changeColorDuration);
+            healthSequence.OnComplete(() => { _health.TakeDamage(damageSource.Damage); });
         }
 
         private void Switch(bool value)

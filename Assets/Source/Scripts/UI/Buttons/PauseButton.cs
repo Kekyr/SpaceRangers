@@ -2,26 +2,29 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseButton : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private PausePopup _pausePopup;
-
-    private Button _button;
-
-    private void Awake()
+    public class PauseButton : MonoBehaviour
     {
-        if (_pausePopup == null)
+        [SerializeField] private PausePopup _pausePopup;
+
+        private Button _button;
+
+        private void Awake()
         {
-            throw new ArgumentNullException(nameof(_pausePopup));
+            if (_pausePopup == null)
+            {
+                throw new ArgumentNullException(nameof(_pausePopup));
+            }
+
+            _button = GetComponent<Button>();
+
+            _button.onClick.AddListener(_pausePopup.OnOpen);
         }
 
-        _button = GetComponent<Button>();
-        
-        _button.onClick.AddListener(_pausePopup.OnOpen);
-    }
-
-    private void OnDestroy()
-    {
-        _button.onClick.RemoveListener(_pausePopup.OnOpen);
+        private void OnDestroy()
+        {
+            _button.onClick.RemoveListener(_pausePopup.OnOpen);
+        }
     }
 }

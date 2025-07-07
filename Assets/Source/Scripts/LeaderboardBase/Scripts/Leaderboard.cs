@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Game;
 using Lean.Localization;
+using ScoreSystem;
 using UnityEngine;
 using YG;
 using YG.Utils.LB;

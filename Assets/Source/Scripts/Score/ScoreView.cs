@@ -1,45 +1,49 @@
 using System;
+using Game;
 using TMPro;
 using UnityEngine;
 
-public class ScoreView : MonoBehaviour
+namespace ScoreSystem
 {
-    [SerializeField] private TextMeshProUGUI _textMeshPro;
-
-    private Score _score;
-    private GameEndHandler _gameEndHandler;
-
-    private void OnEnable()
+    public class ScoreView : MonoBehaviour
     {
-        if (_textMeshPro == null)
+        [SerializeField] private TextMeshProUGUI _textMeshPro;
+
+        private Score _score;
+        private GameEndHandler _gameEndHandler;
+
+        private void OnEnable()
         {
-            throw new ArgumentNullException(nameof(_textMeshPro));
+            if (_textMeshPro == null)
+            {
+                throw new ArgumentNullException(nameof(_textMeshPro));
+            }
+
+            _score.Changed += OnChanged;
+            _gameEndHandler.Won += OnWon;
         }
 
-        _score.Changed += OnChanged;
-        _gameEndHandler.Won += OnWon;
-    }
+        private void OnDisable()
+        {
+            _score.Changed -= OnChanged;
+            _gameEndHandler.Won -= OnWon;
+        }
 
-    private void OnDisable()
-    {
-        _score.Changed -= OnChanged;
-        _gameEndHandler.Won -= OnWon;
-    }
+        public void Init(Score score, GameEndHandler gameEndHandler)
+        {
+            _score = score;
+            _gameEndHandler = gameEndHandler;
+            enabled = true;
+        }
 
-    public void Init(Score score, GameEndHandler gameEndHandler)
-    {
-        _score = score;
-        _gameEndHandler = gameEndHandler;
-        enabled = true;
-    }
+        private void OnChanged(int newValue)
+        {
+            _textMeshPro.text = newValue.ToString();
+        }
 
-    private void OnChanged(int newValue)
-    {
-        _textMeshPro.text = newValue.ToString();
-    }
-
-    private void OnWon()
-    {
-        gameObject.SetActive(false);
+        private void OnWon()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

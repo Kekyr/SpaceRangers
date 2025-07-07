@@ -1,8 +1,9 @@
+using Game;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class Rocket : Attacker
+    public class Rocket : DamageSource
     {
         private readonly string _destructionTrigger = "Destruct";
 

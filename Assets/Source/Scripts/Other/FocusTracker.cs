@@ -2,39 +2,42 @@ using Audio;
 using UnityEngine;
 using YG;
 
-public class FocusTracker : MonoBehaviour
+namespace Game
 {
-    private Music _music;
-    private float _currentTimeScale = 1f;
-
-    private void OnEnable()
+    public class FocusTracker : MonoBehaviour
     {
-        YandexGame.onShowWindowGame += OnShowWindow;
-        YandexGame.onHideWindowGame += OnHideWindow;
-    }
+        private Music _music;
+        private float _currentTimeScale = 1f;
 
-    private void OnDisable()
-    {
-        YandexGame.onShowWindowGame -= OnShowWindow;
-        YandexGame.onHideWindowGame -= OnHideWindow;
-    }
+        private void OnEnable()
+        {
+            YandexGame.onShowWindowGame += OnShowWindow;
+            YandexGame.onHideWindowGame += OnHideWindow;
+        }
 
-    public void Init(Music music)
-    {
-        _music = music;
-        enabled = true;
-    }
+        private void OnDisable()
+        {
+            YandexGame.onShowWindowGame -= OnShowWindow;
+            YandexGame.onHideWindowGame -= OnHideWindow;
+        }
 
-    private void OnShowWindow()
-    {
-        Time.timeScale = _currentTimeScale;
-        _music.Continue();
-    }
+        public void Init(Music music)
+        {
+            _music = music;
+            enabled = true;
+        }
 
-    private void OnHideWindow()
-    {
-        _currentTimeScale = Time.timeScale;
-        Time.timeScale = 0f;
-        _music.Pause();
+        private void OnShowWindow()
+        {
+            Time.timeScale = _currentTimeScale;
+            _music.Continue();
+        }
+
+        private void OnHideWindow()
+        {
+            _currentTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+            _music.Pause();
+        }
     }
 }

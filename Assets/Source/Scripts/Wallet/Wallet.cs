@@ -1,8 +1,11 @@
 using System;
+using Ad;
 using Audio;
+using Game;
+using SaveSystem;
 using UnityEngine;
 
-namespace ShipBase
+namespace WalletSystem
 {
     [RequireComponent(typeof(SFX))]
     public class Wallet : MonoBehaviour
