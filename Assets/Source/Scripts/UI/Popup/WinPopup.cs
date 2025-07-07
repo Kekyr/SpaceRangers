@@ -1,6 +1,5 @@
 using System;
 using Ad;
-using Enemy;
 using Game;
 using ScoreSystem;
 using TMPro;

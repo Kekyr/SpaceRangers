@@ -1,5 +1,4 @@
 using Ad;
-using ShipBase;
 using UnityEngine;
 using UnityEngine.UI;
 using WalletSystem;
