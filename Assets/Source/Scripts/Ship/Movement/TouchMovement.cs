@@ -24,7 +24,7 @@ namespace ShipBase
 
         protected override void Move()
         {
-            if (transform.position.Equals(_endPosition) == false && IsMoving== true)
+            if (transform.position.Equals(_endPosition) == false && IsMoving == true)
             {
                 Rigidbody.MovePosition(_endPosition);
             }

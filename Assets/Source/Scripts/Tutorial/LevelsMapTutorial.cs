@@ -103,10 +103,10 @@ namespace Tutorial
             gameObject.SetActive(false);
         }
 
-        private void SetStep(TutorialStep step, string _trigger)
+        private void SetStep(TutorialStep step, string trigger)
         {
             step.Prepare();
-            _handAnimator.SetTrigger(_trigger);
+            _handAnimator.SetTrigger(trigger);
             _handRectTransform.anchorMin = step.Position.anchorMin;
             _handRectTransform.anchorMax = step.Position.anchorMax;
             _handRectTransform.anchoredPosition = step.Position.anchoredPosition;

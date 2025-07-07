@@ -89,7 +89,7 @@ namespace ShipBase
 
             if (gameObject.activeSelf == true)
             {
-                _tryRegenerate = StartCoroutine((TryRegenerate()));
+                _tryRegenerate = StartCoroutine(TryRegenerate());
             }
         }
 

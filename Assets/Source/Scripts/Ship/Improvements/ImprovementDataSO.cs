@@ -11,7 +11,7 @@ namespace ShipBase
 
         public int Price => _price;
         public ImprovementState Status => _state;
-        public bool isCurrent => _isCurrent;
+        public bool IsCurrent => _isCurrent;
 
         public void Init(ImprovementState state)
         {
