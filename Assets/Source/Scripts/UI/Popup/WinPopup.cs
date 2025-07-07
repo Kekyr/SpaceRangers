@@ -3,7 +3,6 @@ using Ad;
 using Enemy;
 using Game;
 using ScoreSystem;
-using ShipBase;
 using TMPro;
 using Tutorial;
 using UnityEngine;
