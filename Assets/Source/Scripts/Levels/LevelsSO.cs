@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using YG;
 
-namespace LevelEnemy
+namespace Level
 {
     [CreateAssetMenu(fileName = "new LevelsSO", menuName = "LevelsSO/Create new LevelsSO", order = 0)]
     public class LevelsSO : ScriptableObject

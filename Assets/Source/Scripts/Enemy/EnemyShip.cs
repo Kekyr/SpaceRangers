@@ -2,6 +2,7 @@ using System;
 using Audio;
 using Cinemachine;
 using DG.Tweening;
+using Game;
 using ShipBase;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,7 +13,7 @@ namespace Enemy
     [RequireComponent(typeof(EnemyShield))]
     [RequireComponent(typeof(SFX))]
     [RequireComponent(typeof(CinemachineImpulseSource))]
-    public class EnemyShip : Attacker
+    public class EnemyShip : DamageSource
     {
         private readonly string _destruction = "Destruction";
         private readonly float _changeColorDuration = 0.1f;
@@ -98,20 +99,20 @@ namespace Enemy
         {
             if (collider.gameObject.CompareTag("PlayerProjectile"))
             {
-                Attacker attacker = collider.gameObject.GetComponent<Attacker>();
+                DamageSource damageSource = collider.gameObject.GetComponent<DamageSource>();
                 _sfx.Play(_damageSFX);
 
                 if (_enemyShield.GetValue() <= 0)
                 {
                     Sequence sequence =
-                        _spriteModifier.ChangeColor(_spriteRenderer, attacker.DamageColor, _changeColorDuration);
-                    sequence.OnComplete(() => { _enemyHealth.TakeDamage(attacker.Damage); });
+                        _spriteModifier.ChangeColor(_spriteRenderer, damageSource.DamageColor, _changeColorDuration);
+                    sequence.OnComplete(() => { _enemyHealth.TakeDamage(damageSource.Damage); });
                 }
                 else
                 {
-                    Sequence sequence = _spriteModifier.ChangeColor(_shield, attacker.DamageColor,
+                    Sequence sequence = _spriteModifier.ChangeColor(_shield, damageSource.DamageColor,
                         _changeColorDuration);
-                    sequence.OnComplete(() => { _enemyShield.TakeDamage(attacker.Damage); });
+                    sequence.OnComplete(() => { _enemyShield.TakeDamage(damageSource.Damage); });
                 }
             }
         }

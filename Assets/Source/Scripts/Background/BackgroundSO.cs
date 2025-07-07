@@ -1,20 +1,23 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new BackgroundSO", menuName = "BackgroundSO/Create new BackgroundSO")]
-public class BackgroundSO : ScriptableObject
+namespace Background
 {
-    [SerializeField] private Texture[] _textures;
-    [SerializeField] private int _currentTextureIndex;
-
-    public Texture CurrentTexture => _textures[_currentTextureIndex];
-
-    public void Init(int currentTextureIndex)
+    [CreateAssetMenu(fileName = "new BackgroundSO", menuName = "BackgroundSO/Create new BackgroundSO")]
+    public class BackgroundSO : ScriptableObject
     {
-        _currentTextureIndex = currentTextureIndex;
-    }
-    
-    public void SetCurrent(int index)
-    {
-        _currentTextureIndex = index;
+        [SerializeField] private Texture[] _textures;
+        [SerializeField] private int _currentTextureIndex;
+
+        public Texture CurrentTexture => _textures[_currentTextureIndex];
+
+        public void Init(int currentTextureIndex)
+        {
+            _currentTextureIndex = currentTextureIndex;
+        }
+
+        public void SetCurrent(int index)
+        {
+            _currentTextureIndex = index;
+        }
     }
 }

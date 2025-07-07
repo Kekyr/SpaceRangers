@@ -1,8 +1,9 @@
+using Game;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class Bullet : Attacker
+    public class Bullet : DamageSource
     {
         private Vector3 _direction;
         private EnemyBulletMovement _enemyBulletMovement;

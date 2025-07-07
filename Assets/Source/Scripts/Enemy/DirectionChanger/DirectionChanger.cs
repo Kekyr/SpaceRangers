@@ -1,23 +1,26 @@
 using System;
 using UnityEngine;
 
-public class DirectionChanger : MonoBehaviour
+namespace Enemy
 {
-    public event Action<Vector3> DirectionChanged;
-
-    public event Action<GameObject> OutSight;
-    
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    public class DirectionChanger : MonoBehaviour
     {
-        if (collider.gameObject.CompareTag("BorderDown"))
+        public event Action<Vector3> DirectionChanged;
+
+        public event Action<GameObject> OutSight;
+
+        protected virtual void OnTriggerEnter2D(Collider2D collider)
         {
-            transform.parent.gameObject.SetActive(false);
-            OutSight?.Invoke(transform.parent.gameObject);
+            if (collider.gameObject.CompareTag("BorderDown"))
+            {
+                transform.parent.gameObject.SetActive(false);
+                OutSight?.Invoke(transform.parent.gameObject);
+            }
         }
-    }
 
-    protected void InvokeDirectionChanged(Vector3 newDirection)
-    {
-        DirectionChanged?.Invoke(newDirection);
+        protected void InvokeDirectionChanged(Vector3 newDirection)
+        {
+            DirectionChanged?.Invoke(newDirection);
+        }
     }
 }

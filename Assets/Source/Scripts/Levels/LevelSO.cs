@@ -1,9 +1,9 @@
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
-using UnityEngine.Serialization;
 using YG;
 
-namespace LevelEnemy
+namespace Level
 {
     [CreateAssetMenu(fileName = "new LevelSO", menuName = "LevelSO/Create new LevelSO", order = 0)]
     public class LevelSO : ScriptableObject

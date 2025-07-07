@@ -2,30 +2,33 @@ using ShipBase;
 using TMPro;
 using UnityEngine;
 
-public class RocketView : MonoBehaviour
+namespace ShipBase
 {
-    private TextMeshProUGUI _textMeshPro;
-    private RocketLauncher _rocketLauncher;
-
-    private void OnEnable()
+    public class RocketView : MonoBehaviour
     {
-        _textMeshPro = GetComponentInChildren<TextMeshProUGUI>();
-        _rocketLauncher.CountChanged += OnChanged;
-    }
+        private TextMeshProUGUI _textMeshPro;
+        private RocketLauncher _rocketLauncher;
 
-    private void OnDisable()
-    {
-        _rocketLauncher.CountChanged -= OnChanged;
-    }
+        private void OnEnable()
+        {
+            _textMeshPro = GetComponentInChildren<TextMeshProUGUI>();
+            _rocketLauncher.CountChanged += OnChanged;
+        }
 
-    public void Init(RocketLauncher rocketLauncher)
-    {
-        _rocketLauncher = rocketLauncher;
-        enabled = true;
-    }
+        private void OnDisable()
+        {
+            _rocketLauncher.CountChanged -= OnChanged;
+        }
 
-    private void OnChanged(int newValue)
-    {
-        _textMeshPro.text = newValue.ToString();
+        public void Init(RocketLauncher rocketLauncher)
+        {
+            _rocketLauncher = rocketLauncher;
+            enabled = true;
+        }
+
+        private void OnChanged(int newValue)
+        {
+            _textMeshPro.text = newValue.ToString();
+        }
     }
 }

@@ -1,61 +1,66 @@
 using System;
-using LevelEnemy;
+using Background;
+using Level;
+using SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelsView : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private LevelView[] _views;
-
-    private LevelsSO _levelsData;
-    private BackgroundSO _backgroundData;
-    private SaveLoader _saveLoader;
-
-    private void Start()
+    public class LevelsView : MonoBehaviour
     {
-        if (_views.Length == 0)
+        [SerializeField] private LevelView[] _views;
+
+        private LevelsSO _levelsData;
+        private BackgroundSO _backgroundData;
+        private SaveLoader _saveLoader;
+
+        private void Start()
         {
-            throw new ArgumentOutOfRangeException(nameof(_views));
+            if (_views.Length == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_views));
+            }
+
+            for (int i = 0; i < _levelsData.Data.Count; i++)
+            {
+                _views[i].Init(_levelsData.Data[i]);
+                _views[i].Clicked += OnClicked;
+                _views[i].Checked += OnChecked;
+            }
         }
 
-        for (int i = 0; i < _levelsData.Data.Count; i++)
+        private void OnDestroy()
         {
-            _views[i].Init(_levelsData.Data[i]);
-            _views[i].Clicked += OnClicked;
-            _views[i].Checked += OnChecked;
+            for (int i = 0; i < _levelsData.Data.Count; i++)
+            {
+                _views[i].Clicked -= OnClicked;
+                _views[i].Checked -= OnChecked;
+            }
         }
-    }
 
-    private void OnDestroy()
-    {
-        for (int i = 0; i < _levelsData.Data.Count; i++)
+        public void Init(LevelsSO data, BackgroundSO backgroundData, SaveLoader saveLoader)
         {
-            _views[i].Clicked -= OnClicked;
-            _views[i].Checked -= OnChecked;
+            _levelsData = data;
+            _backgroundData = backgroundData;
+            _saveLoader = saveLoader;
+            enabled = true;
         }
-    }
 
-    public void Init(LevelsSO data, BackgroundSO backgroundData, SaveLoader saveLoader)
-    {
-        _levelsData = data;
-        _backgroundData = backgroundData;
-        _saveLoader = saveLoader;
-        enabled = true;
-    }
+        private void OnChecked()
+        {
+            _views[_levelsData.CurrentIndex].MakeCurrent();
+        }
 
-    private void OnChecked()
-    {
-        _views[_levelsData.CurrentIndex].MakeCurrent();
-    }
+        private void OnClicked(LevelSO data)
+        {
+            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-    private void OnClicked(LevelSO data)
-    {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            _levelsData.SetCurrent(data);
+            _backgroundData.SetCurrent(_levelsData.CurrentIndex);
+            _saveLoader.Save();
 
-        _levelsData.SetCurrent(data);
-        _backgroundData.SetCurrent(_levelsData.CurrentIndex);
-        _saveLoader.Save();
-
-        SceneManager.LoadScene(nextSceneIndex);
+            SceneManager.LoadScene(nextSceneIndex);
+        }
     }
 }

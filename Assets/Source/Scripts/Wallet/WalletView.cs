@@ -1,7 +1,8 @@
+using Game;
 using TMPro;
 using UnityEngine;
 
-namespace ShipBase
+namespace WalletSystem
 {
     public class WalletView : MonoBehaviour
     {

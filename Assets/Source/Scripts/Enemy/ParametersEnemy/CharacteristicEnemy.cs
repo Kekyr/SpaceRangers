@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public abstract class CharacteristicEnemy : MonoBehaviour
+namespace Enemy
 {
-    public event Action<float, float> ChangedValue;
-
-    protected void InvokeChangedValue(float value, float startValue)
+    public abstract class CharacteristicEnemy : MonoBehaviour
     {
-        ChangedValue?.Invoke(value, startValue);
+        public event Action<float, float> ChangedValue;
+
+        protected void InvokeChangedValue(float value, float startValue)
+        {
+            ChangedValue?.Invoke(value, startValue);
+        }
     }
 }

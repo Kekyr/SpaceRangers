@@ -4,6 +4,7 @@ using Audio;
 using Cinemachine;
 using Game;
 using UnityEngine;
+using WalletSystem;
 
 namespace ShipBase
 {
@@ -81,8 +82,8 @@ namespace ShipBase
         {
             if (collider.gameObject.CompareTag("EnemyProjectile") || collider.gameObject.CompareTag("Enemy"))
             {
-                Attacker attacker = collider.gameObject.GetComponent<Attacker>();
-                _damageHandler.TakeDamage(attacker);
+                DamageSource damageSource = collider.gameObject.GetComponent<DamageSource>();
+                _damageHandler.TakeDamage(damageSource);
                 _sfx.Play(_damageSFX);
                 _impulseSource.GenerateImpulseWithVelocity(_impulseDamageVelocity);
             }
@@ -97,8 +98,8 @@ namespace ShipBase
         {
             if (other.gameObject.CompareTag("Enemy") && _staying == null)
             {
-                Attacker attacker = other.gameObject.GetComponent<Attacker>();
-                _staying = StartCoroutine(StayingIn(attacker));
+                DamageSource damageSource = other.gameObject.GetComponent<DamageSource>();
+                _staying = StartCoroutine(StayingIn(damageSource));
             }
         }
 
@@ -120,10 +121,10 @@ namespace ShipBase
             enabled = true;
         }
 
-        private IEnumerator StayingIn(Attacker attacker)
+        private IEnumerator StayingIn(DamageSource damageSource)
         {
             yield return _waitInterval;
-            _damageHandler.TakeDamage(attacker);
+            _damageHandler.TakeDamage(damageSource);
             _sfx.Play(_damageSFX);
             _staying = null;
         }

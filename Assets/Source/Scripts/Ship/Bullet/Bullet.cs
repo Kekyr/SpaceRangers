@@ -1,3 +1,4 @@
+using Game;
 using UnityEngine;
 
 namespace ShipBase
@@ -5,7 +6,7 @@ namespace ShipBase
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(BulletMovement))]
-    public class Bullet : Attacker
+    public class Bullet : DamageSource
     {
         private readonly string DestructionTrigger = "Destruct";
 

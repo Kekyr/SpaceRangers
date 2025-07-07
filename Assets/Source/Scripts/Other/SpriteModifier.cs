@@ -2,19 +2,19 @@ using DG.Tweening;
 using UnityEngine;
 using Sequence = DG.Tweening.Sequence;
 
-public class SpriteModifier : MonoBehaviour
+namespace Game
 {
-    public Sequence ChangeColor(SpriteRenderer spriteRenderer, Color color, float duration)
+    public class SpriteModifier : MonoBehaviour
     {
-        Sequence sequence = DOTween.Sequence();
+        public Sequence ChangeColor(SpriteRenderer spriteRenderer, Color color, float duration)
+        {
+            Sequence sequence = DOTween.Sequence();
 
-        sequence.Append(spriteRenderer.DOColor(color, duration)
-            .SetEase(Ease.OutBounce)
-            .OnComplete<Tween>(() =>
-            {
-                spriteRenderer.DOColor(Color.white, duration);
-            }));
+            sequence.Append(spriteRenderer.DOColor(color, duration)
+                .SetEase(Ease.OutBounce)
+                .OnComplete<Tween>(() => { spriteRenderer.DOColor(Color.white, duration); }));
 
-        return sequence;
+            return sequence;
+        }
     }
 }

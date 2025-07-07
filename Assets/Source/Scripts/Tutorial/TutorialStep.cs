@@ -3,30 +3,33 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-[Serializable]
-public class TutorialStep
+namespace Tutorial
 {
-    [SerializeField] private Button[] _buttons;
-    [SerializeField] private bool _isInteractable;
-    [SerializeField] private RectTransform _position;
-
-    public RectTransform Position => _position;
-    
-    public void Prepare()
+    [Serializable]
+    public class TutorialStep
     {
-        ChangeButtonState();
-    }
+        [SerializeField] private Button[] _buttons;
+        [SerializeField] private bool _isInteractable;
+        [SerializeField] private RectTransform _position;
 
-    private void ChangeButtonState()
-    {
-        if (_buttons.Length == 0)
+        public RectTransform Position => _position;
+
+        public void Prepare()
         {
-            return;
+            ChangeButtonState();
         }
 
-        for (int i = 0; i < _buttons.Length; i++)
+        private void ChangeButtonState()
         {
-            _buttons[i].interactable = _isInteractable;
+            if (_buttons.Length == 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < _buttons.Length; i++)
+            {
+                _buttons[i].interactable = _isInteractable;
+            }
         }
     }
 }

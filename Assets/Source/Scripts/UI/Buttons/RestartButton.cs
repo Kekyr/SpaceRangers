@@ -2,24 +2,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class RestartButton : MonoBehaviour
+namespace UI
 {
-    private Button _button;
-
-    private void Start()
+    public class RestartButton : MonoBehaviour
     {
-        _button = GetComponent<Button>();
-        _button.onClick.AddListener(OnClick);
-    }
+        private Button _button;
 
-    private void OnDestroy()
-    {
-        _button.onClick.RemoveListener(OnClick);
-    }
+        private void Start()
+        {
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(OnClick);
+        }
 
-    private void OnClick()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        private void OnDestroy()
+        {
+            _button.onClick.RemoveListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

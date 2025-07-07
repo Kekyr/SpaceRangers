@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public class TutorialHand : MonoBehaviour
+namespace Tutorial
 {
-    public event Action Clicked;
-
-    private void OnMouseDown()
+    public class TutorialHand : MonoBehaviour
     {
-        Clicked?.Invoke();
+        public event Action Clicked;
+
+        private void OnMouseDown()
+        {
+            Clicked?.Invoke();
+        }
     }
 }

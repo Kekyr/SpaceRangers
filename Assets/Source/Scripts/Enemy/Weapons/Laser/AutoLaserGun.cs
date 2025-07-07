@@ -1,59 +1,61 @@
 using System;
 using System.Collections;
-using Enemy;
 using UnityEngine;
 
-public class AutoLaserGun : LaserGun
+namespace Enemy
 {
-    [SerializeField] private float _startDelay;
-    [SerializeField] private float _duration;
-    [SerializeField] private float _interval;
-
-    private Coroutine _shoot;
-    private WaitForSeconds _waitStartDelay;
-    private WaitForSeconds _waitDuration;
-    private WaitForSeconds _waitInterval;
-
-    protected override void Awake()
+    public class AutoLaserGun : LaserGun
     {
-        if (_duration == 0)
+        [SerializeField] private float _startDelay;
+        [SerializeField] private float _duration;
+        [SerializeField] private float _interval;
+
+        private Coroutine _shoot;
+        private WaitForSeconds _waitStartDelay;
+        private WaitForSeconds _waitDuration;
+        private WaitForSeconds _waitInterval;
+
+        protected override void Awake()
         {
-            throw new ArgumentOutOfRangeException(nameof(_duration));
+            if (_duration == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_duration));
+            }
+
+            if (_interval == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_interval));
+            }
+
+            _waitStartDelay = new WaitForSeconds(_startDelay);
+            _waitDuration = new WaitForSeconds(_duration);
+            _waitInterval = new WaitForSeconds(_interval);
+
+            base.Awake();
         }
 
-        if (_interval == 0)
+        private IEnumerator Shoot()
         {
-            throw new ArgumentOutOfRangeException(nameof(_interval));
+            yield return _waitStartDelay;
+
+            while (gameObject.activeSelf == true)
+            {
+                Fire();
+                yield return _waitDuration;
+                Disable();
+                yield return _waitInterval;
+            }
         }
 
-        _waitStartDelay = new WaitForSeconds(_startDelay);
-        _waitDuration = new WaitForSeconds(_duration);
-        _waitInterval = new WaitForSeconds(_interval);
-
-        base.Awake();
-    }
-
-    private IEnumerator Shoot()
-    {
-        yield return _waitStartDelay;
-
-        while (gameObject.activeSelf == true)
+        protected override void OnEmptied()
         {
-            Fire();
-            yield return _waitDuration;
-            Disable();
-            yield return _waitInterval;
+            _shoot = StartCoroutine(Shoot());
         }
-    }
 
-    protected override void OnEmptied()
-    {
-        _shoot = StartCoroutine(Shoot());
-    }
-
-    protected override void OnDied()
-    {
-        StopCoroutine(_shoot);
-        base.OnDied();
+        protected override void OnDied()
+        {
+            StopCoroutine(_shoot);
+            base.OnDied();
+        }
     }
 }
