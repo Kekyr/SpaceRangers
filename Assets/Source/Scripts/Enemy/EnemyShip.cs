@@ -4,7 +4,6 @@ using Cinemachine;
 using DG.Tweening;
 using ShipBase;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Enemy
 {

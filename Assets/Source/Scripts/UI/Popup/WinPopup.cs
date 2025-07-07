@@ -1,5 +1,4 @@
 using System;
-using Enemy;
 using ShipBase;
 using TMPro;
 using UnityEngine;
@@ -15,7 +14,6 @@ public class WinPopup : MonoBehaviour
     private GameEndHandler _gameEndHandler;
     private Wallet _wallet;
     private Score _score;
-    private EnemyShip _boss;
     private InterstitialAd _interstitialAd;
     private RewardedAd _rewardedAd;
     private PopupTutorial _tutorial;

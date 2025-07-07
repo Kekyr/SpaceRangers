@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new TutorialStepSO", menuName = "TutorialStepSO/Create new TutorialStepSO")]

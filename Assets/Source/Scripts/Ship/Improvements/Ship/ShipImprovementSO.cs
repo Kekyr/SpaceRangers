@@ -1,4 +1,3 @@
-using ShipBase;
 using UnityEngine;
 
 namespace ShipBase
