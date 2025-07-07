@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7033d4895e8da0f4786678e7beab9af4, type: 3}
   m_Name: LosePopupTutorial
   m_EditorClassIdentifier: 
-  _isCompleted: 0
+  _isCompleted: 1
   _animationTrigger: Up
