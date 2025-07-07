@@ -32,15 +32,22 @@ namespace SaveSystem
         private IImprovementsSO _shipImprovementsData;
         private IImprovementsSO _rocketImprovementsData;
 
-        public void Init(LevelsSO levelsData, WalletSO walletData, ScoreSO scoreData, AudioSettingSO sfxSetting,
-            AudioSettingSO musicSetting, TutorialStepSO levelTutorialData, TutorialStepSO hangarButtonTutorialData,
-            TutorialStepSO improvementTutorialData, TutorialStepSO movementTutorialData,
+        public void Init(LevelsSO levelsData,
+            WalletSO walletData,
+            ScoreSO scoreData,
+            AudioSettingSO sfxSetting,
+            AudioSettingSO musicSetting,
+            TutorialStepSO levelTutorialData,
+            TutorialStepSO hangarButtonTutorialData,
+            TutorialStepSO improvementTutorialData,
+            TutorialStepSO movementTutorialData,
             TutorialStepSO rocketLauncherTutorialData,
-            TutorialStepSO winPopupTutorialData, TutorialStepSO losePopupTutorialData,
+            TutorialStepSO winPopupTutorialData,
+            TutorialStepSO losePopupTutorialData,
             IImprovementsSO bulletImprovementsData,
             IImprovementsSO shieldImprovementsData,
-            IImprovementsSO shipImprovementsData, IImprovementsSO rocketImprovementsData
-        )
+            IImprovementsSO shipImprovementsData,
+            IImprovementsSO rocketImprovementsData)
         {
             _levelsData = levelsData;
             _walletData = walletData;
@@ -74,8 +81,7 @@ namespace SaveSystem
             List<ImprovementState> shipImprovementsState = Convert(_shipImprovementsData.Levels);
             List<ImprovementState> rocketImprovementsState = Convert(_rocketImprovementsData.Levels);
 
-            SavesYG saveData = new SavesYG(
-                _levelsData.CurrentIndex,
+            SavesYG saveData = new SavesYG(_levelsData.CurrentIndex,
                 _bulletImprovementsData.CurrentIndex,
                 _shieldImprovementsData.CurrentIndex,
                 _shipImprovementsData.CurrentIndex,
@@ -96,8 +102,7 @@ namespace SaveSystem
                 bulletImprovementsState,
                 shieldImprovementsState,
                 shipImprovementsState,
-                rocketImprovementsState
-            );
+                rocketImprovementsState);
 
             YandexGame.savesData = saveData;
             YandexGame.SaveProgress();

@@ -72,8 +72,7 @@ namespace UI
             _closeButton.onClick.RemoveListener(OnClose);
         }
 
-        public void Init(WalletSO walletData, SaveLoader saveLoader, IImprovementsSO[] improvementsData,
-            PopupTutorial tutorial)
+        public void Init(WalletSO walletData, SaveLoader saveLoader, IImprovementsSO[] improvementsData, PopupTutorial tutorial)
         {
             _walletData = walletData;
             _saveLoader = saveLoader;

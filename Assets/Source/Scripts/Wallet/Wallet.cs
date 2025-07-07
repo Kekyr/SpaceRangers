@@ -45,8 +45,7 @@ namespace WalletSystem
             _rewardedAd.Rewarded -= OnRewarded;
         }
 
-        public void Init(AudioSettingSO sfxSetting, WalletSO data, GameEndHandler gameEndHandler, SaveLoader saveLoader,
-            RewardedAd rewardedAd)
+        public void Init(AudioSettingSO sfxSetting, WalletSO data, GameEndHandler gameEndHandler, SaveLoader saveLoader, RewardedAd rewardedAd)
         {
             _sfxSetting = sfxSetting;
             _data = data;

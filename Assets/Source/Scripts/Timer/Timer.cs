@@ -11,7 +11,6 @@ namespace TimerSystem
 
         private WaitForSeconds _wait;
         private LevelSO _levelData;
-
         private int _duration;
 
         public event Action<int, int> Changed;
@@ -49,9 +48,8 @@ namespace TimerSystem
         private void Change()
         {
             int oneMinute = 60;
-
-            int minutes = (_duration / oneMinute);
-            int seconds = (_duration % oneMinute);
+            int minutes = _duration / oneMinute;
+            int seconds = _duration % oneMinute;
 
             Changed?.Invoke(minutes, seconds);
         }

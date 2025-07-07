@@ -64,8 +64,11 @@ namespace UI
             _gameEndHandler.Won -= OnWon;
         }
 
-        public void Init(GameEndHandler gameEndHandler, Wallet wallet, Score score, InterstitialAd interstitialAd,
-            RewardedAd rewardedAd,
+        public void Init(GameEndHandler gameEndHandler,
+            Wallet wallet,
+            Score score,
+            InterstitialAd interstitialAd,
+            RewardedAd rewardedAd, 
             PopupTutorial tutorial)
         {
             _gameEndHandler = gameEndHandler;
