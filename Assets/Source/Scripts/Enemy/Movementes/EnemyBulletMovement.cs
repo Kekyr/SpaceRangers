@@ -5,6 +5,7 @@ namespace Enemy
     [RequireComponent(typeof(Bullet))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyBulletMovement : MonoBehaviour
     {
         private readonly string _destructionTrigger = "Destruct";
