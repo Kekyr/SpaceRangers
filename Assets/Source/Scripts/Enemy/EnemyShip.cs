@@ -5,7 +5,6 @@ using DG.Tweening;
 using Game;
 using ShipBase;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Enemy
 {

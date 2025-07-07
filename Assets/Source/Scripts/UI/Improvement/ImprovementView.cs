@@ -3,7 +3,6 @@ using ShipBase;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
 
 namespace UI
 {

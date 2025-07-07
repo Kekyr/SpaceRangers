@@ -1,6 +1,5 @@
 using System;
 using SaveSystem;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyHealth : CharacteristicEnemy
+    public class EnemyHealth : EnemyCharacteristic
     {
         [SerializeField] private float _startValue;
 

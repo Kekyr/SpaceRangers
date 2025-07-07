@@ -8,7 +8,7 @@ namespace Enemy
     [RequireComponent(typeof(Slider))]
     public class ValueBar : MonoBehaviour
     {
-        [SerializeReference] private CharacteristicEnemy _characteristic;
+        [SerializeReference] private EnemyCharacteristic _characteristic;
         [SerializeField] private float _speedChange;
 
         private Slider _slider;

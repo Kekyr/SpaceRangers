@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyShield : CharacteristicEnemy
+    public class EnemyShield : EnemyCharacteristic
     {
         [SerializeField] private float _startValue;
         [SerializeField] private GameObject _shield;

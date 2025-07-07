@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public abstract class CharacteristicEnemy : MonoBehaviour
+    public abstract class EnemyCharacteristic : MonoBehaviour
     {
         public event Action<float, float> ChangedValue;
 

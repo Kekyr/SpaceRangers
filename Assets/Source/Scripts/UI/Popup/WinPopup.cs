@@ -21,7 +21,6 @@ namespace UI
         private GameEndHandler _gameEndHandler;
         private Wallet _wallet;
         private Score _score;
-        private EnemyShip _boss;
         private InterstitialAd _interstitialAd;
         private RewardedAd _rewardedAd;
         private PopupTutorial _tutorial;
